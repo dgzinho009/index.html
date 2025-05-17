@@ -113,6 +113,12 @@
       display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 28px;
       margin: 30px auto 22px auto;
       max-width: 900px;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(120deg, #23253c 90%, #FFD70022 100%);
+      z-index: 20;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 18px #181c2655;
     }
     nav button {
       background: linear-gradient(90deg, #FFD700 75%, #FFDE80 100%);
@@ -128,6 +134,8 @@
       transition: background 0.18s, color 0.18s, border 0.18s, transform 0.13s;
       display: flex; align-items: center; gap: 10px;
       outline: none;
+      position: relative;
+      overflow: visible;
     }
     nav button.active,
     nav button:hover {
@@ -141,6 +149,25 @@
       font-size: 1.2em;
       margin-right: 2px;
       filter: drop-shadow(0 0 5px #FFD700BB);
+    }
+    /* Badge para avisos ou novidades */
+    .badge-new {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      background: #f05454;
+      color: #fff;
+      border-radius: 9px;
+      font-size: 0.85em;
+      padding: 2px 7px;
+      font-weight: 800;
+      box-shadow: 0 1px 8px #f0545488;
+      animation: badgePulse 1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badgePulse {
+      0% { box-shadow: 0 0 8px #f0545488; }
+      100% { box-shadow: 0 0 18px #f05454cc; }
     }
     main {
       max-width: 1000px;
@@ -157,8 +184,17 @@
       box-shadow: var(--shadow);
       animation: fadein 0.75s;
       display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
     }
-    .card.active { display: block; }
+    .card.active { 
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s, visibility 0.3s;
+      animation: fadein 0.75s;
+    }
     .card h2 {
       color: var(--gold); margin-top: 0;
       font-size: 1.55rem; letter-spacing: 1px;
@@ -205,7 +241,64 @@
       color: #222;
       transform: scale(1.07);
     }
-    /* Responsivo */
+    /* Toast Notification */
+    .toast-notification {
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      background: #23253c;
+      color: #FFD700;
+      padding: 16px 28px;
+      border-radius: 11px;
+      box-shadow: 0 4px 18px #000A, 0 0 0 2px #FFD70033;
+      font-weight: bold;
+      font-size: 1.09em;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.35s, transform 0.35s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .toast-notification.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .toast-notification.toast-success {
+      border-left: 7px solid #52e36a;
+      color: #52e36a;
+    }
+    .toast-notification.toast-error {
+      border-left: 7px solid #f05454;
+      color: #f05454;
+    }
+    /* Botão "voltar ao topo" */
+    #btn-topo {
+      position: fixed;
+      bottom: 80px;
+      right: 32px;
+      background: #FFD700;
+      color: #23253c;
+      border: none;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      box-shadow: 0 2px 14px #FFD70033;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.22s, color 0.22s, transform 0.13s;
+    }
+    #btn-topo:hover {
+      background: #f05454;
+      color: #fff;
+      transform: scale(1.1);
+    }
     @media (max-width: 700px) {
       main { padding: 0 2px; }
       .card { padding: 14px 6px 10px 6px;}
@@ -214,6 +307,15 @@
       nav { gap: 10px 6px; }
       nav button { font-size: 0.93em; padding: 11px 10px;}
       .parceiro-card { min-width: 120px; max-width: 100vw; padding: 10px 7px;}
+      .toast-notification {
+        right: 8px;
+        bottom: 12px;
+        padding: 11px 13px;
+        font-size: 1em;
+        min-width: 150px;
+        max-width: 90vw;
+      }
+      #btn-topo { right: 10px; bottom: 60px; width: 44px; height: 44px; font-size: 1.3em;}
     }
     @keyframes fadein {
       from { opacity:0; transform:translateY(24px);}
@@ -243,10 +345,11 @@
     <button class="tab-btn" data-tab="ranking"><span class="tabicon">🏆</span>Ranking</button>
     <button class="tab-btn" data-tab="staff"><span class="tabicon">🛡️</span>Equipe/Staff</button>
     <button class="tab-btn" data-tab="regras"><span class="tabicon">📜</span>Regras</button>
+    <button class="tab-btn" data-tab="guerra"><span class="tabicon">⚔️</span>Guerra <span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
     <button class="tab-btn" data-tab="parceiros"><span class="tabicon">🤝</span>Parceiros</button>
     <button class="tab-btn" data-tab="recrutamento"><span class="tabicon">🖊</span>Recrutamento</button>
     <button class="tab-btn" data-tab="streamers"><span class="tabicon">🎥</span>Streamers</button>
-    <button class="tab-btn" data-tab="avisos"><span class="tabicon">📝</span>Avisos</button>
+    <button class="tab-btn" data-tab="avisos"><span class="tabicon">📝</span>Avisos <span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
   </nav>
   <main>
     <!-- Melhores da Semana (primeira aba) -->
@@ -306,6 +409,22 @@
         <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
       </div>
     </section>
+    <!-- Guerra - com contador e seletor de fuso -->
+    <section class="card" id="guerra">
+      <h2>⚔️ Contagem da Guerra</h2>
+      <div style="margin:32px 0;text-align:center;">
+        <span id="contador-guerra" style="font-size:1em; color:#FFD700; font-weight:600; background:#23253c; padding:6px 12px; border-radius:10px; box-shadow:0 2px 8px #FFD70033;"></span>
+      </div>
+      <div style="color:#FFD70099; text-align:center; margin-top:18px;">Acompanhe o tempo até a próxima guerra!</div>
+      <div style="color:#FFD70099; text-align:center; margin-top:10px;">
+        <b>Fuso selecionado:</b>
+        <select id="fuso-guerra">
+          <option value="-3">Brasília (UTC-3)</option>
+          <option value="-4">Amazonas (UTC-4)</option>
+        </select>
+        <span id="hora-reset-info" style="margin-left:12px;"></span>
+      </div>
+    </section>
     <!-- Parceiros -->
     <section class="card" id="parceiros">
       <h2>🤝 Parceiros Soberanos FF</h2>
@@ -355,6 +474,7 @@
       </ul>
     </section>
   </main>
+  <button id="btn-topo" title="Voltar ao topo">↑</button>
   <footer style="text-align:center;color:#FFD70099;padding:16px 6px;font-size:1.05em;background:var(--footer-bg);border-top:2px solid #FFD70022;letter-spacing:0.3px;">
     &copy; 2025 Soberanos FF. Painel feito para a comunidade Free Fire.<br>
     <span style="color:var(--accent);font-weight:700;">#SoberanosNoTop</span>
@@ -366,14 +486,18 @@
       Desenvolvido por <b>SS DG 👑</b>
     </div>
   </footer>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-notification"></div>
   <script>
-    // Troca de abas
+    // Troca de abas com animação
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        document.getElementById(btn.dataset.tab).classList.add('active');
+        setTimeout(() => {
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        }, 60); // pequeno delay para animação suave
       });
     });
 
@@ -385,6 +509,30 @@
         document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? '' : 'none';
         document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
       });
+    });
+
+    // Toast Notification
+    function showToast(msg, type='success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = '';
+      let icon = (type === 'success') ? '✔️' : '❌';
+      toast.className = `toast-notification toast-${type}`;
+      toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;
+      setTimeout(() => {
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2600);
+      }, 80);
+    }
+
+    // Botão voltar ao topo
+    const btnTopo = document.getElementById('btn-topo');
+    window.addEventListener('scroll', () => {
+      btnTopo.style.display = window.scrollY > 200 ? 'flex' : 'none';
+    });
+    btnTopo.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
     // Última atualização dinâmica
@@ -402,6 +550,95 @@
       document.body.style.color = light ? "#181c26" : "#fff";
       themeToggle.textContent = light ? "☀️" : "🌙";
     });
+
+    // --- Contador regressivo da guerra ---
+    const sabadoHoraGuerra = { "-3": 15, "-4": 14 }; // Brasília: 15h, Amazonas: 14h (corrigido!)
+    function getProximaGuerra(fuso) {
+      const now = new Date();
+      let horaAgora = now.getUTCHours() + parseInt(fuso);
+      let diaSemana = now.getUTCDay(); // 0=domingo, 6=sábado
+      let minutoAgora = now.getUTCMinutes();
+      let segundoAgora = now.getUTCSeconds();
+
+      if (diaSemana === 6) {
+        if (horaAgora < sabadoHoraGuerra[fuso] ||
+           (horaAgora === sabadoHoraGuerra[fuso] && minutoAgora === 0 && segundoAgora === 0)) {
+          let hojeSabado = new Date(now);
+          hojeSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+          return hojeSabado;
+        } else {
+          let proxSabado = new Date(now);
+          proxSabado.setUTCDate(proxSabado.getUTCDate() + 7);
+          proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+          return proxSabado;
+        }
+      } else {
+        let proxSabado = new Date(now);
+        let diasAteSabado = (6 - diaSemana + 7) % 7;
+        proxSabado.setUTCDate(proxSabado.getUTCDate() + diasAteSabado);
+        proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+        return proxSabado;
+      }
+    }
+    function atualizarInfoReset(fuso) {
+      const info = document.getElementById('hora-reset-info');
+      info.textContent = `Guerra todo sábado às ${sabadoHoraGuerra[fuso]}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;
+    }
+    function iniciarContadorGuerraFuso() {
+      let fuso = document.getElementById("fuso-guerra").value;
+      atualizarInfoReset(fuso);
+
+      function atualizar() {
+        const el = document.getElementById('contador-guerra');
+        const agora = new Date();
+        const proximaGuerra = getProximaGuerra(fuso);
+        let diff = proximaGuerra - agora;
+
+        let horaAgora = agora.getUTCHours() + parseInt(fuso);
+        let diaSemana = agora.getUTCDay();
+
+        if (diaSemana === 6 && horaAgora >= sabadoHoraGuerra[fuso]) {
+          el.textContent = "Guerra de Guilda Em Andamento 🔥";
+        } else {
+          if (diff > 0) {
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
+            el.textContent =
+              `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para a Guerra de Guilda!`;
+          } else {
+            el.textContent = "Guerra de Guilda Em Andamento 🔥";
+          }
+        }
+      }
+      if(window.contadorGuerraInterval) clearInterval(window.contadorGuerraInterval);
+      atualizar();
+      window.contadorGuerraInterval = setInterval(atualizar, 1000);
+    }
+    document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
+    iniciarContadorGuerraFuso();
+
+    // Badge animado em avisos e guerra se houver novidade (exemplo: ativar manualmente ao atualizar avisos/guerra)
+    function mostrarBadge(tabId) {
+      if(tabId === "avisos") document.getElementById('badge-avisos').style.display = "inline-block";
+      if(tabId === "guerra") document.getElementById('badge-guerra').style.display = "inline-block";
+    }
+    // Exemplo: mostrar badge de novidade na Guerra na primeira visita
+    if(localStorage.getItem("guerraBadgeVisto") !== "sim") {
+      mostrarBadge("guerra");
+      document.querySelector('button[data-tab="guerra"]').addEventListener("click", function() {
+        document.getElementById('badge-guerra').style.display = "none";
+        localStorage.setItem("guerraBadgeVisto", "sim");
+      }, {once:true});
+    }
+    if(localStorage.getItem("avisosBadgeVisto") !== "sim") {
+      mostrarBadge("avisos");
+      document.querySelector('button[data-tab="avisos"]').addEventListener("click", function() {
+        document.getElementById('badge-avisos').style.display = "none";
+        localStorage.setItem("avisosBadgeVisto", "sim");
+      }, {once:true});
+    }
   </script>
 </body>
 </html>
