@@ -552,7 +552,9 @@
     });
 
     // --- Contador regressivo da guerra ---
-    const sabadoHoraGuerra = { "-3": 15, "-4": 14 }; // Brasília: 15h, Amazonas: 14h (corrigido!)
+    // ATUALIZEI AQUI: AGORA 16h BRASÍLIA, 15h AMAZONAS
+    const sabadoHoraGuerra = { "-3": 16, "-4": 15 }; // Brasília: 16h, Amazonas: 15h
+
     function getProximaGuerra(fuso) {
       const now = new Date();
       let horaAgora = now.getUTCHours() + parseInt(fuso);
