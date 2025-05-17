@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Soberanos FF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #FFD700;
+      --accent: #f05454;
+      --card-bg: #22253a;
+      --shadow: 0 4px 24px #0008;
+      --highlight: #fffbcc;
+      --dark: #181c26;
+      --white: #fff;
+      --gray: #FFD70066;
+      --footer-bg: #181c26;
+      --transition: 0.22s cubic-bezier(.4,0,.2,1);
+    }
+    html, body {
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, var(--dark) 0%, #23253c 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      scroll-behavior: smooth;
+      transition: background var(--transition), color var(--transition);
+    }
+    .header-gradient {
+      background: linear-gradient(120deg, #FFD700 60%, #ff7f32 100%);
+      padding: 38px 0 20px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: static;
+    }
+    .header-gradient img {
+      height: 110px; margin-bottom: 12px;
+      border-radius: 20px;
+      border: 6px solid #f05454;
+      background: #fff;
+      box-shadow: 0 2px 22px #f0545480;
+      object-fit: cover;
+      max-width: 90vw;
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: logo-fadein 1.4s;
+    }
+    @keyframes logo-fadein {
+      from { opacity:0; transform:scale(0.8);}
+      to { opacity:1; transform:scale(1);}
+    }
+    .header-gradient h1 {
+      margin: 10px 0 2px 0;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #fff8, 0 1px 0 #ffd700a0;
+    }
+    .header-gradient p {
+      margin: 0 0 12px 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #23253c;
+      letter-spacing: 1px;
+    }
+    .theme-toggle-btn {
+      background: #fff;
+      color: #FFD700;
+      border: 3px solid #FFD700;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      font-size: 2em;
+      cursor: pointer;
+      margin-top: 18px;
+      box-shadow: 0 2px 8px #FFD70033;
+      transition: background 0.2s, color 0.2s, transform 0.13s;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .theme-toggle-btn:hover { background: #FFD700; color: #23253c; }
+    .sobre-guilda {
+      background: var(--highlight);
+      color: #181c26;
+      border-radius: 18px 18px 30px 30px;
+      box-shadow: 0 2px 14px #ffd70050;
+      margin: -18px auto 18px auto;
+      padding: 18px 24px 20px 24px;
+      max-width: 700px;
+      font-size: 1.13em;
+      text-align: center;
+      font-weight: 600;
+      border-left: 8px solid var(--accent);
+      border-right: 8px solid var(--gold);
+    }
+    .status-guilda {
+      background: #FFD70022;
+      color: #181c26;
+      border-radius: 12px;
+      padding: 7px 0 6px 0;
+      margin: 10px auto 0 auto;
+      max-width: 340px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #FFD70022;
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    nav {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 28px;
+      margin: 30px auto 22px auto;
+      max-width: 900px;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(120deg, #23253c 90%, #FFD70022 100%);
+      z-index: 20;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 18px #181c2655;
+    }
+    nav button {
+      background: linear-gradient(90deg, #FFD700 75%, #FFDE80 100%);
+      color: #23253c;
+      border: 3px solid #FFD700;
+      border-radius: 40px;
+      padding: 17px 32px;
+      font-size: 1.22em;
+      font-family: inherit; cursor: pointer;
+      font-weight: 700;
+      margin: 0;
+      box-shadow: 0 3px 20px #ffd70055;
+      transition: background 0.18s, color 0.18s, border 0.18s, transform 0.13s;
+      display: flex; align-items: center; gap: 10px;
+      outline: none;
+      position: relative;
+      overflow: visible;
+    }
+    nav button.active,
+    nav button:hover {
+      background: #23253c;
+      color: #FFD700;
+      border: 3px solid #FFD700;
+      transform: scale(1.05);
+      box-shadow: 0 6px 28px #FFD70077;
+    }
+    nav button .tabicon {
+      font-size: 1.2em;
+      margin-right: 2px;
+      filter: drop-shadow(0 0 5px #FFD700BB);
+    }
+    /* Badge para avisos ou novidades */
+    .badge-new {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      background: #f05454;
+      color: #fff;
+      border-radius: 9px;
+      font-size: 0.85em;
+      padding: 2px 7px;
+      font-weight: 800;
+      box-shadow: 0 1px 8px #f0545488;
+      animation: badgePulse 1s infinite alternate;
+      z-index: 2;
+    }
+    @keyframes badgePulse {
+      0% { box-shadow: 0 0 8px #f0545488; }
+      100% { box-shadow: 0 0 18px #f05454cc; }
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto 16px auto;
+      padding: 0 12px;
+      min-height: 60vh;
+      position: relative;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px 30px 18px 30px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow);
+      animation: fadein 0.75s;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .card.active { 
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s, visibility 0.3s;
+      animation: fadein 0.75s;
+    }
+    .card h2 {
+      color: var(--gold); margin-top: 0;
+      font-size: 1.55rem; letter-spacing: 1px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block; padding-bottom: 4px;
+      margin-bottom: 18px;
+    }
+    .parceiros-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 10px;
+    }
+    .parceiro-card {
+      background: #23253c;
+      border: 2.5px solid #FFD700;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #FFD70022;
+      padding: 18px 18px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 180px;
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+    .btn-contato {
+      display: inline-block;
+      background: linear-gradient(90deg,#FFD700 70%,#FFDE80 100%);
+      color: #181c26;
+      padding: 10px 22px;
+      margin-top: 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+      box-shadow: 0 3px 14px #FFD70044;
+      border: none;
+      transition: background 0.18s, color 0.18s, transform 0.13s;
+    }
+    .btn-contato:hover {
+      background: #ffb700;
+      color: #222;
+      transform: scale(1.07);
+    }
+    /* Toast Notification */
+    .toast-notification {
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      background: #23253c;
+      color: #FFD700;
+      padding: 16px 28px;
+      border-radius: 11px;
+      box-shadow: 0 4px 18px #000A, 0 0 0 2px #FFD70033;
+      font-weight: bold;
+      font-size: 1.09em;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.35s, transform 0.35s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .toast-notification.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .toast-notification.toast-success {
+      border-left: 7px solid #52e36a;
+      color: #52e36a;
+    }
+    .toast-notification.toast-error {
+      border-left: 7px solid #f05454;
+      color: #f05454;
+    }
+    /* Botão "voltar ao topo" */
+    #btn-topo {
+      position: fixed;
+      bottom: 80px;
+      right: 32px;
+      background: #FFD700;
+      color: #23253c;
+      border: none;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      box-shadow: 0 2px 14px #FFD70033;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.22s, color 0.22s, transform 0.13s;
+    }
+    #btn-topo:hover {
+      background: #f05454;
+      color: #fff;
+      transform: scale(1.1);
+    }
+    @media (max-width: 700px) {
+      main { padding: 0 2px; }
+      .card { padding: 14px 6px 10px 6px;}
+      .header-gradient img { height: 70px; }
+      .header-gradient h1 { font-size: 1.2rem; }
+      nav { gap: 10px 6px; }
+      nav button { font-size: 0.93em; padding: 11px 10px;}
+      .parceiro-card { min-width: 120px; max-width: 100vw; padding: 10px 7px;}
+      .toast-notification {
+        right: 8px;
+        bottom: 12px;
+        padding: 11px 13px;
+        font-size: 1em;
+        min-width: 150px;
+        max-width: 90vw;
+      }
+      #btn-topo { right: 10px; bottom: 60px; width: 44px; height: 44px; font-size: 1.3em;}
+    }
+    @keyframes fadein {
+      from { opacity:0; transform:translateY(24px);}
+      to { opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="header-gradient">
+    <img src="https://i.imgur.com/7pYLORP.png" alt="Logo da Guilda Soberanos FF" />
+    <h1>Soberanos FF</h1>
+    <p>Bem-vindo ao Painel da Guilda!</p>
+    <button class="theme-toggle-btn" id="themeToggle" title="Alternar tema claro/escuro" aria-label="Alternar tema">
+      🌙
+    </button>
+  </div>
+  <section class="sobre-guilda">
+    Unidos pelo respeito, estratégia e diversão.<br>
+    Painel oficial da guilda Soberanos FF.<br>
+    <span style="color:#f05454">Status: Em manutenção</span>
+  </section>
+  <div class="status-guilda" aria-label="Status da guilda">
+    Status da guilda: <span style="color:#f05454;">Em manutenção</span>
+  </div>
+  <nav>
+    <button class="tab-btn active" data-tab="membros"><span class="tabicon">⭐️</span>Melhores da Semana</button>
+    <button class="tab-btn" data-tab="ranking"><span class="tabicon">🏆</span>Ranking</button>
+    <button class="tab-btn" data-tab="staff"><span class="tabicon">🛡️</span>Equipe/Staff</button>
+    <button class="tab-btn" data-tab="regras"><span class="tabicon">📜</span>Regras</button>
+    <button class="tab-btn" data-tab="guerra"><span class="tabicon">⚔️</span>Guerra <span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
+    <button class="tab-btn" data-tab="parceiros"><span class="tabicon">🤝</span>Parceiros</button>
+    <button class="tab-btn" data-tab="recrutamento"><span class="tabicon">🖊</span>Recrutamento</button>
+    <button class="tab-btn" data-tab="streamers"><span class="tabicon">🎥</span>Streamers</button>
+    <button class="tab-btn" data-tab="avisos"><span class="tabicon">📝</span>Avisos <span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
+  </nav>
+  <main>
+    <!-- Melhores da Semana (primeira aba) -->
+    <section class="card active" id="membros">
+      <h2>⭐️ Melhores da Semana</h2>
+      <div style="color:#FFD700; font-weight:600; margin-bottom:1.3em;">
+        <em>Em breve, Os melhores serão adicionados!</em>
+      </div>
+    </section>
+    <!-- Ranking -->
+    <section class="card" id="ranking">
+      <h2>🏆 Ranking Interno</h2>
+      <div style="margin-bottom:1.3em;">
+        <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
+        <button class="ranking-tab-btn" data-rank="mensal">Mensal</button>
+      </div>
+      <ul class="ranking-list" id="rankingSemanal">
+        <li>Ranking semanal será iniciado em breve!</li>
+      </ul>
+      <ul class="ranking-list" id="rankingMensal" style="display:none">
+        <li>Ranking mensal será iniciado em breve!</li>
+      </ul>
+    </section>
+    <!-- Staff -->
+    <section class="card" id="staff">
+      <h2>🛡️ Equipe/Staff</h2>
+      <ul class="staff-list">
+        <li>
+          <span style="font-weight:bold; color:#FFD700;">LK</span> — Líder
+        </li>
+        <li>
+          <span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM
+        </li>
+        <li> 
+          <span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM
+        </li>
+        <li>
+          <span style="font-weight:bold; color:#FFD700;">SS MAFIOSO</span> — ADM
+        </li>
+      </ul>
+      <div style="margin:18px 0 0 0; color:#FFD70099; text-align:center; font-size:1.01em;">
+        <em>Novos membros da equipe serão apresentados em breve!</em>
+      </div>
+    </section>
+    <!-- Regras -->
+    <section class="card" id="regras">
+      <h2>📜 Regras da Guilda</h2>
+      <ul style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
+        <li>Respeitar todos os membros, sem exceção.</li>
+        <li>Participar dos treinos e eventos sempre que possível.</li>
+        <li>Proibido uso de cheats, hacks ou qualquer trapaça.</li>
+        <li>Mantenha o grupo saudável: sem brigas, sem preconceito.</li>
+        <li>Compartilhe resultados dos jogos nos grupos oficiais.</li>
+        <li>Novas regras podem ser adicionadas conforme necessário.</li>
+      </ul>
+      <div style="color:#FFD70099; font-size:1em;text-align:center;">
+        <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
+      </div>
+    </section>
+    <!-- Guerra - com contador e seletor de fuso -->
+    <section class="card" id="guerra">
+      <h2>⚔️ Contagem da Guerra</h2>
+      <div style="margin:32px 0;text-align:center;">
+        <span id="contador-guerra" style="font-size:1em; color:#FFD700; font-weight:600; background:#23253c; padding:6px 12px; border-radius:10px; box-shadow:0 2px 8px #FFD70033;"></span>
+      </div>
+      <div style="color:#FFD70099; text-align:center; margin-top:18px;">Acompanhe o tempo até a próxima guerra!</div>
+      <div style="color:#FFD70099; text-align:center; margin-top:10px;">
+        <b>Fuso selecionado:</b>
+        <select id="fuso-guerra">
+          <option value="-3">Brasília (UTC-3)</option>
+          <option value="-4">Amazonas (UTC-4)</option>
+        </select>
+        <span id="hora-reset-info" style="margin-left:12px;"></span>
+      </div>
+    </section>
+    <!-- Parceiros -->
+    <section class="card" id="parceiros">
+      <h2>🤝 Parceiros Soberanos FF</h2>
+      <div class="parceiros-list">
+        <div class="parceiro-card">
+          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
+          <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
+        </div>
+        <div class="parceiro-card">
+          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
+          <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
+        </div>
+        <div class="parceiro-card">
+          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
+          <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
+        </div>
+      </div>
+      <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
+        <em>Quer ser parceiro? Fale conosco!</em>
+      </div>
+    </section>
+    <!-- Recrutamento -->
+    <section class="card" id="recrutamento">
+      <h2>🖊 Recrutamento</h2>
+      <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
+        Recrutamento <span style="color:#f05454">off-line</span>.<br>
+        <span style="color:#FFD700CC">Em breve teremos novas vagas!</span>
+      </div>
+    </section>
+    <!-- Streamers -->
+    <section class="card" id="streamers">
+      <h2>🎥 Streamers da Guilda</h2>
+      <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
+        Nenhum Streamer Encontrado.<br>
+        <span style="color:#FFD70099; font-size:0.9em;">
+          Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!
+        </span>
+      </div>
+    </section>
+    <!-- Avisos -->
+    <section class="card" id="avisos">
+      <h2>📝 Avisos Recentes</h2>
+      <ul class="avisos-list">
+        <li>
+          <span style="color:#FFD700;">🚧 Site em manutenção. Em breve novidades!</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <button id="btn-topo" title="Voltar ao topo">↑</button>
+  <footer style="text-align:center;color:#FFD70099;padding:16px 6px;font-size:1.05em;background:var(--footer-bg);border-top:2px solid #FFD70022;letter-spacing:0.3px;">
+    &copy; 2025 Soberanos FF. Painel feito para a comunidade Free Fire.<br>
+    <span style="color:var(--accent);font-weight:700;">#SoberanosNoTop</span>
+    <div style="margin:12px 0;font-size:0.96em;color:#FFD700BB;">
+      Status da guilda: <b>Em manutenção</b>
+    </div>
+    <div id="lastUpdate" style="margin:7px 0 0 0;font-size:0.92em;color:#fff;"></div>
+    <div style="margin-top:10px;font-size:0.93em;color:#FFD700BB;">
+      Desenvolvido por <b>SS DG 👑</b>
+    </div>
+  </footer>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-notification"></div>
+  <script>
+    // Troca de abas com animação
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        setTimeout(() => {
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        }, 60); // pequeno delay para animação suave
+      });
+    });
+
+    // Ranking tabs (semanal/mensal)
+    document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? '' : 'none';
+        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
+      });
+    });
+
+    // Toast Notification
+    function showToast(msg, type='success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = '';
+      let icon = (type === 'success') ? '✔️' : '❌';
+      toast.className = `toast-notification toast-${type}`;
+      toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;
+      setTimeout(() => {
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2600);
+      }, 80);
+    }
+
+    // Botão voltar ao topo
+    const btnTopo = document.getElementById('btn-topo');
+    window.addEventListener('scroll', () => {
+      btnTopo.style.display = window.scrollY > 200 ? 'flex' : 'none';
+    });
+    btnTopo.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    // Última atualização dinâmica
+    document.getElementById('lastUpdate').textContent =
+      "Última atualização: " + new Date().toLocaleString('pt-BR');
+
+    // Tema claro/escuro
+    const themeToggle = document.getElementById("themeToggle");
+    let light = false;
+    themeToggle.addEventListener('click', function() {
+      light = !light;
+      document.body.style.background = light
+        ? "linear-gradient(135deg, #fffbe7 0%, #e7eafc 100%)"
+        : "linear-gradient(135deg, #181c26 0%, #23253c 100%)";
+      document.body.style.color = light ? "#181c26" : "#fff";
+      themeToggle.textContent = light ? "☀️" : "🌙";
+    });
+
+    // --- Contador regressivo da guerra ---
+    const sabadoHoraGuerra = { "-3": 15, "-4": 14 }; // Brasília: 15h, Amazonas: 14h (corrigido!)
+    function getProximaGuerra(fuso) {
+      const now = new Date();
+      let horaAgora = now.getUTCHours() + parseInt(fuso);
+      let diaSemana = now.getUTCDay(); // 0=domingo, 6=sábado
+      let minutoAgora = now.getUTCMinutes();
+      let segundoAgora = now.getUTCSeconds();
+
+      if (diaSemana === 6) {
+        if (horaAgora < sabadoHoraGuerra[fuso] ||
+           (horaAgora === sabadoHoraGuerra[fuso] && minutoAgora === 0 && segundoAgora === 0)) {
+          let hojeSabado = new Date(now);
+          hojeSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+          return hojeSabado;
+        } else {
+          let proxSabado = new Date(now);
+          proxSabado.setUTCDate(proxSabado.getUTCDate() + 7);
+          proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+          return proxSabado;
+        }
+      } else {
+        let proxSabado = new Date(now);
+        let diasAteSabado = (6 - diaSemana + 7) % 7;
+        proxSabado.setUTCDate(proxSabado.getUTCDate() + diasAteSabado);
+        proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+        return proxSabado;
+      }
+    }
+    function atualizarInfoReset(fuso) {
+      const info = document.getElementById('hora-reset-info');
+      info.textContent = `Guerra todo sábado às ${sabadoHoraGuerra[fuso]}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;
+    }
+    function iniciarContadorGuerraFuso() {
+      let fuso = document.getElementById("fuso-guerra").value;
+      atualizarInfoReset(fuso);
+
+      function atualizar() {
+        const el = document.getElementById('contador-guerra');
+        const agora = new Date();
+        const proximaGuerra = getProximaGuerra(fuso);
+        let diff = proximaGuerra - agora;
+
+        let horaAgora = agora.getUTCHours() + parseInt(fuso);
+        let diaSemana = agora.getUTCDay();
+
+        if (diaSemana === 6 && horaAgora >= sabadoHoraGuerra[fuso]) {
+          el.textContent = "Guerra de Guilda Em Andamento 🔥";
+        } else {
+          if (diff > 0) {
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
+            el.textContent =
+              `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para a Guerra de Guilda!`;
+          } else {
+            el.textContent = "Guerra de Guilda Em Andamento 🔥";
+          }
+        }
+      }
+      if(window.contadorGuerraInterval) clearInterval(window.contadorGuerraInterval);
+      atualizar();
+      window.contadorGuerraInterval = setInterval(atualizar, 1000);
+    }
+    document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
+    iniciarContadorGuerraFuso();
+
+    // Badge animado em avisos e guerra se houver novidade (exemplo: ativar manualmente ao atualizar avisos/guerra)
+    function mostrarBadge(tabId) {
+      if(tabId === "avisos") document.getElementById('badge-avisos').style.display = "inline-block";
+      if(tabId === "guerra") document.getElementById('badge-guerra').style.display = "inline-block";
+    }
+    // Exemplo: mostrar badge de novidade na Guerra na primeira visita
+    if(localStorage.getItem("guerraBadgeVisto") !== "sim") {
+      mostrarBadge("guerra");
+      document.querySelector('button[data-tab="guerra"]').addEventListener("click", function() {
+        document.getElementById('badge-guerra').style.display = "none";
+        localStorage.setItem("guerraBadgeVisto", "sim");
+      }, {once:true});
+    }
+    if(localStorage.getItem("avisosBadgeVisto") !== "sim") {
+      mostrarBadge("avisos");
+      document.querySelector('button[data-tab="avisos"]').addEventListener("click", function() {
+        document.getElementById('badge-avisos').style.display = "none";
+        localStorage.setItem("avisosBadgeVisto", "sim");
+      }, {once:true});
+    }
+  </script>
+</body>
+</html>
