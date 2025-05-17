@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Soberanos FF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    /* ... (todo o CSS igual ao exemplo anterior, sem alterações) ... */
+    :root {
+      --gold: #FFD700;
+      --accent: #f05454;
+      --card-bg: #22253a;
+      --shadow: 0 4px 24px #0008;
+      --highlight: #fffbcc;
+      --dark: #181c26;
+      --white: #fff;
+      --gray: #FFD70066;
+      --footer-bg: #181c26;
+      --transition: 0.22s cubic-bezier(.4,0,.2,1);
+    }
+    html, body {
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, var(--dark) 0%, #23253c 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      scroll-behavior: smooth;
+      transition: background var(--transition), color var(--transition);
+    }
+    body.light-theme {
+      background: linear-gradient(135deg, #fffbe7 0%, #e7eafc 100%);
+      color: #181c26;
+    }
+    body.light-theme .card,
+    body.light-theme .sobre-guilda,
+    body.light-theme .status-guilda,
+    body.light-theme .banner-boasvindas {
+      background: #fff !important;
+      color: #181c26 !important;
+      box-shadow: 0 2px 14px #FFD70022;
+    }
+    body.light-theme nav button {
+      background: #faf8e7;
+      color: #bfa100;
+      border-color: #FFD700;
+    }
+    body.light-theme nav button.active,
+    body.light-theme nav button:hover {
+      background: #FFD700;
+      color: #181c26;
+      border-color: #f05454;
+    }
+    body.light-theme .leader {
+      background: linear-gradient(90deg,#FFD70055 70%,transparent 100%) !important;
+      border: 2.5px solid #FFD700;
+    }
+    body.light-theme footer {
+      background: #fffbcc;
+      color: #181c26;
+      border-top: 2px solid #FFD70044;
+    }
+    body.light-theme .social-links a { box-shadow: 0 2px 8px #f0545417; }
+    .banner-boasvindas {
+      background: linear-gradient(90deg, #FFD700 70%, #f05454 100%);
+      color: #181c26;
+      font-weight: bold;
+      font-size: 1.22em;
+      padding: 14px;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px #FFD70040;
+      text-align: center;
+      letter-spacing: 1px;
+      animation: pulse 2s infinite;
+      margin-bottom: 0;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 2px 12px #FFD70040; }
+      50% { box-shadow: 0 2px 24px #FFD70099; }
+      100% { box-shadow: 0 2px 12px #FFD70040; }
+    }
+    header {
+      background: linear-gradient(90deg, var(--gold) 20%, var(--accent) 100%);
+      color: #23253c;
+      padding: 32px 0 16px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0; z-index: 10;
+    }
+    header img {
+      height: 110px; margin-bottom: 12px;
+      border-radius: 16px;
+      border: 4px solid var(--accent);
+      background: #fff;
+      box-shadow: 0 2px 22px #f0545480;
+      object-fit: cover;
+      max-width: 90vw;
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: logo-fadein 1.4s;
+    }
+    header img:hover {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 4px 32px #FFD700c0;
+    }
+    @keyframes logo-fadein {
+      from { opacity:0; transform:scale(0.8);}
+      to { opacity:1; transform:scale(1);}
+    }
+    header h1 {
+      margin: 10px 0 2px 0;
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #fff8, 0 1px 0 #ffd700a0;
+      animation: title-glow 2s infinite alternate;
+    }
+    @keyframes title-glow {
+      from { text-shadow: 0 2px 12px #fff8, 0 1px 0 #ffd700a0; }
+      to { text-shadow: 0 0px 22px #FFD700cc, 0 1px 0 #ffd700a0; }
+    }
+    header p {
+      margin: 0 0 6px 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #23253c;
+      letter-spacing: 1px;
+    }
+    .sobre-guilda {
+      background: var(--highlight);
+      color: #181c26;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #ffd70050;
+      margin: 22px auto 18px auto;
+      padding: 18px 24px;
+      max-width: 600px;
+      font-size: 1.13em;
+      text-align: center;
+      font-weight: 600;
+      border-left: 8px solid var(--accent);
+      border-right: 8px solid var(--gold);
+      animation: fadein 1.2s;
+    }
+    .status-guilda {
+      background: #FFD70022;
+      color: #181c26;
+      border-radius: 12px;
+      padding: 7px 0 6px 0;
+      margin: 10px auto 0 auto;
+      max-width: 320px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #FFD70022;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+      margin: 0 auto 18px auto;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: var(--card-bg); color: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 22px; padding: 10px 20px;
+      font-size: 1.07em; font-family: inherit; cursor: pointer;
+      font-weight: 700; margin-top: 18px;
+      box-shadow: 0 3px 12px #0003;
+      transition: background 0.15s, color 0.15s, border 0.18s, transform 0.13s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    nav button.active, nav button:hover {
+      background: var(--gold);
+      color: #181c26;
+      border: 2px solid var(--accent);
+      transform: translateY(-2px) scale(1.08);
+    }
+    nav button .tabicon {
+      font-size: 1.2em;
+      margin-right: 2px;
+      filter: drop-shadow(0 0 4px #ffd70090);
+    }
+    .theme-toggle-btn {
+      background: #fff;
+      color: #FFD700;
+      border: 2px solid #FFD700;
+      border-radius: 50%;
+      width: 38px; height: 38px;
+      font-size: 1.35em;
+      cursor: pointer;
+      margin-left: 12px;
+      box-shadow: 0 2px 8px #FFD70033;
+      transition: background 0.2s, color 0.2s, transform 0.13s;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .theme-toggle-btn:hover { background: #FFD700; color: #23253c; }
+    main {
+      max-width: 1000px;
+      margin: 36px auto 16px auto;
+      padding: 0 12px;
+      min-height: 60vh;
+      position: relative;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 30px 28px 18px 28px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      animation: fadein 0.75s;
+      display: none;
+    }
+    .card.active { display: block; }
+    .card h2 {
+      color: var(--gold); margin-top: 0;
+      font-size: 1.45rem; letter-spacing: 1px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block; padding-bottom: 4px;
+      animation: title-glow 2s infinite alternate;
+    }
+    ul,ol { list-style: none; padding: 0; margin: 0; }
+    /* Membros */
+    .membros-list li {
+      display: flex; align-items: center;
+      background: #23253c;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+      box-shadow: 0 2px 8px #0002;
+      gap: 15px;
+      font-size: 1.08em;
+      position: relative;
+      transition: background 0.17s;
+    }
+    .membros-list li:hover {
+      background: #282b45;
+    }
+    .avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: #FFD70015;
+      border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; color: var(--gold); font-size: 1.13em;
+      object-fit: cover;
+    }
+    .membros-desc {
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .membros-nome { font-weight: bold; color: var(--gold); font-size: 1.07em;}
+    .membros-role { color: #ddd; font-size: 0.99em;}
+    .leader {
+      background: linear-gradient(90deg, #FFD700AA 70%, transparent 100%);
+      border: 2.5px solid var(--gold);
+      box-shadow: 0 2px 16px #FFD70040;
+      position: relative;
+    }
+    .leader::after {
+      content: "👑";
+      position: absolute; top: -7px; right: -7px;
+      font-size: 2.1em;
+      filter: drop-shadow(0 0 4px #FFD700A0);
+    }
+    .contador-membros {
+      font-size: 1.09em;
+      color: #FFD700;
+      margin: 18px 0 2px 0;
+      text-align: right;
+      font-weight: 600;
+    }
+    /* Ranking */
+    .ranking-tabs {
+      display: flex;
+      gap: 10px;
+      margin: 0 0 18px 0;
+      justify-content: center;
+    }
+    .ranking-tabs button {
+      background: #1d2137;
+      color: #FFD700;
+      border: 2px solid #FFD70088;
+      border-radius: 12px;
+      padding: 6px 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border 0.18s;
+    }
+    .ranking-tabs button.active {
+      background: #FFD700;
+      color: #1d2137;
+      border-color: #f05454;
+    }
+    .ranking-list li {
+      display: flex; align-items: center;
+      background: #23253c;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      padding: 10px 18px;
+      font-size: 1.12em;
+      box-shadow: 0 2px 8px #0002;
+      gap: 14px;
+      color: #FFD70099;
+      justify-content: center;
+    }
+    /* Staff */
+    .staff-list li {
+      display: flex; align-items: center;
+      background: #23253c;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+      box-shadow: 0 2px 8px #0002;
+      gap: 15px;
+      font-size: 1.08em;
+      position: relative;
+    }
+    .staff-role { color: #FFD700; margin-left: 8px; font-size:0.99em;}
+    /* Parceiros */
+    .parceiros-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 18px;
+      justify-content: center;
+    }
+    .parceiro-card {
+      background: #fff;
+      color: #181c26;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px #FFD70033;
+      padding: 18px 23px;
+      min-width: 160px;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: bold;
+      border: 2px solid #FFD70044;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .parceiro-card:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 6px 28px #FFD70077;
+    }
+    .parceiro-card img {
+      width: 80px; height: 80px; border-radius: 12px; margin-bottom: 7px;
+      border: 2px solid #FFD70077;
+      background: #FFD70018; object-fit: cover;
+    }
+    .parceiro-link {
+      color: #f05454; text-decoration: none; font-size: 1.01em; margin-top: 5px;
+    }
+    .parceiro-link:hover { text-decoration: underline; }
+    /* Voltar ao topo */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 85px; right: 30px;
+      z-index: 1002;
+      background: #FFD700;
+      color: #181c26;
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      font-size: 1.75em;
+      cursor: pointer;
+      box-shadow: 0 2px 14px #FFD70066;
+      transition: background 0.18s, transform 0.12s;
+    }
+    #topBtn:hover { background: #f05454; color: #fff; transform: scale(1.09);}
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #ddd;
+      padding: 20px 4px 14px 4px;
+      font-size: 1.08em;
+      background: var(--footer-bg);
+      border-top: 2px solid #FFD70022;
+      letter-spacing: 0.3px;
+    }
+    .social-links {
+      margin: 14px 0 0 0;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+    .social-links a {
+      display: inline-block;
+      background: #fff;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      box-shadow: 0 2px 8px #f0545430;
+      transition: transform 0.16s, box-shadow 0.18s;
+      line-height: 38px;
+    }
+    .social-links a:hover {
+      transform: scale(1.12);
+      box-shadow: 0 4px 18px #FFD70080;
+    }
+    .social-links svg {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-top: 6px;
+      margin-left: 6px;
+      fill: #f05454;
+    }
+    /* Responsivo */
+    @media (max-width: 700px) {
+      main { padding: 0 2px; }
+      .card { padding: 14px 6px 10px 6px;}
+      header img { height: 70px; }
+      header h1 { font-size: 1.2rem; }
+      .banner-boasvindas { font-size: 1em; padding: 9px;}
+      .sobre-guilda { font-size: 1em; padding: 10px 6px;}
+      nav button { font-size: 0.95em; padding: 9px 13px;}
+      .social-links a { width: 32px; height: 32px; }
+      .social-links svg { width: 20px; height: 20px; margin-top: 5px; margin-left: 5px;}
+      .share-panel-btn { bottom: 14px; right: 14px; padding: 10px 14px; font-size: 0.98em;}
+      .parceiro-card { min-width: 120px; min-height: 70px; padding: 12px 7px;}
+      .parceiro-card img { width: 54px; height: 54px;}
+    }
+    @keyframes fadein {
+      from { opacity:0; transform:translateY(24px);}
+      to { opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="banner-boasvindas" role="banner">
+    Bem-vindo à nova era <b>Soberanos FF</b>! 🚀
+  </div>
+  <header>
+    <img src="https://i.imgur.com/7pYLORP.png" alt="Logo da Guilda Soberanos FF" />
+    <h1>Soberanos FF</h1>
+    <p>Bem-vindo ao Painel da Guilda!</p>
+    <button class="theme-toggle-btn" id="themeToggle" title="Alternar tema claro/escuro" aria-label="Alternar tema">
+      🌙
+    </button>
+  </header>
+  <section class="sobre-guilda">
+    Unidos pelo respeito, estratégia e diversão.<br>
+    Painel oficial da guilda Soberanos FF.<br>
+    <span style="color:#f05454">Status: Em manutenção</span>
+  </section>
+  <div class="status-guilda" aria-label="Status da guilda">
+    Status da guilda: <span style="color:#f05454;">Em manutenção</span>
+  </div>
+  <nav>
+    <button class="tab-btn active" data-tab="membros"><span class="tabicon">👥</span>Membros</button>
+    <button class="tab-btn" data-tab="ranking"><span class="tabicon">🏆</span>Ranking</button>
+    <button class="tab-btn" data-tab="staff"><span class="tabicon">🛡️</span>Equipe/Staff</button>
+    <button class="tab-btn" data-tab="regras"><span class="tabicon">📜</span>Regras</button>
+    <button class="tab-btn" data-tab="parceiros"><span class="tabicon">🤝</span>Parceiros</button>
+    <button class="tab-btn" data-tab="avisos"><span class="tabicon">📝</span>Avisos</button>
+  </nav>
+  <main>
+    <!-- Membros -->
+    <section class="card active" id="membros">
+      <h2>👥 Membros</h2>
+      <div class="contador-membros" id="contadorMembros"></div>
+      <ul class="membros-list" id="membrosLista">
+        <li class="leader">
+          <img class="avatar" src="https://ui-avatars.com/api/?name=LK&background=FFD700&color=23253c" alt="Avatar do líder LK">
+          <div class="membros-desc">
+            <span class="membros-nome">LK</span>
+            <span class="membros-role">Líder</span>
+          </div>
+        </li>
+      </ul>
+      <div style="margin:22px 0 0 0; color:var(--gray); text-align:center; font-size:1.06em;">
+        <em>Em breve, membros serão adicionados!</em>
+      </div>
+    </section>
+    <!-- Ranking -->
+    <section class="card" id="ranking">
+      <h2>🏆 Ranking Interno</h2>
+      <div class="ranking-tabs">
+        <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
+        <button class="ranking-tab-btn" data-rank="mensal">Mensal</button>
+      </div>
+      <ul class="ranking-list" id="rankingSemanal">
+        <li>Ranking semanal será iniciado em breve!</li>
+      </ul>
+      <ul class="ranking-list" id="rankingMensal" style="display:none">
+        <li>Ranking mensal será iniciado em breve!</li>
+      </ul>
+    </section>
+    <!-- Staff -->
+    <section class="card" id="staff">
+      <h2>🛡️ Equipe/Staff</h2>
+      <ul class="staff-list">
+        <li>
+          <img class="avatar" src="https://ui-avatars.com/api/?name=LK&background=FFD700&color=23253c" alt="LK (Líder)">
+          <div>
+            <span class="membros-nome">LK</span>
+            <span class="staff-role">Líder</span>
+          </div>
+        </li>
+        <!-- Adicione outros membros da staff conforme crescer -->
+        <li>
+          <img class="avatar" src="https://ui-avatars.com/api/?name=Seu+Nome&background=FFD700&color=23253c" alt="Seu Nome (Moderador)">
+          <div>
+            <span class="membros-nome">Seu Nome</span>
+            <span class="staff-role">Moderador</span>
+          </div>
+        </li>
+      </ul>
+      <div style="margin:18px 0 0 0; color:var(--gray); text-align:center; font-size:1.01em;">
+        <em>Novos membros da equipe serão apresentados em breve!</em>
+      </div>
+    </section>
+    <!-- Regras -->
+    <section class="card" id="regras">
+      <h2>📜 Regras da Guilda</h2>
+      <ul style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
+        <li>Respeitar todos os membros, sem exceção.</li>
+        <li>Participar dos treinos e eventos sempre que possível.</li>
+        <li>Proibido uso de cheats, hacks ou qualquer trapaça.</li>
+        <li>Mantenha o grupo saudável: sem brigas, sem preconceito.</li>
+        <li>Compartilhe resultados dos jogos nos grupos oficiais.</li>
+        <li>Novas regras podem ser adicionadas conforme necessário.</li>
+      </ul>
+      <div style="color:#FFD70099; font-size:1em;text-align:center;">
+        <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
+      </div>
+    </section>
+    <!-- Parceiros -->
+    <section class="card" id="parceiros">
+      <h2>🤝 Parceiros</h2>
+      <div class="parceiros-list">
+        <div class="parceiro-card">
+          <img src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-7G3sFQy8Q1QF6o1sTmb2K9tn/user-4QwU8tR8H8b2v7R4rEF8j3ln/img-1.png" alt="Logo Lojinha do Toxino">
+          A Lojinha do Toxino
+          <a class="parceiro-link" href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div style="margin:16px 0 0 0; color:var(--gray); text-align:center; font-size:1.01em;">
+        <em>Quer ser parceiro? Fale conosco!</em>
+      </div>
+    </section>
+    <!-- Avisos -->
+    <section class="card" id="avisos">
+      <h2>📝 Avisos Recentes</h2>
+      <ul class="avisos-list">
+        <li>
+          <span style="color:#FFD700;">🚧 Site em manutenção. Em breve novidades!</span>
+        </li>
+      </ul>
+    </section>
+    <!-- Botão Compartilhar Painel (fixo) -->
+    <button class="share-panel-btn" onclick="compartilharPainel()" aria-label="Compartilhar painel via WhatsApp">
+      Compartilhar Painel 🔗
+    </button>
+    <!-- Botão Voltar ao Topo -->
+    <button onclick="topFunction()" id="topBtn" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+  </main>
+  <footer>
+    &copy; 2025 Soberanos FF.<br>
+    Painel feito para a comunidade Free Fire.<br>
+    <span style="color:var(--accent);font-weight:700;">#SoberanosNoTop</span>
+    <div style="margin:12px 0;font-size:0.96em;color:#FFD700BB;">
+      Status da guilda: <b>Em manutenção</b>
+    </div>
+    <div id="lastUpdate" style="margin:7px 0 0 0;font-size:0.92em;color:#fff;"></div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" rel="noopener" title="Instagram Soberanos">
+        <svg viewBox="0 0 32 32"><path d="M16 7.7A8.3 8.3 0 1 0 24.3 16 8.31 8.31 0 0 0 16 7.7zm0 13.6A5.3 5.3 0 1 1 21.3 16 5.28 5.28 0 0 1 16 21.3zm8.5-13.9a1.94 1.94 0 1 1-1.94-1.94A1.94 1.94 0 0 1 24.5 7.4zm5.5 1.94A6.14 6.14 0 0 0 28.6 3.9a6.14 6.14 0 0 0-5.44-1.09C18.89 2.13 17.09 2 16 2s-2.89.13-7.16.81A6.14 6.14 0 0 0 3.4 3.9 6.14 6.14 0 0 0 1.09 5.44C.13 6.89 0 8.69 0 16s.13 9.11.81 10.56A6.14 6.14 0 0 0 3.4 28.1a6.14 6.14 0 0 0 5.44 1.09c1.45.68 3.25.81 7.16.81s5.71-.13 7.16-.81a6.14 6.14 0 0 0 5.44-1.09 6.14 6.14 0 0 0 2.31-1.54C31.87 25.11 32 23.31 32 16s-.13-9.11-.81-10.56zm-2.17 21A3.86 3.86 0 0 1 24.1 29.6c-1.42.57-4.79.81-8.1.81s-6.68-.24-8.1-.81a3.86 3.86 0 0 1-2.73-2.73c-.57-1.42-.81-4.79-.81-8.1s.24-6.68.81-8.1A3.86 3.86 0 0 1 7.9 2.4c1.42-.57 4.79-.81 8.1-.81s6.68.24 8.1.81a3.86 3.86 0 0 1 2.73 2.73c.57 1.42.81 4.79.81 8.1s-.24 6.68-.81 8.1z"/></svg>
+      </a>
+    </div>
+    <div style="margin-top:10px;font-size:0.93em;color:#FFD700BB;">
+      Desenvolvido por <b>dgzinho009</b>
+    </div>
+  </footer>
+  <script>
+    // Troca de abas
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Contador de membros (conta os li dos membros)
+    function atualizarContadorMembros() {
+      const membros = document.querySelectorAll('#membrosLista li');
+      document.getElementById('contadorMembros').textContent = `Total de membros: ${membros.length}`;
+    }
+    atualizarContadorMembros();
+
+    // Ranking tabs (semanal/mensal)
+    document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? '' : 'none';
+        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
+      });
+    });
+
+    // Última atualização dinâmica
+    document.getElementById('lastUpdate').textContent =
+      "Última atualização: " + new Date().toLocaleString('pt-BR');
+
+    // Compartilhar painel (WhatsApp)
+    function compartilharPainel() {
+      const url = window.location.href;
+      const msg = encodeURIComponent("Confere o painel da guilda Soberanos FF: " + url);
+      window.open("https://wa.me/?text=" + msg, "_blank");
+    }
+
+    // Voltar ao topo
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    }
+    function topFunction() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Tema claro/escuro
+    const themeToggle = document.getElementById("themeToggle");
+    let light = false;
+    themeToggle.addEventListener('click', function() {
+      light = !light;
+      document.body.classList.toggle("light-theme", light);
+      themeToggle.textContent = light ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>
