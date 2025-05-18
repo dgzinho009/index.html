@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Painel Soberanos FF</title>
+  <title>Painel Soberanos FF — Novo Layout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFD700">
   <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
   <style>
     :root {
       --main-bg: linear-gradient(135deg, #161616 0%, #232323 100%);
@@ -16,7 +16,9 @@
       --white: #fff;
       --accent: #f05454;
       --shadow: 0 2px 18px #0008;
-      --radius: 18px;
+      --radius: 24px;
+      --blue: #2a3a6c;
+      --gray: #232323;
     }
     html, body { height: 100%; }
     body {
@@ -76,6 +78,7 @@
     nav.menu {
       background: var(--nav-bg); box-shadow: 0 1px 16px #FFD70033; border-radius: 0 0 var(--radius) var(--radius);
       display: flex; justify-content: center; align-items: center; gap: 9px; min-height: 54px; z-index: 1000; position: relative;
+      margin-bottom: 22px;
     }
     .menu-btn {
       background: none; color: #ccc; font-size: 1.14em; font-weight: 700; border: none; border-radius: 14px 14px 0 0;
@@ -120,16 +123,64 @@
       .logo { width: 48px; height: 48px;}
     }
     .main-content { max-width: 1200px; margin: 0 auto; padding: 0 2vw 20px 2vw; z-index: 1; position: relative; margin-top: 13px; }
-    .sobre-guilda {
-      background: linear-gradient(90deg, #FFD70019, #111111 80%);
-      color: var(--gold); border-radius: var(--radius); box-shadow: 0 2px 20px #FFD70019;
-      margin: 0 auto 12px auto; padding: 13px 20px 10px 17px; max-width: 590px; font-size: 1.13em; text-align: center;
-      font-weight: 700; border-left: 5px solid var(--accent); border-right: 5px solid var(--gold);
-      border-top: 2px solid var(--gold); border-bottom: 2px solid #fff4; backdrop-filter: blur(1.5px);
+    .banner {
+      position: relative;
+      background: linear-gradient(90deg, #FFD70044 0%, #232323 100%);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px #FFD70033;
+      margin: 32px auto 30px auto;
+      padding: 32px 32px 32px 180px;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
-    .status-guilda {
-      background: #FFD70033; color: var(--nav-bg); border-radius: 11px; padding: 7px 0 7px 0; margin: 10px auto 0 auto;
-      max-width: 320px; font-weight: bold; box-shadow: 0 2px 8px #FFD70018; letter-spacing: 1px; text-align: center; font-size: 1.04em;
+    .banner-logo {
+      position: absolute;
+      left: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 120px; height: 120px; border-radius: 30px;
+      border: 4px solid var(--gold);
+      background: #fff;
+      box-shadow: 0 2px 22px #ffd70044;
+    }
+    .banner-content h1 {
+      color: var(--gold);
+      font-size: 2.3rem;
+      margin: 0 0 14px 0;
+      letter-spacing: 2px;
+      font-weight: 900;
+      text-shadow: 0 2px 18px #0006;
+    }
+    .banner-content p {
+      font-size: 1.18rem;
+      margin: 0 0 12px 0;
+      color: #fff;
+      text-shadow: 0 2px 8px #FFD70022;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.93em;
+      font-weight: 900;
+      border-radius: 10px;
+      padding: 4px 14px;
+      margin-left: 12px;
+      box-shadow: 0 2px 12px #f0545477;
+      animation: pulseBadge 1.2s infinite alternate;
+    }
+    .destaque {
+      background: linear-gradient(90deg, #FFD70033 70%, #232323 100%);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin-bottom: 32px;
+      color: #FFD700;
+      text-align: center;
+      font-size: 1.14em;
+      box-shadow: 0 2px 14px #FFD70022;
+      border-left: 5px solid var(--accent);
     }
     .cards-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr)); gap: 18px; margin-top: 20px;
@@ -149,35 +200,79 @@
       color: var(--gold); margin-top: 0; font-size: 1.18rem; letter-spacing: 1.2px; font-weight: 900;
       border-bottom: 2px solid var(--accent); display: inline-block; text-shadow: 0 1px 6px #FFD70022; margin-bottom: 10px; padding-bottom: 3px;
     }
-    .card ul, .card li, .avisos-list li { list-style: none; padding: 0; margin: 0; }
-    .card ul li, .avisos-list li {
-      background: rgba(255,255,255,0.09); color: #FFD700; border-radius: 8px; margin: 9px 0; padding: 10px 12px;
-      box-shadow: 0 1px 10px #FFD70011; font-size: 1em; font-weight: 600; border: 1px solid #FFD70022;
-      transition: background .11s, color .11s, transform .09s; position: relative;
+    .ranking-list {
+      margin: 0; padding: 0; list-style: none;
     }
-    .card ul li:hover, .avisos-list li:hover {
-      box-shadow: 0 2px 10px #FFD70033; background: #FFD70019; color: #fff; transform: scale(1.01);
+    .ranking-list li {
+      background: #FFD70022;
+      margin-bottom: 8px;
+      padding: 9px 15px;
+      border-radius: 11px;
+      color: var(--gold);
+      font-weight: 700;
+      box-shadow: 0 1px 7px #FFD70022;
+      border-left: 4.5px solid var(--accent);
+      font-size: 1.06em;
+      display: flex; align-items: center; gap: 12px;
     }
-    .avisos-list img { display: block; margin: 7px auto 2px auto; max-width: 150px; max-height: 80px;
-      border-radius: 6px; border: 2px solid #FFD700; box-shadow: 0 1px 8px #FFD70033; background: #191919;
+    .ranking-badge {
+      font-size: 1.3em; font-weight: bold;
+      color: #181818;
+      background: linear-gradient(90deg, #ffd700 80%, #fff 100%);
+      border-radius: 8px 0 0 8px;
+      padding: 4px 13px 4px 10px;
+      display: inline-block;
+      margin-right: 4px;
     }
-    footer {
-      text-align:center; color:#FFD70099; padding:10px 6px; font-size:0.99em; background:#191a32;
-      border-top:2px solid #FFD70044; letter-spacing:0.15px;
+    .cta-btn {
+      display: inline-block;
+      margin-top: 19px;
+      background: linear-gradient(90deg, var(--gold) 72%, #fff 100%);
+      color: #181818;
+      font-weight: 800;
+      font-size: 1.13em;
+      padding: 11px 32px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #FFD70055;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .18s, color .13s, transform .12s;
+      letter-spacing: 1px;
     }
-    .btn-contato {
-      background:linear-gradient(90deg,#FFD700 70%,#fff 100%);
-      color:#161616;font-weight:700;padding:6px 18px;font-size:1.07em;border:none;border-radius:8px;box-shadow:0 2px 7px #FFD70033; transition:.2s;
-      display:inline-block; margin-top:7px; text-decoration:none;
+    .cta-btn:active, .cta-btn:hover {
+      background: linear-gradient(90deg, #FFD700 92%, #ffd70044 100%);
+      color: #f05454;
+      transform: scale(1.04);
     }
-    .btn-contato:hover { background:linear-gradient(90deg,#FFD700 85%,#ffd70044 100%); color:#f05454;}
-    .parceiro-card {margin-bottom:15px; text-align:center;}
-    .toast-notification {
-      position: fixed; z-index: 2002; right: 20px; bottom: 20px; min-width: 200px; background: #191919e6; color: var(--gold); border-radius: 13px; box-shadow: 0 2px 16px #FFD70044, 0 0 0 2px #FFD70024; padding: 14px 18px 13px 15px; margin: 0; font-size: 1.04em; font-weight: 700; opacity: 0; pointer-events: none; transform: translateY(30px) scale(0.95); transition: all .25s;
+    .cta-btn.whatsapp {
+      background: linear-gradient(90deg, #25D366 70%, #128C7E 100%);
+      color: #fff;
+      position: relative;
     }
-    .toast-notification.show { opacity:1; pointer-events:all; transform:translateY(0) scale(1);}
-    .toast-notification.toast-error { background: #2a1e1ef2; color: #FFD700; border-left: 5px solid #f05454; }
-    .toast-notification.toast-success { background: #111d11f7; color: #FFD700; border-left: 5px solid #FFD700; }
+    .cta-btn.whatsapp::before {
+      content: '';
+      display: inline-block;
+      background: url('https://img.icons8.com/color/48/000000/whatsapp.png') no-repeat center/contain;
+      width: 1.2em; height: 1.2em;
+      vertical-align: middle;
+      margin-right: 8px;
+      position: relative; top: 2px;
+    }
+    /* Responsivo Banner */
+    @media (max-width: 900px) {
+      .banner { padding-left: 150px; }
+      .banner-logo { left: 15px; width: 90px; height: 90px;}
+    }
+    @media (max-width: 700px) {
+      .banner { padding: 110px 12px 12px 12px; flex-direction: column;}
+      .banner-logo { position: static; left: 0; top: 0; transform: none; margin-bottom: 14px; }
+    }
+    @media (max-width: 530px) {
+      .banner-content h1 { font-size: 1.13rem;}
+      .title { font-size: 1.13rem;}
+      .logo { width: 48px; height: 48px;}
+    }
   </style>
 </head>
 <body>
@@ -197,37 +292,33 @@
     <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">📜</span>Regras</button>
     <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">⚔️</span>Guerra<span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
     <button class="menu-btn" data-tab="parceiros" aria-label="Parceiros"><span class="tabicon">🤝</span>Parceiros</button>
-    <button class="menu-btn" data-tab="recrutamento" aria-label="Recrutamento"><span class="tabicon">🖊</span>Recrutamento</button>
+    <button class="menu-btn" data-tab="recrutamento" aria-label="Recrutamento"><span class="tabicon">🖊</span>Recrutamento<span class="badge">Aberto</span></button>
     <button class="menu-btn" data-tab="streamers" aria-label="Streamers"><span class="tabicon">🎥</span>Streamers</button>
     <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">📝</span>Avisos<span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
     <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">🚨</span>Denúncia</button>
     <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">💡</span>Sugestões</button>
   </nav>
+  <div class="banner">
+    <img src="https://i.imgur.com/7pYLORP.png" class="banner-logo" alt="Logo Soberanos" />
+    <div class="banner-content">
+      <h1>Painel Guilda Soberanos FF</h1>
+      <p>
+        Caminhe com reis. Jogue como um soberano. <span class="badge">Novo visual!</span>
+      </p>
+      <a class="cta-btn" href="#" onclick="document.querySelector('.menu-btn[data-tab=recrutamento]').click();return false;">Quero ser Soberano</a>
+    </div>
+  </div>
   <div class="main-content">
-    <section class="sobre-guilda">
-      Aqui é respeito, estratégia e diversão. Painel oficial da guilda Soberanos FF.<br>
-      <span style="color:#f05454">Status: Em manutenção</span>
-    </section>
-    <div class="status-guilda" aria-label="Status da guilda">
-      Status da guilda: <span style="color:#f05454;">Em manutenção</span>
+    <div class="destaque">
+      <b>🚨 Aviso:</b> Recrutamento aberto! Preencha o <b>formulário</b> e anexe seu print do perfil. Participe da família Soberanos FF!
     </div>
     <div class="cards-grid">
       <section class="card active" id="membros">
         <h2>⭐️ Melhores da Semana</h2>
-        <ol style="list-style: decimal inside; color: #FFD700; font-weight: 700; font-size: 1.18em; padding-left: 0; margin: 0 0 16px 0;">
-          <li style="margin-bottom:7px;">
-            <span style="background:linear-gradient(90deg,#FFD700 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">1º</span>
-            DEPAY10
-            <span style="font-size:0.91em;color:#FFD700aa;font-weight:500;">(Top pontuador)</span>
-          </li>
-          <li style="margin-bottom:7px;">
-            <span style="background:linear-gradient(90deg,#d4af37aa 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">2º</span>
-            SS NARUTO
-          </li>
-          <li>
-            <span style="background:linear-gradient(90deg,#fffbe8 80%,#FFD70055 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">3º</span>
-            GUSTAX.xp⁷
-          </li>
+        <ol class="ranking-list">
+          <li><span class="ranking-badge">1º</span> DEPAY10 <span style="color:#FFD700aa;font-weight:500;">(Top pontuador)</span></li>
+          <li><span class="ranking-badge" style="background:linear-gradient(90deg,#d4af37aa 80%,#fff 100%);">2º</span> SS NARUTO</li>
+          <li><span class="ranking-badge" style="background:linear-gradient(90deg,#fffbe8 80%,#FFD70055 100%);">3º</span> GUSTAX.xp⁷</li>
         </ol>
         <div style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
           Parabéns aos melhores pontuadores desta semana!
@@ -249,18 +340,10 @@
       <section class="card" id="staff">
         <h2>🛡️ Equipe/Staff</h2>
         <ul class="staff-list">
-          <li>
-            <span style="font-weight:bold; color:#FFD700;">LK</span> — Líder
-          </li>
-          <li>
-            <span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM
-          </li>
-          <li>
-            <span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM
-          </li>
-          <li>
-            <span style="font-weight:bold; color:#FFD700;">SS MAFIOSO</span> — ADM
-          </li>
+          <li><span style="font-weight:bold; color:#FFD700;">LK</span> — Líder</li>
+          <li><span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM</li>
+          <li><span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM</li>
+          <li><span style="font-weight:bold; color:#FFD700;">SS MAFIOSO</span> — ADM</li>
         </ul>
         <div style="margin:18px 0 0 0; color:#FFD70099; text-align:center; font-size:1.01em;">
           <em>Novos membros da equipe serão apresentados em breve!</em>
@@ -302,19 +385,19 @@
         <div class="parceiros-list">
           <div class="parceiro-card">
             <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
-            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
+            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="cta-btn whatsapp">Entrar Em Contato</a>
           </div>
           <div class="parceiro-card">
             <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Grupo Soberanos 2 (nossa segunda guilda)</div>
-            <a href="https://chat.whatsapp.com/KJnLdXOSkPeKDJ00ACWjU6" target="_blank" class="btn-contato">Entrar no Grupo</a>
+            <a href="https://chat.whatsapp.com/KJnLdXOSkPeKDJ00ACWjU6" target="_blank" class="cta-btn whatsapp">Entrar no Grupo</a>
           </div>
           <div class="parceiro-card">
             <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
-            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
+            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="cta-btn">Entrar Em Contato</a>
           </div>
           <div class="parceiro-card">
             <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
-            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
+            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="cta-btn">Entrar Em Contato</a>
           </div>
         </div>
         <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
@@ -322,10 +405,74 @@
         </div>
       </section>
       <section class="card" id="recrutamento">
-        <h2>🖊 Recrutamento</h2>
-        <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
-          Recrutamento <span style="color:#f05454">off-line</span>.<br>
-          <span style="color:#FFD700CC">Em breve teremos novas vagas!</span>
+        <h2>🖊 Formulário de Recrutamento – Guilda Soberanos</h2>
+        <div style="color:#FFD700; font-size:1.02em; text-align:center; margin-bottom:20px;">
+          Caminhe com reis. Jogue como um soberano. 👑<br>
+          <span style="color:#FFD70099;">Preencha atentamente. Ao enviar, você será redirecionado ao WhatsApp do ADM e pode anexar o print do perfil.</span>
+        </div>
+        <form id="form-recrutamento" style="max-width:440px;margin:auto;">
+          <label style="color:#FFD700;font-weight:600;">1. Nick no jogo (com símbolo, se tiver):</label>
+          <input type="text" id="nick" required placeholder="Seu nick no jogo" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">2. ID do jogador (Free Fire):</label>
+          <input type="text" id="idff" required placeholder="ID do jogador" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">3. Idade:</label>
+          <input type="number" id="idade" required placeholder="Sua idade" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">4. Está em qual patente atualmente?</label>
+          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..." style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">5. Já fez parte de guilda competitiva?</label>
+          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">6. Qual sua função principal?</label>
+          <div style="margin-bottom:14px;">
+            <label><input type="radio" name="funcao" value="Rushador" required> Rushador</label><br>
+            <label><input type="radio" name="funcao" value="Suporte"> Suporte</label><br>
+            <label><input type="radio" name="funcao" value="Capitão / Líder de cal"> Capitão / Líder de cal</label><br>
+            <label><input type="radio" name="funcao" value="Sniper"> Sniper</label>
+          </div>
+
+          <label style="color:#FFD700;font-weight:600;">7. Você tem disponibilidade para:</label>
+          <div style="margin-bottom:14px;">
+            <label><input type="checkbox" name="disp" value="Treinos"> Treinos</label><br>
+            <label><input type="checkbox" name="disp" value="Campeonatos"> Campeonatos</label><br>
+            <label><input type="checkbox" name="disp" value="Guerras de guilda"> Guerras de guilda</label>
+          </div>
+
+          <label style="color:#FFD700;font-weight:600;">8. Qual modo você manda melhor?</label>
+          <div style="margin-bottom:14px;">
+            <label><input type="radio" name="modo" value="4x4 competitivo" required> 4x4 competitivo</label><br>
+            <label><input type="radio" name="modo" value="X1 dos cria"> X1 dos cria</label><br>
+            <label><input type="radio" name="modo" value="Camp / Ranked"> Camp / Ranked</label><br>
+            <label><input type="radio" name="modo" value="Outro"> Outro</label>
+            <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="width:100%;padding:6px 8px;margin-top:5px;border-radius:8px;" />
+          </div>
+
+          <label style="color:#FFD700;font-weight:600;">9. Você tem como trocar o nick para usar o nome da guilda?</label>
+          <div style="margin-bottom:14px;">
+            <label><input type="radio" name="troca_nick" value="Sim" required> Sim</label>
+            <label><input type="radio" name="troca_nick" value="Não"> Não</label>
+            <label><input type="radio" name="troca_nick" value="Em breve"> Em breve</label>
+          </div>
+
+          <label style="color:#FFD700;font-weight:600;">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
+          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+
+          <label style="color:#FFD700;font-weight:600;">11. Por que quer entrar para a Soberanos?</label>
+          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;"></textarea>
+
+          <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
+            <b>12. Envie um print do seu perfil no jogo:</b><br>
+            <span style="font-size:0.97em;">Após enviar o formulário, <b>anexe a imagem diretamente no WhatsApp</b> ao ADM junto com sua mensagem.</span>
+          </div>
+
+          <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
+        </form>
+        <div id="msg-recrutamento" style="margin-top:18px;text-align:center;color:#FFD700;font-weight:bold;display:none;"></div>
+        <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
+          Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas. <br> <b>Não esqueça de anexar seu print!</b>
         </div>
       </section>
       <section class="card" id="streamers">
@@ -347,43 +494,17 @@
       </section>
       <section class="card" id="denuncia">
         <h2>🚨 Denúncia de Membro</h2>
-        <form id="form-denuncia" style="max-width:440px;margin:auto;">
-          <label for="nick-denunciante" style="font-weight:600;color:#FFD700;">Seu Nick:</label>
-          <input type="text" id="nick-denunciante" required placeholder="Seu nick no jogo" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Seu Nick" />
-          <label for="nick-denunciado" style="font-weight:600;color:#FFD700;">Nick/ID do Denunciado:</label>
-          <input type="text" id="nick-denunciado" required placeholder="Nick ou ID do membro" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Nick do Denunciado"/>
-          <label for="tipo-denuncia" style="font-weight:600;color:#FFD700;">Tipo de denúncia:</label>
-          <select id="tipo-denuncia" required style="width:100%;padding:7px 8px;margin:7px 0 14px;" aria-label="Tipo de denúncia">
-            <option value="">Selecione...</option>
-            <option value="comportamento">Comportamento tóxico</option>
-            <option value="hack">Hack/Trapaça</option>
-            <option value="spam">Spam/Divulgação</option>
-            <option value="outro">Outro</option>
-          </select>
-          <label for="desc-denuncia" style="font-weight:600;color:#FFD700;">Descrição do ocorrido:</label>
-          <textarea id="desc-denuncia" rows="4" required placeholder="Explique o que aconteceu" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Descrição do ocorrido"></textarea>
-          <label for="midia-denuncia" style="font-weight:600;color:#FFD700;">Anexar prova (foto .png ou vídeo):</label>
-          <input type="file" id="midia-denuncia" accept="image/png,image/jpeg,video/*" style="width:100%;margin:7px 0 18px;" aria-label="Anexar prova" />
-          <button type="submit" style="width:100%;background:linear-gradient(90deg,#FFD700 80%,#f05454 100%);color:#191a32;font-weight:bold;padding:10px 0;font-size:1.1em;border:none;border-radius:10px;box-shadow:0 3px 12px #FFD70055;">Enviar denúncia</button>
-        </form>
-        <div id="msg-denuncia" style="margin-top:18px;text-align:center;color:#FFD700;font-weight:bold;display:none;"></div>
+        <!-- ... mantenha seu formulário de denúncia ... -->
+        <div style="color:#FFD70099;text-align:center;margin-top:20px;">
+          (Formulário de denúncia em breve)
+        </div>
       </section>
       <section class="card" id="sugestoes">
-        <h2>💡 Envie sua Sugestão</h2>
-        <form id="form-sugestao" style="max-width:440px;margin:auto;">
-          <label for="tipo-sugestao" style="font-weight:600;color:#FFD700;">Tipo:</label>
-          <select id="tipo-sugestao" required style="width:100%;padding:7px 8px;margin:7px 0 14px;" aria-label="Tipo de sugestão">
-            <option value="">Selecione...</option>
-            <option value="site">Para o site</option>
-            <option value="guilda">Para a guilda</option>
-          </select>
-          <label for="texto-sugestao" style="font-weight:600;color:#FFD700;">Sugestão:</label>
-          <textarea id="texto-sugestao" rows="4" required placeholder="Digite sua sugestão" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Sugestão"></textarea>
-          <button type="submit" style="width:100%;background:linear-gradient(90deg,#FFD700 80%,#f05454 100%);color:#191a32;font-weight:bold;padding:10px 0;font-size:1.1em;border:none;border-radius:10px;box-shadow:0 3px 12px #FFD70055;">Enviar sugestão</button>
-        </form>
-        <div id="msg-sugestao" style="margin:15px 0 0 0; text-align:center; color:#FFD700; font-weight:bold; display:none;"></div>
-        <h2 style="margin-top:32px;font-size:1.2em;">Sugestões Recentes</h2>
-        <ul id="lista-sugestoes" style="margin-top:20px;"></ul>
+        <h2>💡 Sugestões e Novidades</h2>
+        <div style="color:#FFD700; font-size:1.05em; text-align:center; margin-bottom:18px;">
+          Tem ideias para o painel? Manda pra gente!
+        </div>
+        <!-- Aqui pode colocar formulário de sugestões se quiser -->
       </section>
     </div>
   </div>
@@ -401,22 +522,16 @@
   <div id="toast" class="toast-notification"></div>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 10, "density": { "enable": true, "value_area": 1200 } },
-        "color": { "value": ["#FFD700", "#fff", "#f05454", "#161616"] },
-        "shape": { "type": ["polygon"], "stroke": { "width": 0 }, "polygon": { "nb_sides": 6 } },
-        "opacity": { "value": 0.15, "random": true, "anim": { "enable": true, "speed": 0.3, "opacity_min": 0.06, "sync": false } },
-        "size": { "value": 14, "random": true, "anim": { "enable": false } },
-        "line_linked": { "enable": false },
-        "move": { "enable": true, "speed": 0.15, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
-      },
-      "retina_detect": true
+    // Sempre abrir na aba "Melhores da Semana"
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.menu-btn[data-tab="membros"]').classList.add('active');
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+      setTimeout(() => {
+        document.getElementById('membros').classList.add('active');
+      }, 40);
     });
+
     // Menu hamburguer e troca de abas
     const menuHamburger = document.getElementById('menuHamburger');
     const menuNav = document.getElementById('menuNav');
@@ -456,7 +571,7 @@
     });
     // CONTADOR GUERRA
     const horaGuerra = { "-3": 16, "-4": 15 };
-    const horaGuerraFim = { "-3": 23, "-4": 22 }; // 23:59 ou 22:59
+    const horaGuerraFim = { "-3": 23, "-4": 22 };
     function getProximaGuerraEAndamento(fuso) {
       const now = new Date();
       let diaSemana = now.getUTCDay();
@@ -516,155 +631,69 @@
     }
     document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
     iniciarContadorGuerraFuso();
-    // Badge animado
-    function mostrarBadge(tabId) {
-      if(tabId === "avisos") document.getElementById('badge-avisos').style.display = "inline-block";
-      if(tabId === "guerra") document.getElementById('badge-guerra').style.display = "inline-block";
-    }
-    if(localStorage.getItem("guerraBadgeVisto") !== "sim") {
-      mostrarBadge("guerra");
-      document.querySelector('.menu-btn[data-tab="guerra"]').addEventListener("click", function() {
-        document.getElementById('badge-guerra').style.display = "none";
-        localStorage.setItem("guerraBadgeVisto", "sim");
-      }, {once:true});
-    }
-    if(localStorage.getItem("avisosBadgeVisto") !== "sim") {
-      mostrarBadge("avisos");
-      document.querySelector('.menu-btn[data-tab="avisos"]').addEventListener("click", function() {
-        document.getElementById('badge-avisos').style.display = "none";
-        localStorage.setItem("avisosBadgeVisto", "sim");
-      }, {once:true});
-    }
-    // Última atualização dinâmica
-    document.getElementById('lastUpdate').textContent =
-      "Última atualização: " + new Date().toLocaleString('pt-BR');
-    // Denúncia e sugestões
-    function fileToBase64(file, callback) {
-      const reader = new FileReader();
-      reader.onload = function(e) { callback(e.target.result); };
-      reader.readAsDataURL(file);
-    }
-    function getDenunciasAtuais() {
-      let denuncias = JSON.parse(localStorage.getItem('denunciasGuilda') || '[]');
-      const agora = new Date();
-      denuncias = denuncias.filter(den => {
-        const dataDenuncia = new Date(den.dataISO || den.data);
-        return (agora - dataDenuncia) <= 3 * 24 * 60 * 60 * 1000;
-      });
-      localStorage.setItem('denunciasGuilda', JSON.stringify(denuncias));
-      return denuncias;
-    }
-    function renderDenunciasNosAvisos() {
-      const avisosList = document.querySelector('.avisos-list');
-      let denuncias = getDenunciasAtuais();
-      avisosList.querySelectorAll('.denuncia-aviso').forEach(el => el.remove());
-      denuncias.slice().reverse().forEach(den => {
-        const li = document.createElement('li');
-        li.className = 'denuncia-aviso';
-        let anexo = '';
-        if (den.midiaDataUrl) {
-          anexo = `<br><b>Anexo:</b><br><img src="${den.midiaDataUrl}" alt="Prova" style="max-width:120px;max-height:80px;border-radius:5px;border:2px solid #FFD700;margin:4px 0;">`;
-        } else if (den.midiaName) {
-          anexo = `<br><b>Anexo:</b> ${den.midiaName}`;
-        }
-        li.innerHTML = `<span style="color:#f05454;"><b>🚨 DENÚNCIA:</b></span>
-          <b>Denunciante:</b> ${den.nickDenunciante} | 
-          <b>Contra:</b> ${den.nickDenunciado} | 
-          <b>Tipo:</b> ${den.tipo}<br>
-          <b>Descrição:</b> ${den.desc}
-          ${anexo}
-          <br><span style="font-size:0.92em;color:#FFD70099;">${new Date(den.dataISO || den.data).toLocaleString('pt-BR')}</span>`;
-        avisosList.prepend(li);
-      });
-    }
+
+    // Formulário de recrutamento personalizado WhatsApp
     document.addEventListener('DOMContentLoaded', function() {
-      var formDenuncia = document.getElementById('form-denuncia');
-      if(formDenuncia) {
-        formDenuncia.addEventListener('submit', function(e){
+      var formRecrutamento = document.getElementById('form-recrutamento');
+      if(formRecrutamento) {
+        formRecrutamento.addEventListener('submit', function(e){
           e.preventDefault();
-          const nickDenunciante = document.getElementById('nick-denunciante').value.trim();
-          const nickDenunciado = document.getElementById('nick-denunciado').value.trim();
-          const tipo = document.getElementById('tipo-denuncia').value;
-          const desc = document.getElementById('desc-denuncia').value.trim();
-          const midia = document.getElementById('midia-denuncia').files[0];
-          if (!nickDenunciante || !nickDenunciado || !tipo || !desc) {
+          const nick = document.getElementById('nick').value.trim();
+          const idff = document.getElementById('idff').value.trim();
+          const idade = document.getElementById('idade').value.trim();
+          const patente = document.getElementById('patente').value.trim();
+          const guilda_comp = document.getElementById('guilda_comp').value.trim();
+          const funcao = formRecrutamento.querySelector('input[name="funcao"]:checked')?.value || '';
+          let disp = [];
+          formRecrutamento.querySelectorAll('input[name="disp"]:checked').forEach(c => disp.push(c.value));
+          const modo = formRecrutamento.querySelector('input[name="modo"]:checked')?.value || '';
+          const modoOutro = document.getElementById('modo_outro').value.trim();
+          const troca_nick = formRecrutamento.querySelector('input[name="troca_nick"]:checked')?.value || '';
+          const contato = document.getElementById('contato').value.trim();
+          const motivo = document.getElementById('motivo').value.trim();
+
+          // Modo outro
+          const modo_final = (modo === "Outro" && modoOutro) ? modoOutro : modo;
+
+          // Prevenção de campos obrigatórios
+          if (!nick || !idff || !idade || !patente || !guilda_comp || !funcao || !modo_final || !troca_nick || !contato || !motivo) {
             showToast("Preencha todos os campos obrigatórios!", 'error');
             return;
           }
-          function salvarEDepois(midiaDataUrl, midiaName) {
-            let denuncias = getDenunciasAtuais();
-            denuncias.push({
-              nickDenunciante, nickDenunciado, tipo, desc,
-              midiaName,
-              midiaDataUrl,
-              data: new Date().toLocaleString("pt-BR"),
-              dataISO: new Date().toISOString()
-            });
-            localStorage.setItem('denunciasGuilda', JSON.stringify(denuncias));
-            renderDenunciasNosAvisos();
-            document.getElementById('msg-denuncia').style.display = 'block';
-            document.getElementById('msg-denuncia').textContent = "Denúncia enviada com sucesso! A equipe irá analisar.";
-            formDenuncia.reset();
-            setTimeout(() => {
-              document.getElementById('msg-denuncia').style.display = 'none';
-            }, 2300);
-          }
-          if(midia && midia.type.startsWith('image/')) {
-            fileToBase64(midia, function(base64) {
-              salvarEDepois(base64, midia.name);
-            });
-          } else {
-            salvarEDepois('', midia ? midia.name : '');
-          }
-        });
-        renderDenunciasNosAvisos();
-      }
-      function getSugestoesAtuais() {
-        let sugestoes = JSON.parse(localStorage.getItem('sugestoesGuilda') || '[]');
-        return sugestoes.slice(-20);
-      }
-      function renderSugestoes() {
-        const lista = document.getElementById('lista-sugestoes');
-        if(!lista) return;
-        lista.innerHTML = '';
-        getSugestoesAtuais().slice().reverse().forEach(sug => {
-          const li = document.createElement('li');
-          li.style.marginBottom = '10px';
-          li.style.background = sug.tipo === 'site' ? '#FFD70018' : '#f0545413';
-          li.style.color = sug.tipo === 'site' ? '#FFD700' : '#f05454';
-          li.style.borderLeft = '4px solid ' + (sug.tipo === 'site' ? '#FFD700' : '#f05454');
-          li.style.padding = '7px 8px';
-          li.style.borderRadius = '6px';
-          li.innerHTML = `<b>${sug.tipo === 'site' ? 'Site' : 'Guilda'}:</b> ${sug.texto}
-            <div style="font-size:0.89em;color:#FFD70099;">${sug.data}</div>`;
-          lista.appendChild(li);
-        });
-      }
-      var formSugestao = document.getElementById('form-sugestao');
-      if(formSugestao) {
-        formSugestao.addEventListener('submit', function(e){
-          e.preventDefault();
-          const tipo = document.getElementById('tipo-sugestao').value;
-          const texto = document.getElementById('texto-sugestao').value.trim();
-          if (!tipo || !texto) return;
-          let sugestoes = getSugestoesAtuais();
-          sugestoes.push({
-            tipo,
-            texto,
-            data: new Date().toLocaleString("pt-BR")
-          });
-          localStorage.setItem('sugestoesGuilda', JSON.stringify(sugestoes));
-          document.getElementById('msg-sugestao').style.display = 'block';
-          document.getElementById('msg-sugestao').textContent = "Sugestão enviada! Obrigado!";
-          formSugestao.reset();
-          renderSugestoes();
+
+          // WhatsApp do ADM
+          const numero = "558173389225";
+          const mensagem = 
+`Formulário de Recrutamento – Guilda Soberanos
+Caminhe com reis. Jogue como um soberano. 👑
+
+1. Nick no jogo: ${nick}
+2. ID do jogador: ${idff}
+3. Idade: ${idade}
+4. Patente atual: ${patente}
+5. Já fez parte de guilda competitiva? ${guilda_comp}
+6. Função principal: ${funcao}
+7. Disponibilidade: ${disp.length ? disp.join(", ") : "Nenhuma"}
+8. Modo que joga melhor: ${modo_final}
+9. Troca nick pra guilda? ${troca_nick}
+10. Instagram ou WhatsApp: ${contato}
+11. Por que quer entrar: ${motivo}
+
+12. Print do perfil: (Anexar aqui no WhatsApp)
+`;
+
+          const waLink = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+          window.open(waLink, "_blank");
+          document.getElementById('msg-recrutamento').style.display = 'block';
+          document.getElementById('msg-recrutamento').textContent = "Redirecionando para o WhatsApp... Não esqueça de anexar o print do perfil!";
           setTimeout(() => {
-            document.getElementById('msg-sugestao').style.display = 'none';
-          }, 2000);
+            document.getElementById('msg-recrutamento').style.display = 'none';
+          }, 2500);
+          formRecrutamento.reset();
         });
-        renderSugestoes();
       }
     });
+
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
       toast.textContent = '';
@@ -678,6 +707,10 @@
         }, 2500);
       }, 80);
     }
+
+    // Atualização do rodapé
+    document.getElementById('lastUpdate').textContent =
+      "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-              </html>
+            </html>
