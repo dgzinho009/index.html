@@ -6,537 +6,613 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFD700">
   <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --main-bg: linear-gradient(135deg, #161616 0%, #2a2a2a 100%);
+      --card-bg: #181818ef;
+      --nav-bg: #111111f2;
+      --nav-accent: #FFD700;
+      --nav-active: #fff;
+      --menu-accent: #f05454;
+      --border-card: #FFD70099;
+      --shadow: 0 2px 18px #0008;
+      --radius: 18px;
+      --white: #fff;
       --gold: #FFD700;
       --accent: #f05454;
-      --card-bg: #22253a;
-      --shadow: 0 4px 24px #0008;
-      --highlight: #fffbcc;
-      --dark: #181c26;
-      --white: #fff;
-      --gray: #FFD70066;
-      --footer-bg: #181c26;
-      --transition: 0.22s cubic-bezier(.4,0,.2,1);
+      --black: #161616;
     }
-    html, body {
-      margin: 0; padding: 0;
-      background: linear-gradient(135deg, var(--dark) 0%, #23253c 100%);
+    html, body { height: 100%; }
+    body {
+      background: var(--main-bg);
+      color: var(--white);
       font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
-      color: #fff;
-      scroll-behavior: smooth;
-      transition: background var(--transition), color var(--transition);
-    }
-    .header-gradient {
-      background: linear-gradient(120deg, #FFD700 60%, #ff7f32 100%);
-      padding: 38px 0 20px 0;
-      text-align: center;
-      box-shadow: var(--shadow);
-      position: static;
-    }
-    .header-gradient img {
-      height: 110px; margin-bottom: 12px;
-      border-radius: 20px;
-      border: 6px solid #f05454;
-      background: #fff;
-      box-shadow: 0 2px 22px #f0545480;
-      object-fit: cover;
-      max-width: 90vw;
-      transition: transform 0.25s, box-shadow 0.25s;
-      animation: logo-fadein 1.4s;
-    }
-    @keyframes logo-fadein {
-      from { opacity:0; transform:scale(0.8);}
-      to { opacity:1; transform:scale(1);}
-    }
-    .header-gradient h1 {
-      margin: 10px 0 2px 0;
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 12px #fff8, 0 1px 0 #ffd700a0;
-    }
-    .header-gradient p {
-      margin: 0 0 12px 0;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: #23253c;
-      letter-spacing: 1px;
-    }
-    .theme-toggle-btn {
-      background: #fff;
-      color: #FFD700;
-      border: 3px solid #FFD700;
-      border-radius: 50%;
-      width: 54px; height: 54px;
-      font-size: 2em;
-      cursor: pointer;
-      margin-top: 18px;
-      box-shadow: 0 2px 8px #FFD70033;
-      transition: background 0.2s, color 0.2s, transform 0.13s;
-      vertical-align: middle;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .theme-toggle-btn:hover { background: #FFD700; color: #23253c; }
-    .sobre-guilda {
-      background: var(--highlight);
-      color: #181c26;
-      border-radius: 18px 18px 30px 30px;
-      box-shadow: 0 2px 14px #ffd70050;
-      margin: -18px auto 18px auto;
-      padding: 18px 24px 20px 24px;
-      max-width: 700px;
-      font-size: 1.13em;
-      text-align: center;
-      font-weight: 600;
-      border-left: 8px solid var(--accent);
-      border-right: 8px solid var(--gold);
-    }
-    .status-guilda {
-      background: #FFD70022;
-      color: #181c26;
-      border-radius: 12px;
-      padding: 7px 0 6px 0;
-      margin: 10px auto 0 auto;
-      max-width: 340px;
-      font-weight: bold;
-      box-shadow: 0 2px 8px #FFD70022;
-      letter-spacing: 1px;
-      text-align: center;
-      font-size: 1.1em;
-    }
-    nav {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 18px;
-      margin: 30px auto 22px auto;
-      max-width: 1100px;
-      position: sticky;
-      top: 0;
-      background: linear-gradient(120deg, #23253c 90%, #FFD70022 100%);
-      z-index: 20;
-      border-radius: 0 0 18px 18px;
-      box-shadow: 0 2px 18px #181c2655;
-    }
-    nav button, nav a.sensi-btn {
-      background: linear-gradient(90deg, #FFD700 75%, #FFDE80 100%);
-      color: #23253c;
-      border: 3px solid #FFD700;
-      border-radius: 40px;
-      padding: 17px 32px;
-      font-size: 1.20em;
-      font-family: inherit; cursor: pointer;
-      font-weight: 700;
       margin: 0;
-      box-shadow: 0 3px 20px #ffd70055;
-      transition: background 0.18s, color 0.18s, border 0.18s, transform 0.13s;
-      display: flex; align-items: center; gap: 10px;
-      outline: none;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
       position: relative;
-      overflow: visible;
-      text-decoration: none;
-      height: 54px;
     }
-    nav button.active,
-    nav button:hover,
-    nav a.sensi-btn:hover {
-      background: #23253c;
-      color: #FFD700;
-      border: 3px solid #FFD700;
-      transform: scale(1.05);
-      box-shadow: 0 6px 28px #FFD70077;
+    #particles-js {
+      position: fixed;
+      z-index: 0;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
     }
-    nav .tabicon, nav .sensiicon {
-      font-size: 1.2em;
-      margin-right: 2px;
-      filter: drop-shadow(0 0 5px #FFD700BB);
+    header {
+      background: linear-gradient(100deg, #181818 60%, var(--gold) 100%);
+      box-shadow: 0 6px 24px #FFD70033;
+      padding: 22px 0 16px 0;
+      position: relative;
+      border-radius: 0 0 var(--radius) var(--radius);
+      z-index: 2;
+      text-align: center;
+    }
+    .logo {
+      width: 74px; height: 74px;
+      border-radius: 18px;
+      border: 3px solid var(--gold);
+      background: #fff;
+      margin-bottom: 7px;
+      box-shadow: 0 2px 20px #ffd70077;
+      transition: transform .2s;
+    }
+    .logo:hover { transform: scale(1.04) rotate(-1deg); }
+    .title {
+      font-size: 2.05rem;
+      font-weight: 1100;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      text-shadow: 0 2px 26px #ffd70050, 0 1px 0 #fff3;
+      margin: 0 0 2px 0;
+    }
+    .subtitle {
+      color: #fff;
+      font-size: 1.11rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px #232323cc;
+    }
+
+    /* HAMBURGUER */
+    .menu-hamburger {
+      display: none;
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: background .18s;
+    }
+    .menu-hamburger:focus { outline: 2px solid var(--nav-accent);}
+    .menu-hamburger .bar {
+      display: block;
+      width: 27px;
+      height: 4px;
+      margin: 5px auto;
+      border-radius: 3px;
+      background: var(--gold);
+      transition: 0.3s;
+    }
+    .menu-hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 7px);}
+    .menu-hamburger.open .bar:nth-child(2) { opacity: 0;}
+    .menu-hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px);}
+    nav.menu {
+      background: var(--nav-bg);
+      box-shadow: 0 1px 16px #FFD70033;
+      border-radius: 0 0 var(--radius) var(--radius);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 58px;
+      z-index: 1000;
+      position: relative;
+      transition: left .26s, top .26s, opacity .22s;
+    }
+    .menu-btn {
+      background: none;
+      color: #ccc;
+      font-size: 1.12em;
+      font-weight: 900;
+      border: none;
+      border-radius: 14px 14px 0 0;
+      padding: 11px 26px 8px 26px;
+      margin: 0;
+      cursor: pointer;
+      transition: background .14s, color .11s, transform .13s;
+      outline: none;
+      letter-spacing: .7px;
+      position: relative;
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid transparent;
+      box-shadow: 0 0 0 transparent;
+    }
+    .menu-btn .tabicon { margin-right: 7px; }
+    .menu-btn.active, .menu-btn:focus, .menu-btn:hover {
+      background: linear-gradient(90deg, var(--gold) 80%, #fff 100%);
+      color: #161616;
+      border-bottom: 3px solid var(--menu-accent);
+      box-shadow: 0 3px 18px #FFD70044;
+      font-weight: 1000;
+      z-index: 10;
+      transform: translateY(-4px) scale(1.07);
     }
     .badge-new {
       position: absolute;
-      top: 4px;
-      right: 8px;
-      background: #f05454;
+      top: 3px; right: 16px;
+      background: var(--menu-accent);
       color: #fff;
-      border-radius: 9px;
-      font-size: 0.85em;
+      border-radius: 8px;
+      font-size: 0.7em;
       padding: 2px 7px;
-      font-weight: 800;
+      font-weight: 900;
       box-shadow: 0 1px 8px #f0545488;
       animation: badgePulse 1s infinite alternate;
       z-index: 2;
+      text-shadow: 0 2px 8px #181818;
     }
     @keyframes badgePulse {
-      0% { box-shadow: 0 0 8px #f0545488; }
+      0% { box-shadow: 0 0 8px #f0545455; }
       100% { box-shadow: 0 0 18px #f05454cc; }
     }
-    main {
-      max-width: 1000px;
-      margin: 0 auto 16px auto;
-      padding: 0 12px;
-      min-height: 60vh;
+    @media (max-width: 950px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .card { padding: 11px 4vw 8px 4vw; }
+      nav.menu { gap: 0; flex-wrap: wrap;}
+      .menu-btn { padding: 8px 9px 6px 9px; font-size:1em; }
+    }
+    @media (max-width: 700px) {
+      .menu-hamburger {
+        display: block;
+      }
+      nav.menu {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 78vw;
+        max-width: 340px;
+        height: 100vh;
+        border-radius: 0 22px 22px 0;
+        box-shadow: 8px 0 36px #FFD70044;
+        transform: translateX(-100%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1999;
+      }
+      nav.menu.open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+      .menu-btn {
+        display: block;
+        text-align: left;
+        border-radius: 0 19px 19px 0;
+        width: 100%;
+        padding: 18px 12px 14px 28px;
+        font-size: 1.1em;
+        margin: 0;
+        border-bottom: 1.5px solid #FFD70044;
+        background: none;
+        box-shadow: none;
+      }
+      .menu-btn.active, .menu-btn:focus, .menu-btn:hover {
+        background: linear-gradient(90deg, var(--gold) 80%, #fff 100%);
+        color: #161616;
+        font-weight: 1000;
+        border-bottom: 2.5px solid var(--menu-accent);
+        transform: scale(1.03);
+      }
+    }
+    @media (max-width: 530px) {
+      .title { font-size: 1.13rem;}
+      .logo { width: 40px; height: 40px;}
+    }
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2vw 26px 2vw;
+      z-index: 1;
       position: relative;
+      margin-top: 13px;
+    }
+    .sobre-guilda {
+      background: linear-gradient(90deg, #FFD70014, #111111 80%);
+      color: var(--gold);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 20px #FFD70019;
+      margin: 0 auto 14px auto;
+      padding: 16px 22px 13px 18px;
+      max-width: 570px;
+      font-size: 1.13em;
+      text-align: center;
+      font-weight: 700;
+      border-left: 6px solid var(--menu-accent);
+      border-right: 6px solid var(--gold);
+      border-top: 2.5px solid var(--gold);
+      border-bottom: 2.5px solid #fff4;
+      backdrop-filter: blur(1.5px);
+    }
+    .status-guilda {
+      background: #FFD70033;
+      color: var(--nav-bg);
+      border-radius: 11px;
+      padding: 8px 0 7px 0;
+      margin: 12px auto 0 auto;
+      max-width: 320px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #FFD70018;
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 1.09em;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+      gap: 28px;
+      margin-top: 20px;
     }
     .card {
       background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px 30px 18px 30px;
-      margin-bottom: 35px;
+      border-radius: var(--radius);
+      padding: 25px 22px 14px 22px;
       box-shadow: var(--shadow);
-      animation: fadein 0.75s;
-      display: none;
+      border: 2.3px solid var(--border-card);
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
+      transition: opacity 0.21s, visibility 0.18s, box-shadow 0.17s, transform 0.13s;
+      position: relative;
+      min-height: 110px;
+      display: none;
+      overflow: hidden;
+      animation: cardIn .8s;
     }
-    .card.active { 
+    .card.active {
       display: block;
       opacity: 1;
       visibility: visible;
-      transition: opacity 0.3s, visibility 0.3s;
-      animation: fadein 0.75s;
+      animation: cardIn .69s;
+      transform: scale(1.01);
+      border-image: linear-gradient(90deg, var(--gold) 0, #fff 100%) 1;
+      outline: 2px solid transparent;
+    }
+    @keyframes cardIn {
+      from {opacity:0; transform:translateY(22px) scale(0.97);}
+      to {opacity:1; transform:translateY(0) scale(1);}
     }
     .card h2 {
-      color: var(--gold); margin-top: 0;
-      font-size: 1.55rem; letter-spacing: 1px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block; padding-bottom: 4px;
-      margin-bottom: 18px;
-    }
-    .parceiros-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 10px;
-    }
-    .parceiro-card {
-      background: #23253c;
-      border: 2.5px solid #FFD700;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px #FFD70022;
-      padding: 18px 18px 16px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 180px;
-      max-width: 250px;
-      margin-bottom: 10px;
-    }
-    .btn-contato {
+      color: var(--gold);
+      margin-top: 0;
+      font-size: 1.23rem;
+      letter-spacing: 1.2px;
+      font-weight: 1000;
+      border-bottom: 2.5px solid var(--menu-accent);
       display: inline-block;
-      background: linear-gradient(90deg,#FFD700 70%,#FFDE80 100%);
-      color: #181c26;
-      padding: 10px 22px;
-      margin-top: 10px;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 1.1em;
-      text-decoration: none;
-      box-shadow: 0 3px 14px #FFD70044;
-      border: none;
-      transition: background 0.18s, color 0.18s, transform 0.13s;
+      text-shadow: 0 1px 6px #FFD70033;
+      margin-bottom: 12px;
+      padding-bottom: 3px;
     }
-    .btn-contato:hover {
-      background: #ffb700;
-      color: #222;
-      transform: scale(1.07);
-    }
-    .toast-notification {
-      position: fixed;
-      bottom: 36px;
-      right: 36px;
-      background: #23253c;
+    .card ul, .card li, .avisos-list li { list-style: none; padding: 0; margin: 0; }
+    .card ul li, .avisos-list li {
+      background: rgba(255,255,255,0.08);
       color: #FFD700;
-      padding: 16px 28px;
-      border-radius: 11px;
-      box-shadow: 0 4px 18px #000A, 0 0 0 2px #FFD70033;
-      font-weight: bold;
-      font-size: 1.09em;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(30px) scale(0.98);
-      transition: opacity 0.35s, transform 0.35s;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      border-radius: 10px;
+      margin: 11px 0;
+      padding: 13px 13px;
+      box-shadow: 0 1px 10px #FFD70011;
+      font-size: 1.03em;
+      font-weight: 600;
+      border: 1px solid #FFD70022;
+      transition: background .11s, color .11s, transform .09s;
+      position: relative;
     }
-    .toast-notification.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
-    }
-    .toast-notification.toast-success {
-      border-left: 7px solid #52e36a;
-      color: #52e36a;
-    }
-    .toast-notification.toast-error {
-      border-left: 7px solid #f05454;
-      color: #f05454;
-    }
-    #btn-topo {
-      position: fixed;
-      bottom: 80px;
-      right: 32px;
-      background: #FFD700;
-      color: #23253c;
-      border: none;
-      border-radius: 50%;
-      width: 54px; height: 54px;
-      box-shadow: 0 2px 14px #FFD70033;
-      font-size: 2em;
-      cursor: pointer;
-      z-index: 9998;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.22s, color 0.22s, transform 0.13s;
-    }
-    #btn-topo:hover {
-      background: #f05454;
+    .card ul li:hover, .avisos-list li:hover {
+      box-shadow: 0 2px 10px #FFD70033;
+      background: #FFD70019;
       color: #fff;
-      transform: scale(1.1);
+      transform: scale(1.01);
     }
-    @media (max-width: 900px) {
-      nav button, nav a.sensi-btn {
-        font-size: 0.97em;
-        padding: 10px 8px;
-        height: 44px;
-      }
-      nav { gap: 8px 5px; }
+    .avisos-list img {
+      display: block;
+      margin: 7px auto 2px auto;
+      max-width: 150px;
+      max-height: 80px;
+      border-radius: 6px;
+      border: 2px solid #FFD700;
+      box-shadow: 0 1px 8px #FFD70033;
+      background: #191919;
     }
-    @media (max-width: 700px) {
-      main { padding: 0 2px; }
-      .card { padding: 14px 6px 10px 6px;}
-      .header-gradient img { height: 70px; }
-      .header-gradient h1 { font-size: 1.2rem; }
-      nav { gap: 8px 3px; }
-      nav button, nav a.sensi-btn { font-size: 0.93em; padding: 8px 2px; height: 40px;}
-      .parceiro-card { min-width: 120px; max-width: 100vw; padding: 10px 7px;}
-      .toast-notification {
-        right: 8px;
-        bottom: 12px;
-        padding: 11px 13px;
-        font-size: 1em;
-        min-width: 150px;
-        max-width: 90vw;
-      }
-      #btn-topo { right: 10px; bottom: 60px; width: 44px; height: 44px; font-size: 1.3em;}
-    }
-    @keyframes fadein {
-      from { opacity:0; transform:translateY(24px);}
-      to { opacity:1; transform:translateY(0);}
+    footer {
+      text-align:center;
+      color:#FFD70099;
+      padding:13px 6px;
+      font-size:0.97em;
+      background:#191a32;
+      border-top:2px solid #FFD70044;
+      letter-spacing:0.15px;
     }
   </style>
 </head>
 <body>
-  <div class="header-gradient">
-    <img src="https://i.imgur.com/7pYLORP.png" alt="Logo da Guilda Soberanos FF" />
-    <h1>Soberanos FF</h1>
-    <p>Bem-vindo ao Painel da Guilda!</p>
-    <button class="theme-toggle-btn" id="themeToggle" title="Alternar tema claro/escuro" aria-label="Alternar tema">
-      🌙
+  <div id="particles-js"></div>
+  <header>
+    <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" />
+    <div class="title">Soberanos FF</div>
+    <div class="subtitle">Painel gamer premium • Seu espaço de evolução no Free Fire</div>
+    <button class="menu-hamburger" id="menuHamburger" aria-label="Abrir menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-  </div>
-  <section class="sobre-guilda">
-    Unidos pelo respeito, estratégia e diversão.<br>
-    Painel oficial da guilda Soberanos FF.<br>
-    <span style="color:#f05454">Status: Em manutenção</span>
-  </section>
-  <div class="status-guilda" aria-label="Status da guilda">
-    Status da guilda: <span style="color:#f05454;">Em manutenção</span>
-  </div>
-  <nav>
-    <button class="tab-btn active" data-tab="membros"><span class="tabicon">⭐️</span>Melhores da Semana</button>
-    <button class="tab-btn" data-tab="ranking"><span class="tabicon">🏆</span>Ranking</button>
-    <button class="tab-btn" data-tab="staff"><span class="tabicon">🛡️</span>Equipe/Staff</button>
-    <button class="tab-btn" data-tab="regras"><span class="tabicon">📜</span>Regras</button>
-    <button class="tab-btn" data-tab="guerra"><span class="tabicon">⚔️</span>Guerra <span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
-    <button class="tab-btn" data-tab="parceiros"><span class="tabicon">🤝</span>Parceiros</button>
-    <button class="tab-btn" data-tab="recrutamento"><span class="tabicon">🖊</span>Recrutamento</button>
-    <button class="tab-btn" data-tab="streamers"><span class="tabicon">🎥</span>Streamers</button>
-    <button class="tab-btn" data-tab="avisos"><span class="tabicon">📝</span>Avisos <span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
-    <button class="tab-btn" data-tab="denuncia"><span class="tabicon">🚨</span>Denúncia</button>
-    <a class="sensi-btn" href="https://www.freefiremania.com.br/sensibilidade.html" target="_blank" title="Gerar Sensi FF">
-      <span class="sensiicon">🎯</span>Gerar Sensi FF
-    </a>
+  </header>
+  <nav class="menu" id="menuNav" aria-label="Menu principal">
+    <button class="menu-btn active" data-tab="membros" aria-label="Melhores"><span class="tabicon">⭐️</span>Melhores</button>
+    <button class="menu-btn" data-tab="ranking" aria-label="Ranking"><span class="tabicon">🏆</span>Ranking</button>
+    <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">🛡️</span>Staff</button>
+    <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">📜</span>Regras</button>
+    <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">⚔️</span>Guerra<span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
+    <button class="menu-btn" data-tab="parceiros" aria-label="Parceiros"><span class="tabicon">🤝</span>Parceiros</button>
+    <button class="menu-btn" data-tab="recrutamento" aria-label="Recrutamento"><span class="tabicon">🖊</span>Recrutamento</button>
+    <button class="menu-btn" data-tab="streamers" aria-label="Streamers"><span class="tabicon">🎥</span>Streamers</button>
+    <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">📝</span>Avisos<span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
+    <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">🚨</span>Denúncia</button>
+    <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">💡</span>Sugestões</button>
   </nav>
-  <main>
-    <!-- Melhores da Semana (primeira aba) -->
-    <section class="card active" id="membros">
-      <h2>⭐️ Melhores da Semana</h2>
-      <div style="color:#FFD700; font-weight:600; margin-bottom:1.3em;">
-        <em>Em breve, Os melhores serão adicionados!</em>
-      </div>
+  <div class="main-content">
+    <section class="sobre-guilda">
+      Aqui é respeito, estratégia e diversão. Painel oficial da guilda Soberanos FF.<br>
+      <span style="color:#f05454">Status: Em manutenção</span>
     </section>
-    <!-- Ranking -->
-    <section class="card" id="ranking">
-      <h2>🏆 Ranking Interno</h2>
-      <div style="margin-bottom:1.3em;">
-        <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
-        <button class="ranking-tab-btn" data-rank="mensal">Mensal</button>
-      </div>
-      <ul class="ranking-list" id="rankingSemanal">
-        <li>Ranking semanal será iniciado em breve!</li>
-      </ul>
-      <ul class="ranking-list" id="rankingMensal" style="display:none">
-        <li>Ranking mensal será iniciado em breve!</li>
-      </ul>
-    </section>
-    <!-- Staff -->
-    <section class="card" id="staff">
-      <h2>🛡️ Equipe/Staff</h2>
-      <ul class="staff-list">
-        <li>
-          <span style="font-weight:bold; color:#FFD700;">LK</span> — Líder
-        </li>
-        <li>
-          <span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM
-        </li>
-        <li> 
-          <span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM
-        </li>
-        <li>
-          <span style="font-weight:bold; color:#FFD700;">SS MAFIOSO</span> — ADM
-        </li>
-      </ul>
-      <div style="margin:18px 0 0 0; color:#FFD70099; text-align:center; font-size:1.01em;">
-        <em>Elenco Staff da Soberanos!</em>
-      </div>
-    </section>
-    <!-- Regras -->
-    <section class="card" id="regras">
-      <h2>📜 Regras da Guilda</h2>
-      <ul style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
-        <li>Respeitar todos os membros, sem exceção.</li>
-        <li>Participar dos treinos e eventos sempre que possível.</li>
-        <li>Proibido uso de cheats, hacks ou qualquer trapaça.</li>
-        <li>Mantenha o grupo saudável: sem brigas, sem preconceito.</li>
-        <li>Compartilhe resultados dos jogos nos grupos oficiais.</li>
-        <li>Novas regras podem ser adicionadas conforme necessário.</li>
-      </ul>
-      <div style="color:#FFD70099; font-size:1em;text-align:center;">
-        <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
-      </div>
-    </section>
-    <!-- Guerra - com contador e seletor de fuso -->
-    <section class="card" id="guerra">
-      <h2>⚔️ Contagem da Guerra</h2>
-      <div style="margin:32px 0;text-align:center;">
-        <span id="contador-guerra" style="font-size:1em; color:#FFD700; font-weight:600; background:#23253c; padding:6px 12px; border-radius:10px; box-shadow:0 2px 8px #FFD70033;"></span>
-      </div>
-      <div style="color:#FFD70099; text-align:center; margin-top:18px;">Acompanhe o tempo até a próxima guerra!</div>
-      <div style="color:#FFD70099; text-align:center; margin-top:10px;">
-        <b>Fuso selecionado:</b>
-        <select id="fuso-guerra">
-          <option value="-3">Brasília (UTC-3)</option>
-          <option value="-4">Amazonas (UTC-4)</option>
-        </select>
-        <span id="hora-reset-info" style="margin-left:12px;"></span>
-      </div>
-    </section>
-    <!-- Parceiros -->
-    <section class="card" id="parceiros">
-      <h2>🤝 Parceiros Soberanos FF</h2>
-      <div class="parceiros-list">
-        <div class="parceiro-card">
-          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
-          <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
+    <div class="status-guilda" aria-label="Status da guilda">
+      Status da guilda: <span style="color:#f05454;">Em manutenção</span>
+    </div>
+    <div class="cards-grid">
+      <section class="card active" id="membros">
+        <h2>⭐️ Melhores da Semana</h2>
+        <div style="color:#FFD700; font-weight:600; margin-bottom:1.3em;">
+          <em>Em breve, Os melhores serão adicionados!</em>
         </div>
-        <div class="parceiro-card">
-          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
-          <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
+      </section>
+      <section class="card" id="ranking">
+        <h2>🏆 Ranking Interno</h2>
+        <div style="margin-bottom:1.3em;">
+          <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
+          <button class="ranking-tab-btn" data-rank="mensal">Mensal</button>
         </div>
-        <div class="parceiro-card">
-          <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
-          <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
+        <ul class="ranking-list" id="rankingSemanal">
+          <li>Ranking semanal será iniciado em breve!</li>
+        </ul>
+        <ul class="ranking-list" id="rankingMensal" style="display:none">
+          <li>Ranking mensal será iniciado em breve!</li>
+        </ul>
+      </section>
+      <section class="card" id="staff">
+        <h2>🛡️ Equipe/Staff</h2>
+        <ul class="staff-list">
+          <li>
+            <span style="font-weight:bold; color:#FFD700;">LK</span> — Líder
+          </li>
+          <li>
+            <span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM
+          </li>
+          <li> 
+            <span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM
+          </li>
+          <li>
+            <span style="font-weight:bold; color:#FFD700;">SS MAFIOSO</span> — ADM
+          </li>
+        </ul>
+        <div style="margin:18px 0 0 0; color:#FFD70099; text-align:center; font-size:1.01em;">
+          <em>Novos membros da equipe serão apresentados em breve!</em>
         </div>
-      </div>
-      <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
-        <em>Quer ser parceiro? Fale conosco!</em>
-      </div>
-    </section>
-    <!-- Recrutamento -->
-    <section class="card" id="recrutamento">
-      <h2>🖊 Recrutamento</h2>
-      <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
-        Recrutamento <span style="color:#f05454">off-line</span>.<br>
-        <span style="color:#FFD700CC">Em breve teremos novas vagas!</span>
-      </div>
-    </section>
-    <!-- Streamers -->
-    <section class="card" id="streamers">
-      <h2>🎥 Streamers da Guilda</h2>
-      <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
-        Nenhum Streamer Encontrado.<br>
-        <span style="color:#FFD70099; font-size:0.9em;">
-          Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!
-        </span>
-      </div>
-    </section>
-    <!-- Avisos -->
-    <section class="card" id="avisos">
-      <h2>📝 Avisos Recentes</h2>
-      <ul class="avisos-list">
-        <li>
-          <span style="color:#FFD700;">🚧 Site em manutenção. Em breve novidades!</span>
-        </li>
-      </ul>
-    </section>
-    <!-- Denúncia -->
-    <section class="card" id="denuncia">
-      <h2>🚨 Denúncia de Membro</h2>
-      <form id="form-denuncia" style="max-width:440px;margin:auto;">
-        <label for="nick-denunciante" style="font-weight:600;color:#FFD700;">Seu Nick:</label>
-        <input type="text" id="nick-denunciante" required placeholder="Seu nick no jogo" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" />
-        <label for="nick-denunciado" style="font-weight:600;color:#FFD700;">Nick/ID do Denunciado:</label>
-        <input type="text" id="nick-denunciado" required placeholder="Nick ou ID do membro" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" />
-        <label for="tipo-denuncia" style="font-weight:600;color:#FFD700;">Tipo de denúncia:</label>
-        <select id="tipo-denuncia" required style="width:100%;padding:7px 8px;margin:7px 0 14px;">
-          <option value="">Selecione...</option>
-          <option value="comportamento">Comportamento tóxico</option>
-          <option value="hack">Hack/Trapaça</option>
-          <option value="spam">Spam/Divulgação</option>
-          <option value="outro">Outro</option>
-        </select>
-        <label for="desc-denuncia" style="font-weight:600;color:#FFD700;">Descrição do ocorrido:</label>
-        <textarea id="desc-denuncia" rows="4" required placeholder="Explique o que aconteceu" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;"></textarea>
-        <label for="midia-denuncia" style="font-weight:600;color:#FFD700;">Anexar prova (foto .png ou vídeo):</label>
-        <input type="file" id="midia-denuncia" accept="image/png,image/jpeg,video/*" style="width:100%;margin:7px 0 18px;" />
-        <button type="submit" style="width:100%;background:linear-gradient(90deg,#FFD700 80%,#f05454 100%);color:#181c26;font-weight:bold;padding:10px 0;font-size:1.1em;border:none;border-radius:10px;box-shadow:0 3px 12px #FFD70055;">Enviar denúncia</button>
-      </form>
-      <div id="msg-denuncia" style="margin-top:18px;text-align:center;color:#FFD700;font-weight:bold;display:none;"></div>
-    </section>
-  </main>
-  <button id="btn-topo" title="Voltar ao topo">↑</button>
-  <footer style="text-align:center;color:#FFD70099;padding:16px 6px;font-size:1.05em;background:var(--footer-bg);border-top:2px solid #FFD70022;letter-spacing:0.3px;">
+      </section>
+      <section class="card" id="regras">
+        <h2>📜 Regras da Guilda</h2>
+        <ul style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
+          <li>Respeitar todos os membros, sem exceção.</li>
+          <li>Participar dos treinos e eventos sempre que possível.</li>
+          <li>Proibido uso de cheats, hacks ou qualquer trapaça.</li>
+          <li>Mantenha o grupo saudável: sem brigas, sem preconceito.</li>
+          <li>Compartilhe resultados dos jogos nos grupos oficiais.</li>
+          <li>Novas regras podem ser adicionadas conforme necessário.</li>
+        </ul>
+        <div style="color:#FFD70099; font-size:1em;text-align:center;">
+          <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
+        </div>
+      </section>
+      <section class="card" id="guerra">
+        <h2>⚔️ Contagem da Guerra</h2>
+        <div style="margin:32px 0;text-align:center;">
+          <span id="contador-guerra" style="font-size:1em; color:#FFD700; font-weight:600; background:#23253c; padding:6px 12px; border-radius:10px; box-shadow:0 2px 8px #FFD70033;"></span>
+        </div>
+        <div style="color:#FFD70099; text-align:center; margin-top:18px;">Acompanhe o tempo até a próxima guerra!</div>
+        <div style="color:#FFD70099; text-align:center; margin-top:10px;">
+          <b>Fuso selecionado:</b>
+          <select id="fuso-guerra">
+            <option value="-3">Brasília (UTC-3)</option>
+            <option value="-4">Amazonas (UTC-4)</option>
+          </select>
+          <span id="hora-reset-info" style="margin-left:12px;"></span>
+        </div>
+      </section>
+      <section class="card" id="parceiros">
+        <h2>🤝 Parceiros Soberanos FF</h2>
+        <div class="parceiros-list">
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
+            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
+            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
+            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+        </div>
+        <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
+          <em>Quer ser parceiro? Fale conosco!</em>
+        </div>
+      </section>
+      <section class="card" id="recrutamento">
+        <h2>🖊 Recrutamento</h2>
+        <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
+          Recrutamento <span style="color:#f05454">off-line</span>.<br>
+          <span style="color:#FFD700CC">Em breve teremos novas vagas!</span>
+        </div>
+      </section>
+      <section class="card" id="streamers">
+        <h2>🎥 Streamers da Guilda</h2>
+        <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
+          Nenhum Streamer Encontrado.<br>
+          <span style="color:#FFD70099; font-size:0.9em;">
+            Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!
+          </span>
+        </div>
+      </section>
+      <section class="card" id="avisos">
+        <h2>📝 Avisos Recentes</h2>
+        <ul class="avisos-list">
+          <li>
+            <span style="color:#FFD700;">🚧 Site em manutenção. Em breve novidades!</span>
+          </li>
+        </ul>
+      </section>
+      <section class="card" id="denuncia">
+        <h2>🚨 Denúncia de Membro</h2>
+        <form id="form-denuncia" style="max-width:440px;margin:auto;">
+          <label for="nick-denunciante" style="font-weight:600;color:#FFD700;">Seu Nick:</label>
+          <input type="text" id="nick-denunciante" required placeholder="Seu nick no jogo" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Seu Nick" />
+          <label for="nick-denunciado" style="font-weight:600;color:#FFD700;">Nick/ID do Denunciado:</label>
+          <input type="text" id="nick-denunciado" required placeholder="Nick ou ID do membro" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Nick do Denunciado"/>
+          <label for="tipo-denuncia" style="font-weight:600;color:#FFD700;">Tipo de denúncia:</label>
+          <select id="tipo-denuncia" required style="width:100%;padding:7px 8px;margin:7px 0 14px;" aria-label="Tipo de denúncia">
+            <option value="">Selecione...</option>
+            <option value="comportamento">Comportamento tóxico</option>
+            <option value="hack">Hack/Trapaça</option>
+            <option value="spam">Spam/Divulgação</option>
+            <option value="outro">Outro</option>
+          </select>
+          <label for="desc-denuncia" style="font-weight:600;color:#FFD700;">Descrição do ocorrido:</label>
+          <textarea id="desc-denuncia" rows="4" required placeholder="Explique o que aconteceu" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Descrição do ocorrido"></textarea>
+          <label for="midia-denuncia" style="font-weight:600;color:#FFD700;">Anexar prova (foto .png ou vídeo):</label>
+          <input type="file" id="midia-denuncia" accept="image/png,image/jpeg,video/*" style="width:100%;margin:7px 0 18px;" aria-label="Anexar prova" />
+          <button type="submit" style="width:100%;background:linear-gradient(90deg,#FFD700 80%,#f05454 100%);color:#191a32;font-weight:bold;padding:10px 0;font-size:1.1em;border:none;border-radius:10px;box-shadow:0 3px 12px #FFD70055;">Enviar denúncia</button>
+        </form>
+        <div id="msg-denuncia" style="margin-top:18px;text-align:center;color:#FFD700;font-weight:bold;display:none;"></div>
+      </section>
+      <section class="card" id="sugestoes">
+        <h2>💡 Envie sua Sugestão</h2>
+        <form id="form-sugestao" style="max-width:440px;margin:auto;">
+          <label for="tipo-sugestao" style="font-weight:600;color:#FFD700;">Tipo:</label>
+          <select id="tipo-sugestao" required style="width:100%;padding:7px 8px;margin:7px 0 14px;" aria-label="Tipo de sugestão">
+            <option value="">Selecione...</option>
+            <option value="site">Para o site</option>
+            <option value="guilda">Para a guilda</option>
+          </select>
+          <label for="texto-sugestao" style="font-weight:600;color:#FFD700;">Sugestão:</label>
+          <textarea id="texto-sugestao" rows="4" required placeholder="Digite sua sugestão" style="width:100%;padding:7px 8px;margin:7px 0 14px;border-radius:8px;" aria-label="Sugestão"></textarea>
+          <button type="submit" style="width:100%;background:linear-gradient(90deg,#FFD700 80%,#f05454 100%);color:#191a32;font-weight:bold;padding:10px 0;font-size:1.1em;border:none;border-radius:10px;box-shadow:0 3px 12px #FFD70055;">Enviar sugestão</button>
+        </form>
+        <div id="msg-sugestao" style="margin:15px 0 0 0; text-align:center; color:#FFD700; font-weight:bold; display:none;"></div>
+        <h2 style="margin-top:32px;font-size:1.2em;">Sugestões Recentes</h2>
+        <ul id="lista-sugestoes" style="margin-top:20px;"></ul>
+      </section>
+    </div>
+  </div>
+  <footer>
     &copy; 2025 Soberanos FF. Painel feito para a comunidade Free Fire.<br>
-    <span style="color:var(--accent);font-weight:700;">#SoberanosNoTop</span>
-    <div style="margin:12px 0;font-size:0.96em;color:#FFD700BB;">
+    <span style="color:var(--menu-accent);font-weight:700;">#SoberanosNoTop</span>
+    <div style="margin:10px 0;font-size:0.93em;color:#FFD700BB;">
       Status da guilda: <b>Em manutenção</b>
     </div>
-    <div id="lastUpdate" style="margin:7px 0 0 0;font-size:0.92em;color:#fff;"></div>
-    <div style="margin-top:10px;font-size:0.93em;color:#FFD700BB;">
+    <div id="lastUpdate" style="margin:6px 0 0 0;font-size:0.88em;color:#fff;"></div>
+    <div style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       Desenvolvido por <b>SS DG 👑</b>
     </div>
   </footer>
   <div id="toast" class="toast-notification"></div>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Troca de abas com animação
-    document.querySelectorAll('.tab-btn').forEach(btn => {
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 16, "density": { "enable": true, "value_area": 1200 } },
+        "color": { "value": ["#FFD700", "#fff", "#f05454", "#161616"] },
+        "shape": {
+          "type": ["polygon"],
+          "stroke": { "width": 0 },
+          "polygon": { "nb_sides": 6 }
+        },
+        "opacity": {
+          "value": 0.19, "random": true,
+          "anim": { "enable": true, "speed": 0.3, "opacity_min": 0.07, "sync": false }
+        },
+        "size": {
+          "value": 21,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "line_linked": { "enable": false },
+        "move": {
+          "enable": true,
+          "speed": 0.29,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": false },
+          "onclick": { "enable": false },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Menu hamburger
+    const menuHamburger = document.getElementById('menuHamburger');
+    const menuNav = document.getElementById('menuNav');
+    menuHamburger.addEventListener('click', function() {
+      menuHamburger.classList.toggle('open');
+      menuNav.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e) {
+      if(window.innerWidth <= 700 && menuNav.classList.contains('open')) {
+        if(!menuNav.contains(e.target) && e.target !== menuHamburger) {
+          menuNav.classList.remove('open');
+          menuHamburger.classList.remove('open');
+        }
+      }
+    });
+    document.querySelectorAll('.menu-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
         setTimeout(() => {
           document.getElementById(btn.dataset.tab).classList.add('active');
-        }, 60);
+        }, 40);
+        if(window.innerWidth <= 700) {
+          menuNav.classList.remove('open');
+          menuHamburger.classList.remove('open');
+        }
       });
     });
-
-    // Ranking tabs (semanal/mensal)
     document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
@@ -545,8 +621,6 @@
         document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
       });
     });
-
-    // Toast Notification
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
       toast.textContent = '';
@@ -557,90 +631,66 @@
         toast.classList.add('show');
         setTimeout(() => {
           toast.classList.remove('show');
-        }, 2600);
+        }, 2500);
       }, 80);
     }
-
-    // Botão voltar ao topo
-    const btnTopo = document.getElementById('btn-topo');
-    window.addEventListener('scroll', () => {
-      btnTopo.style.display = window.scrollY > 200 ? 'flex' : 'none';
-    });
-    btnTopo.addEventListener('click', () => {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-
-    // Última atualização dinâmica
     document.getElementById('lastUpdate').textContent =
       "Última atualização: " + new Date().toLocaleString('pt-BR');
 
-    // Tema claro/escuro
-    const themeToggle = document.getElementById("themeToggle");
-    let light = false;
-    themeToggle.addEventListener('click', function() {
-      light = !light;
-      document.body.style.background = light
-        ? "linear-gradient(135deg, #fffbe7 0%, #e7eafc 100%)"
-        : "linear-gradient(135deg, #181c26 0%, #23253c 100%)";
-      document.body.style.color = light ? "#181c26" : "#fff";
-      themeToggle.textContent = light ? "☀️" : "🌙";
-    });
-
-    // Contador regressivo da guerra
-    const sabadoHoraGuerra = { "-3": 16, "-4": 15 };
+    // CONTADOR GUERRA ESPECIAL (inicia Sábado 00:00 BR/23:00 AM, termina Sábado 23:59:59)
+    const horaInicioGuerra = {"-3": 0, "-4": 23}; // 00:00 Brasília, 23:00 Amazonas
+    const horaFimGuerra = {"-3": 23, "-4": 22}; // 23:59 Brasília, 22:59 Amazonas (ajuste para terminar no mesmo sábado em ambos)
+    function isGuerraEmAndamento(fuso) {
+      const now = new Date();
+      const diaSemana = now.getUTCDay();
+      let horaLocal = now.getUTCHours() + parseInt(fuso);
+      if(horaLocal < 0) horaLocal += 24;
+      if(horaLocal > 23) horaLocal -= 24;
+      if(diaSemana === 6) { // sábado
+        if(horaLocal >= horaInicioGuerra[fuso] && horaLocal <= horaFimGuerra[fuso]) return true;
+      }
+      return false;
+    }
     function getProximaGuerra(fuso) {
       const now = new Date();
-      let horaAgora = now.getUTCHours() + parseInt(fuso);
       let diaSemana = now.getUTCDay();
-      let minutoAgora = now.getUTCMinutes();
-      let segundoAgora = now.getUTCSeconds();
-
-      if (diaSemana === 6) {
-        if (horaAgora < sabadoHoraGuerra[fuso] ||
-           (horaAgora === sabadoHoraGuerra[fuso] && minutoAgora === 0 && segundoAgora === 0)) {
-          let hojeSabado = new Date(now);
-          hojeSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
-          return hojeSabado;
-        } else {
-          let proxSabado = new Date(now);
-          proxSabado.setUTCDate(proxSabado.getUTCDate() + 7);
-          proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
-          return proxSabado;
-        }
+      let horaLocal = now.getUTCHours() + parseInt(fuso);
+      if(horaLocal < 0) horaLocal += 24;
+      if(horaLocal > 23) horaLocal -= 24;
+      let proximoSabado = new Date(now);
+      if(diaSemana > 6 || (diaSemana === 6 && horaLocal >= horaInicioGuerra[fuso])) {
+        // se já passou do início, calcula próximo sábado
+        proximoSabado.setUTCDate(proximoSabado.getUTCDate() + (7 - diaSemana));
       } else {
-        let proxSabado = new Date(now);
-        let diasAteSabado = (6 - diaSemana + 7) % 7;
-        proxSabado.setUTCDate(proxSabado.getUTCDate() + diasAteSabado);
-        proxSabado.setUTCHours(sabadoHoraGuerra[fuso] - parseInt(fuso), 0, 0, 0);
-        return proxSabado;
+        proximoSabado.setUTCDate(proximoSabado.getUTCDate() + ((6 - diaSemana) % 7));
       }
+      proximoSabado.setUTCHours(horaInicioGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+      return proximoSabado;
     }
     function atualizarInfoReset(fuso) {
       const info = document.getElementById('hora-reset-info');
-      info.textContent = `Guerra todo sábado às ${sabadoHoraGuerra[fuso]}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;
+      info.textContent = `Guerra todo sábado às ${horaInicioGuerra[fuso].toString().padStart(2,"0")}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;
     }
     function iniciarContadorGuerraFuso() {
       let fuso = document.getElementById("fuso-guerra").value;
       atualizarInfoReset(fuso);
       function atualizar() {
         const el = document.getElementById('contador-guerra');
-        const agora = new Date();
-        const proximaGuerra = getProximaGuerra(fuso);
-        let diff = proximaGuerra - agora;
-        let horaAgora = agora.getUTCHours() + parseInt(fuso);
-        let diaSemana = agora.getUTCDay();
-        if (diaSemana === 6 && horaAgora >= sabadoHoraGuerra[fuso]) {
-          el.textContent = "Guerra de Guilda Em Andamento 🔥";
+        if(isGuerraEmAndamento(fuso)) {
+          el.textContent = "Guerra Em Andamento 🔥";
         } else {
+          const agora = new Date();
+          const proximaGuerra = getProximaGuerra(fuso);
+          let diff = proximaGuerra - agora;
           if (diff > 0) {
             const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutos = Math.floor((diff / (1000 * 60)) % 60);
             const segundos = Math.floor((diff / 1000) % 60);
             el.textContent =
-              `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para a Guerra de Guilda!`;
+              `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s para a próxima Guerra!`;
           } else {
-            el.textContent = "Guerra de Guilda Em Andamento 🔥";
+            el.textContent = "Guerra Em Andamento 🔥";
           }
         }
       }
@@ -658,20 +708,19 @@
     }
     if(localStorage.getItem("guerraBadgeVisto") !== "sim") {
       mostrarBadge("guerra");
-      document.querySelector('button[data-tab="guerra"]').addEventListener("click", function() {
+      document.querySelector('.menu-btn[data-tab="guerra"]').addEventListener("click", function() {
         document.getElementById('badge-guerra').style.display = "none";
         localStorage.setItem("guerraBadgeVisto", "sim");
       }, {once:true});
     }
     if(localStorage.getItem("avisosBadgeVisto") !== "sim") {
       mostrarBadge("avisos");
-      document.querySelector('button[data-tab="avisos"]').addEventListener("click", function() {
+      document.querySelector('.menu-btn[data-tab="avisos"]').addEventListener("click", function() {
         document.getElementById('badge-avisos').style.display = "none";
         localStorage.setItem("avisosBadgeVisto", "sim");
       }, {once:true});
     }
-
-    // ---------- DENÚNCIA: Salvar e exibir em avisos, prints aparecem, somem após 3 dias ----------
+    // DENÚNCIA E SUGESTÕES - igual versões anteriores, mantido para funcionalidade
     function fileToBase64(file, callback) {
       const reader = new FileReader();
       reader.onload = function(e) { callback(e.target.result); };
@@ -696,7 +745,7 @@
         li.className = 'denuncia-aviso';
         let anexo = '';
         if (den.midiaDataUrl) {
-          anexo = `<br><b>Anexo:</b><br><img src="${den.midiaDataUrl}" alt="Prova" style="max-width:220px;max-height:140px;border-radius:8px;border:2px solid #FFD700;margin:6px 0;">`;
+          anexo = `<br><b>Anexo:</b><br><img src="${den.midiaDataUrl}" alt="Prova" style="max-width:120px;max-height:80px;border-radius:5px;border:2px solid #FFD700;margin:4px 0;">`;
         } else if (den.midiaName) {
           anexo = `<br><b>Anexo:</b> ${den.midiaName}`;
         }
@@ -706,11 +755,10 @@
           <b>Tipo:</b> ${den.tipo}<br>
           <b>Descrição:</b> ${den.desc}
           ${anexo}
-          <br><span style="font-size:0.95em;color:#FFD70099;">${new Date(den.dataISO || den.data).toLocaleString('pt-BR')}</span>`;
+          <br><span style="font-size:0.92em;color:#FFD70099;">${new Date(den.dataISO || den.data).toLocaleString('pt-BR')}</span>`;
         avisosList.prepend(li);
       });
     }
-
     document.addEventListener('DOMContentLoaded', function() {
       var formDenuncia = document.getElementById('form-denuncia');
       if(formDenuncia) {
@@ -721,12 +769,10 @@
           const tipo = document.getElementById('tipo-denuncia').value;
           const desc = document.getElementById('desc-denuncia').value.trim();
           const midia = document.getElementById('midia-denuncia').files[0];
-
           if (!nickDenunciante || !nickDenunciado || !tipo || !desc) {
             showToast("Preencha todos os campos obrigatórios!", 'error');
             return;
           }
-
           function salvarEDepois(midiaDataUrl, midiaName) {
             let denuncias = getDenunciasAtuais();
             denuncias.push({
@@ -743,9 +789,8 @@
             formDenuncia.reset();
             setTimeout(() => {
               document.getElementById('msg-denuncia').style.display = 'none';
-            }, 3500);
+            }, 2300);
           }
-
           if(midia && midia.type.startsWith('image/')) {
             fileToBase64(midia, function(base64) {
               salvarEDepois(base64, midia.name);
@@ -756,7 +801,52 @@
         });
         renderDenunciasNosAvisos();
       }
+      function getSugestoesAtuais() {
+        let sugestoes = JSON.parse(localStorage.getItem('sugestoesGuilda') || '[]');
+        return sugestoes.slice(-20);
+      }
+      function renderSugestoes() {
+        const lista = document.getElementById('lista-sugestoes');
+        if(!lista) return;
+        lista.innerHTML = '';
+        getSugestoesAtuais().slice().reverse().forEach(sug => {
+          const li = document.createElement('li');
+          li.style.marginBottom = '10px';
+          li.style.background = sug.tipo === 'site' ? '#FFD70018' : '#f0545413';
+          li.style.color = sug.tipo === 'site' ? '#FFD700' : '#f05454';
+          li.style.borderLeft = '4px solid ' + (sug.tipo === 'site' ? '#FFD700' : '#f05454');
+          li.style.padding = '7px 8px';
+          li.style.borderRadius = '6px';
+          li.innerHTML = `<b>${sug.tipo === 'site' ? 'Site' : 'Guilda'}:</b> ${sug.texto}
+            <div style="font-size:0.89em;color:#FFD70099;">${sug.data}</div>`;
+          lista.appendChild(li);
+        });
+      }
+      var formSugestao = document.getElementById('form-sugestao');
+      if(formSugestao) {
+        formSugestao.addEventListener('submit', function(e){
+          e.preventDefault();
+          const tipo = document.getElementById('tipo-sugestao').value;
+          const texto = document.getElementById('texto-sugestao').value.trim();
+          if (!tipo || !texto) return;
+          let sugestoes = getSugestoesAtuais();
+          sugestoes.push({
+            tipo,
+            texto,
+            data: new Date().toLocaleString("pt-BR")
+          });
+          localStorage.setItem('sugestoesGuilda', JSON.stringify(sugestoes));
+          document.getElementById('msg-sugestao').style.display = 'block';
+          document.getElementById('msg-sugestao').textContent = "Sugestão enviada! Obrigado!";
+          formSugestao.reset();
+          renderSugestoes();
+          setTimeout(() => {
+            document.getElementById('msg-sugestao').style.display = 'none';
+          }, 2000);
+        });
+        renderSugestoes();
+      }
     });
   </script>
 </body>
-  </html>
+        </html>
