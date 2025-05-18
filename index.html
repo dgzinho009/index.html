@@ -172,7 +172,6 @@
     }
     .btn-contato:hover { background:linear-gradient(90deg,#FFD700 85%,#ffd70044 100%); color:#f05454;}
     .parceiro-card {margin-bottom:15px; text-align:center;}
-    /* Toast Notification aprimorado */
     .toast-notification {
       position: fixed; z-index: 2002; right: 20px; bottom: 20px; min-width: 200px; background: #191919e6; color: var(--gold); border-radius: 13px; box-shadow: 0 2px 16px #FFD70044, 0 0 0 2px #FFD70024; padding: 14px 18px 13px 15px; margin: 0; font-size: 1.04em; font-weight: 700; opacity: 0; pointer-events: none; transform: translateY(30px) scale(0.95); transition: all .25s;
     }
@@ -208,27 +207,45 @@
     <section class="sobre-guilda">
       Aqui é respeito, estratégia e diversão. Painel oficial da guilda Soberanos FF.<br>
       <span style="color:#f05454">Status: Em manutenção</span>
-    <section class="card active" id="membros">
-  <h2>⭐️ Melhores da Semana</h2>
-  <ol style="list-style: decimal inside; color: #FFD700; font-weight: 700; font-size: 1.18em; padding-left: 0; margin: 0 0 16px 0;">
-    <li style="margin-bottom:7px;">
-      <span style="background:linear-gradient(90deg,#FFD700 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">1º</span>
-      DEPAY10
-      <span style="font-size:0.91em;color:#FFD700aa;font-weight:500;">(Top pontuador)</span>
-    </li>
-    <li style="margin-bottom:7px;">
-      <span style="background:linear-gradient(90deg,#d4af37aa 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">2º</span>
-      SS NARUTO
-    </li>
-    <li>
-      <span style="background:linear-gradient(90deg,#fffbe8 80%,#FFD70055 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">3º</span>
-      GUSTAX.xp⁷
-    </li>
-  </ol>
-  <div style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
-    Parabéns aos melhores pontuadores desta semana!
-  </div>
     </section>
+    <div class="status-guilda" aria-label="Status da guilda">
+      Status da guilda: <span style="color:#f05454;">Em manutenção</span>
+    </div>
+    <div class="cards-grid">
+      <section class="card active" id="membros">
+        <h2>⭐️ Melhores da Semana</h2>
+        <ol style="list-style: decimal inside; color: #FFD700; font-weight: 700; font-size: 1.18em; padding-left: 0; margin: 0 0 16px 0;">
+          <li style="margin-bottom:7px;">
+            <span style="background:linear-gradient(90deg,#FFD700 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">1º</span>
+            DEPAY10
+            <span style="font-size:0.91em;color:#FFD700aa;font-weight:500;">(Top pontuador)</span>
+          </li>
+          <li style="margin-bottom:7px;">
+            <span style="background:linear-gradient(90deg,#d4af37aa 80%,#fff 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">2º</span>
+            SS NARUTO
+          </li>
+          <li>
+            <span style="background:linear-gradient(90deg,#fffbe8 80%,#FFD70055 100%);color:#161616;padding:3px 12px;border-radius:8px 0 0 8px; font-weight:900; margin-right:7px;">3º</span>
+            GUSTAX.xp⁷
+          </li>
+        </ol>
+        <div style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
+          Parabéns aos melhores pontuadores desta semana!
+        </div>
+      </section>
+      <section class="card" id="ranking">
+        <h2>🏆 Ranking Interno</h2>
+        <div style="margin-bottom:1.3em;">
+          <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
+          <button class="ranking-tab-btn" data-rank="mensal">Mensal</button>
+        </div>
+        <ul class="ranking-list" id="rankingSemanal">
+          <li>Ranking semanal será iniciado em breve!</li>
+        </ul>
+        <ul class="ranking-list" id="rankingMensal" style="display:none">
+          <li>Ranking mensal será iniciado em breve!</li>
+        </ul>
+      </section>
       <section class="card" id="staff">
         <h2>🛡️ Equipe/Staff</h2>
         <ul class="staff-list">
@@ -238,7 +255,7 @@
           <li>
             <span style="font-weight:bold; color:#FFD700;">SS NARUTO</span> — ADM
           </li>
-          <li> 
+          <li>
             <span style="font-weight:bold; color:#FFD700;">SS GUSTAX</span> — ADM
           </li>
           <li>
@@ -281,29 +298,28 @@
         </div>
       </section>
       <section class="card" id="parceiros">
-      <section class="card" id="parceiros">
-  <h2>🤝 Parceiros Soberanos FF</h2>
-  <div class="parceiros-list">
-    <div class="parceiro-card">
-      <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
-      <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
-    </div>
-    <div class="parceiro-card">
-      <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Grupo Soberanos 2 (nossa segunda guilda)</div>
-      <a href="https://chat.whatsapp.com/KJnLdXOSkPeKDJ00ACWjU6" target="_blank" class="btn-contato">Entrar no Grupo</a>
-    </div>
-    <div class="parceiro-card">
-      <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
-      <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
-    </div>
-    <div class="parceiro-card">
-      <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
-      <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
-    </div>
-  </div>
-  <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
-    <em>Quer ser parceiro? Fale conosco!</em>
-  </div>
+        <h2>🤝 Parceiros Soberanos FF</h2>
+        <div class="parceiros-list">
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
+            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Grupo Soberanos 2 (nossa segunda guilda)</div>
+            <a href="https://chat.whatsapp.com/KJnLdXOSkPeKDJ00ACWjU6" target="_blank" class="btn-contato">Entrar no Grupo</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
+            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
+            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="btn-contato">Entrar Em Contato</a>
+          </div>
+        </div>
+        <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
+          <em>Quer ser parceiro? Fale conosco!</em>
+        </div>
       </section>
       <section class="card" id="recrutamento">
         <h2>🖊 Recrutamento</h2>
@@ -401,7 +417,6 @@
       },
       "retina_detect": true
     });
-
     // Menu hamburguer e troca de abas
     const menuHamburger = document.getElementById('menuHamburger');
     const menuNav = document.getElementById('menuNav');
@@ -439,7 +454,6 @@
         document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
       });
     });
-
     // CONTADOR GUERRA
     const horaGuerra = { "-3": 16, "-4": 15 };
     const horaGuerraFim = { "-3": 23, "-4": 22 }; // 23:59 ou 22:59
@@ -502,7 +516,6 @@
     }
     document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
     iniciarContadorGuerraFuso();
-
     // Badge animado
     function mostrarBadge(tabId) {
       if(tabId === "avisos") document.getElementById('badge-avisos').style.display = "inline-block";
@@ -522,12 +535,10 @@
         localStorage.setItem("avisosBadgeVisto", "sim");
       }, {once:true});
     }
-
     // Última atualização dinâmica
     document.getElementById('lastUpdate').textContent =
       "Última atualização: " + new Date().toLocaleString('pt-BR');
-
-    // Denúncia e sugestões (otimizado, localStorage, igual versões anteriores)
+    // Denúncia e sugestões
     function fileToBase64(file, callback) {
       const reader = new FileReader();
       reader.onload = function(e) { callback(e.target.result); };
@@ -669,4 +680,4 @@
     }
   </script>
 </body>
-        </html>
+              </html>
