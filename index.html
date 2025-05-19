@@ -358,6 +358,30 @@
       font-weight: bold;
       display: none;
     }
+
+    /* Alinha os radios e checkboxes ao texto */
+    .form-check-group { margin-bottom: 14px; }
+    .form-check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 7px;
+    }
+    #form-recrutamento input[type="radio"], #form-recrutamento input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      margin-right: 7px;
+      margin-left: 0;
+      vertical-align: middle;
+      position: relative;
+      top: 0;
+    }
+    @media (max-width: 600px) {
+      .form-check-row span {
+        font-size: 1em !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -531,34 +555,39 @@
           <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe"/>
 
           <label style="color:#FFD700;font-weight:600;">6. Qual sua função principal?</label>
-          <div style="margin-bottom:14px;">
-            <label><input type="radio" name="funcao" value="Rushador" required> Rushador</label><br>
-            <label><input type="radio" name="funcao" value="Suporte"> Suporte</label><br>
-            <label><input type="radio" name="funcao" value="Capitão / Líder de cal"> Capitão / Líder de cal</label><br>
-            <label><input type="radio" name="funcao" value="Sniper"> Sniper</label>
+          <div class="form-check-group">
+            <div class="form-check-row"><input type="radio" name="funcao" value="Rushador" required> <span>Rushador</span></div>
+            <div class="form-check-row"><input type="radio" name="funcao" value="Suporte"> <span>Suporte</span></div>
+            <div class="form-check-row"><input type="radio" name="funcao" value="Capitão / Líder de cal"> <span>Capitão / Líder de cal</span></div>
+            <div class="form-check-row"><input type="radio" name="funcao" value="Sniper"> <span>Sniper</span></div>
           </div>
 
           <label style="color:#FFD700;font-weight:600;">7. Você tem disponibilidade para:</label>
-          <div style="margin-bottom:14px;">
-            <label><input type="checkbox" name="disp" value="Treinos"> Treinos</label><br>
-            <label><input type="checkbox" name="disp" value="Campeonatos"> Campeonatos</label><br>
-            <label><input type="checkbox" name="disp" value="Guerras de guilda"> Guerras de guilda</label>
+          <div class="form-check-group">
+            <div class="form-check-row"><input type="checkbox" name="disp" value="Treinos"> <span>Treinos</span></div>
+            <div class="form-check-row"><input type="checkbox" name="disp" value="Campeonatos"> <span>Campeonatos</span></div>
+            <div class="form-check-row"><input type="checkbox" name="disp" value="Guerras de guilda"> <span>Guerras de guilda</span></div>
           </div>
 
           <label style="color:#FFD700;font-weight:600;">8. Qual modo você manda melhor?</label>
-          <div style="margin-bottom:14px;">
-            <label><input type="radio" name="modo" value="4x4 competitivo" required> 4x4 competitivo</label><br>
-            <label><input type="radio" name="modo" value="X1 dos cria"> X1 dos cria</label><br>
-            <label><input type="radio" name="modo" value="Camp / Ranked"> Camp / Ranked</label><br>
-            <label><input type="radio" name="modo" value="Outro"> Outro</label>
-            <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique"/>
+          <div class="form-check-group">
+            <div class="form-check-row"><input type="radio" name="modo" value="4x4 competitivo" required> <span>4x4 competitivo</span></div>
+            <div class="form-check-row"><input type="radio" name="modo" value="X1 dos cria"> <span>X1 dos cria</span></div>
+            <div class="form-check-row"><input type="radio" name="modo" value="Camp / Ranked"> <span>Camp / Ranked</span></div>
+            <div class="form-check-row" style="align-items: flex-start;">
+              <input type="radio" name="modo" value="Outro">
+              <span style="flex:1;">
+                Outro<br>
+                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;"/>
+              </span>
+            </div>
           </div>
 
           <label style="color:#FFD700;font-weight:600;">9. Você tem como trocar o nick para usar o nome da guilda?</label>
-          <div style="margin-bottom:14px;">
-            <label><input type="radio" name="troca_nick" value="Sim" required> Sim</label>
-            <label><input type="radio" name="troca_nick" value="Não"> Não</label>
-            <label><input type="radio" name="troca_nick" value="Em breve"> Em breve</label>
+          <div class="form-check-group">
+            <div class="form-check-row"><input type="radio" name="troca_nick" value="Sim" required> <span>Sim</span></div>
+            <div class="form-check-row"><input type="radio" name="troca_nick" value="Não"> <span>Não</span></div>
+            <div class="form-check-row"><input type="radio" name="troca_nick" value="Em breve"> <span>Em breve</span></div>
           </div>
 
           <label style="color:#FFD700;font-weight:600;">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
@@ -666,7 +695,7 @@
         document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? '' : 'none';
-        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
+        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? 'block' : 'none';
       });
     });
 
@@ -801,4 +830,4 @@ Caminhe com reis. Jogue como um soberano. 👑
       "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-        </html>
+</html>
