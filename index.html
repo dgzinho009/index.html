@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Painel Soberanos FF — Novo Layout</title>
+  <title>Painel Guilda Soberanos FF</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFD700">
   <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
@@ -16,9 +16,7 @@
       --white: #fff;
       --accent: #f05454;
       --shadow: 0 2px 18px #0008;
-      --radius: 24px;
-      --blue: #2a3a6c;
-      --gray: #232323;
+      --radius: 32px;
     }
     html, body { height: 100%; }
     body {
@@ -31,7 +29,6 @@
       overflow-x: hidden;
       position: relative;
     }
-    #particles-js { position: fixed; z-index: 0; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; }
     header {
       background: linear-gradient(100deg, #181818 60%, var(--gold) 100%);
       box-shadow: 0 6px 24px #FFD70022;
@@ -90,11 +87,24 @@
       background: linear-gradient(90deg, var(--gold) 90%, #fff 100%); color: #161616; border-bottom: 2.5px solid var(--accent);
       box-shadow: 0 2px 10px #FFD70033; font-weight: 900; z-index: 10; transform: translateY(-2px) scale(1.05);
     }
-    .badge-new {
-      position: absolute; top: 3px; right: 12px; background: var(--accent); color: #fff; border-radius: 8px; font-size: 0.7em;
-      padding: 2px 7px; font-weight: 900; box-shadow: 0 1px 8px #f0545477; animation: badgePulse 1s infinite alternate; z-index: 2; text-shadow: 0 2px 8px #181818;
+    .badge-dot {
+      position: absolute;
+      top: 8px;
+      right: 11px;
+      width: 14px;
+      height: 14px;
+      background: #FFD700;
+      border: 2px solid #232323;
+      border-radius: 50%;
+      box-shadow: 0 1px 8px #FFD70088;
+      animation: badgePulse 1s infinite alternate;
+      z-index: 3;
+      display: inline-block;
     }
-    @keyframes badgePulse { 0% { box-shadow: 0 0 8px #f0545455; } 100% { box-shadow: 0 0 18px #f05454cc; } }
+    @keyframes badgePulse {
+      0% { box-shadow: 0 0 8px #FFD70055; }
+      100% { box-shadow: 0 0 18px #FFD700cc; }
+    }
     @media (max-width: 950px) {
       .cards-grid { grid-template-columns: 1fr; }
       .card { padding: 10px 2vw 8px 2vw; }
@@ -123,53 +133,150 @@
       .logo { width: 48px; height: 48px;}
     }
     .main-content { max-width: 1200px; margin: 0 auto; padding: 0 2vw 20px 2vw; z-index: 1; position: relative; margin-top: 13px; }
-    .banner {
-      position: relative;
-      background: linear-gradient(90deg, #FFD70044 0%, #232323 100%);
-      border-radius: var(--radius);
-      box-shadow: 0 4px 24px #FFD70033;
-      margin: 32px auto 30px auto;
-      padding: 32px 32px 32px 180px;
-      max-width: 900px;
+    .hero-banner {
+      margin: 30px auto 40px auto;
+      max-width: 520px;
+      background: radial-gradient(circle at 70% 30%, #FFD70033 0%, #232323 100%);
+      border-radius: 38px;
+      box-shadow: 0 2px 42px #FFD70011;
+      padding: 34px 18px 44px 18px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      overflow: hidden;
     }
-    .banner-logo {
-      position: absolute;
-      left: 32px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 120px; height: 120px; border-radius: 30px;
-      border: 4px solid var(--gold);
-      background: #fff;
-      box-shadow: 0 2px 22px #ffd70044;
+    .hero-logo img {
+      width: 130px;
+      height: 130px;
+      border-radius: 26px;
+      border: 5px solid #FFD700;
+      box-shadow: 0 0 16px #FFD70044, 0 0 0 6px #232323;
+      background: #111;
+      object-fit: cover;
+      margin-bottom: 14px;
     }
-    .banner-content h1 {
-      color: var(--gold);
-      font-size: 2.3rem;
-      margin: 0 0 14px 0;
+    .guilda-title {
+      font-size: 1.36rem;
+      font-weight: 800;
+      color: #FFD700;
       letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 14px #FFD70044;
+      text-align: center;
+    }
+    .guilda-nome {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 0 0 8px 0;
+      justify-content: center;
+    }
+    .guilda-nome-principal {
+      font-size: 2.2rem;
       font-weight: 900;
-      text-shadow: 0 2px 18px #0006;
+      color: #FFD700;
+      letter-spacing: 6px;
+      text-shadow: 0 2px 16px #FFD70080, 0 1px 0 #fff3;
+      filter: drop-shadow(0 2px 10px #FFD70033);
     }
-    .banner-content p {
-      font-size: 1.18rem;
-      margin: 0 0 12px 0;
+    .guilda-nome-sufixo {
+      font-size: 1.34rem;
+      font-weight: 700;
+      color: #FFD700bb;
+      letter-spacing: 1.5px;
+      margin-left: 2px;
+      text-shadow: 0 1px 6px #FFD70022;
+    }
+    .guilda-frase {
+      font-size: 1.22rem;
       color: #fff;
-      text-shadow: 0 2px 8px #FFD70022;
+      margin-bottom: 2px;
+      text-align: center;
+      text-shadow: 0 1px 8px #FFD70022;
     }
-    .badge {
+    .guilda-frase-destaque {
+      color: #FFD700;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      font-size: 1.19em;
+      text-shadow: 0 2px 10px #FFD70088;
+    }
+    .guilda-novovisual {
+      margin: 13px 0 10px 0; text-align:center;
+    }
+    .novovisual-badge {
       display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.93em;
+      background: #232323;
+      color: #FFD700;
+      border: 1.5px solid #FFD70077;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05em;
+      padding: 5px 17px;
+      box-shadow: 0 2px 8px #FFD70011;
+      letter-spacing: 1px;
+    }
+    .guilda-cta {
+      margin-top: 33px;
+      text-align:center;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #FFD700 90%, #fff 100%);
+      color: #232323;
       font-weight: 900;
-      border-radius: 10px;
-      padding: 4px 14px;
-      margin-left: 12px;
-      box-shadow: 0 2px 12px #f0545477;
-      animation: pulseBadge 1.2s infinite alternate;
+      font-size: 1.32em;
+      letter-spacing: 1.5px;
+      padding: 15px 40px;
+      border-radius: 16px;
+      box-shadow: 0 2px 22px #FFD70077;
+      text-decoration: none;
+      transition: background .18s, color .11s, transform .13s;
+      border: none;
+      margin-bottom: 8px;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: linear-gradient(90deg, #FFD700 100%, #fff 100%);
+      color: #f05454;
+      transform: scale(1.03);
+    }
+    .cta-btn.whatsapp {
+      background: linear-gradient(90deg, #25D366 70%, #128C7E 100%);
+      color: #fff;
+      position: relative;
+    }
+    .cta-btn.whatsapp::before {
+      content: '';
+      display: inline-block;
+      background: url('https://img.icons8.com/color/48/000000/whatsapp.png') no-repeat center/contain;
+      width: 1.2em; height: 1.2em;
+      vertical-align: middle;
+      margin-right: 8px;
+      position: relative; top: 2px;
+    }
+    .cta-btn.group {
+      background: linear-gradient(90deg, #FFD700 90%, #fff 100%);
+      color: #181818;
+      margin-left: 0;
+      margin-top: 8px;
+      font-size: 1.13em;
+    }
+    .tab-loader {
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(24,24,24,0.32);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 3000;
+      pointer-events: all;
+    }
+    .loader {
+      width: 48px; height: 48px;
+      border: 5px solid #FFD70077;
+      border-top: 5px solid #FFD700;
+      border-radius: 50%;
+      animation: spin 0.85s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg);}
     }
     .destaque {
       background: linear-gradient(90deg, #FFD70033 70%, #232323 100%);
@@ -224,59 +331,36 @@
       display: inline-block;
       margin-right: 4px;
     }
-    .cta-btn {
-      display: inline-block;
-      margin-top: 19px;
-      background: linear-gradient(90deg, var(--gold) 72%, #fff 100%);
-      color: #181818;
-      font-weight: 800;
-      font-size: 1.13em;
-      padding: 11px 32px;
+    #form-recrutamento input,
+    #form-recrutamento select,
+    #form-recrutamento textarea {
+      width: 100%;
+      padding: 6px 8px;
+      margin: 7px 0 14px 0;
+      border-radius: 8px;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #FFD70055;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background .18s, color .13s, transform .12s;
-      letter-spacing: 1px;
+      font-family: inherit;
+      font-size: 1em;
+      background: #232323;
+      color: #FFD700;
+      box-shadow: 0 1px 5px #FFD70022;
+      outline: none;
+      transition: box-shadow 0.18s;
     }
-    .cta-btn:active, .cta-btn:hover {
-      background: linear-gradient(90deg, #FFD700 92%, #ffd70044 100%);
-      color: #f05454;
-      transform: scale(1.04);
+    #form-recrutamento input:focus, #form-recrutamento textarea:focus {
+      box-shadow: 0 2px 12px #FFD70077;
+      background: #181818;
     }
-    .cta-btn.whatsapp {
-      background: linear-gradient(90deg, #25D366 70%, #128C7E 100%);
-      color: #fff;
-      position: relative;
-    }
-    .cta-btn.whatsapp::before {
-      content: '';
-      display: inline-block;
-      background: url('https://img.icons8.com/color/48/000000/whatsapp.png') no-repeat center/contain;
-      width: 1.2em; height: 1.2em;
-      vertical-align: middle;
-      margin-right: 8px;
-      position: relative; top: 2px;
-    }
-    /* Responsivo Banner */
-    @media (max-width: 900px) {
-      .banner { padding-left: 150px; }
-      .banner-logo { left: 15px; width: 90px; height: 90px;}
-    }
-    @media (max-width: 700px) {
-      .banner { padding: 110px 12px 12px 12px; flex-direction: column;}
-      .banner-logo { position: static; left: 0; top: 0; transform: none; margin-bottom: 14px; }
-    }
-    @media (max-width: 530px) {
-      .banner-content h1 { font-size: 1.13rem;}
-      .title { font-size: 1.13rem;}
-      .logo { width: 48px; height: 48px;}
+    #msg-recrutamento {
+      margin-top: 18px;
+      text-align: center;
+      color: #FFD700;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
   <header>
     <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" />
     <div class="title">Soberanos FF</div>
@@ -290,24 +374,44 @@
     <button class="menu-btn" data-tab="ranking" aria-label="Ranking"><span class="tabicon">🏆</span>Ranking</button>
     <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">🛡️</span>Staff</button>
     <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">📜</span>Regras</button>
-    <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">⚔️</span>Guerra<span class="badge-new" id="badge-guerra" style="display:none;">Novo</span></button>
+    <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">⚔️</span>Guerra</button>
     <button class="menu-btn" data-tab="parceiros" aria-label="Parceiros"><span class="tabicon">🤝</span>Parceiros</button>
-    <button class="menu-btn" data-tab="recrutamento" aria-label="Recrutamento"><span class="tabicon">🖊</span>Recrutamento<span class="badge">Aberto</span></button>
+    <button class="menu-btn" data-tab="recrutamento" aria-label="Recrutamento">
+      <span class="tabicon">🖊</span>
+      Recrutamento
+      <span class="badge-dot" title="Recrutamento aberto"></span>
+    </button>
     <button class="menu-btn" data-tab="streamers" aria-label="Streamers"><span class="tabicon">🎥</span>Streamers</button>
-    <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">📝</span>Avisos<span class="badge-new" id="badge-avisos" style="display:none;">Novo</span></button>
+    <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">📝</span>Avisos</button>
     <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">🚨</span>Denúncia</button>
     <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">💡</span>Sugestões</button>
   </nav>
-  <div class="banner">
-    <img src="https://i.imgur.com/7pYLORP.png" class="banner-logo" alt="Logo Soberanos" />
-    <div class="banner-content">
-      <h1>Painel Guilda Soberanos FF</h1>
-      <p>
-        Caminhe com reis. Jogue como um soberano. <span class="badge">Novo visual!</span>
-      </p>
-      <a class="cta-btn" href="#" onclick="document.querySelector('.menu-btn[data-tab=recrutamento]').click();return false;">Quero ser Soberano</a>
-    </div>
+  <!-- Loader de aba -->
+  <div id="tab-loader" class="tab-loader" style="display:none">
+    <span class="loader"></span>
   </div>
+  <!-- Banner principal -->
+  <section class="hero-banner">
+    <div class="hero-logo">
+      <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" />
+    </div>
+    <div class="guilda-title">
+      Painel Guilda
+    </div>
+    <div class="guilda-nome">
+      <span class="guilda-nome-principal">SOBERANOS</span>
+      <span class="guilda-nome-sufixo">FF</span>
+    </div>
+    <div class="guilda-frase">
+      Caminhe com reis. Jogue como um <span class="guilda-frase-destaque">SOBERANO</span>.
+    </div>
+    <div class="guilda-novovisual">
+      <span class="novovisual-badge">Novo visual</span>
+    </div>
+    <div class="guilda-cta">
+      <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" class="cta-btn" target="_blank" rel="noopener">Juntar-se</a>
+    </div>
+  </section>
   <div class="main-content">
     <div class="destaque">
       <b>🚨 Aviso:</b> Recrutamento aberto! Preencha o <b>formulário</b> e anexe seu print do perfil. Participe da família Soberanos FF!
@@ -412,19 +516,19 @@
         </div>
         <form id="form-recrutamento" style="max-width:440px;margin:auto;">
           <label style="color:#FFD700;font-weight:600;">1. Nick no jogo (com símbolo, se tiver):</label>
-          <input type="text" id="nick" required placeholder="Seu nick no jogo" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="text" id="nick" required placeholder="Seu nick no jogo"/>
 
           <label style="color:#FFD700;font-weight:600;">2. ID do jogador (Free Fire):</label>
-          <input type="text" id="idff" required placeholder="ID do jogador" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="text" id="idff" required placeholder="ID do jogador"/>
 
           <label style="color:#FFD700;font-weight:600;">3. Idade:</label>
-          <input type="number" id="idade" required placeholder="Sua idade" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="number" id="idade" required placeholder="Sua idade"/>
 
           <label style="color:#FFD700;font-weight:600;">4. Está em qual patente atualmente?</label>
-          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..." style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..."/>
 
           <label style="color:#FFD700;font-weight:600;">5. Já fez parte de guilda competitiva?</label>
-          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe"/>
 
           <label style="color:#FFD700;font-weight:600;">6. Qual sua função principal?</label>
           <div style="margin-bottom:14px;">
@@ -447,7 +551,7 @@
             <label><input type="radio" name="modo" value="X1 dos cria"> X1 dos cria</label><br>
             <label><input type="radio" name="modo" value="Camp / Ranked"> Camp / Ranked</label><br>
             <label><input type="radio" name="modo" value="Outro"> Outro</label>
-            <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="width:100%;padding:6px 8px;margin-top:5px;border-radius:8px;" />
+            <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique"/>
           </div>
 
           <label style="color:#FFD700;font-weight:600;">9. Você tem como trocar o nick para usar o nome da guilda?</label>
@@ -458,10 +562,10 @@
           </div>
 
           <label style="color:#FFD700;font-weight:600;">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
-          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;" />
+          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999"/>
 
           <label style="color:#FFD700;font-weight:600;">11. Por que quer entrar para a Soberanos?</label>
-          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo" style="width:100%;padding:6px 8px;margin:7px 0 14px;border-radius:8px;"></textarea>
+          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo"></textarea>
 
           <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
             <b>12. Envie um print do seu perfil no jogo:</b><br>
@@ -470,7 +574,8 @@
 
           <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
         </form>
-        <div id="msg-recrutamento" style="margin-top:18px;text-align:center;color:#FFD700;font-weight:bold;display:none;"></div>
+        <a href="https://chat.whatsapp.com/HlBc51iCSPr0oe5yyftPDv" target="_blank" class="cta-btn group">Entrar No Grupo Do Recrutamento</a>
+        <div id="msg-recrutamento"></div>
         <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
           Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas. <br> <b>Não esqueça de anexar seu print!</b>
         </div>
@@ -494,7 +599,6 @@
       </section>
       <section class="card" id="denuncia">
         <h2>🚨 Denúncia de Membro</h2>
-        <!-- ... mantenha seu formulário de denúncia ... -->
         <div style="color:#FFD70099;text-align:center;margin-top:20px;">
           (Formulário de denúncia em breve)
         </div>
@@ -504,7 +608,6 @@
         <div style="color:#FFD700; font-size:1.05em; text-align:center; margin-bottom:18px;">
           Tem ideias para o painel? Manda pra gente!
         </div>
-        <!-- Aqui pode colocar formulário de sugestões se quiser -->
       </section>
     </div>
   </div>
@@ -520,19 +623,28 @@
     </div>
   </footer>
   <div id="toast" class="toast-notification"></div>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Sempre abrir na aba "Melhores da Semana"
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector('.menu-btn[data-tab="membros"]').classList.add('active');
-      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-      setTimeout(() => {
-        document.getElementById('membros').classList.add('active');
-      }, 40);
+    // Loader de aba + troca de aba
+    document.querySelectorAll('.menu-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const loader = document.getElementById('tab-loader');
+        loader.style.display = "flex";
+        setTimeout(()=>{
+          loader.style.display = "none";
+          document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+          setTimeout(() => {
+            document.getElementById(btn.dataset.tab).classList.add('active');
+          }, 40);
+          if(window.innerWidth <= 700) {
+            document.getElementById('menuNav').classList.remove('open');
+            document.getElementById('menuHamburger').classList.remove('open');
+          }
+        }, 500);
+      });
     });
-
-    // Menu hamburguer e troca de abas
+    // Menu hamburguer responsivo
     const menuHamburger = document.getElementById('menuHamburger');
     const menuNav = document.getElementById('menuNav');
     menuHamburger.addEventListener('click', function() {
@@ -547,20 +659,8 @@
         }
       }
     });
-    document.querySelectorAll('.menu-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        setTimeout(() => {
-          document.getElementById(btn.dataset.tab).classList.add('active');
-        }, 40);
-        if(window.innerWidth <= 700) {
-          menuNav.classList.remove('open');
-          menuHamburger.classList.remove('open');
-        }
-      });
-    });
+
+    // Ranking tab
     document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
@@ -569,9 +669,9 @@
         document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? '' : 'none';
       });
     });
-    // CONTADOR GUERRA
+
+    // CONTADOR GUERRA (simplificado)
     const horaGuerra = { "-3": 16, "-4": 15 };
-    const horaGuerraFim = { "-3": 23, "-4": 22 };
     function getProximaGuerraEAndamento(fuso) {
       const now = new Date();
       let diaSemana = now.getUTCDay();
@@ -580,21 +680,9 @@
       if(horaLocal > 23) horaLocal -= 24;
       let minutos = now.getUTCMinutes();
       let emAndamento = false;
-      if(
-        diaSemana === 6 &&
-        (
-          (horaLocal > horaGuerra[fuso] && horaLocal < horaGuerraFim[fuso]) ||
-          (horaLocal === horaGuerra[fuso] && minutos >= 0) ||
-          (horaLocal === horaGuerraFim[fuso] && minutos <= 59)
-        )
-      ) {
-        emAndamento = true;
-      }
+      if(diaSemana === 6 && horaLocal >= horaGuerra[fuso] && horaLocal < horaGuerra[fuso]+7) emAndamento = true;
       let proximoSabado = new Date(now);
       let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7;
-      if(diasParaSabado === 0 && !emAndamento && horaLocal < horaGuerra[fuso]) {
-        diasParaSabado = 0;
-      }
       proximoSabado.setUTCDate(proximoSabado.getUTCDate() + diasParaSabado);
       proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0);
       return { proximoSabado, emAndamento };
@@ -713,4 +801,4 @@ Caminhe com reis. Jogue como um soberano. 👑
       "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-            </html>
+        </html>
