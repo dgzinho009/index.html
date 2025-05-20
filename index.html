@@ -910,57 +910,91 @@ nav.menu {
           <span style="color:#FFD70099;">Preencha atentamente. Ao enviar, você será redirecionado ao WhatsApp do ADM e pode anexar o print do perfil.</span>
         </div>
         <form id="form-recrutamento" style="max-width:440px;margin:auto;">
-          <label style="color:#FFD700;font-weight:600;">1. Nick no jogo (com símbolo, se tiver):</label>
-          <input type="text" id="nick" required placeholder="Seu nick no jogo"/>
-          <label style="color:#FFD700;font-weight:600;">2. ID do jogador (Free Fire):</label>
-          <input type="text" id="idff" required placeholder="ID do jogador"/>
-          <label style="color:#FFD700;font-weight:600;">3. Idade:</label>
-          <input type="number" id="idade" required placeholder="Sua idade"/>
-          <label style="color:#FFD700;font-weight:600;">4. Está em qual patente atualmente?</label>
-          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..."/>
-          <label style="color:#FFD700;font-weight:600;">5. Já fez parte de guilda competitiva?</label>
-          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe"/>
-          <label style="color:#FFD700;font-weight:600;">6. Qual sua função principal?</label>
-          <div class="form-check-group">
-            <div class="form-check-row"><input type="radio" name="funcao" value="Rushador" required> <span>Rushador</span></div>
-            <div class="form-check-row"><input type="radio" name="funcao" value="Suporte"> <span>Suporte</span></div>
-            <div class="form-check-row"><input type="radio" name="funcao" value="Capitão / Líder de cal"> <span>Capitão / Líder de cal</span></div>
-            <div class="form-check-row"><input type="radio" name="funcao" value="Sniper"> <span>Sniper</span></div>
-          </div>
-          <label style="color:#FFD700;font-weight:600;">7. Você tem disponibilidade para:</label>
-          <div class="form-check-group">
-            <div class="form-check-row"><input type="checkbox" name="disp" value="Treinos"> <span>Treinos</span></div>
-            <div class="form-check-row"><input type="checkbox" name="disp" value="Campeonatos"> <span>Campeonatos</span></div>
-            <div class="form-check-row"><input type="checkbox" name="disp" value="Guerras de guilda"> <span>Guerras de guilda</span></div>
-          </div>
-          <label style="color:#FFD700;font-weight:600;">8. Qual modo você manda melhor?</label>
-          <div class="form-check-group">
-            <div class="form-check-row"><input type="radio" name="modo" value="4x4 competitivo" required> <span>4x4 competitivo</span></div>
-            <div class="form-check-row"><input type="radio" name="modo" value="X1 dos cria"> <span>X1 dos cria</span></div>
-            <div class="form-check-row"><input type="radio" name="modo" value="Camp / Ranked"> <span>Camp / Ranked</span></div>
-            <div class="form-check-row" style="align-items: flex-start;">
-              <input type="radio" name="modo" value="Outro">
-              <span style="flex:1;">
-                Outro<br>
-                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;"/>
-              </span>
-            </div>
-          </div>
-          <label style="color:#FFD700;font-weight:600;">9. Você tem como trocar o nick para usar o nome da guilda?</label>
-          <div class="form-check-group">
-            <div class="form-check-row"><input type="radio" name="troca_nick" value="Sim" required> <span>Sim</span></div>
-            <div class="form-check-row"><input type="radio" name="troca_nick" value="Não"> <span>Não</span></div>
-            <div class="form-check-row"><input type="radio" name="troca_nick" value="Em breve"> <span>Em breve</span></div>
-          </div>
-          <label style="color:#FFD700;font-weight:600;">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
-          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999"/>
-          <label style="color:#FFD700;font-weight:600;">11. Por que quer entrar para a Soberanos?</label>
-          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo"></textarea>
-          <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
-            <b>12. Envie um print do seu perfil no jogo:</b><br>
-            <span style="font-size:0.97em;">Após enviar o formulário, <b>anexe a imagem diretamente no WhatsApp</b> ao ADM junto com sua mensagem.</span>
-          </div>
-          <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
+  <div class="form-group">
+    <label for="nick">1. Nick no jogo (com símbolo, se tiver):</label>
+    <input type="text" id="nick" name="nick" required placeholder="Seu nick no jogo" />
+  </div>
+
+  <div class="form-group">
+    <label for="idff">2. ID do jogador (Free Fire):</label>
+    <input type="text" id="idff" name="idff" required placeholder="ID do jogador" />
+  </div>
+
+  <div class="form-group">
+    <label for="idade">3. Idade:</label>
+    <input type="number" id="idade" name="idade" required placeholder="Sua idade" />
+  </div>
+
+  <div class="form-group">
+    <label for="patente">4. Está em qual patente atualmente?</label>
+    <input type="text" id="patente" name="patente" required placeholder="Ex: Mestre, Dima 4..." />
+  </div>
+
+  <div class="form-group">
+    <label for="guilda_comp">5. Já fez parte de guilda competitiva?</label>
+    <input type="text" id="guilda_comp" name="guilda_comp" required placeholder="Sim/Não ou detalhe" />
+  </div>
+
+  <div class="form-group">
+    <label>6. Qual sua função principal?</label>
+    <div class="form-check-group">
+      <div class="form-check-row"><input type="radio" name="funcao" value="Rushador" required /> <span>Rushador</span></div>
+      <div class="form-check-row"><input type="radio" name="funcao" value="Suporte" /> <span>Suporte</span></div>
+      <div class="form-check-row"><input type="radio" name="funcao" value="Capitão / Líder de cal" /> <span>Capitão / Líder de cal</span></div>
+      <div class="form-check-row"><input type="radio" name="funcao" value="Sniper" /> <span>Sniper</span></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>7. Você tem disponibilidade para:</label>
+    <div class="form-check-group">
+      <div class="form-check-row"><input type="checkbox" name="disp" value="Treinos" /> <span>Treinos</span></div>
+      <div class="form-check-row"><input type="checkbox" name="disp" value="Campeonatos" /> <span>Campeonatos</span></div>
+      <div class="form-check-row"><input type="checkbox" name="disp" value="Guerras de guilda" /> <span>Guerras de guilda</span></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>8. Qual modo você manda melhor?</label>
+    <div class="form-check-group">
+      <div class="form-check-row"><input type="radio" name="modo" value="4x4 competitivo" required /> <span>4x4 competitivo</span></div>
+      <div class="form-check-row"><input type="radio" name="modo" value="X1 dos cria" /> <span>X1 dos cria</span></div>
+      <div class="form-check-row"><input type="radio" name="modo" value="Camp / Ranked" /> <span>Camp / Ranked</span></div>
+      <div class="form-check-row" style="align-items: flex-start;">
+        <input type="radio" name="modo" value="Outro" />
+        <span style="flex:1;">
+          Outro<br>
+          <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;" />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>9. Você tem como trocar o nick para usar o nome da guilda?</label>
+    <div class="form-check-group">
+      <div class="form-check-row"><input type="radio" name="troca_nick" value="Sim" required /> <span>Sim</span></div>
+      <div class="form-check-row"><input type="radio" name="troca_nick" value="Não" /> <span>Não</span></div>
+      <div class="form-check-row"><input type="radio" name="troca_nick" value="Em breve" /> <span>Em breve</span></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contato">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
+    <input type="text" id="contato" name="contato" required placeholder="@user ou (99) 99999-9999" />
+  </div>
+
+  <div class="form-group">
+    <label for="motivo">11. Por que quer entrar para a Soberanos?</label>
+    <textarea id="motivo" name="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo"></textarea>
+  </div>
+
+  <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
+    <b>12. Envie um print do seu perfil no jogo:</b><br>
+    <span style="font-size:0.97em;">Após enviar o formulário, <b>anexe a imagem diretamente no WhatsApp</b> ao ADM junto com sua mensagem.</span>
+  </div>
+
+  <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
         </form>
         <a href="https://chat.whatsapp.com/HlBc51iCSPr0oe5yyftPDv" target="_blank" class="cta-btn group">Entrar No Grupo Do Recrutamento</a>
         <div id="msg-recrutamento"></div>
