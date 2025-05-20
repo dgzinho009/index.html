@@ -106,22 +106,16 @@
     }
     .mode-switch:hover { background: var(--card-bg); color: var(--purple);}
     /* MENU */
-    .menu-hamburger {
-      display: none;
-      position: absolute;
-      top: 15px;
-      left: 18px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1001;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      transition: background .18s;
+    .menu-toggle {
+  background: none;
+  border: none;
+  color: black; /* Ícone preto */
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 999;
     }
     .menu-hamburger .bar {
-      display: block; width: 27px; height: 4px; margin: 5px auto; border-radius: 3px; background: var(--gold); transition: 0.3s;
+      display: block; width: 27px; height: 4px; margin: 5px auto; border-radius: 3px; background: var(--black); transition: 0.3s;
     }
     .menu-hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 7px);}
     .menu-hamburger.open .bar:nth-child(2) { opacity: 0;}
