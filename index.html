@@ -187,6 +187,7 @@ nav.menu {
 .menu-btn[data-tab="avisos"] .tabicon { color: var(--gold);}
 .menu-btn[data-tab="denuncia"] .tabicon { color: var(--red);}
 .menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue);}
+.menu-btn[data-tab="adm"] .tabicon { color: var(--red); }
 .menu-btn.active, .menu-btn:focus, .menu-btn:hover {
   background: var(--glass-bg);
   color: var(--gold);
@@ -747,6 +748,7 @@ nav.menu {
     <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">campaign</span>Avisos</button>
     <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">report</span>Denúncia</button>
     <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">lightbulb</span>Sugestões</button>
+    <button class="menu-btn" data-tab="adm" aria-label="Painel ADM"><span class="tabicon">admin_panel_settings</span>Painel ADM</button>
   </nav>
   <!-- Loader de aba -->
   <div id="tab-loader" class="tab-loader" style="display:none">
@@ -903,7 +905,7 @@ nav.menu {
           <em>Quer ser parceiro? Fale conosco!</em>
         </div>
       </section>
-<section class="card" id="recrutamento">
+      <section class="card" id="recrutamento">
         <h2>🖊 Formulário de Recrutamento – Guilda Soberanos</h2>
         <div style="color:#FFD700; font-size:1.02em; text-align:center; margin-bottom:20px;">
           Caminhe com reis. Jogue como um soberano. 👑<br>
@@ -979,7 +981,7 @@ nav.menu {
         <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
           Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas. <br> <b>Não esqueça de anexar seu print!</b>
         </div>
-</section>
+      </section>
       <section class="card" id="streamers">
         <h2>🎥 Streamers da Guilda</h2>
         <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
@@ -1007,6 +1009,24 @@ nav.menu {
         <h2>💡 Sugestões e Novidades</h2>
         <div style="color:#FFD700; font-size:1.05em; text-align:center; margin-bottom:18px;">
           Tem ideias para o painel? Manda pra gente!
+        </div>
+      </section>
+      <section class="card" id="adm">
+        <h2>🔐 Painel ADM</h2>
+        <div style="color:#FFD700; text-align:center; margin:20px 0;">
+          Conteúdo exclusivo para administradores da guilda
+        </div>
+        <div style="background: rgba(255, 215, 0, 0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+          <h3 style="color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Ferramentas de Administração</h3>
+          <ul style="color: var(--gold); list-style-type: none; padding: 0;">
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">📊 Estatísticas da Guilda</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">👥 Gerenciar Membros</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">⚙️ Configurações</li>
+            <li style="padding: 8px 0;">📢 Enviar Avisos</li>
+          </ul>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="cta-btn" style="background: var(--gradient-red);">Acessar Painel Completo</button>
         </div>
       </section>
     </div>
@@ -1269,4 +1289,4 @@ Caminhe com reis. Jogue como um soberano. 👑
       "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-  </html>
+</html>
