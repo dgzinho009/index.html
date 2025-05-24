@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#FFD700">
   <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
-  <!-- Ícones do Material Symbols para visual moderno -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <style>
     :root {
@@ -106,155 +105,117 @@
     }
     .mode-switch:hover { background: var(--card-bg); color: var(--purple); }
 
-/* MENU */
-.menu-hamburger {
-  display: block; /* Antes estava "none" */
-  position: absolute;
-  top: 15px;
-  left: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  transition: background .18s;
-}
-.menu-hamburger .bar {
-  display: block;
-  width: 27px;
-  height: 4px;
-  margin: 5px auto;
-  border-radius: 3px;
-  background: #000; /* Cor preta fixa */
-  transition: 0.3s;
-}
-.menu-hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 7px);}
-.menu-hamburger.open .bar:nth-child(2) { opacity: 0;}
-.menu-hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px);}
+    /* MENU */
+    .menu-hamburger {
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: background .18s;
+    }
+    .menu-hamburger .bar {
+      display: block;
+      width: 27px;
+      height: 4px;
+      margin: 5px auto;
+      border-radius: 3px;
+      background: #000;
+      transition: 0.3s;
+    }
+    .menu-hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 7px);}
+    .menu-hamburger.open .bar:nth-child(2) { opacity: 0;}
+    .menu-hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px);}
 
-nav.menu {
-  background: var(--nav-bg);
-  box-shadow: 0 1px 16px #FFD70033;
-  border-radius: 0 0 var(--radius) var(--radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  min-height: 54px;
-  z-index: 1000;
-  position: relative;
-  margin-bottom: 22px;
-  transition: background .19s;
-}
-.menu-btn {
-  background: none;
-  color: #ccc;
-  font-size: 1.14em;
-  font-weight: 700;
-  border: none;
-  border-radius: 14px 14px 0 0;
-  padding: 12px 23px 8px 19px;
-  margin: 0;
-  cursor: pointer;
-  transition: background .15s, color .11s, transform .13s;
-  outline: none;
-  letter-spacing: .7px;
-  position: relative;
-  border-bottom: 2.5px solid transparent;
-  border-top: 2.5px solid transparent;
-  box-shadow: 0 0 0 transparent;
-  user-select: none;
-  display: flex;
-  align-items: center;
-}
-.menu-btn .tabicon {
-  font-family: 'Material Symbols Outlined', Arial, sans-serif;
-  font-variation-settings: 'FILL' 1, 'wght' 700;
-  font-size: 1.33em;
-  margin-right: 7px;
-  vertical-align: middle;
-}
-.menu-btn[data-tab="membros"] .tabicon { color: var(--gold);}
-.menu-btn[data-tab="ranking"] .tabicon { color: var(--blue);}
-.menu-btn[data-tab="staff"] .tabicon { color: var(--purple);}
-.menu-btn[data-tab="regras"] .tabicon { color: var(--gold);}
-.menu-btn[data-tab="guerra"] .tabicon { color: var(--red);}
-.menu-btn[data-tab="parceiros"] .tabicon { color: var(--blue);}
-.menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple);}
-.menu-btn[data-tab="streamers"] .tabicon { color: var(--red);}
-.menu-btn[data-tab="avisos"] .tabicon { color: var(--gold);}
-.menu-btn[data-tab="denuncia"] .tabicon { color: var(--red);}
-.menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue);}
-.menu-btn[data-tab="adm"] .tabicon { color: var(--red); }
-.menu-btn.active, .menu-btn:focus, .menu-btn:hover {
-  background: var(--glass-bg);
-  color: var(--gold);
-  border-bottom: 2.5px solid var(--accent);
-  box-shadow: 0 2px 10px #FFD70033;
-  font-weight: 900;
-  z-index: 10;
-  transform: translateY(-2px) scale(1.05);
-}
-.menu-btn.active .tabicon,
-.menu-btn:focus .tabicon,
-.menu-btn:hover .tabicon {
-  color: var(--red);
-}
+    nav.menu {
+      background: var(--nav-bg);
+      box-shadow: 0 1px 16px #FFD70033;
+      border-radius: 0 0 var(--radius) var(--radius);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 54px;
+      z-index: 1000;
+      position: relative;
+      margin-bottom: 22px;
+      transition: background .19s;
+    }
+    .menu-btn {
+      background: none;
+      color: #ccc;
+      font-size: 1.14em;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px 14px 0 0;
+      padding: 12px 23px 8px 19px;
+      margin: 0;
+      cursor: pointer;
+      transition: background .15s, color .11s, transform .13s;
+      outline: none;
+      letter-spacing: .7px;
+      position: relative;
+      border-bottom: 2.5px solid transparent;
+      border-top: 2.5px solid transparent;
+      box-shadow: 0 0 0 transparent;
+      user-select: none;
+      display: flex;
+      align-items: center;
+    }
+    .menu-btn .tabicon {
+      font-family: 'Material Symbols Outlined', Arial, sans-serif;
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+      font-size: 1.33em;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+    .menu-btn[data-tab="membros"] .tabicon { color: var(--gold);}
+    .menu-btn[data-tab="ranking"] .tabicon { color: var(--blue);}
+    .menu-btn[data-tab="staff"] .tabicon { color: var(--purple);}
+    .menu-btn[data-tab="regras"] .tabicon { color: var(--gold);}
+    .menu-btn[data-tab="guerra"] .tabicon { color: var(--red);}
+    .menu-btn[data-tab="parceiros"] .tabicon { color: var(--blue);}
+    .menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple);}
+    .menu-btn[data-tab="streamers"] .tabicon { color: var(--red);}
+    .menu-btn[data-tab="avisos"] .tabicon { color: var(--gold);}
+    .menu-btn[data-tab="denuncia"] .tabicon { color: var(--red);}
+    .menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue);}
+    .menu-btn[data-tab="adm"] .tabicon { color: var(--red); }
+    .menu-btn.active, .menu-btn:focus, .menu-btn:hover {
+      background: var(--glass-bg);
+      color: var(--gold);
+      border-bottom: 2.5px solid var(--accent);
+      box-shadow: 0 2px 10px #FFD70033;
+      font-weight: 900;
+      z-index: 10;
+      transform: translateY(-2px) scale(1.05);
+    }
+    .menu-btn.active .tabicon,
+    .menu-btn:focus .tabicon,
+    .menu-btn:hover .tabicon {
+      color: var(--red);
+    }
 
-.badge-dot {
-  position: absolute;
-  top: 8px;
-  right: 11px;
-  width: 14px;
-  height: 14px;
-  background: #FFD700;
-  border: 2px solid #232323;
-  border-radius: 50%;
-  box-shadow: var(--badge-shadow);
-  animation: badgePulse 1s infinite alternate;
-  z-index: 3;
-  display: inline-block;
-  .menu-btn[data-tab="parceiros"] .tabicon { color: var(--blue);}
-.menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple);}
-.menu-btn[data-tab="streamers"] .tabicon { color: var(--red);}
-.menu-btn[data-tab="avisos"] .tabicon { color: var(--gold);}
-.menu-btn[data-tab="denuncia"] .tabicon { color: var(--red);}
-.menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue);}
-
-.menu-btn.active,
-.menu-btn:focus,
-.menu-btn:hover {
-  background: var(--glass-bg);
-  color: var(--gold);
-  border-bottom: 2.5px solid var(--accent);
-  box-shadow: 0 2px 10px #FFD70033;
-  font-weight: 900;
-  z-index: 10;
-  transform: translateY(-2px) scale(1.05);
-}
-
-.menu-btn.active .tabicon,
-.menu-btn:focus .tabicon,
-.menu-btn:hover .tabicon {
-  color: var(--red);
-}
-
-.badge-dot {
-  position: absolute;
-  top: 8px;
-  right: 11px;
-  width: 14px;
-  height: 14px;
-  background: #FFD700;
-  border: 2px solid #232323;
-  border-radius: 50%;
-  box-shadow: var(--badge-shadow);
-  animation: badgePulse 1s infinite alternate;
-  z-index: 3;
-  display: inline-block;
-}                                   }
+    .badge-dot {
+      position: absolute;
+      top: 8px;
+      right: 11px;
+      width: 14px;
+      height: 14px;
+      background: #FFD700;
+      border: 2px solid #232323;
+      border-radius: 50%;
+      box-shadow: var(--badge-shadow);
+      animation: badgePulse 1s infinite alternate;
+      z-index: 3;
+      display: inline-block;
+    }
     @keyframes badgePulse {
       0% { box-shadow: 0 0 8px #FFD70055; }
       100% { box-shadow: 0 0 18px #FFD700cc; }
@@ -658,6 +619,32 @@ nav.menu {
       position: relative;
       top: 0;
     }
+    
+    /* ESTILOS DO PAINEL ADM */
+    .adm-section {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    .adm-input-group {
+      margin-bottom: 10px;
+    }
+    .adm-input-group label {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .adm-input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      background: rgba(0,0,0,0.3);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
     @media (max-width: 600px) {
       .form-check-row span {
         font-size: 1em !important;
@@ -1013,20 +1000,62 @@ nav.menu {
       </section>
       <section class="card" id="adm">
         <h2>🔐 Painel ADM</h2>
-        <div style="color:#FFD700; text-align:center; margin:20px 0;">
-          Conteúdo exclusivo para administradores da guilda
+        <div id="adm-login" style="display: block;">
+          <div style="color:#FFD700; text-align:center; margin:20px 0;">
+            Acesso restrito aos administradores
+          </div>
+          <form id="login-form" style="max-width: 300px; margin: 0 auto;">
+            <label style="color:#FFD700;font-weight:600;">Usuário:</label>
+            <input type="text" id="adm-user" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
+            
+            <label style="color:#FFD700;font-weight:600;">Senha:</label>
+            <input type="password" id="adm-pass" required style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
+            
+            <button type="submit" class="cta-btn" style="width: 100%;">Entrar</button>
+          </form>
         </div>
-        <div style="background: rgba(255, 215, 0, 0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
-          <h3 style="color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Ferramentas de Administração</h3>
-          <ul style="color: var(--gold); list-style-type: none; padding: 0;">
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">📊 Estatísticas da Guilda</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">👥 Gerenciar Membros</li>
-            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.2);">⚙️ Configurações</li>
-            <li style="padding: 8px 0;">📢 Enviar Avisos</li>
-          </ul>
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-          <button class="cta-btn" style="background: var(--gradient-red);">Acessar Painel Completo</button>
+
+        <div id="adm-panel" style="display: none;">
+          <div style="background: rgba(255, 215, 0, 0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+            <h3 style="color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>
+            
+            <div class="adm-section">
+              <h4>Melhores da Semana</h4>
+              <div class="adm-input-group">
+                <label>1º Lugar:</label>
+                <input type="text" id="membro1" value="DEPAY10" class="adm-input">
+              </div>
+              <div class="adm-input-group">
+                <label>2º Lugar:</label>
+                <input type="text" id="membro2" value="SS NARUTO" class="adm-input">
+              </div>
+              <div class="adm-input-group">
+                <label>3º Lugar:</label>
+                <input type="text" id="membro3" value="GUSTAX.xp⁷" class="adm-input">
+              </div>
+            </div>
+            
+            <div class="adm-section">
+              <h4>Mensagem de Destaque</h4>
+              <div class="adm-input-group">
+                <label>Texto:</label>
+                <input type="text" id="destaque-msg" value="Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!" class="adm-input">
+              </div>
+            </div>
+            
+            <div class="adm-section">
+              <h4>Status da Guilda</h4>
+              <div class="adm-input-group">
+                <label>Mensagem:</label>
+                <input type="text" id="status-guilda" value="Em manutenção" class="adm-input">
+              </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+              <button id="save-changes" class="cta-btn" style="background: var(--gradient-blue);">Salvar Alterações</button>
+              <button id="logout-adm" class="cta-btn" style="background: var(--gradient-red); margin-top: 10px;">Sair</button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -1270,6 +1299,60 @@ Caminhe com reis. Jogue como um soberano. 👑
       }
     });
 
+    // Painel ADM
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const user = document.getElementById('adm-user').value;
+        const pass = document.getElementById('adm-pass').value;
+        
+        // Credenciais de exemplo (substitua por um sistema de login seguro)
+        if(user === "admin" && pass === "soberanos123") {
+            document.getElementById('adm-login').style.display = 'none';
+            document.getElementById('adm-panel').style.display = 'block';
+        } else {
+            showToast("Credenciais incorretas!", 'error');
+        }
+    });
+
+    document.getElementById('logout-adm').addEventListener('click', function() {
+        document.getElementById('adm-login').style.display = 'block';
+        document.getElementById('adm-panel').style.display = 'none';
+        document.getElementById('adm-user').value = '';
+        document.getElementById('adm-pass').value = '';
+    });
+
+    document.getElementById('save-changes').addEventListener('click', function() {
+        // Atualiza os melhores membros
+        document.querySelector('#membros .ranking-list li:nth-child(1)').innerHTML = `
+            <span class="ranking-badge">1º</span>
+            ${document.getElementById('membro1').value}
+            <span class="ranking-bar"></span>
+            <span class="medal">🥇</span>
+        `;
+        
+        document.querySelector('#membros .ranking-list li:nth-child(2)').innerHTML = `
+            <span class="ranking-badge" style="background:var(--gradient-blue);">2º</span>
+            ${document.getElementById('membro2').value}
+            <span class="ranking-bar"></span>
+            <span class="medal" style="color:var(--blue);">🥈</span>
+        `;
+        
+        document.querySelector('#membros .ranking-list li:nth-child(3)').innerHTML = `
+            <span class="ranking-badge" style="background:var(--gradient-purple);">3º</span>
+            ${document.getElementById('membro3').value}
+            <span class="ranking-bar"></span>
+            <span class="medal" style="color:var(--purple);">🥉</span>
+        `;
+        
+        // Atualiza a mensagem de destaque
+        document.querySelector('.destaque b').nextSibling.textContent = ` ${document.getElementById('destaque-msg').value} `;
+        
+        // Atualiza o status da guilda
+        document.querySelector('footer div:nth-child(2) b').textContent = document.getElementById('status-guilda').value;
+        
+        showToast("Alterações salvas com sucesso!", 'success');
+    });
+
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
       toast.textContent = '';
@@ -1289,4 +1372,4 @@ Caminhe com reis. Jogue como um soberano. 👑
       "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-</html>
+        </html>
