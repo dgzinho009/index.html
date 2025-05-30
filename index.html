@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFD700" />
   <link rel="icon" href="https://i.imgur.com/7pYLORP.png" type="image/png" />
-  <!-- Pré-carregamento otimizado de fontes -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" media="print" onload="this.media='all'" />
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="print" onload="this.media='all'" />
+
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -50,7 +53,7 @@
       letter-spacing: 0.01em;
       overflow-x: hidden;
       position: relative;
-      transition: 
+      transition:
         background var(--transition-theme),
         color var(--transition-theme);
     }
@@ -79,7 +82,7 @@
       z-index: 2;
       text-align: center;
       position: relative;
-      transition: background 0.22s;
+      /* Removida transição de background diretamente em gradiente */
     }
     .logo {
       width: 84px;
@@ -130,7 +133,7 @@
       justify-content: center;
       box-shadow: 0 2px 10px #ffd70044;
       transition: background 0.2s, color 0.18s;
-      outline: none;
+      outline: none; /* Consider estilizar o outline para acessibilidade */
     }
     .mode-switch:hover {
       background: var(--card-bg);
@@ -180,7 +183,7 @@
       z-index: 1000;
       position: relative;
       margin-bottom: 22px;
-      transition: 
+      transition:
         background var(--transition-theme),
         transform 0.3s ease,
         opacity 0.3s ease;
@@ -196,7 +199,7 @@
       margin: 0;
       cursor: pointer;
       transition: background 0.15s, color 0.11s, transform 0.13s;
-      outline: none;
+      outline: none; /* Consider estilizar o outline para acessibilidade */
       letter-spacing: 0.7px;
       position: relative;
       border-bottom: 2.5px solid transparent;
@@ -212,43 +215,20 @@
       font-size: 1.33em;
       margin-right: 7px;
       vertical-align: middle;
+      color: var(--gold); /* Cor padrão dos ícones */
+      transition: color 0.11s;
     }
-    .menu-btn[data-tab="membros"] .tabicon {
-      color: var(--gold);
-    }
-    .menu-btn[data-tab="ranking"] .tabicon {
-      color: var(--blue);
-    }
-    .menu-btn[data-tab="staff"] .tabicon {
-      color: var(--purple);
-    }
-    .menu-btn[data-tab="regras"] .tabicon {
-      color: var(--gold);
-    }
-    .menu-btn[data-tab="guerra"] .tabicon {
-      color: var(--red);
-    }
-    .menu-btn[data-tab="parceiros"] .tabicon {
-      color: var(--blue);
-    }
-    .menu-btn[data-tab="recrutamento"] .tabicon {
-      color: var(--purple);
-    }
-    .menu-btn[data-tab="streamers"] .tabicon {
-      color: var(--red);
-    }
-    .menu-btn[data-tab="avisos"] .tabicon {
-      color: var(--gold);
-    }
-    .menu-btn[data-tab="denuncia"] .tabicon {
-      color: var(--red);
-    }
-    .menu-btn[data-tab="sugestoes"] .tabicon {
-      color: var(--blue);
-    }
-    .menu-btn[data-tab="adm"] .tabicon {
-      color: var(--red);
-    }
+    /* Estilos específicos para ícones (se houver variação além do gold padrão) */
+    .menu-btn[data-tab="ranking"] .tabicon { color: var(--blue); }
+    .menu-btn[data-tab="staff"] .tabicon { color: var(--purple); }
+    .menu-btn[data-tab="guerra"] .tabicon { color: var(--red); }
+    .menu-btn[data-tab="parceiros"] .tabicon { color: var(--blue); }
+    .menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple); }
+    .menu-btn[data-tab="streamers"] .tabicon { color: var(--red); }
+    .menu-btn[data-tab="denuncia"] .tabicon { color: var(--red); }
+    .menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue); }
+    .menu-btn[data-tab="adm"] .tabicon { color: var(--red); }
+
     .menu-btn.active,
     .menu-btn:focus,
     .menu-btn:hover {
@@ -263,7 +243,7 @@
     .menu-btn.active .tabicon,
     .menu-btn:focus .tabicon,
     .menu-btn:hover .tabicon {
-      color: var(--red);
+      color: var(--red); /* Ícone vermelho quando ativo/hover */
     }
     .badge-dot {
       position: absolute;
@@ -384,7 +364,7 @@
       backdrop-filter: var(--glass-blur);
       border: var(--glass-border);
       animation: fadeIn 0.8s;
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -538,7 +518,7 @@
       border-left: 5px solid var(--accent);
       backdrop-filter: blur(5px);
       border: var(--glass-border);
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -556,16 +536,16 @@
       border: var(--glass-border);
       opacity: 0;
       visibility: hidden;
-      transition: 
-        opacity 0.21s, 
-        visibility 0.18s, 
-        box-shadow 0.17s, 
+      transition:
+        opacity 0.21s,
+        visibility 0.18s,
+        box-shadow 0.17s,
         transform 0.13s,
         background var(--transition-theme),
         border-color var(--transition-theme);
       position: relative;
       min-height: 90px;
-      display: none;
+      display: none; /* Mantido display: none para alternar as abas */
       overflow: hidden;
       animation: cardIn 0.7s;
       backdrop-filter: var(--glass-blur);
@@ -623,7 +603,7 @@
       gap: 12px;
       position: relative;
       animation: cardIn 0.8s;
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -638,6 +618,9 @@
       margin-right: 4px;
       filter: drop-shadow(0 1px 7px #ffd70055);
     }
+    .ranking-badge.second { background: var(--gradient-blue); }
+    .ranking-badge.third { background: var(--gradient-purple); }
+
     .ranking-bar {
       display: inline-block;
       height: 12px;
@@ -664,6 +647,9 @@
       font-size: 1.24em;
       color: var(--gold);
     }
+    .medal.second { color: var(--blue); }
+    .medal.third { color: var(--purple); }
+
     .staff-list {
       list-style: none;
       padding: 0;
@@ -747,7 +733,7 @@
       position: relative;
       background: var(--glass-bg);
       backdrop-filter: var(--glass-blur);
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -787,7 +773,7 @@
       padding: 4px 10px;
       margin-left: 6px;
       margin-right: 6px;
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -839,7 +825,7 @@
       background: rgba(0, 0, 0, 0.3);
       color: white;
       font-family: 'Montserrat', sans-serif;
-      transition: 
+      transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
     }
@@ -887,6 +873,26 @@
       border-color: #f05454;
       background: #f05454e6;
     }
+    #msg-recrutamento {
+      text-align: center;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      color: var(--white);
+      background: rgba(255, 215, 0, 0.2);
+      border: 1px solid #FFD700;
+    }
+    #msg-recrutamento.show {
+      opacity: 1;
+    }
+    #msg-recrutamento.error {
+      background: rgba(240, 84, 84, 0.2);
+      border-color: #f05454;
+    }
+
     ::-webkit-scrollbar {
       width: 8px;
       background: #232323;
@@ -926,7 +932,7 @@
   <nav class="menu" id="menuNav" aria-label="Menu principal">
     <button class="menu-btn active" data-tab="membros" aria-label="Melhores"><span class="tabicon">star</span>Melhores</button>
     <button class="menu-btn" data-tab="ranking" aria-label="Ranking"><span class="tabicon">emoji_events</span>Ranking</button>
-    <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">shield</span>Staff</button>
+    <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">shield</span>Staff</</button>
     <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">rule</span>Regras</button>
     <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">swords</span>Guerra</button>
     <button class="menu-btn" data-tab="parceiros" aria-label="Parceiros"><span class="tabicon">handshake</span>Parceiros</button>
@@ -941,11 +947,9 @@
     <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">lightbulb</span>Sugestões</button>
     <button class="menu-btn" data-tab="adm" aria-label="Painel ADM"><span class="tabicon">admin_panel_settings</span>Painel ADM</button>
   </nav>
-  <!-- Loader de aba -->
   <div id="tab-loader" class="tab-loader" style="display:none">
     <span class="loader"></span>
   </div>
-  <!-- Banner principal -->
   <section class="hero-banner">
     <div class="hero-logo">
       <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" />
@@ -966,35 +970,16 @@
   </section>
   <div class="main-content">
     <div class="destaque">
-      <b>🚨 Aviso:</b> Recrutamento aberto! Preencha o <b>formulário</b> e anexe seu print do perfil. Participe da família Soberanos FF!
+      <b>🚨 Aviso:</b> <span id="destaque-message-display">Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!</span>
       <span class="status-badge">Online</span>
     </div>
     <div class="cards-grid">
       <section class="card active" id="membros">
         <h2>⭐️ Melhores da Semana</h2>
-        <ol class="ranking-list">
-          <li>
-            <span class="ranking-badge">1º</span>
-            DEPAY10
-            <span class="ranking-bar"></span>
-            <span class="medal">🥇</span>
-          </li>
-          <li>
-            <span class="ranking-badge" style="background:var(--gradient-blue);">2º</span>
-            SS NARUTO
-            <span class="ranking-bar"></span>
-            <span class="medal" style="color:var(--blue);">🥈</span>
-          </li>
-          <li>
-            <span class="ranking-badge" style="background:var(--gradient-purple);">3º</span>
-            GUSTAX.xp⁷
-            <span class="ranking-bar"></span>
-            <span class="medal" style="color:var(--purple);">🥉</span>
-          </li>
-        </ol>
-        <div style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
-          Parabéns aos melhores pontuadores desta semana!
-        </div>
+        <ol class="ranking-list" id="top-members-list">
+          </ol>
+        <div class="congrats-message" style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
+          </div>
       </section>
       <section class="card" id="ranking">
         <h2>🏆 Ranking Interno</h2>
@@ -1047,7 +1032,8 @@
       </section>
       <section class="card" id="regras">
         <h2>📜 Regras da Guilda</h2>
-        <ul id="regras-ul" style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;"></ul>
+        <ul id="regras-ul" style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
+          </ul>
         <div style="color:#FFD70099; font-size:1em;text-align:center;">
           <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
         </div>
@@ -1149,7 +1135,7 @@
           <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
         </form>
         <a href="https://chat.whatsapp.com/HlBc51iCSPr0oe5yyftPDv" target="_blank" class="cta-btn group">Entrar No Grupo Do Recrutamento</a>
-        <div id="msg-recrutamento"></div>
+        <div id="msg-recrutamento" class="toast-notification"></div>
         <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
           Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas. <br> <b>Não esqueça de anexar seu print!</b>
         </div>
@@ -1165,7 +1151,8 @@
       </section>
       <section class="card" id="avisos">
         <h2>📝 Avisos Recentes</h2>
-        <ul class="avisos-list" id="avisos-ul"></ul>
+        <ul class="avisos-list" id="avisos-ul">
+          </ul>
       </section>
       <section class="card" id="denuncia">
         <h2>🚨 Denúncia de Membro</h2>
@@ -1197,36 +1184,32 @@
           <div style="background: rgba(255, 215, 0, 0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
             <h3 style="color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>
 
-            <!-- Editar melhores da semana -->
             <div class="adm-section">
               <h4>Melhores da Semana</h4>
               <div class="adm-input-group">
                 <label>1º Lugar:</label>
-                <input type="text" id="membro1" value="DEPAY10" class="adm-input">
+                <input type="text" id="membro1" class="adm-input">
               </div>
               <div class="adm-input-group">
                 <label>2º Lugar:</label>
-                <input type="text" id="membro2" value="SS NARUTO" class="adm-input">
+                <input type="text" id="membro2" class="adm-input">
               </div>
               <div class="adm-input-group">
                 <label>3º Lugar:</label>
-                <input type="text" id="membro3" value="GUSTAX.xp⁷" class="adm-input">
+                <input type="text" id="membro3" class="adm-input">
               </div>
             </div>
 
-            <!-- Editar regras -->
             <div class="adm-section">
               <h4>Regras da Guilda</h4>
               <textarea id="regras-txt" rows="6" class="adm-input" placeholder="Digite uma regra por linha..."></textarea>
             </div>
 
-            <!-- Editar avisos -->
             <div class="adm-section">
               <h4>Avisos Recentes</h4>
               <textarea id="avisos-txt" rows="4" class="adm-input" placeholder="Digite um aviso por linha..."></textarea>
             </div>
 
-            <!-- Mensagem Destaque -->
             <div class="adm-section">
               <h4>Mensagem de Destaque</h4>
               <div class="adm-input-group">
@@ -1234,7 +1217,6 @@
               </div>
             </div>
 
-            <!-- Status da Guilda -->
             <div class="adm-section">
               <h4>Status da Guilda</h4>
               <div class="adm-input-group">
@@ -1255,16 +1237,15 @@
     &copy; 2025 Soberanos FF. Painel feito para a comunidade Free Fire.<br>
     <span style="color:var(--accent);font-weight:700;">#SoberanosNoTop</span>
     <div style="margin:10px 0 0 0;font-size:0.93em;color:#FFD700BB;">
-      Status da guilda: <b>Em manutenção</b>
+      Status da guilda: <b id="guild-status-footer">Carregando...</b>
     </div>
     <div id="lastUpdate" style="margin:6px 0 0 0;font-size:0.88em;color:#fff;"></div>
     <div style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       Desenvolvido por <b>SS DG 👑</b>
     </div>
   </footer>
-  <div id="toast" class="toast-notification"></div>
+  <div id="toast" class="toast-notification" role="alert" aria-live="assertive"></div>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 
@@ -1277,7 +1258,7 @@
       projectId: "paineis-soberanos",
       storageBucket: "paineis-soberanos.appspot.com",
       messagingSenderId: "1018061735067",
-      appId: "1:1018061735067:web:dac8173cab25faebb6b23e"
+      appId: "1:101801735067:web:dac8173cab25faebb6b23e"
     };
 
     // Inicializando Firebase
@@ -1324,8 +1305,8 @@
           x: Math.random()*w,
           y: Math.random()*h,
           r: Math.random()*2+1,
-          dx: (Math.random()-.5)*.25,
-          dy: (Math.random()-.5)*.25,
+          dx: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */
+          dy: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */
           a: Math.random()*2*Math.PI,
           color: randomColor(),
         }
@@ -1413,7 +1394,7 @@
 
     // CONTADOR GUERRA (melhor visual e responsivo)
     const horaGuerra = { "-3": 16, "-4": 15 };
-    
+
     function getProximaGuerraEAndamento(fuso) {
       const now = new Date();
       let diaSemana = now.getUTCDay();
@@ -1423,12 +1404,19 @@
       let minutos = now.getUTCMinutes();
       let emAndamento = false;
 
+      // Considerando que a guerra dura algumas horas (ex: 7 horas)
       if(diaSemana === 6 && horaLocal >= horaGuerra[fuso] && horaLocal < horaGuerra[fuso]+7) emAndamento = true;
 
       let proximoSabado = new Date(now);
-      let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7;
+      let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7; // Se já passou no sábado, vai para o próximo
       proximoSabado.setUTCDate(proximoSabado.getUTCDate() + diasParaSabado);
-      proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0);
+      proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0); // Ajusta para o horário UTC da guerra
+
+      // Se a data calculada já passou o horário da guerra para esta semana, move para a próxima semana
+      if (proximoSabado.getTime() < now.getTime() && !emAndamento) {
+          proximoSabado.setUTCDate(proximoSabado.getUTCDate() + 7);
+      }
+      
       return { proximoSabado, emAndamento };
     }
 
@@ -1454,10 +1442,22 @@
             const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
             const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
+
             el.innerHTML =
-              `Falta <b>${dias}d</b> <b>${horas}h</b> <b>${minutos}m</b> para a próxima guerra.`;
+              `Falta <b>${dias}d</b> <b>${horas}h</b> <b>${minutos}m</b> <b>${segundos}s</b> para a próxima guerra.`;
           } else {
-            el.textContent = "Guerra Em Andamento 🔥";
+            // Se já passou, recalcula para o próximo sábado (caso o intervalo perca um ciclo)
+            // Ou se a guerra acabou de começar, atualiza para "em andamento"
+            const { emAndamento: newEmAndamento } = getProximaGuerraEAndamento(fuso);
+            if (newEmAndamento) {
+                el.textContent = "Guerra Em Andamento 🔥";
+            } else {
+                // Se a guerra terminou, e ainda não é o próximo sabado
+                // Esta parte pode ser otimizada para não rodar um setInterval desnecessariamente
+                // ou para se ajustar dinamicamente. Por enquanto, mantém o cálculo.
+                 el.textContent = "Guerra Em Andamento 🔥"; // Caso caia aqui após o fim da guerra antes do próximo ciclo
+            }
           }
         }
       }
@@ -1468,7 +1468,7 @@
     }
 
     document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
-    iniciarContadorGuerraFuso();
+    iniciarContadorGuerraFuso(); // Inicia o contador ao carregar a página
 
     // Formulário de recrutamento personalizado WhatsApp
     document.addEventListener('DOMContentLoaded', function() {
@@ -1476,27 +1476,27 @@
       if(formRecrutamento) {
         formRecrutamento.addEventListener('submit', function(e){
           e.preventDefault();
-          
+
           // Validação do formulário
           const nick = document.getElementById('nick').value.trim();
           const idff = document.getElementById('idff').value.trim();
           const idade = document.getElementById('idade').value.trim();
-          
+
           if(nick.length < 3 || nick.length > 20) {
             showToast("Nick deve ter entre 3 e 20 caracteres", 'error');
             return;
           }
-          
+
           if(!/^\d+$/.test(idff)) {
             showToast("ID do Free Fire deve conter apenas números", 'error');
             return;
           }
-          
-          if(idade < 12 || idade > 99) {
+
+          if(parseInt(idade) < 12 || parseInt(idade) > 99) { // Parse para garantir que é um número
             showToast("Idade deve ser entre 12 e 99 anos", 'error');
             return;
           }
-          
+
           const patente = document.getElementById('patente').value.trim();
           const guilda_comp = document.getElementById('guilda_comp').value.trim();
           const funcao = formRecrutamento.querySelector('input[name="funcao"]:checked')?.value || '';
@@ -1515,9 +1515,8 @@
             return;
           }
 
-          const numero = "558173389225";
-
-          const mensagem = 
+          const numeroADM = "558173389225"; // Telefone do ADM para contato
+          const mensagem =
 `Formulário de Recrutamento – Guilda Soberanos
 Caminhe com reis. Jogue como um soberano. 👑
 1. Nick no jogo: ${nick}
@@ -1534,15 +1533,11 @@ Caminhe com reis. Jogue como um soberano. 👑
 12. Print do perfil: (Anexar aqui no WhatsApp)
 `;
 
-          const waLink = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+          const waLink = `https://wa.me/${numeroADM}?text=${encodeURIComponent(mensagem)}`;
           window.open(waLink, "_blank");
 
-          document.getElementById('msg-recrutamento').style.display = 'block';
-          document.getElementById('msg-recrutamento').textContent = "Redirecionando para o WhatsApp... Não esqueça de anexar o print do perfil!";
-          setTimeout(() => {
-            document.getElementById('msg-recrutamento').style.display = 'none';
-          }, 2500);
-          formRecrutamento.reset();
+          showToast("Redirecionando para o WhatsApp... Não esqueça de anexar o print do perfil!", 'success');
+          formRecrutamento.reset(); // Reseta o formulário após o envio
         });
       }
     });
@@ -1553,10 +1548,12 @@ Caminhe com reis. Jogue como um soberano. 👑
       const user = document.getElementById('adm-user').value;
       const pass = document.getElementById('adm-pass').value;
 
+      // ATENÇÃO: Credenciais hardcoded são um risco de segurança.
+      // Em produção, use Firebase Authentication e Security Rules.
       if(user === "admin777" && pass === "soberanos123") {
         document.getElementById('adm-login').style.display = 'none';
         document.getElementById('adm-panel').style.display = 'block';
-        carregarDados();
+        carregarDadosADM(); // Carrega dados específicos para o ADM
         showToast("Login bem-sucedido!", 'success');
       } else {
         showToast("Credenciais incorretas!", 'error');
@@ -1571,50 +1568,30 @@ Caminhe com reis. Jogue como um soberano. 👑
       showToast("Você saiu do painel ADM", 'success');
     });
 
-    function carregarDados() {
+    // Função para carregar dados do Firebase no painel ADM
+    function carregarDadosADM() {
       db.ref("site").once("value", snapshot => {
         if (!snapshot.exists()) return;
 
         const data = snapshot.val();
 
-        document.getElementById("membro1").value = data.membros?.[0] || "DEPAY10";
-        document.getElementById("membro2").value = data.membros?.[1] || "SS NARUTO";
-        document.getElementById("membro3").value = data.membros?.[2] || "GUSTAX.xp⁷";
+        document.getElementById("membro1").value = data.membros?.[0] || "";
+        document.getElementById("membro2").value = data.membros?.[1] || "";
+        document.getElementById("membro3").value = data.membros?.[2] || "";
 
         document.getElementById("regras-txt").value = data.regras?.join("\n") || "";
         document.getElementById("avisos-txt").value = data.avisos?.join("\n") || "";
         document.getElementById("destaque-msg").value = data.destaqueMsg || "";
         document.getElementById("status-guilda").value = data.statusGuilda || "";
-
-        document.querySelector('.destaque b + span').textContent = data.destaqueMsg || "";
-
-        document.querySelector('footer div:nth-child(2) b').textContent = data.statusGuilda || "Em manutenção";
-
-        const regrasList = document.querySelector("#regras ul");
-        regrasList.innerHTML = "";
-        if (data.regras) {
-          data.regras.forEach(r => {
-            const li = document.createElement("li");
-            li.textContent = r;
-            regrasList.appendChild(li);
-          });
-        }
-
-        const avisosList = document.querySelector("#avisos .avisos-list");
-        avisosList.innerHTML = "";
-        if (data.avisos) {
-          data.avisos.forEach(a => {
-            const li = document.createElement("li");
-            li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;
-            avisosList.appendChild(li);
-          });
-        }
+      }).catch(error => {
+        console.error("Erro ao carregar dados ADM:", error);
+        showToast("Erro ao carregar dados para o painel ADM.", 'error');
       });
     }
 
     document.getElementById('save-changes').addEventListener('click', function() {
       if(!confirm('Tem certeza que deseja salvar as alterações?')) return;
-      
+
       const membros = [
         document.getElementById('membro1').value,
         document.getElementById('membro2').value,
@@ -1633,44 +1610,8 @@ Caminhe com reis. Jogue como um soberano. 👑
         destaqueMsg,
         statusGuilda
       }).then(() => {
-        // Atualiza DOM localmente
-        document.querySelector('#membros .ranking-list li:nth-child(1)').innerHTML = `
-          <span class="ranking-badge">1º</span>
-          ${membros[0]}
-          <span class="ranking-bar"></span>
-          <span class="medal">🥇</span>
-        `;
-        document.querySelector('#membros .ranking-list li:nth-child(2)').innerHTML = `
-          <span class="ranking-badge" style="background:var(--gradient-blue);">2º</span>
-          ${membros[1]}
-          <span class="ranking-bar"></span>
-          <span class="medal" style="color:var(--blue);">🥈</span>
-        `;
-        document.querySelector('#membros .ranking-list li:nth-child(3)').innerHTML = `
-          <span class="ranking-badge" style="background:var(--gradient-purple);">3º</span>
-          ${membros[2]}
-          <span class="ranking-bar"></span>
-          <span class="medal" style="color:var(--purple);">🥉</span>
-        `;
-
-        const regrasList = document.querySelector("#regras ul");
-        regrasList.innerHTML = "";
-        regras.forEach(r => {
-          const li = document.createElement("li");
-          li.textContent = r;
-          regrasList.appendChild(li);
-        });
-
-        const avisosList = document.querySelector("#avisos .avisos-list");
-        avisosList.innerHTML = "";
-        avisos.forEach(a => {
-          const li = document.createElement("li");
-          li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;
-          avisosList.appendChild(li);
-        });
-
-        document.querySelector('.destaque b + span').textContent = destaqueMsg;
-        document.querySelector('footer div:nth-child(2) b').textContent = statusGuilda;
+        // Atualiza DOM localmente imediatamente após salvar
+        carregarDadosPublicos(); // Recarrega os dados públicos para refletir as mudanças
 
         showToast("Alterações salvas com sucesso!", 'success');
       }).catch(error => {
@@ -1680,57 +1621,117 @@ Caminhe com reis. Jogue como um soberano. 👑
 
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
-      toast.textContent = '';
+      toast.textContent = ''; // Limpa o conteúdo anterior
       let icon = (type === 'success') ? '✔️' : '❌';
-      toast.className = `toast-notification toast-${type}`;
+      toast.className = `toast-notification toast-${type}`; // Redefine as classes
       toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;
+      toast.classList.add('show'); // Mostra o toast imediatamente
       setTimeout(() => {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2500);
-      }, 80);
+        toast.classList.remove('show');
+      }, 2500);
     }
 
-    document.getElementById('lastUpdate').textContent =
-      "Última atualização: " + new Date().toLocaleString('pt-BR');
-
-    // Carrega dados iniciais
-    window.addEventListener("load", () => {
+    // Função para carregar os dados públicos do Firebase
+    function carregarDadosPublicos() {
       db.ref("site").once("value", snapshot => {
         if (!snapshot.exists()) return;
 
         const data = snapshot.val();
 
-        if (data.regras) {
-          const regrasList = document.querySelector("#regras ul");
-          regrasList.innerHTML = "";
-          data.regras.forEach(r => {
-            const li = document.createElement("li");
-            li.textContent = r;
-            regrasList.appendChild(li);
-          });
+        // Atualizar "Melhores da Semana"
+        const topMembersList = document.getElementById("top-members-list");
+        if (data.membros && topMembersList) {
+            topMembersList.innerHTML = ''; // Limpa o conteúdo existente
+            data.membros.forEach((member, index) => {
+                const li = document.createElement("li");
+                let badgeClass = '';
+                let medalClass = '';
+                let medalIcon = '';
+                if (index === 0) {
+                    badgeClass = ''; // Default golden
+                    medalClass = '';
+                    medalIcon = '🥇';
+                } else if (index === 1) {
+                    badgeClass = 'second';
+                    medalClass = 'second';
+                    medalIcon = '🥈';
+                } else if (index === 2) {
+                    badgeClass = 'third';
+                    medalClass = 'third';
+                    medalIcon = '🥉';
+                }
+                li.innerHTML = `
+                    <span class="ranking-badge ${badgeClass}">${index + 1}º</span>
+                    ${member}
+                    <span class="ranking-bar"></span>
+                    <span class="medal ${medalClass}">${medalIcon}</span>
+                `;
+                topMembersList.appendChild(li);
+            });
+            // Adiciona a mensagem de parabéns
+            let congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');
+            if (!congratsMsg) {
+                congratsMsg = document.createElement("div");
+                congratsMsg.className = 'congrats-message';
+                congratsMsg.style = "color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;";
+                topMembersList.closest('.card').appendChild(congratsMsg);
+            }
+            congratsMsg.textContent = "Parabéns aos melhores pontuadores desta semana!";
+        } else if (topMembersList) {
+            topMembersList.innerHTML = '<li>Nenhum membro classificado esta semana.</li>';
+            const congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');
+            if(congratsMsg) congratsMsg.textContent = ''; // Limpa a mensagem se não houver membros
         }
 
-        if (data.avisos) {
-          const avisosList = document.querySelector("#avisos .avisos-list");
-          avisosList.innerHTML = "";
-          data.avisos.forEach(a => {
-            const li = document.createElement("li");
-            li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;
-            avisosList.appendChild(li);
-          });
+        // Preencher Regras da Guilda
+        const regrasList = document.getElementById("regras-ul");
+        regrasList.innerHTML = "";
+        if (data.regras && data.regras.length > 0) {
+            data.regras.forEach(r => {
+                const li = document.createElement("li");
+                li.textContent = r;
+                regrasList.appendChild(li);
+            });
+        } else {
+            regrasList.innerHTML = '<li>Nenhuma regra definida ainda.</li>';
         }
 
-        if (data.destaqueMsg) {
-          document.querySelector('.destaque b + span').textContent = data.destaqueMsg;
+        // Preencher Avisos Recentes
+        const avisosList = document.getElementById("avisos-ul");
+        avisosList.innerHTML = "";
+        if (data.avisos && data.avisos.length > 0) {
+            data.avisos.forEach(a => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;
+                avisosList.appendChild(li);
+            });
+        } else {
+            avisosList.innerHTML = '<li>Nenhum aviso no momento.</li>';
         }
 
-        if (data.statusGuilda) {
-          document.querySelector('footer div:nth-child(2) b').textContent = data.statusGuilda;
+        // Atualizar Mensagem de Destaque
+        const destaqueElement = document.getElementById("destaque-message-display");
+        if (destaqueElement) {
+            destaqueElement.textContent = data.destaqueMsg || "Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!";
         }
+
+        // Atualizar Status da Guilda no Rodapé
+        const statusGuildaElement = document.getElementById("guild-status-footer");
+        if (statusGuildaElement) {
+            statusGuildaElement.textContent = data.statusGuilda || "Em manutenção";
+        }
+
+      }).catch(error => {
+        console.error("Erro ao carregar dados públicos:", error);
+        showToast("Erro ao carregar dados do site. Tente recarregar a página.", 'error');
       });
-    });
+    }
+
+    // Carrega dados públicos na inicialização
+    document.addEventListener("DOMContentLoaded", carregarDadosPublicos);
+
+    // Atualiza a última data de atualização
+    document.getElementById('lastUpdate').textContent = "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-  </html>
+</html>
