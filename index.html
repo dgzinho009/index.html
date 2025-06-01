@@ -18,936 +18,942 @@
   </noscript>
   <style>
     :root {
-      -[span_0](start_span)-main-bg: linear-gradient(135deg, #161616 0%, #232323 100%);[span_0](end_span)
-      -[span_1](start_span)-glass-bg: rgba(26, 26, 38, 0.72);[span_1](end_span)
-      -[span_2](start_span)-card-bg: rgba(26, 26, 38, 0.80);[span_2](end_span)
-      -[span_3](start_span)-nav-bg: rgba(16,16,24,0.90);[span_3](end_span)
-      -[span_4](start_span)-gold: #FFD700;[span_4](end_span)
-      -[span_5](start_span)-blue: #37a6ff;[span_5](end_span)
-      -[span_6](start_span)-purple: #a259ff;[span_6](end_span)
-      -[span_7](start_span)-red: #f05454;[span_7](end_span)
-      -[span_8](start_span)-white: #fff;[span_8](end_span)
-      -[span_9](start_span)-accent: #f05454;[span_9](end_span)
-      -[span_10](start_span)-shadow: 0 2px 18px #0008;[span_10](end_span)
-      -[span_11](start_span)-radius: 32px;[span_11](end_span)
-      -[span_12](start_span)-glass-blur: blur(12px);[span_12](end_span)
-      -[span_13](start_span)-gradient-gold: linear-gradient(90deg, #FFD700 60%, #fff 100%);[span_13](end_span)
-      -[span_14](start_span)-gradient-blue: linear-gradient(90deg, #37a6ff 60%, #FFD700 100%);[span_14](end_span)
-      -[span_15](start_span)-gradient-purple: linear-gradient(90deg, #a259ff 60%, #FFD700 100%);[span_15](end_span)
-      -[span_16](start_span)-gradient-red: linear-gradient(90deg, #f05454 60%, #FFD700 100%);[span_16](end_span)
-      -[span_17](start_span)-badge-shadow: 0 1px 8px #FFD70088;[span_17](end_span)
-      -[span_18](start_span)-glass-border: 1.5px solid #ffffff22;[span_18](end_span)
-      -[span_19](start_span)-trans: cubic-bezier(.53,0,.44,1) .25s;[span_19](end_span)
-      -[span_20](start_span)-transition-theme: 0.3s ease;[span_20](end_span)
+      --main-bg: linear-gradient(135deg, #161616 0%, #232323 100%);
+      --glass-bg: rgba(26, 26, 38, 0.72);
+      --card-bg: rgba(26, 26, 38, 0.80);
+      --nav-bg: rgba(16,16,24,0.90);
+      --gold: #FFD700;
+      --blue: #37a6ff;
+      --purple: #a259ff;
+      --red: #f05454;
+      --white: #fff;
+      --accent: #f05454;
+      --shadow: 0 2px 18px #0008;
+      --radius: 32px;
+      --glass-blur: blur(12px);
+      --gradient-gold: linear-gradient(90deg, #FFD700 60%, #fff 100%);
+      --gradient-blue: linear-gradient(90deg, #37a6ff 60%, #FFD700 100%);
+      --gradient-purple: linear-gradient(90deg, #a259ff 60%, #FFD700 100%);
+      --gradient-red: linear-gradient(90deg, #f05454 60%, #FFD700 100%);
+      --badge-shadow: 0 1px 8px #FFD70088;
+      --glass-border: 1.5px solid #ffffff22;
+      --trans: cubic-bezier(.53,0,.44,1) .25s;
+      --transition-theme: 0.3s ease;
     }
     html,
     body {
-      [span_21](start_span)height: 100%;[span_21](end_span)
+      height: 100%;
     }
     body {
-      [span_22](start_span)background: var(--main-bg);[span_22](end_span)
-      [span_23](start_span)color: var(--white);[span_23](end_span)
-      [span_24](start_span)font-family: 'Montserrat', Arial, sans-serif;[span_24](end_span)
-      [span_25](start_span)margin: 0;[span_25](end_span)
-      [span_26](start_span)min-height: 100vh;[span_26](end_span)
-      [span_27](start_span)letter-spacing: 0.01em;[span_27](end_span)
-      [span_28](start_span)overflow-x: hidden;[span_28](end_span)
-      [span_29](start_span)position: relative;[span_29](end_span)
+      background: var(--main-bg);
+      color: var(--white);
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+      position: relative;
       transition:
         background var(--transition-theme),
-        [span_30](start_span)color var(--transition-theme);[span_30](end_span)
+        color var(--transition-theme);
     }
     body.light {
-      -[span_31](start_span)-main-bg: linear-gradient(135deg, #fffde4 0%, #f7f7f7 100%);[span_31](end_span)
-      -[span_32](start_span)-glass-bg: rgba(255, 255, 255, 0.77);[span_32](end_span)
-      -[span_33](start_span)-card-bg: rgba(255, 255, 255, 0.92);[span_33](end_span)
-      -[span_34](start_span)-white: #232323;[span_34](end_span)
-      -[span_35](start_span)-shadow: 0 2px 18px #ffd70044;[span_35](end_span)
-      -[span_36](start_span)-glass-border: 2px solid #ffd70044;[span_36](end_span)
+      --main-bg: linear-gradient(135deg, #fffde4 0%, #f7f7f7 100%);
+      --glass-bg: rgba(255, 255, 255, 0.77);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --white: #232323;
+      --shadow: 0 2px 18px #ffd70044;
+      --glass-border: 2px solid #ffd70044;
     }
     #bg-particles {
-      [span_37](start_span)position: fixed;[span_37](end_span)
-      [span_38](start_span)left: 0;[span_38](end_span)
-      [span_39](start_span)top: 0;[span_39](end_span)
-      [span_40](start_span)width: 100vw;[span_40](end_span)
-      [span_41](start_span)height: 100vh;[span_41](end_span)
-      [span_42](start_span)z-index: 0;[span_42](end_span)
-      [span_43](start_span)pointer-events: none;[span_43](end_span)
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
     }
     header {
-      [span_44](start_span)background: var(--gradient-gold);[span_44](end_span)
-      [span_45](start_span)box-shadow: 0 6px 24px #ffd70022;[span_45](end_span)
-      [span_46](start_span)padding: 24px 0 18px 0;[span_46](end_span)
-      [span_47](start_span)border-radius: 0 0 var(--radius) var(--radius);[span_47](end_span)
-      [span_48](start_span)z-index: 2;[span_48](end_span)
-      [span_49](start_span)text-align: center;[span_49](end_span)
-      [span_50](start_span)position: relative;[span_50](end_span)
+      background: var(--gradient-gold);
+      box-shadow: 0 6px 24px #ffd70022;
+      padding: 24px 0 18px 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      z-index: 2;
+      text-align: center;
+      position: relative;
       /* Removida transição de background diretamente em gradiente */
     }
     .logo {
-      [span_51](start_span)width: 84px;[span_51](end_span)
-      [span_52](start_span)height: 84px;[span_52](end_span)
-      [span_53](start_span)border-radius: 22px;[span_53](end_span)
-      [span_54](start_span)border: 3.5px solid var(--gold);[span_54](end_span)
-      [span_55](start_span)background: #fff;[span_55](end_span)
-      [span_56](start_span)margin-bottom: 7px;[span_56](end_span)
-      [span_57](start_span)box-shadow: 0 2px 24px #ffd70076;[span_57](end_span)
-      [span_58](start_span)transition: transform 0.2s;[span_58](end_span)
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      border: 3.5px solid var(--gold);
+      background: #fff;
+      margin-bottom: 7px;
+      box-shadow: 0 2px 24px #ffd70076;
+      transition: transform 0.2s;
     }
     .logo:hover {
-      [span_59](start_span)transform: scale(1.06) rotate(-2deg);[span_59](end_span)
+      transform: scale(1.06) rotate(-2deg);
     }
     .title {
-      [span_60](start_span)font-size: 2.25rem;[span_60](end_span)
-      [span_61](start_span)font-weight: 1200;[span_61](end_span)
-      [span_62](start_span)letter-spacing: 2.8px;[span_62](end_span)
-      [span_63](start_span)color: var(--gold);[span_63](end_span)
-      [span_64](start_span)text-shadow: 0 2px 24px #ffd7002a, 0 1px 0 #fff3;[span_64](end_span)
-      [span_65](start_span)margin: 0 0 2px 0;[span_65](end_span)
-      [span_66](start_span)letter-spacing: 2.2px;[span_66](end_span)
+      font-size: 2.25rem;
+      font-weight: 1200;
+      letter-spacing: 2.8px;
+      color: var(--gold);
+      text-shadow: 0 2px 24px #ffd7002a, 0 1px 0 #fff3;
+      margin: 0 0 2px 0;
+      letter-spacing: 2.2px;
     }
     .subtitle {
-      [span_67](start_span)color: #fff;[span_67](end_span)
-      [span_68](start_span)font-size: 1.11rem;[span_68](end_span)
-      [span_69](start_span)font-weight: 700;[span_69](end_span)
-      [span_70](start_span)margin-bottom: 7px;[span_70](end_span)
-      [span_71](start_span)text-shadow: 0 2px 8px #232323cc;[span_71](end_span)
-      [span_72](start_span)letter-spacing: 0.4px;[span_72](end_span)
-      [span_73](start_span)transition: color 0.18s;[span_73](end_span)
+      color: #fff;
+      font-size: 1.11rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+      text-shadow: 0 2px 8px #232323cc;
+      letter-spacing: 0.4px;
+      transition: color 0.18s;
     }
     .mode-switch {
-      [span_74](start_span)position: absolute;[span_74](end_span)
-      [span_75](start_span)top: 16px;[span_75](end_span)
-      [span_76](start_span)right: 18px;[span_76](end_span)
-      [span_77](start_span)background: var(--glass-bg);[span_77](end_span)
-      [span_78](start_span)border: var(--glass-border);[span_78](end_span)
-      [span_79](start_span)border-radius: 13px;[span_79](end_span)
-      [span_80](start_span)cursor: pointer;[span_80](end_span)
-      [span_81](start_span)font-size: 1.18em;[span_81](end_span)
-      [span_82](start_span)color: var(--gold);[span_82](end_span)
-      [span_83](start_span)z-index: 999;[span_83](end_span)
-      [span_84](start_span)width: 44px;[span_84](end_span)
-      [span_85](start_span)height: 44px;[span_85](end_span)
-      [span_86](start_span)display: flex;[span_86](end_span)
-      [span_87](start_span)align-items: center;[span_87](end_span)
-      [span_88](start_span)justify-content: center;[span_88](end_span)
-      [span_89](start_span)box-shadow: 0 2px 10px #ffd70044;[span_89](end_span)
-      [span_90](start_span)transition: background 0.2s, color 0.18s;[span_90](end_span)
-      /* Corrigido: Garantir outline para acessibilidade */
-      outline: 2px solid transparent; 
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: var(--glass-bg);
+      border: var(--glass-border);
+      border-radius: 13px;
+      cursor: pointer;
+      font-size: 1.18em;
+      color: var(--gold);
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px #ffd70044;
+      transition: background 0.2s, color 0.18s;
+      outline: 2px solid transparent; /* Estilização do outline */
       outline-offset: 2px;
     }
     .mode-switch:hover {
-      [span_91](start_span)background: var(--card-bg);[span_91](end_span)
-      [span_92](start_span)color: var(--purple);[span_92](end_span)
+      background: var(--card-bg);
+      color: var(--purple);
+    }
+    .mode-switch:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
     }
     .menu-hamburger {
-      [span_93](start_span)display: block;[span_93](end_span)
-      [span_94](start_span)position: absolute;[span_94](end_span)
-      [span_95](start_span)top: 15px;[span_95](end_span)
-      [span_96](start_span)left: 18px;[span_96](end_span)
-      [span_97](start_span)background: none;[span_97](end_span)
-      [span_98](start_span)border: none;[span_98](end_span)
-      [span_99](start_span)cursor: pointer;[span_99](end_span)
-      [span_100](start_span)z-index: 1001;[span_100](end_span)
-      [span_101](start_span)width: 45px;[span_101](end_span)
-      [span_102](start_span)height: 45px;[span_102](end_span)
-      [span_103](start_span)border-radius: 50%;[span_103](end_span)
-      [span_104](start_span)transition: background 0.18s;[span_104](end_span)
-       /* Corrigido: Garantir outline para acessibilidade */
-      outline: 2px solid transparent; 
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: background 0.18s;
+      outline: 2px solid transparent; /* Estilização do outline */
       outline-offset: 2px;
     }
+    .menu-hamburger:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
+    }
     .menu-hamburger .bar {
-      [span_105](start_span)display: block;[span_105](end_span)
-      [span_106](start_span)width: 27px;[span_106](end_span)
-      [span_107](start_span)height: 4px;[span_107](end_span)
-      [span_108](start_span)margin: 5px auto;[span_108](end_span)
-      [span_109](start_span)border-radius: 3px;[span_109](end_span)
-      [span_110](start_span)background: #000;[span_110](end_span)
-      [span_111](start_span)transition: 0.3s;[span_111](end_span)
+      display: block;
+      width: 27px;
+      height: 4px;
+      margin: 5px auto;
+      border-radius: 3px;
+      background: #000;
+      transition: 0.3s;
     }
     .menu-hamburger.open .bar:nth-child(1) {
-      [span_112](start_span)transform: rotate(45deg) translate(5px, 7px);[span_112](end_span)
+      transform: rotate(45deg) translate(5px, 7px);
     }
     .menu-hamburger.open .bar:nth-child(2) {
-      [span_113](start_span)opacity: 0;[span_113](end_span)
+      opacity: 0;
     }
     .menu-hamburger.open .bar:nth-child(3) {
-      [span_114](start_span)transform: rotate(-45deg) translate(7px, -7px);[span_114](end_span)
+      transform: rotate(-45deg) translate(7px, -7px);
     }
     nav.menu {
-      [span_115](start_span)background: var(--nav-bg);[span_115](end_span)
-      [span_116](start_span)box-shadow: 0 1px 16px #ffd70033;[span_116](end_span)
-      [span_117](start_span)border-radius: 0 0 var(--radius) var(--radius);[span_117](end_span)
-      [span_118](start_span)display: flex;[span_118](end_span)
-      [span_119](start_span)justify-content: center;[span_119](end_span)
-      [span_120](start_span)align-items: center;[span_120](end_span)
-      [span_121](start_span)gap: 9px;[span_121](end_span)
-      [span_122](start_span)min-height: 54px;[span_122](end_span)
-      [span_123](start_span)z-index: 1000;[span_123](end_span)
-      [span_124](start_span)position: relative;[span_124](end_span)
-      [span_125](start_span)margin-bottom: 22px;[span_125](end_span)
+      background: var(--nav-bg);
+      box-shadow: 0 1px 16px #ffd70033;
+      border-radius: 0 0 var(--radius) var(--radius);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 54px;
+      z-index: 1000;
+      position: relative;
+      margin-bottom: 22px;
       transition:
         background var(--transition-theme),
         transform 0.3s ease,
-        [span_126](start_span)opacity 0.3s ease;[span_126](end_span)
+        opacity 0.3s ease;
     }
     .menu-btn {
-      [span_127](start_span)background: none;[span_127](end_span)
-      [span_128](start_span)color: #ccc;[span_128](end_span)
-      [span_129](start_span)font-size: 1.14em;[span_129](end_span)
-      [span_130](start_span)font-weight: 700;[span_130](end_span)
-      [span_131](start_span)border: none;[span_131](end_span)
-      [span_132](start_span)border-radius: 14px 14px 0 0;[span_132](end_span)
-      [span_133](start_span)padding: 12px 23px 8px 19px;[span_133](end_span)
-      [span_134](start_span)margin: 0;[span_134](end_span)
-      [span_135](start_span)cursor: pointer;[span_135](end_span)
-      [span_136](start_span)transition: background 0.15s, color 0.11s, transform 0.13s;[span_136](end_span)
-      /* Corrigido: Garantir outline para acessibilidade */
-      outline: 2px solid transparent; 
+      background: none;
+      color: #ccc;
+      font-size: 1.14em;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px 14px 0 0;
+      padding: 12px 23px 8px 19px;
+      margin: 0;
+      cursor: pointer;
+      transition: background 0.15s, color 0.11s, transform 0.13s;
+      outline: 2px solid transparent; /* Estilização do outline */
       outline-offset: 2px;
-      [span_137](start_span)letter-spacing: 0.7px;[span_137](end_span)
-      [span_138](start_span)position: relative;[span_138](end_span)
-      [span_139](start_span)border-bottom: 2.5px solid transparent;[span_139](end_span)
-      [span_140](start_span)border-top: 2.5px solid transparent;[span_140](end_span)
-      [span_141](start_span)box-shadow: 0 0 0 transparent;[span_141](end_span)
-      [span_142](start_span)user-select: none;[span_142](end_span)
-      [span_143](start_span)display: flex;[span_143](end_span)
-      [span_144](start_span)align-items: center;[span_144](end_span)
+      letter-spacing: 0.7px;
+      position: relative;
+      border-bottom: 2.5px solid transparent;
+      border-top: 2.5px solid transparent;
+      box-shadow: 0 0 0 transparent;
+      user-select: none;
+      display: flex;
+      align-items: center;
+    }
+    .menu-btn:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
     }
     .menu-btn .tabicon {
-      [span_145](start_span)font-family: 'Material Symbols Outlined', Arial, sans-serif;[span_145](end_span)
-      [span_146](start_span)font-variation-settings: 'FILL' 1, 'wght' 700;[span_146](end_span)
-      [span_147](start_span)font-size: 1.33em;[span_147](end_span)
-      [span_148](start_span)margin-right: 7px;[span_148](end_span)
-      [span_149](start_span)vertical-align: middle;[span_149](end_span)
-      [span_150](start_span)color: var(--gold);[span_150](end_span)
+      font-family: 'Material Symbols Outlined', Arial, sans-serif;
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+      font-size: 1.33em;
+      margin-right: 7px;
+      vertical-align: middle;
+      color: var(--gold);
       /* Cor padrão dos ícones */
-      [span_151](start_span)transition: color 0.11s;[span_151](end_span)
+      transition: color 0.11s;
     }
     /* Estilos específicos para ícones (se houver variação além do gold padrão) */
-    [span_152](start_span).menu-btn[data-tab="ranking"] .tabicon { color: var(--blue);[span_152](end_span)
-    }
+    .menu-btn[data-tab="ranking"] .tabicon { color: var(--blue); }
     .menu-btn[data-tab="staff"] .tabicon { color: var(--purple); }
-    [span_153](start_span).menu-btn[data-tab="guerra"] .tabicon { color: var(--red);[span_153](end_span)
-    }
+    .menu-btn[data-tab="guerra"] .tabicon { color: var(--red); }
     .menu-btn[data-tab="parceiros"] .tabicon { color: var(--blue); }
-    [span_154](start_span).menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple);[span_154](end_span)
-    }
+    .menu-btn[data-tab="recrutamento"] .tabicon { color: var(--purple); }
     .menu-btn[data-tab="streamers"] .tabicon { color: var(--red); }
-    [span_155](start_span).menu-btn[data-tab="denuncia"] .tabicon { color: var(--red);[span_155](end_span)
-    }
+    .menu-btn[data-tab="denuncia"] .tabicon { color: var(--red); }
     .menu-btn[data-tab="sugestoes"] .tabicon { color: var(--blue); }
-    [span_156](start_span).menu-btn[data-tab="adm"] .tabicon { color: var(--red);[span_156](end_span)
-    }
+    .menu-btn[data-tab="adm"] .tabicon { color: var(--red); }
 
     .menu-btn.active,
     .menu-btn:focus,
     .menu-btn:hover {
-      [span_157](start_span)background: var(--glass-bg);[span_157](end_span)
-      [span_158](start_span)color: var(--gold);[span_158](end_span)
-      [span_159](start_span)border-bottom: 2.5px solid var(--accent);[span_159](end_span)
-      [span_160](start_span)box-shadow: 0 2px 10px #ffd70033;[span_160](end_span)
-      [span_161](start_span)font-weight: 900;[span_161](end_span)
-      [span_162](start_span)z-index: 10;[span_162](end_span)
-      [span_163](start_span)transform: translateY(-2px) scale(1.05);[span_163](end_span)
-      outline: 2px solid var(--accent); /* Adicionado: outline para foco */
-      outline-offset: 2px; /* Adicionado: deslocamento para outline */
+      background: var(--glass-bg);
+      color: var(--gold);
+      border-bottom: 2.5px solid var(--accent);
+      box-shadow: 0 2px 10px #ffd70033;
+      font-weight: 900;
+      z-index: 10;
+      transform: translateY(-2px) scale(1.05);
     }
     .menu-btn.active .tabicon,
     .menu-btn:focus .tabicon,
     .menu-btn:hover .tabicon {
-      [span_164](start_span)color: var(--red);[span_164](end_span)
+      color: var(--red);
       /* Ícone vermelho quando ativo/hover */
     }
     .badge-dot {
-      [span_165](start_span)position: absolute;[span_165](end_span)
-      [span_166](start_span)top: 8px;[span_166](end_span)
-      [span_167](start_span)right: 11px;[span_167](end_span)
-      [span_168](start_span)width: 14px;[span_168](end_span)
-      [span_169](start_span)height: 14px;[span_169](end_span)
-      [span_170](start_span)background: #ffd700;[span_170](end_span)
-      [span_171](start_span)border: 2px solid #232323;[span_171](end_span)
-      [span_172](start_span)border-radius: 50%;[span_172](end_span)
-      [span_173](start_span)box-shadow: var(--badge-shadow);[span_173](end_span)
-      [span_174](start_span)animation: badgePulse 1s infinite alternate;[span_174](end_span)
-      [span_175](start_span)z-index: 3;[span_175](end_span)
-      [span_176](start_span)display: inline-block;[span_176](end_span)
+      position: absolute;
+      top: 8px;
+      right: 11px;
+      width: 14px;
+      height: 14px;
+      background: #ffd700;
+      border: 2px solid #232323;
+      border-radius: 50%;
+      box-shadow: var(--badge-shadow);
+      animation: badgePulse 1s infinite alternate;
+      z-index: 3;
+      display: inline-block;
     }
     @keyframes badgePulse {
       0% {
-        [span_177](start_span)box-shadow: 0 0 8px #ffd70055;[span_177](end_span)
+        box-shadow: 0 0 8px #ffd70055;
       }
       100% {
-        [span_178](start_span)box-shadow: 0 0 18px #ffd700cc;[span_178](end_span)
+        box-shadow: 0 0 18px #ffd700cc;
       }
     }
     @media (max-width: 950px) {
       .cards-grid {
-        [span_179](start_span)grid-template-columns: 1fr;[span_179](end_span)
+        grid-template-columns: 1fr;
       }
       .card {
-        [span_180](start_span)padding: 10px 2vw 8px 2vw;[span_180](end_span)
+        padding: 10px 2vw 8px 2vw;
       }
       nav.menu {
-        [span_181](start_span)gap: 0;[span_181](end_span)
-        [span_182](start_span)flex-wrap: wrap;[span_182](end_span)
+        gap: 0;
+        flex-wrap: wrap;
       }
       .menu-btn {
-        [span_183](start_span)padding: 8px 9px 6px 9px;[span_183](end_span)
-        [span_184](start_span)font-size: 1em;[span_184](end_span)
+        padding: 8px 9px 6px 9px;
+        font-size: 1em;
       }
     }
     @media (max-width: 700px) {
       .menu-hamburger {
-        [span_185](start_span)display: block;[span_185](end_span)
+        display: block;
       }
       nav.menu {
-        [span_186](start_span)flex-direction: column;[span_186](end_span)
-        [span_187](start_span)align-items: stretch;[span_187](end_span)
-        [span_188](start_span)justify-content: flex-start;[span_188](end_span)
-        [span_189](start_span)gap: 0;[span_189](end_span)
-        [span_190](start_span)position: fixed;[span_190](end_span)
-        [span_191](start_span)left: 0;[span_191](end_span)
-        [span_192](start_span)top: 0;[span_192](end_span)
-        [span_193](start_span)width: 78vw;[span_193](end_span)
-        [span_194](start_span)max-width: 340px;[span_194](end_span)
-        [span_195](start_span)height: 100vh;[span_195](end_span)
-        [span_196](start_span)border-radius: 0 22px 22px 0;[span_196](end_span)
-        [span_197](start_span)box-shadow: 8px 0 36px #ffd70044;[span_197](end_span)
-        [span_198](start_span)transform: translateX(-100%);[span_198](end_span)
-        [span_199](start_span)opacity: 0;[span_199](end_span)
-        [span_200](start_span)pointer-events: none;[span_200](end_span)
-        [span_201](start_span)z-index: 1999;[span_201](end_span)
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 78vw;
+        max-width: 340px;
+        height: 100vh;
+        border-radius: 0 22px 22px 0;
+        box-shadow: 8px 0 36px #ffd70044;
+        transform: translateX(-100%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1999;
       }
       nav.menu.open {
-        [span_202](start_span)transform: translateX(0);[span_202](end_span)
-        [span_203](start_span)opacity: 1;[span_203](end_span)
-        [span_204](start_span)pointer-events: all;[span_204](end_span)
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
       }
       .menu-btn {
-        [span_205](start_span)display: block;[span_205](end_span)
-        [span_206](start_span)text-align: left;[span_206](end_span)
-        [span_207](start_span)border-radius: 0 19px 19px 0;[span_207](end_span)
-        [span_208](start_span)width: 100%;[span_208](end_span)
-        [span_209](start_span)padding: 14px 8px 12px 22px;[span_209](end_span)
-        [span_210](start_span)font-size: 1.08em;[span_210](end_span)
-        [span_211](start_span)margin: 0;[span_211](end_span)
-        [span_212](start_span)border-bottom: 1.5px solid #ffd70033;[span_212](end_span)
-        [span_213](start_span)background: none;[span_213](end_span)
-        [span_214](start_span)box-shadow: none;[span_214](end_span)
+        display: block;
+        text-align: left;
+        border-radius: 0 19px 19px 0;
+        width: 100%;
+        padding: 14px 8px 12px 22px;
+        font-size: 1.08em;
+        margin: 0;
+        border-bottom: 1.5px solid #ffd70033;
+        background: none;
+        box-shadow: none;
       }
       .menu-btn.active,
       .menu-btn:focus,
       .menu-btn:hover {
-        [span_215](start_span)background: var(--glass-bg);[span_215](end_span)
-        [span_216](start_span)color: var(--gold);[span_216](end_span)
-        [span_217](start_span)font-weight: 900;[span_217](end_span)
-        [span_218](start_span)border-bottom: 2.5px solid var(--accent);[span_218](end_span)
-        [span_219](start_span)transform: scale(1.03);[span_219](end_span)
+        background: var(--glass-bg);
+        color: var(--gold);
+        font-weight: 900;
+        border-bottom: 2.5px solid var(--accent);
+        transform: scale(1.03);
       }
     }
     @media (max-width: 530px) {
       .title {
-        [span_220](start_span)font-size: 1.13rem;[span_220](end_span)
+        font-size: 1.13rem;
       }
       .logo {
-        [span_221](start_span)width: 48px;[span_221](end_span)
-        [span_222](start_span)height: 48px;[span_222](end_span)
+        width: 48px;
+        height: 48px;
       }
     }
     .main-content {
-      [span_223](start_span)max-width: 1200px;[span_223](end_span)
-      [span_224](start_span)margin: 0 auto;[span_224](end_span)
-      [span_225](start_span)padding: 0 2vw 20px 2vw;[span_225](end_span)
-      [span_226](start_span)z-index: 1;[span_226](end_span)
-      [span_227](start_span)position: relative;[span_227](end_span)
-      [span_228](start_span)margin-top: 13px;[span_228](end_span)
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2vw 20px 2vw;
+      z-index: 1;
+      position: relative;
+      margin-top: 13px;
     }
     .hero-banner {
-      [span_229](start_span)margin: 30px auto 40px auto;[span_229](end_span)
-      [span_230](start_span)max-width: 520px;[span_230](end_span)
-      [span_231](start_span)background: var(--glass-bg);[span_231](end_span)
-      [span_232](start_span)border-radius: 38px;[span_232](end_span)
-      [span_233](start_span)box-shadow: 0 2px 42px #ffd70011;[span_233](end_span)
-      [span_234](start_span)padding: 34px 18px 44px 18px;[span_234](end_span)
-      [span_235](start_span)display: flex;[span_235](end_span)
-      [span_236](start_span)flex-direction: column;[span_236](end_span)
-      [span_237](start_span)align-items: center;[span_237](end_span)
-      [span_238](start_span)position: relative;[span_238](end_span)
-      [span_239](start_span)overflow: visible;[span_239](end_span)
-      [span_240](start_span)backdrop-filter: var(--glass-blur);[span_240](end_span)
-      [span_241](start_span)border: var(--glass-border);[span_241](end_span)
-      [span_242](start_span)animation: fadeIn 0.8s;[span_242](end_span)
+      margin: 30px auto 40px auto;
+      max-width: 520px;
+      background: var(--glass-bg);
+      border-radius: 38px;
+      box-shadow: 0 2px 42px #ffd70011;
+      padding: 34px 18px 44px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+      backdrop-filter: var(--glass-blur);
+      border: var(--glass-border);
+      animation: fadeIn 0.8s;
       transition:
         background var(--transition-theme),
-        [span_243](start_span)border-color var(--transition-theme);[span_243](end_span)
+        border-color var(--transition-theme);
     }
     @keyframes fadeIn {
       from {
-        [span_244](start_span)opacity: 0;[span_244](end_span)
+        opacity: 0;
       }
       to {
-        [span_245](start_span)opacity: 1;[span_245](end_span)
+        opacity: 1;
       }
     }
     .hero-logo img {
-      [span_246](start_span)width: 130px;[span_246](end_span)
-      [span_247](start_span)height: 130px;[span_247](end_span)
-      [span_248](start_span)border-radius: 26px;[span_248](end_span)
-      [span_249](start_span)border: 5px solid #ffd700;[span_249](end_span)
-      [span_250](start_span)box-shadow: 0 0 16px #ffd70044, 0 0 0 6px #232323;[span_250](end_span)
-      [span_251](start_span)background: #111;[span_251](end_span)
-      [span_252](start_span)object-fit: cover;[span_252](end_span)
-      [span_253](start_span)margin-bottom: 14px;[span_253](end_span)
+      width: 130px;
+      height: 130px;
+      border-radius: 26px;
+      border: 5px solid #ffd700;
+      box-shadow: 0 0 16px #ffd70044, 0 0 0 6px #232323;
+      background: #111;
+      object-fit: cover;
+      margin-bottom: 14px;
     }
     .guilda-title {
-      [span_254](start_span)font-size: 1.36rem;[span_254](end_span)
-      [span_255](start_span)font-weight: 800;[span_255](end_span)
-      [span_256](start_span)color: #ffd700;[span_256](end_span)
-      [span_257](start_span)letter-spacing: 2px;[span_257](end_span)
-      [span_258](start_span)margin-bottom: 5px;[span_258](end_span)
-      [span_259](start_span)text-shadow: 0 2px 14px #ffd70044;[span_259](end_span)
-      [span_260](start_span)text-align: center;[span_260](end_span)
+      font-size: 1.36rem;
+      font-weight: 800;
+      color: #ffd700;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 14px #ffd70044;
+      text-align: center;
     }
     .guilda-nome {
-      [span_261](start_span)display: flex;[span_261](end_span)
-      [span_262](start_span)align-items: baseline;[span_262](end_span)
-      [span_263](start_span)gap: 8px;[span_263](end_span)
-      [span_264](start_span)margin: 0 0 8px 0;[span_264](end_span)
-      [span_265](start_span)justify-content: center;[span_265](end_span)
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 0 0 8px 0;
+      justify-content: center;
     }
     .guilda-nome-principal {
-      [span_266](start_span)font-size: 2.2rem;[span_266](end_span)
-      [span_267](start_span)font-weight: 900;[span_267](end_span)
-      [span_268](start_span)color: #ffd700;[span_268](end_span)
-      [span_269](start_span)letter-spacing: 6px;[span_269](end_span)
-      [span_270](start_span)text-shadow: 0 2px 16px #ffd70080, 0 1px 0 #fff3;[span_270](end_span)
-      [span_271](start_span)filter: drop-shadow(0 2px 10px #ffd70033);[span_271](end_span)
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #ffd700;
+      letter-spacing: 6px;
+      text-shadow: 0 2px 16px #ffd70080, 0 1px 0 #fff3;
+      filter: drop-shadow(0 2px 10px #ffd70033);
     }
     .guilda-nome-sufixo {
-      [span_272](start_span)font-size: 1.34rem;[span_272](end_span)
-      [span_273](start_span)font-weight: 700;[span_273](end_span)
-      [span_274](start_span)color: #ffd700bb;[span_274](end_span)
-      [span_275](start_span)letter-spacing: 1.5px;[span_275](end_span)
-      [span_276](start_span)margin-left: 2px;[span_276](end_span)
-      [span_277](start_span)text-shadow: 0 1px 6px #ffd70022;[span_277](end_span)
+      font-size: 1.34rem;
+      font-weight: 700;
+      color: #ffd700bb;
+      letter-spacing: 1.5px;
+      margin-left: 2px;
+      text-shadow: 0 1px 6px #ffd70022;
     }
     .guilda-frase {
-      [span_278](start_span)font-size: 1.22rem;[span_278](end_span)
-      [span_279](start_span)color: #fff;[span_279](end_span)
-      [span_280](start_span)margin-bottom: 2px;[span_280](end_span)
-      [span_281](start_span)text-align: center;[span_281](end_span)
-      [span_282](start_span)text-shadow: 0 1px 8px #ffd70022;[span_282](end_span)
+      font-size: 1.22rem;
+      color: #fff;
+      margin-bottom: 2px;
+      text-align: center;
+      text-shadow: 0 1px 8px #ffd70022;
     }
     .guilda-frase-destaque {
-      [span_283](start_span)color: #ffd700;[span_283](end_span)
-      [span_284](start_span)font-weight: 900;[span_284](end_span)
-      [span_285](start_span)letter-spacing: 2.5px;[span_285](end_span)
-      [span_286](start_span)font-size: 1.19em;[span_286](end_span)
-      [span_287](start_span)text-shadow: 0 2px 10px #ffd70088;[span_287](end_span)
+      color: #ffd700;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      font-size: 1.19em;
+      text-shadow: 0 2px 10px #ffd70088;
     }
     .guilda-cta {
-      [span_288](start_span)margin-top: 33px;[span_288](end_span)
-      [span_289](start_span)text-align: center;[span_289](end_span)
+      margin-top: 33px;
+      text-align: center;
     }
     .cta-btn {
-      [span_290](start_span)display: inline-block;[span_290](end_span)
-      [span_291](start_span)background: var(--gradient-gold);[span_291](end_span)
-      [span_292](start_span)color: #232323;[span_292](end_span)
-      [span_293](start_span)font-weight: 900;[span_293](end_span)
-      [span_294](start_span)font-size: 1.32em;[span_294](end_span)
-      [span_295](start_span)letter-spacing: 1.5px;[span_295](end_span)
-      [span_296](start_span)padding: 15px 40px;[span_296](end_span)
-      [span_297](start_span)border-radius: 16px;[span_297](end_span)
-      [span_298](start_span)box-shadow: 0 2px 22px #ffd70077;[span_298](end_span)
-      [span_299](start_span)text-decoration: none;[span_299](end_span)
-      [span_300](start_span)transition: background 0.18s, color 0.11s, transform 0.13s;[span_300](end_span)
-      [span_301](start_span)border: none;[span_301](end_span)
-      [span_302](start_span)margin-bottom: 8px;[span_302](end_span)
-      outline: 2px solid transparent; /* Adicionado: outline para foco */
-      outline-offset: 2px; /* Adicionado: deslocamento para outline */
+      display: inline-block;
+      background: var(--gradient-gold);
+      color: #232323;
+      font-weight: 900;
+      font-size: 1.32em;
+      letter-spacing: 1.5px;
+      padding: 15px 40px;
+      border-radius: 16px;
+      box-shadow: 0 2px 22px #ffd70077;
+      text-decoration: none;
+      transition: background 0.18s, color 0.11s, transform 0.13s;
+      border: none;
+      margin-bottom: 8px;
+      outline: 2px solid transparent; /* Estilização do outline */
+      outline-offset: 2px;
+    }
+    .cta-btn:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
     }
     .cta-btn:hover,
     .cta-btn:focus {
-      [span_303](start_span)background: var(--gradient-blue);[span_303](end_span)
-      [span_304](start_span)color: #fff;[span_304](end_span)
-      [span_305](start_span)transform: scale(1.03);[span_305](end_span)
+      background: var(--gradient-blue);
+      color: #fff;
+      transform: scale(1.03);
     }
     .cta-btn.whatsapp {
-      [span_306](start_span)background: linear-gradient(90deg, #25d366 70%, #128c7e 100%);[span_306](end_span)
-      [span_307](start_span)color: #fff;[span_307](end_span)
-      [span_308](start_span)position: relative;[span_308](end_span)
+      background: linear-gradient(90deg, #25d366 70%, #128c7e 100%);
+      color: #fff;
+      position: relative;
     }
     .cta-btn.whatsapp::before {
-      [span_309](start_span)content: '';[span_309](end_span)
-      [span_310](start_span)display: inline-block;[span_310](end_span)
-      [span_311](start_span)background: url('https://img.icons8.com/color/48/000000/whatsapp.png') no-repeat center/contain;[span_311](end_span)
-      [span_312](start_span)width: 1.2em;[span_312](end_span)
-      [span_313](start_span)height: 1.2em;[span_313](end_span)
-      [span_314](start_span)vertical-align: middle;[span_314](end_span)
-      [span_315](start_span)margin-right: 8px;[span_315](end_span)
-      [span_316](start_span)position: relative;[span_316](end_span)
-      [span_317](start_span)top: 2px;[span_317](end_span)
+      content: '';
+      display: inline-block;
+      background: url('https://img.icons8.com/color/48/000000/whatsapp.png') no-repeat center/contain;
+      width: 1.2em;
+      height: 1.2em;
+      vertical-align: middle;
+      margin-right: 8px;
+      position: relative;
+      top: 2px;
     }
     .cta-btn.group {
-      [span_318](start_span)background: var(--gradient-purple);[span_318](end_span)
-      [span_319](start_span)color: #181818;[span_319](end_span)
-      [span_320](start_span)margin-left: 0;[span_320](end_span)
-      [span_321](start_span)margin-top: 8px;[span_321](end_span)
-      [span_322](start_span)font-size: 1.13em;[span_322](end_span)
+      background: var(--gradient-purple);
+      color: #181818;
+      margin-left: 0;
+      margin-top: 8px;
+      font-size: 1.13em;
     }
     .tab-loader {
-      [span_323](start_span)position: fixed;[span_323](end_span)
-      [span_324](start_span)left: 0;[span_324](end_span)
-      [span_325](start_span)top: 0;[span_325](end_span)
-      [span_326](start_span)width: 100vw;[span_326](end_span)
-      [span_327](start_span)height: 100vh;[span_327](end_span)
-      [span_328](start_span)background: rgba(24, 24, 24, 0.32);[span_328](end_span)
-      [span_329](start_span)display: flex;[span_329](end_span)
-      [span_330](start_span)align-items: center;[span_330](end_span)
-      [span_331](start_span)justify-content: center;[span_331](end_span)
-      [span_332](start_span)z-index: 3000;[span_332](end_span)
-      [span_333](start_span)pointer-events: all;[span_333](end_span)
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(24, 24, 24, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      pointer-events: all;
     }
     .loader {
-      [span_334](start_span)width: 48px;[span_334](end_span)
-      [span_335](start_span)height: 48px;[span_335](end_span)
-      [span_336](start_span)border: 5px solid #ffd70077;[span_336](end_span)
-      [span_337](start_span)border-top: 5px solid #ffd700;[span_337](end_span)
-      [span_338](start_span)border-radius: 50%;[span_338](end_span)
-      [span_339](start_span)animation: spin 0.85s linear infinite;[span_339](end_span)
+      width: 48px;
+      height: 48px;
+      border: 5px solid #ffd70077;
+      border-top: 5px solid #ffd700;
+      border-radius: 50%;
+      animation: spin 0.85s linear infinite;
     }
     @keyframes spin {
       100% {
-        [span_340](start_span)transform: rotate(360deg);[span_340](end_span)
+        transform: rotate(360deg);
       }
     }
     .destaque {
-      [span_341](start_span)background: linear-gradient(90deg, #ffd70033 70%, #37a6ff22 100%);[span_341](end_span)
-      [span_342](start_span)border-radius: var(--radius);[span_342](end_span)
-      [span_343](start_span)padding: 18px 24px;[span_343](end_span)
-      [span_344](start_span)margin-bottom: 32px;[span_344](end_span)
-      [span_345](start_span)color: #ffd700;[span_345](end_span)
-      [span_346](start_span)text-align: center;[span_346](end_span)
-      [span_347](start_span)font-size: 1.14em;[span_347](end_span)
-      [span_348](start_span)box-shadow: 0 2px 14px #ffd70022;[span_348](end_span)
-      [span_349](start_span)border-left: 5px solid var(--accent);[span_349](end_span)
-      [span_350](start_span)backdrop-filter: blur(5px);[span_350](end_span)
-      [span_351](start_span)border: var(--glass-border);[span_351](end_span)
+      background: linear-gradient(90deg, #ffd70033 70%, #37a6ff22 100%);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin-bottom: 32px;
+      color: #ffd700;
+      text-align: center;
+      font-size: 1.14em;
+      box-shadow: 0 2px 14px #ffd70022;
+      border-left: 5px solid var(--accent);
+      backdrop-filter: blur(5px);
+      border: var(--glass-border);
       transition:
         background var(--transition-theme),
-        [span_352](start_span)border-color var(--transition-theme);[span_352](end_span)
+        border-color var(--transition-theme);
     }
     .cards-grid {
-      [span_353](start_span)display: grid;[span_353](end_span)
-      [span_354](start_span)grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));[span_354](end_span)
-      [span_355](start_span)gap: 18px;[span_355](end_span)
-      [span_356](start_span)margin-top: 20px;[span_356](end_span)
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
     }
     .card {
-      [span_357](start_span)background: var(--card-bg);[span_357](end_span)
-      [span_358](start_span)border-radius: var(--radius);[span_358](end_span)
-      [span_359](start_span)padding: 19px 14px 13px 14px;[span_359](end_span)
-      [span_360](start_span)box-shadow: var(--shadow);[span_360](end_span)
-      [span_361](start_span)border: var(--glass-border);[span_361](end_span)
-      [span_362](start_span)opacity: 0;[span_362](end_span)
-      [span_363](start_span)visibility: hidden;[span_363](end_span)
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 19px 14px 13px 14px;
+      box-shadow: var(--shadow);
+      border: var(--glass-border);
+      opacity: 0;
+      visibility: hidden;
       transition:
         opacity 0.21s,
         visibility 0.18s,
         box-shadow 0.17s,
         transform 0.13s,
         background var(--transition-theme),
-        [span_364](start_span)border-color var(--transition-theme);[span_364](end_span)
-      [span_365](start_span)position: relative;[span_365](end_span)
-      [span_366](start_span)min-height: 90px;[span_366](end_span)
-      display: none; [span_367](start_span)/* Mantido display: none para alternar as abas */[span_367](end_span)
-      [span_368](start_span)overflow: hidden;[span_368](end_span)
-      [span_369](start_span)animation: cardIn 0.7s;[span_369](end_span)
-      [span_370](start_span)backdrop-filter: var(--glass-blur);[span_370](end_span)
-      [span_371](start_span)background-image: linear-gradient(140deg, #ffd70022 0%, #37a6ff11 80%, #a259ff11 100%);[span_371](end_span)
+        border-color var(--transition-theme);
+      position: relative;
+      min-height: 90px;
+      display: none; /* Mantido display: none para alternar as abas */
+      overflow: hidden;
+      animation: cardIn 0.7s;
+      backdrop-filter: var(--glass-blur);
+      background-image: linear-gradient(140deg, #ffd70022 0%, #37a6ff11 80%, #a259ff11 100%);
     }
     .card.active {
-      [span_372](start_span)display: block;[span_372](end_span)
-      [span_373](start_span)opacity: 1;[span_373](end_span)
-      [span_374](start_span)visibility: visible;[span_374](end_span)
-      [span_375](start_span)animation: cardIn 0.6s;[span_375](end_span)
-      [span_376](start_span)transform: scale(1.01);[span_376](end_span)
-      [span_377](start_span)border-image: var(--gradient-gold) 1;[span_377](end_span)
-      [span_378](start_span)outline: 2px solid transparent;[span_378](end_span)
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      animation: cardIn 0.6s;
+      transform: scale(1.01);
+      border-image: var(--gradient-gold) 1;
+      outline: 2px solid transparent;
     }
     @keyframes cardIn {
       from {
-        [span_379](start_span)opacity: 0;[span_379](end_span)
-        [span_380](start_span)transform: translateY(18px) scale(0.97);[span_380](end_span)
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
       }
       to {
-        [span_381](start_span)opacity: 1;[span_381](end_span)
-        [span_382](start_span)transform: translateY(0) scale(1);[span_382](end_span)
+        opacity: 1;
+        transform: translateY(0) scale(1);
       }
     }
     .card h2 {
-      [span_383](start_span)color: var(--gold);[span_383](end_span)
-      [span_384](start_span)margin-top: 0;[span_384](end_span)
-      [span_385](start_span)font-size: 1.18rem;[span_385](end_span)
-      [span_386](start_span)letter-spacing: 1.2px;[span_386](end_span)
-      [span_387](start_span)font-weight: 900;[span_387](end_span)
-      [span_388](start_span)border-bottom: 2px solid var(--accent);[span_388](end_span)
-      [span_389](start_span)display: inline-block;[span_389](end_span)
-      [span_390](start_span)text-shadow: 0 1px 6px #ffd70022;[span_390](end_span)
-      [span_391](start_span)margin-bottom: 10px;[span_391](end_span)
-      [span_392](start_span)padding-bottom: 3px;[span_392](end_span)
-      [span_393](start_span)animation: fadeIn 0.8s;[span_393](end_span)
+      color: var(--gold);
+      margin-top: 0;
+      font-size: 1.18rem;
+      letter-spacing: 1.2px;
+      font-weight: 900;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      text-shadow: 0 1px 6px #ffd70022;
+      margin-bottom: 10px;
+      padding-bottom: 3px;
+      animation: fadeIn 0.8s;
     }
     .ranking-list {
-      [span_394](start_span)margin: 0;[span_394](end_span)
-      [span_395](start_span)padding: 0;[span_395](end_span)
-      [span_396](start_span)list-style: none;[span_396](end_span)
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
     .ranking-list li {
-      [span_397](start_span)background: #ffd70022;[span_397](end_span)
-      [span_398](start_span)margin-bottom: 8px;[span_398](end_span)
-      [span_399](start_span)padding: 9px 15px;[span_399](end_span)
-      [span_400](start_span)border-radius: 11px;[span_400](end_span)
-      [span_401](start_span)color: #ffd700;[span_401](end_span)
-      [span_402](start_span)font-weight: 700;[span_402](end_span)
-      [span_403](start_span)box-shadow: 0 1px 7px #ffd70022;[span_403](end_span)
-      [span_404](start_span)border-left: 4.5px solid var(--accent);[span_404](end_span)
-      [span_405](start_span)font-size: 1.06em;[span_405](end_span)
-      [span_406](start_span)display: flex;[span_406](end_span)
-      [span_407](start_span)align-items: center;[span_407](end_span)
-      [span_408](start_span)gap: 12px;[span_408](end_span)
-      [span_409](start_span)position: relative;[span_409](end_span)
-      [span_410](start_span)animation: cardIn 0.8s;[span_410](end_span)
+      background: #ffd70022;
+      margin-bottom: 8px;
+      padding: 9px 15px;
+      border-radius: 11px;
+      color: #ffd700;
+      font-weight: 700;
+      box-shadow: 0 1px 7px #ffd70022;
+      border-left: 4.5px solid var(--accent);
+      font-size: 1.06em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      animation: cardIn 0.8s;
       transition:
         background var(--transition-theme),
-        [span_411](start_span)border-color var(--transition-theme);[span_411](end_span)
+        border-color var(--transition-theme);
     }
     .ranking-badge {
-      [span_412](start_span)font-size: 1.3em;[span_412](end_span)
-      [span_413](start_span)font-weight: bold;[span_413](end_span)
-      [span_414](start_span)color: #181818;[span_414](end_span)
-      [span_415](start_span)background: var(--gradient-gold);[span_415](end_span)
-      [span_416](start_span)border-radius: 8px 0 0 8px;[span_416](end_span)
-      [span_417](start_span)padding: 4px 13px 4px 10px;[span_417](end_span)
-      [span_418](start_span)display: inline-block;[span_418](end_span)
-      [span_419](start_span)margin-right: 4px;[span_419](end_span)
-      [span_420](start_span)filter: drop-shadow(0 1px 7px #ffd70055);[span_420](end_span)
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #181818;
+      background: var(--gradient-gold);
+      border-radius: 8px 0 0 8px;
+      padding: 4px 13px 4px 10px;
+      display: inline-block;
+      margin-right: 4px;
+      filter: drop-shadow(0 1px 7px #ffd70055);
     }
     .ranking-badge.second { background: var(--gradient-blue); }
-    [span_421](start_span).ranking-badge.third { background: var(--gradient-purple);[span_421](end_span)
-    }
+    .ranking-badge.third { background: var(--gradient-purple); }
 
     .ranking-bar {
-      [span_422](start_span)display: inline-block;[span_422](end_span)
-      [span_423](start_span)height: 12px;[span_423](end_span)
-      [span_424](start_span)background: var(--gradient-blue);[span_424](end_span)
-      [span_425](start_span)border-radius: 5px;[span_425](end_span)
-      [span_426](start_span)margin-left: 12px;[span_426](end_span)
-      [span_427](start_span)min-width: 20px;[span_427](end_span)
-      [span_428](start_span)transition: width 0.5s;[span_428](end_span)
+      display: inline-block;
+      height: 12px;
+      background: var(--gradient-blue);
+      border-radius: 5px;
+      margin-left: 12px;
+      min-width: 20px;
+      transition: width 0.5s;
     }
     .ranking-list li:first-child .ranking-bar {
-      [span_429](start_span)width: 80px;[span_429](end_span)
-      [span_430](start_span)background: var(--gradient-gold);[span_430](end_span)
+      width: 80px;
+      background: var(--gradient-gold);
     }
     .ranking-list li:nth-child(2) .ranking-bar {
-      [span_431](start_span)width: 55px;[span_431](end_span)
-      [span_432](start_span)background: var(--gradient-blue);[span_432](end_span)
+      width: 55px;
+      background: var(--gradient-blue);
     }
     .ranking-list li:nth-child(3) .ranking-bar {
-      [span_433](start_span)width: 35px;[span_433](end_span)
-      [span_434](start_span)background: var(--gradient-purple);[span_434](end_span)
+      width: 35px;
+      background: var(--gradient-purple);
     }
     .ranking-list li .medal {
-      [span_435](start_span)margin-left: 7px;[span_435](end_span)
-      [span_436](start_span)font-size: 1.24em;[span_436](end_span)
-      [span_437](start_span)color: var(--gold);[span_437](end_span)
+      margin-left: 7px;
+      font-size: 1.24em;
+      color: var(--gold);
     }
     .medal.second { color: var(--blue); }
-    [span_438](start_span).medal.third { color: var(--purple);[span_438](end_span)
-    }
+    .medal.third { color: var(--purple); }
 
-    .staff-list {
-      [span_439](start_span)list-style: none;[span_439](end_span)
-      [span_440](start_span)padding: 0;[span_440](end_span)
-      [span_441](start_span)margin: 0;[span_441](end_span)
+    .staff-list, .streamers-list, .parceiros-list, .sugestoes-list, .novidades-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    .staff-member {
-      [span_442](start_span)display: flex;[span_442](end_span)
-      [span_443](start_span)align-items: center;[span_443](end_span)
-      [span_444](start_span)gap: 14px;[span_444](end_span)
-      [span_445](start_span)margin-bottom: 18px;[span_445](end_span)
-      [span_446](start_span)padding-bottom: 6px;[span_446](end_span)
-      [span_447](start_span)border-bottom: 1px solid #ffd70022;[span_447](end_span)
-      [span_448](start_span)animation: fadeIn 0.9s;[span_448](end_span)
+    .staff-member, .streamer-card, .parceiro-card, .sugestao-item, .aviso-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #ffd70022;
+      animation: fadeIn 0.9s;
     }
-    .staff-avatar {
-      [span_449](start_span)width: 44px;[span_449](end_span)
-      [span_450](start_span)height: 44px;[span_450](end_span)
-      [span_451](start_span)border-radius: 50%;[span_451](end_span)
-      [span_452](start_span)object-fit: cover;[span_452](end_span)
-      [span_453](start_span)border: 2.5px solid #ffd700;[span_453](end_span)
-      [span_454](start_span)box-shadow: 0 1px 7px #ffd70066;[span_454](end_span)
-      [span_455](start_span)background: #fff;[span_455](end_span)
-      [span_456](start_span)flex-shrink: 0;[span_456](end_span)
+    .staff-avatar, .streamer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid #ffd700;
+      box-shadow: 0 1px 7px #ffd70066;
+      background: #fff;
+      flex-shrink: 0;
     }
-    .staff-info {
-      [span_457](start_span)display: flex;[span_457](end_span)
-      [span_458](start_span)flex-direction: column;[span_458](end_span)
-      [span_459](start_span)justify-content: center;[span_459](end_span)
+    .staff-info, .streamer-info, .parceiro-info, .sugestao-info, .aviso-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .staff-name {
-      [span_460](start_span)font-weight: bold;[span_460](end_span)
-      [span_461](start_span)color: #ffd700;[span_461](end_span)
-      [span_462](start_span)font-size: 1.13em;[span_462](end_span)
-      [span_463](start_span)margin-bottom: 2px;[span_463](end_span)
-      [span_464](start_span)text-shadow: 0 1px 5px #ffd70033;[span_464](end_span)
+    .staff-name, .streamer-name, .parceiro-name, .sugestao-nome {
+      font-weight: bold;
+      color: #ffd700;
+      font-size: 1.13em;
+      margin-bottom: 2px;
+      text-shadow: 0 1px 5px #ffd70033;
     }
-    .staff-role {
-      [span_465](start_span)font-size: 0.98em;[span_465](end_span)
-      [span_466](start_span)color: #ffd700bb;[span_466](end_span)
-      [span_467](start_span)font-weight: 600;[span_467](end_span)
+    .staff-role, .streamer-platform, .parceiro-contato {
+      font-size: 0.98em;
+      color: #ffd700bb;
+      font-weight: 600;
     }
     .status-badge {
-      [span_468](start_span)display: inline-block;[span_468](end_span)
-      [span_469](start_span)padding: 3px 16px;[span_469](end_span)
-      [span_470](start_span)border-radius: 13px;[span_470](end_span)
-      [span_471](start_span)margin-left: 10px;[span_471](end_span)
-      [span_472](start_span)font-size: 0.89em;[span_472](end_span)
-      [span_473](start_span)font-weight: bold;[span_473](end_span)
-      [span_474](start_span)color: #fff;[span_474](end_span)
-      [span_475](start_span)background: var(--gradient-blue);[span_475](end_span)
-      [span_476](start_span)box-shadow: 0 1px 7px #37a6ff44;[span_476](end_span)
-      [span_477](start_span)vertical-align: middle;[span_477](end_span)
-      [span_478](start_span)animation: badgePulse 2s infinite alternate;[span_478](end_span)
+      display: inline-block;
+      padding: 3px 16px;
+      border-radius: 13px;
+      margin-left: 10px;
+      font-size: 0.89em;
+      font-weight: bold;
+      color: #fff;
+      background: var(--gradient-blue);
+      box-shadow: 0 1px 7px #37a6ff44;
+      vertical-align: middle;
+      animation: badgePulse 2s infinite alternate;
     }
     .guerra-titulo {
-      [span_479](start_span)display: flex;[span_479](end_span)
-      [span_480](start_span)align-items: center;[span_480](end_span)
-      [span_481](start_span)font-size: 1.28em;[span_481](end_span)
-      [span_482](start_span)font-weight: 900;[span_482](end_span)
-      [span_483](start_span)color: #ffd700;[span_483](end_span)
-      [span_484](start_span)margin-bottom: 10px;[span_484](end_span)
-      [span_485](start_span)gap: 8px;[span_485](end_span)
-      [span_486](start_span)letter-spacing: 1.1px;[span_486](end_span)
-      [span_487](start_span)text-shadow: 0 1px 8px #ffd70044;[span_487](end_span)
+      display: flex;
+      align-items: center;
+      font-size: 1.28em;
+      font-weight: 900;
+      color: #ffd700;
+      margin-bottom: 10px;
+      gap: 8px;
+      letter-spacing: 1.1px;
+      text-shadow: 0 1px 8px #ffd70044;
     }
     .guerra-titulo .guerra-icone {
-      [span_488](start_span)font-size: 1.2em;[span_488](end_span)
-      [span_489](start_span)margin-right: 4px;[span_489](end_span)
+      font-size: 1.2em;
+      margin-right: 4px;
     }
     .guerra-card {
-      [span_490](start_span)background: #1c1c1cf2;[span_490](end_span)
-      [span_491](start_span)border: 2px solid #ffd700;[span_491](end_span)
-      [span_492](start_span)border-radius: 20px;[span_492](end_span)
-      [span_493](start_span)padding: 24px 13px 17px 13px;[span_493](end_span)
-      [span_494](start_span)margin-bottom: 12px;[span_494](end_span)
-      [span_495](start_span)box-shadow: 0 2px 20px #ffd70020;[span_495](end_span)
-      [span_496](start_span)text-align: center;[span_496](end_span)
-      [span_497](start_span)max-width: 430px;[span_497](end_span)
-      [span_498](start_span)margin-left: auto;[span_498](end_span)
-      [span_499](start_span)margin-right: auto;[span_499](end_span)
-      [span_500](start_span)position: relative;[span_500](end_span)
-      [span_501](start_span)background: var(--glass-bg);[span_501](end_span)
-      [span_502](start_span)backdrop-filter: var(--glass-blur);[span_502](end_span)
+      background: #1c1c1cf2;
+      border: 2px solid #ffd700;
+      border-radius: 20px;
+      padding: 24px 13px 17px 13px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 20px #ffd70020;
+      text-align: center;
+      max-width: 430px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
       transition:
         background var(--transition-theme),
-        [span_503](start_span)border-color var(--transition-theme);[span_503](end_span)
+        border-color var(--transition-theme);
     }
     .guerra-contador {
-      [span_504](start_span)background: #222c46;[span_504](end_span)
-      [span_505](start_span)color: #ffd700;[span_505](end_span)
-      [span_506](start_span)font-size: 1.19em;[span_506](end_span)
-      [span_507](start_span)font-weight: bold;[span_507](end_span)
-      [span_508](start_span)border-radius: 10px;[span_508](end_span)
-      [span_509](start_span)padding: 15px 8px;[span_509](end_span)
-      [span_510](start_span)margin: 0 auto 15px auto;[span_510](end_span)
-      [span_511](start_span)display: inline-block;[span_511](end_span)
-      [span_512](start_span)box-shadow: 0 1px 12px #ffd70033;[span_512](end_span)
-      [span_513](start_span)border: 2px solid #ffd70066;[span_513](end_span)
-      [span_514](start_span)min-width: 230px;[span_514](end_span)
-      [span_515](start_span)letter-spacing: 1px;[span_515](end_span)
+      background: #222c46;
+      color: #ffd700;
+      font-size: 1.19em;
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 15px 8px;
+      margin: 0 auto 15px auto;
+      display: inline-block;
+      box-shadow: 0 1px 12px #ffd70033;
+      border: 2px solid #ffd70066;
+      min-width: 230px;
+      letter-spacing: 1px;
     }
     .guerra-detalhe {
-      [span_516](start_span)color: #ffd70099;[span_516](end_span)
-      [span_517](start_span)margin-top: 8px;[span_517](end_span)
-      [span_518](start_span)margin-bottom: 8px;[span_518](end_span)
-      [span_519](start_span)font-size: 1.03em;[span_519](end_span)
+      color: #ffd70099;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-size: 1.03em;
     }
     .guerra-fuso {
-      [span_520](start_span)margin-top: 8px;[span_520](end_span)
-      [span_521](start_span)color: #ffd700cc;[span_521](end_span)
-      [span_522](start_span)font-weight: bold;[span_522](end_span)
-      [span_523](start_span)font-size: 1.06em;[span_523](end_span)
+      margin-top: 8px;
+      color: #ffd700cc;
+      font-weight: bold;
+      font-size: 1.06em;
     }
     .guerra-fuso select {
-      [span_524](start_span)background: #232323;[span_524](end_span)
-      [span_525](start_span)color: #ffd700;[span_525](end_span)
-      [span_526](start_span)border-radius: 8px;[span_526](end_span)
-      [span_527](start_span)border: 1.5px solid #ffd70055;[span_527](end_span)
-      [span_528](start_span)font-size: 1em;[span_528](end_span)
-      [span_529](start_span)font-family: inherit;[span_529](end_span)
-      [span_530](start_span)padding: 4px 10px;[span_530](end_span)
-      [span_531](start_span)margin-left: 6px;[span_531](end_span)
-      [span_532](start_span)margin-right: 6px;[span_532](end_span)
+      background: #232323;
+      color: #ffd700;
+      border-radius: 8px;
+      border: 1.5px solid #ffd70055;
+      font-size: 1em;
+      font-family: inherit;
+      padding: 4px 10px;
+      margin-left: 6px;
+      margin-right: 6px;
       transition:
         background var(--transition-theme),
-        [span_533](start_span)border-color var(--transition-theme);[span_533](end_span)
-    }
-    .guerra-reset-info {
-      [span_534](start_span)color: #ffd700bb;[span_534](end_span)
-      [span_535](start_span)font-size: 0.99em;[span_535](end_span)
-      [span_536](start_span)margin-top: 4px;[span_536](end_span)
-      [span_537](start_span)display: block;[span_537](end_span)
-    }
-    .form-check-group {
-      [span_538](start_span)margin-bottom: 14px;[span_538](end_span)
-    }
-    .form-check-row {
-      [span_539](start_span)display: flex;[span_539](end_span)
-      [span_540](start_span)align-items: center;[span_540](end_span)
-      [span_541](start_span)gap: 9px;[span_541](end_span)
-      [span_542](start_span)margin-bottom: 7px;[span_542](end_span)
-    }
-    #form-recrutamento input[type="radio"],
-    #form-recrutamento input[type="checkbox"] {
-      [span_543](start_span)width: 18px;[span_543](end_span)
-      [span_544](start_span)height: 18px;[span_544](end_span)
-      [span_545](start_span)accent-color: var(--gold);[span_545](end_span)
-      [span_546](start_span)margin-right: 7px;[span_546](end_span)
-      [span_547](start_span)margin-left: 0;[span_547](end_span)
-      [span_548](start_span)vertical-align: middle;[span_548](end_span)
-      [span_549](start_span)position: relative;[span_549](end_span)
-      [span_550](start_span)top: 0;[span_550](end_span)
-    }
-    .adm-section {
-      [span_551](start_span)margin-bottom: 20px;[span_551](end_span)
-      [span_552](start_span)padding-bottom: 15px;[span_552](end_span)
-      [span_553](start_span)border-bottom: 1px solid rgba(255, 215, 0, 0.2);[span_553](end_span)
-    }
-    .adm-input-group {
-      [span_554](start_span)margin-bottom: 10px;[span_554](end_span)
-    }
-    .adm-input-group label {
-      [span_555](start_span)display: block;[span_555](end_span)
-      [span_556](start_span)color: var(--gold);[span_556](end_span)
-      [span_557](start_span)margin-bottom: 5px;[span_557](end_span)
-      [span_558](start_span)font-weight: 600;[span_558](end_span)
-    }
-    .adm-input {
-      [span_559](start_span)width: 100%;[span_559](end_span)
-      [span_560](start_span)padding: 8px;[span_560](end_span)
-      [span_561](start_span)border-radius: 8px;[span_561](end_span)
-      [span_562](start_span)border: 1px solid var(--gold);[span_562](end_span)
-      [span_563](start_span)background: rgba(0, 0, 0, 0.3);[span_563](end_span)
-      [span_564](start_span)color: white;[span_564](end_span)
-      [span_565](start_span)font-family: 'Montserrat', sans-serif;[span_565](end_span)
-      transition:
-        background var(--transition-theme),
-        [span_566](start_span)border-color var(--transition-theme);[span_566](end_span)
-      /* Adicionado: outline para foco */
-      outline: 2px solid transparent; 
+        border-color var(--transition-theme);
+      outline: 2px solid transparent; /* Estilização do outline */
       outline-offset: 2px;
     }
-    .adm-input:focus {
-        border-color: var(--blue);
-        box-shadow: 0 0 0 2px var(--blue);
-        outline: none; /* Remove o outline padrão ao focar para usar o box-shadow */
+    .guerra-fuso select:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
+    }
+    .guerra-reset-info {
+      color: #ffd700bb;
+      font-size: 0.99em;
+      margin-top: 4px;
+      display: block;
+    }
+    .form-check-group {
+      margin-bottom: 14px;
+    }
+    .form-check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 7px;
+    }
+    #form-recrutamento input[type="radio"],
+    #form-recrutamento input[type="checkbox"],
+    #form-sugestoes input[type="radio"],
+    #form-sugestoes input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      margin-right: 7px;
+      margin-left: 0;
+      vertical-align: middle;
+      position: relative;
+      top: 0;
+    }
+    .adm-section {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    .adm-input-group {
+      margin-bottom: 10px;
+    }
+    .adm-input-group label {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .adm-input,
+    .adm-textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      transition:
+        background var(--transition-theme),
+        border-color var(--transition-theme);
+      outline: 2px solid transparent; /* Estilização do outline */
+      outline-offset: 2px;
+    }
+    .adm-input:focus-visible,
+    .adm-textarea:focus-visible { /* Acessibilidade de foco */
+        outline-color: var(--accent);
     }
     @media (max-width: 600px) {
       .form-check-row span {
-        [span_567](start_span)font-size: 1em !important;[span_567](end_span)
+        font-size: 1em !important;
       }
       .guerra-card {
-        [span_568](start_span)padding: 15px 4vw 9px 4vw;[span_568](end_span)
+        padding: 15px 4vw 9px 4vw;
       }
       .guerra-contador {
-        [span_569](start_span)font-size: 1em;[span_569](end_span)
-        [span_570](start_span)min-width: 150px;[span_570](end_span)
-        [span_571](start_span)padding: 10px 3vw;[span_571](end_span)
+        font-size: 1em;
+        min-width: 150px;
+        padding: 10px 3vw;
       }
-      .staff-avatar {
-        [span_572](start_span)width: 36px;[span_572](end_span)
-        [span_573](start_span)height: 36px;[span_573](end_span)
+      .staff-avatar, .streamer-avatar {
+        width: 36px;
+        height: 36px;
       }
     }
     .toast-notification {
-      [span_574](start_span)position: fixed;[span_574](end_span)
-      [span_575](start_span)bottom: 32px;[span_575](end_span)
-      [span_576](start_span)left: 50%;[span_576](end_span)
-      [span_577](start_span)transform: translateX(-50%);[span_577](end_span)
-      [span_578](start_span)background: #232323ee;[span_578](end_span)
-      [span_579](start_span)color: #ffd700;[span_579](end_span)
-      [span_580](start_span)border: 2px solid #ffd700aa;[span_580](end_span)
-      [span_581](start_span)border-radius: 18px;[span_581](end_span)
-      [span_582](start_span)padding: 16px 28px;[span_582](end_span)
-      [span_583](start_span)font-size: 1.14em;[span_583](end_span)
-      [span_584](start_span)font-weight: bold;[span_584](end_span)
-      [span_585](start_span)opacity: 0;[span_585](end_span)
-      [span_586](start_span)pointer-events: none;[span_586](end_span)
-      [span_587](start_span)z-index: 9999;[span_587](end_span)
-      [span_588](start_span)box-shadow: 0 2px 18px #ffd70033;[span_588](end_span)
-      [span_589](start_span)transition: opacity 0.25s;[span_589](end_span)
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #232323ee;
+      color: #ffd700;
+      border: 2px solid #ffd700aa;
+      border-radius: 18px;
+      padding: 16px 28px;
+      font-size: 1.14em;
+      font-weight: bold;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 2px 18px #ffd70033;
+      transition: opacity 0.25s;
     }
     .toast-notification.show {
-      [span_590](start_span)opacity: 1;[span_590](end_span)
-      [span_591](start_span)pointer-events: all;[span_591](end_span)
+      opacity: 1;
+      pointer-events: all;
     }
     .toast-notification.toast-error {
-      [span_592](start_span)color: #fff;[span_592](end_span)
-      [span_593](start_span)border-color: #f05454;[span_593](end_span)
-      [span_594](start_span)background: #f05454e6;[span_594](end_span)
+      color: #fff;
+      border-color: #f05454;
+      background: #f05454e6;
     }
-    #msg-recrutamento {
-      [span_595](start_span)text-align: center;[span_595](end_span)
-      [span_596](start_span)margin-top: 10px;[span_596](end_span)
-      [span_597](start_span)padding: 8px 12px;[span_597](end_span)
-      [span_598](start_span)border-radius: 8px;[span_598](end_span)
-      [span_599](start_span)font-weight: bold;[span_599](end_span)
-      [span_600](start_span)opacity: 0;[span_600](end_span)
-      [span_601](start_span)transition: opacity 0.3s ease-in-out;[span_601](end_span)
-      [span_602](start_span)color: var(--white);[span_602](end_span)
-      [span_603](start_span)background: rgba(255, 215, 0, 0.2);[span_603](end_span)
-      [span_604](start_span)border: 1px solid #FFD700;[span_604](end_span)
+    #msg-recrutamento, #msg-sugestao {
+      text-align: center;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      color: var(--white);
+      background: rgba(255, 215, 0, 0.2);
+      border: 1px solid #FFD700;
     }
-    #msg-recrutamento.show {
-      [span_605](start_span)opacity: 1;[span_605](end_span)
+    #msg-recrutamento.show, #msg-sugestao.show {
+      opacity: 1;
     }
-    #msg-recrutamento.error {
-      [span_606](start_span)background: rgba(240, 84, 84, 0.2);[span_606](end_span)
-      [span_607](start_span)border-color: #f05454;[span_607](end_span)
+    #msg-recrutamento.error, #msg-sugestao.error {
+      background: rgba(240, 84, 84, 0.2);
+      border-color: #f05454;
     }
 
     ::-webkit-scrollbar {
-      [span_608](start_span)width: 8px;[span_608](end_span)
-      [span_609](start_span)background: #232323;[span_609](end_span)
+      width: 8px;
+      background: #232323;
     }
     ::-webkit-scrollbar-thumb {
-      [span_610](start_span)background: #ffd70077;[span_610](end_span)
-      [span_611](start_span)border-radius: 16px;[span_611](end_span)
+      background: #ffd70077;
+      border-radius: 16px;
     }
     body.light ::-webkit-scrollbar-thumb {
-      [span_612](start_span)background: #ffd700cc;[span_612](end_span)
+      background: #ffd700cc;
     }
     footer {
-      [span_613](start_span)text-align: center;[span_613](end_span)
-      [span_614](start_span)padding: 30px 0 12px 0;[span_614](end_span)
-      [span_615](start_span)font-size: 1.04em;[span_615](end_span)
-      [span_616](start_span)color: #ffd700bb;[span_616](end_span)
-      [span_617](start_span)background: none;[span_617](end_span)
-      [span_618](start_span)letter-spacing: 0.6px;[span_618](end_span)
-      [span_619](start_span)z-index: 2;[span_619](end_span)
-      [span_620](start_span)position: relative;[span_620](end_span)
+      text-align: center;
+      padding: 30px 0 12px 0;
+      font-size: 1.04em;
+      color: #ffd700bb;
+      background: none;
+      letter-spacing: 0.6px;
+      z-index: 2;
+      position: relative;
     }
   </style>
 </head>
 <body>
-  <canvas id="bg-particles"></canvas>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
   <header>
-    <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" />
+    <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" loading="lazy" />
     <div class="title">Soberanos FF</div>
     <div class="subtitle">Painel gamer premium • Seu espaço de evolução no Free Fire</div>
     <button class="mode-switch" id="modeSwitch" title="Alternar tema" aria-label="Alternar tema">
@@ -959,7 +965,7 @@
   </header>
   <nav class="menu" id="menuNav" aria-label="Menu principal">
     <button class="menu-btn active" data-tab="membros" aria-label="Melhores"><span 
-[span_621](start_span)class="tabicon">star</span>Melhores</button>[span_621](end_span)
+class="tabicon">star</span>Melhores</button>
     <button class="menu-btn" data-tab="ranking" aria-label="Ranking"><span class="tabicon">emoji_events</span>Ranking</button>
     <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">shield</span>Staff</button>
     <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">rule</span>Regras</button>
@@ -974,7 +980,7 @@
     <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">campaign</span>Avisos</button>
     <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">report</span>Denúncia</button>
    
-    [span_622](start_span)<button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">lightbulb</span>Sugestões</button>[span_622](end_span)
+    <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">lightbulb</span>Sugestões</button>
     <button class="menu-btn" data-tab="adm" aria-label="Painel ADM"><span class="tabicon">admin_panel_settings</span>Painel ADM</button>
   </nav>
   <div id="tab-loader" class="tab-loader" style="display:none">
@@ -982,7 +988,7 @@
   </div>
   <section class="hero-banner">
     <div class="hero-logo">
-      <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" />
+      <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" loading="lazy" />
     </div>
     <div class="guilda-title">
       Painel Guilda
@@ -993,7 +999,7 @@
     </div>
     <div class="guilda-frase">
      
-    Caminhe com reis. [span_623](start_span)Jogue como um <span class="guilda-frase-destaque">SOBERANO</span>.[span_623](end_span)
+    Caminhe com reis. Jogue como um <span class="guilda-frase-destaque">SOBERANO</span>.
     </div>
     <div class="guilda-cta">
       <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" class="cta-btn" target="_blank" rel="noopener">Juntar-se</a>
@@ -1001,8 +1007,8 @@
   </section>
   <div class="main-content">
     <div class="destaque">
-      [span_624](start_span)<b>🚨 Aviso:</b> <span id="destaque-message-display">Recrutamento aberto[span_624](end_span)!
-Preencha o formulário e anexe seu print do perfil. [span_625](start_span)Participe da família Soberanos FF!</span>[span_625](end_span)
+      <b>🚨 Aviso:</b> <span id="destaque-message-display">Recrutamento aberto!
+Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!</span>
       <span class="status-badge">Online</span>
     </div>
     <div class="cards-grid">
@@ -1014,7 +1020,7 @@ Preencha o formulário e anexe seu print do perfil. [span_625](start_span)Partic
           </div>
       </section>
    
-    [span_626](start_span)<section class="card" id="ranking">[span_626](end_span)
+      <section class="card" id="ranking">
         <h2>🏆 Ranking Interno</h2>
         <div style="margin-bottom:1.3em;">
           <button class="ranking-tab-btn active" data-rank="semanal">Semanal</button>
@@ -1024,58 +1030,26 @@ Preencha o formulário e anexe seu print do perfil. [span_625](start_span)Partic
           <li>Ranking semanal será iniciado em breve!</li>
         </ul>
         <ul class="ranking-list" 
-[span_627](start_span)id="rankingMensal" style="display:none">[span_627](end_span)
+id="rankingMensal" style="display:none">
           <li>Ranking mensal será iniciado em breve!</li>
         </ul>
       </section>
       <section class="card" id="staff">
         <h2>🛡️ Equipe/Staff</h2>
-        <ul class="staff-list">
-          <li class="staff-member">
-            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374167627978506423/IMG-20250519-WA0191.jpg?ex=682d10d5&is=682bbf55&hm=a168ab10cb2d3d24fb0485ed39694fffdb94d801a4a21046b218d6c003b9c2e5&" alt="LK">
-            <span class="staff-info">
-     
-            [span_628](start_span)<span class="staff-name">LK</span>[span_628](end_span)
-              <span class="staff-role">Líder</span>
-            </span>
-          </li>
-          <li class="staff-member">
-            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374147787637391532/IMG-20250519-WA0145.jpg?ex=682cfe5b&is=682bacdb&hm=4a29be12b3e2a779e987808cfbd6ff476c36fda726b2acfb99570757abcc64f4&" alt="SS NARUTO">
-            <span class="staff-info">
-             
-            [span_629](start_span)<span class="staff-name">SS NARUTO</span>[span_629](end_span)
-              <span class="staff-role">ADM</span>
-            </span>
-          </li>
-          <li class="staff-member">
-            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374147505293496330/IMG-20250519-WA0152.jpg?ex=682cfe17&is=682bac97&hm=882d710e828e640b6399e70e4ded318b121e95b6334143f47a239789a1348f89&" alt="SS GUSTAX">
-            <span class="staff-info">
-              <span class="staff-name">SS GUSTAX</span>
-    
-            [span_630](start_span)<span class="staff-role">ADM</span>[span_630](end_span)
-            </span>
-          </li>
-          <li class="staff-member">
-            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374172669909532732/IMG-20250519-WA0197.jpg?ex=682d1587&is=682bc407&hm=f48bdf7f5a323b9d6a5fb98fac465ccbd0809649ffe9a99601609063fcdebfad&" alt="SS MAFIOSO">
-            <span class="staff-info">
-              <span class="staff-name">SS MAFIOSO</span>
-           
-            [span_631](start_span)<span class="staff-role">ADM</span>[span_631](end_span)
-            </span>
-          </li>
-        </ul>
-        [span_632](start_span)<div style="margin:18px 0 0 0;[span_632](end_span)
-[span_633](start_span)color:#FFD70099; text-align:center; font-size:1.01em;">[span_633](end_span)
+        <ul class="staff-list" id="staff-list">
+          </ul>
+        <div style="margin:18px 0 0 0;
+color:#FFD70099; text-align:center; font-size:1.01em;">
           <em>Novos membros da equipe serão apresentados em breve!</em>
         </div>
       </section>
       <section class="card" id="regras">
         <h2>📜 Regras da Guilda</h2>
-        [span_634](start_span)<ul id="regras-ul" style="color:#FFD700;[span_634](end_span)
-[span_635](start_span)font-weight:600; font-size:1.08em; margin-bottom:1.4em;">[span_635](end_span)
+        <ul id="regras-ul" style="color:#FFD700;
+font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
           </ul>
-        [span_636](start_span)<div style="color:#FFD70099;[span_636](end_span)
-[span_637](start_span)font-size:1em;text-align:center;">[span_637](end_span)
+        <div style="color:#FFD70099;
+font-size:1em;text-align:center;">
           <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
         </div>
       </section>
@@ -1085,7 +1059,7 @@ Preencha o formulário e anexe seu print do perfil. [span_625](start_span)Partic
           <div id="contador-guerra" class="guerra-contador"></div>
           <div class="guerra-detalhe">
             Acompanhe o tempo até 
-[span_638](start_span)a próxima guerra[span_638](end_span)!
+a próxima guerra!
           </div>
           <div class="guerra-fuso">
             Fuso selecionado:
@@ -1094,56 +1068,41 @@ Preencha o formulário e anexe seu print do perfil. [span_625](start_span)Partic
               <option value="-4">Amazonas (UTC-4)</option>
             </select>
        
-        [span_639](start_span)</div>[span_639](end_span)
+    </div>
           <span id="hora-reset-info" class="guerra-reset-info"></span>
         </div>
       </section>
       <section class="card" id="parceiros">
         <h2>🤝 Parceiros Soberanos FF</h2>
-        <div class="parceiros-list">
-          <div class="parceiro-card">
-            [span_640](start_span)<div style="margin:8px 0 6px 0;[span_640](end_span)
-[span_641](start_span)font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>[span_641](end_span)
-            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="cta-btn whatsapp">Entrar Em Contato</a>
+        <div class="parceiros-list" id="parceiros-list">
           </div>
-          <div class="parceiro-card">
-            [span_642](start_span)<div style="margin:8px 0 6px 0;[span_642](end_span)
-[span_643](start_span)font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>[span_643](end_span)
-            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="cta-btn">Entrar Em Contato</a>
-          </div>
-          <div class="parceiro-card">
-            [span_644](start_span)<div style="margin:8px 0 6px 0;[span_644](end_span)
-[span_645](start_span)font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>[span_645](end_span)
-            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="cta-btn">Entrar Em Contato</a>
-          </div>
-        </div>
-        [span_646](start_span)<div style="margin:20px 0 0 0;[span_646](end_span)
-[span_647](start_span)color:#ffd700cc; text-align:center; font-size:1.04em;">[span_647](end_span)
+        <div style="margin:20px 0 0 0;
+color:#ffd700cc; text-align:center; font-size:1.04em;">
           <em>Quer ser parceiro? Fale conosco!</em>
         </div>
       </section>
       <section class="card" id="recrutamento">
         <h2>🖊 Formulário de Recrutamento – Guilda Soberanos</h2>
-        [span_648](start_span)<div style="color:#FFD700;[span_648](end_span)
-[span_649](start_span)font-size:1.02em; text-align:center; margin-bottom:20px;">[span_649](end_span)
+        <div style="color:#FFD700;
+font-size:1.02em; text-align:center; margin-bottom:20px;">
           Caminhe com reis. Jogue como um soberano. 👑<br>
           <span style="color:#FFD70099;">Preencha atentamente. Ao enviar, você será redirecionado ao WhatsApp do ADM e pode anexar o print do perfil.</span>
         </div>
         <form id="form-recrutamento" style="max-width:440px;margin:auto;">
           <label style="color:#FFD700;font-weight:600;">1. Nick no jogo (com símbolo, se tiver):</label>
           <input type="text" id="nick" required placeholder="Seu nick no 
-[span_650](start_span)jogo" pattern=".{3,20}" title="Nick deve ter entre 3 e 20 caracteres"/>[span_650](end_span)
+jogo" pattern=".{3,20}" title="Nick deve ter entre 3 e 20 caracteres" class="adm-input"/>
           <label style="color:#FFD700;font-weight:600;">2. ID do jogador (Free Fire):</label>
-          <input type="text" id="idff" required placeholder="ID do jogador" pattern="\d+" title="ID deve conter apenas números"/>
+          <input type="text" id="idff" required placeholder="ID do jogador" pattern="\d+" title="ID deve conter apenas números" class="adm-input"/>
           <label style="color:#FFD700;font-weight:600;">3. Idade:</label>
-          <input type="number" id="idade" required placeholder="Sua idade" min="12" max="99"/>
-          [span_651](start_span)<label style="color:#FFD700;font-weight:600;">4.[span_651](end_span)
+          <input type="number" id="idade" required placeholder="Sua idade" min="12" max="99" class="adm-input"/>
+          <label style="color:#FFD700;font-weight:600;">4.
 Está em qual patente atualmente?</label>
-          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..."/>
-          [span_652](start_span)<label style="color:#FFD700;font-weight:600;">5.[span_652](end_span)
+          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..." class="adm-input"/>
+          <label style="color:#FFD700;font-weight:600;">5.
 Já fez parte de guilda competitiva?</label>
-          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe"/>
-          [span_653](start_span)<label style="color:#FFD700;font-weight:600;">6.[span_653](end_span)
+          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe" class="adm-input"/>
+          <label style="color:#FFD700;font-weight:600;">6.
 Qual sua função principal?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="funcao" value="Rushador" required> <span>Rushador</span></div>
@@ -1151,15 +1110,15 @@ Qual sua função principal?</label>
             <div class="form-check-row"><input type="radio" name="funcao" value="Capitão / Líder de cal"> <span>Capitão / Líder de cal</span></div>
             <div class="form-check-row"><input type="radio" name="funcao" value="Sniper"> <span>Sniper</span></div>
          
-          [span_654](start_span)</div>[span_654](end_span)
-          [span_655](start_span)<label style="color:#FFD700;font-weight:600;">7.[span_655](end_span)
+    </div>
+          <label style="color:#FFD700;font-weight:600;">7.
 Você tem disponibilidade para:</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="checkbox" name="disp" value="Treinos"> <span>Treinos</span></div>
             <div class="form-check-row"><input type="checkbox" name="disp" value="Campeonatos"> <span>Campeonatos</span></div>
             <div class="form-check-row"><input type="checkbox" name="disp" value="Guerras de guilda"> <span>Guerras de guilda</span></div>
           </div>
-          [span_656](start_span)<label style="color:#FFD700;font-weight:600;">8.[span_656](end_span)
+          <label style="color:#FFD700;font-weight:600;">8.
 Qual modo você manda melhor?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="modo" value="4x4 competitivo" required> <span>4x4 competitivo</span></div>
@@ -1167,30 +1126,30 @@ Qual modo você manda melhor?</label>
             <div class="form-check-row"><input type="radio" name="modo" value="Camp / Ranked"> <span>Camp / Ranked</span></div>
             <div class="form-check-row" style="align-items: flex-start;">
         
-            [span_657](start_span)<input type="radio" name="modo" value="Outro">[span_657](end_span)
+          <input type="radio" name="modo" value="Outro">
               <span style="flex:1;">
                 Outro<br>
-                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;"/>
+                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;" class="adm-input"/>
               </span>
             </div>
           </div>
  
-          [span_658](start_span)<label style="color:#FFD700;font-weight:600;">9.[span_658](end_span)
-[span_659](start_span)Você tem como trocar o nick para usar o nome da guilda?</label>[span_659](end_span)
+          <label style="color:#FFD700;font-weight:600;">9.
+Você tem como trocar o nick para usar o nome da guilda?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Sim" required> <span>Sim</span></div>
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Não"> <span>Não</span></div>
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Em breve"> <span>Em breve</span></div>
           </div>
-          [span_660](start_span)<label style="color:#FFD700;font-weight:600;">10.[span_660](end_span)
+          <label style="color:#FFD700;font-weight:600;">10.
 Tem Instagram ou WhatsApp? Se sim, informe:</label>
-          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999"/>
-          [span_661](start_span)<label style="color:#FFD700;font-weight:600;">11.[span_661](end_span)
+          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999" class="adm-input"/>
+          <label style="color:#FFD700;font-weight:600;">11.
 Por que quer entrar para a Soberanos?</label>
-          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo"></textarea>
+          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo" class="adm-textarea"></textarea>
           <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
-            [span_662](start_span)<b>12.[span_662](end_span)
-[span_663](start_span)Envie um print do seu perfil no jogo:</b><br>[span_663](end_span)
+            <b>12.
+Envie um print do seu perfil no jogo:</b><br>
             <span style="font-size:0.97em;">Após enviar o formulário, <b>anexe a imagem diretamente no WhatsApp</b> ao ADM junto com sua mensagem.</span>
           </div>
           <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
@@ -1198,19 +1157,17 @@ Por que quer entrar para a Soberanos?</label>
         <a href="https://chat.whatsapp.com/HlBc51iCSPr0oe5yyftPDv" target="_blank" class="cta-btn group">Entrar No Grupo Do Recrutamento</a>
         <div id="msg-recrutamento" class="toast-notification"></div>
   
-        [span_664](start_span)<div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">[span_664](end_span)
-          [span_665](start_span)Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas.[span_665](end_span)
-[span_666](start_span)<br> <b>Não esqueça de anexar seu print!</b>[span_666](end_span)
+        <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
+          Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas.
+ <br> <b>Não esqueça de anexar seu print!</b>
         </div>
       </section>
       <section class="card" id="streamers">
         <h2>🎥 Streamers da Guilda</h2>
-        <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
-          Nenhum Streamer Encontrado.<br>
-          <span style="color:#FFD70099; font-size:0.9em;">
-            Quando membros da guilda começarem a fazer lives ou vídeos, eles 
-[span_667](start_span)aparecerão aqui[span_667](end_span)!
-          </span>
+        <ul class="streamers-list" id="streamers-list">
+          </ul>
+        <div style="color:#FFD70099; font-size:0.9em; text-align:center; margin-top:20px;">
+            <span id="streamer-message">Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!</span>
         </div>
       </section>
       <section class="card" id="avisos">
@@ -1222,14 +1179,30 @@ Por que quer entrar para a Soberanos?</label>
         <h2>🚨 Denúncia de Membro</h2>
         <div style="color:#FFD70099;text-align:center;margin-top:20px;">
           (Formulário de 
-[span_668](start_span)denúncia em breve)[span_668](end_span)
+denúncia em breve)
         </div>
       </section>
       <section class="card" id="sugestoes">
         <h2>💡 Sugestões e Novidades</h2>
         <div style="color:#FFD700; font-size:1.05em; text-align:center; margin-bottom:18px;">
-          [span_669](start_span)Tem ideias para o painel?[span_669](end_span)
-[span_670](start_span)Manda pra gente[span_670](end_span)!
+          Tem ideias para o painel?
+Manda pra gente!
+        </div>
+        <form id="form-sugestoes" style="max-width:440px;margin:auto;">
+            <label style="color:#FFD700;font-weight:600;">Seu Nome (opcional):</label>
+            <input type="text" id="sugestao-nome" placeholder="Seu nome ou nick (opcional)" class="adm-input"/>
+            <label style="color:#FFD700;font-weight:600;">Sua Sugestão:</label>
+            <textarea id="sugestao-texto" rows="4" required placeholder="Descreva sua sugestão para o painel ou guilda" class="adm-textarea"></textarea>
+            <button type="submit" class="cta-btn" style="margin-top:16px;">Enviar Sugestão</button>
+        </form>
+        <div id="msg-sugestao" class="toast-notification"></div>
+        <div style="margin-top:30px;">
+            <h3 style="color:var(--gold); border-bottom:1px solid var(--accent); padding-bottom:5px; margin-bottom:15px;">🚀 Novidades Recentes</h3>
+            <ul class="novidades-list" id="novidades-ul">
+                </ul>
+            <div style="color:#FFD70099; font-size:0.9em; text-align:center; margin-top:20px;">
+                <span id="novidades-message">Fique de olho nas atualizações do painel!</span>
+            </div>
         </div>
       </section>
       <section class="card" id="adm">
@@ -1240,19 +1213,19 @@ Por que quer entrar para a Soberanos?</label>
           </div>
           <form id="login-form" style="max-width: 300px; margin: 0 auto;">
        
-            [span_671](start_span)<label style="color:#FFD700;font-weight:600;">Usuário:</label>[span_671](end_span)
-            <input type="text" id="adm-user" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
+          <label style="color:#FFD700;font-weight:600;">Usuário:</label>
+            <input type="text" id="adm-user" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;" class="adm-input">
             <label style="color:#FFD700;font-weight:600;">Senha:</label>
-            <input type="password" id="adm-pass" required style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
+            <input type="password" id="adm-pass" required style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;" class="adm-input">
             <button type="submit" class="cta-btn" style="width: 100%;">Entrar</button>
    
-          [span_672](start_span)</form>[span_672](end_span)
+        </form>
         </div>
         <div id="adm-panel" style="display: none;">
-          [span_673](start_span)<div style="background: rgba(255, 215, 0, 0.1);[span_673](end_span)
-[span_674](start_span)border-radius: 12px; padding: 15px; margin: 15px 0;">[span_674](end_span)
-            [span_675](start_span)<h3 style="color: var(--gold);[span_675](end_span)
-[span_676](start_span)border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>[span_676](end_span)
+          <div style="background: rgba(255, 215, 0, 0.1);
+border-radius: 12px; padding: 15px; margin: 15px 0;">
+            <h3 style="color: var(--gold);
+border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>
 
             <div class="adm-section">
               <h4>Melhores da Semana</h4>
@@ -1260,7 +1233,7 @@ Por que quer entrar para a Soberanos?</label>
                 <label>1º Lugar:</label>
                 <input type="text" id="membro1" class="adm-input">
             
-              [span_677](start_span)</div>[span_677](end_span)
+          </div>
               <div class="adm-input-group">
                 <label>2º Lugar:</label>
                 <input type="text" id="membro2" class="adm-input">
@@ -1268,25 +1241,30 @@ Por que quer entrar para a Soberanos?</label>
               <div class="adm-input-group">
                 <label>3º Lugar:</label>
  
-                [span_678](start_span)<input type="text" id="membro3" class="adm-input">[span_678](end_span)
+                <input type="text" id="membro3" class="adm-input">
               </div>
             </div>
 
             <div class="adm-section">
-              <h4>Regras da Guilda</h4>
-              <textarea id="regras-txt" rows="6" class="adm-input" placeholder="Digite uma regra por linha..."></textarea>
+              <h4>Regras da Guilda (Uma regra por linha)</h4>
+              <textarea id="regras-txt" rows="6" class="adm-textarea" placeholder="Digite uma regra por linha..."></textarea>
      
-            [span_679](start_span)</div>[span_679](end_span)
+            </div>
 
             <div class="adm-section">
-              <h4>Avisos Recentes</h4>
-              <textarea id="avisos-txt" rows="4" class="adm-input" placeholder="Digite um aviso por linha..."></textarea>
+              <h4>Avisos Recentes (Uma aviso por linha - formato: YYYY-MM-DD - Seu Aviso)</h4>
+              <textarea id="avisos-txt" rows="4" class="adm-textarea" placeholder="Digite um aviso por linha..."></textarea>
+            </div>
+            
+            <div class="adm-section">
+              <h4>Novidades Recentes (Uma novidade por linha)</h4>
+              <textarea id="novidades-adm-txt" rows="4" class="adm-textarea" placeholder="Digite uma novidade por linha..."></textarea>
             </div>
 
             <div class="adm-section">
               <h4>Mensagem de Destaque</h4>
   
-              [span_680](start_span)<div class="adm-input-group">[span_680](end_span)
+              <div class="adm-input-group">
                 <input type="text" id="destaque-msg" class="adm-input" />
               </div>
             </div>
@@ -1294,16 +1272,31 @@ Por que quer entrar para a Soberanos?</label>
             <div class="adm-section">
               <h4>Status da Guilda</h4>
             
-              [span_681](start_span)<div class="adm-input-group">[span_681](end_span)
+          <div class="adm-input-group">
                 <input type="text" id="status-guilda" class="adm-input" />
               </div>
             </div>
 
-            [span_682](start_span)<div style="text-align: center;[span_682](end_span)
-[span_683](start_span)margin-top: 20px;">[span_683](end_span)
+            <div class="adm-section">
+                <h4>Equipe/Staff (Uma por linha: Nome | Função | URL_Avatar)</h4>
+                <textarea id="staff-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: LK | Líder | https://link.com/avatar.jpg"></textarea>
+            </div>
+
+            <div class="adm-section">
+                <h4>Parceiros (Uma por linha: Nome | Link | Tipo_Contato)</h4>
+                <textarea id="parceiros-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: Lojinha Do Toxino | https://link.com/grupo | WhatsApp"></textarea>
+            </div>
+
+            <div class="adm-section">
+                <h4>Streamers (Uma por linha: Nome | Link | Plataforma | URL_Avatar)</h4>
+                <textarea id="streamers-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: Fulano | https://twitch.tv/fulano | Twitch | https://link.com/avatar.jpg"></textarea>
+            </div>
+
+            <div style="text-align: center;
+margin-top: 20px;">
               <button id="save-changes" class="cta-btn" style="background: var(--gradient-blue);">Salvar Alterações</button>
-              [span_684](start_span)<button id="logout-adm" class="cta-btn" style="background: var(--gradient-red);[span_684](end_span)
-[span_685](start_span)margin-top: 10px;">Sair</button>[span_685](end_span)
+              <button id="logout-adm" class="cta-btn" style="background: var(--gradient-red);
+margin-top: 10px;">Sair</button>
             </div>
           </div>
         </div>
@@ -1318,7 +1311,7 @@ Por que quer entrar para a Soberanos?</label>
     </div>
     <div id="lastUpdate" style="margin:6px 0 0 0;font-size:0.88em;color:#fff;"></div>
     <div 
-[span_686](start_span)style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">[span_686](end_span)
+style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       Desenvolvido por <b>SS DG 👑</b>
     </div>
   </footer>
@@ -1337,46 +1330,44 @@ Por que quer entrar para a Soberanos?</label>
       storageBucket: "paineis-soberanos.appspot.com",
       messagingSenderId: "1018061735067",
       appId: "1:101801735067:web:dac8173cab25faebb6b23e"
-    [span_687](start_span)};[span_687](end_span)
+    };
     // Inicializando Firebase
-    [span_688](start_span)firebase.initializeApp(firebaseConfig);[span_688](end_span)
-    [span_689](start_span)const db = firebase.database();[span_689](end_span)
-
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
     // DARK/LIGHT MODE
     function setTheme(light) {
-      [span_690](start_span)document.body.classList.toggle('light', !!light);[span_690](end_span)
-      [span_691](start_span)document.getElementById('modeIcon').textContent = light ?[span_691](end_span)
-[span_692](start_span)"light_mode" : "dark_mode";[span_692](end_span)
-      [span_693](start_span)localStorage.setItem("theme", light ? "light" : "dark");[span_693](end_span)
+      document.body.classList.toggle('light', !!light);
+      document.getElementById('modeIcon').textContent = light ?
+"light_mode" : "dark_mode";
+      localStorage.setItem("theme", light ? "light" : "dark");
     }
 
     document.getElementById('modeSwitch').onclick = function() {
-      [span_694](start_span)setTheme(!document.body.classList.contains('light'));[span_694](end_span)
+      setTheme(!document.body.classList.contains('light'));
     };
 
     (function initTheme() {
-      [span_695](start_span)let t = localStorage.getItem("theme");[span_695](end_span)
-      [span_696](start_span)if (t === "light") setTheme(true);[span_696](end_span)
-    [span_697](start_span)})();[span_697](end_span)
-
+      let t = localStorage.getItem("theme");
+      if (t === "light") setTheme(true);
+    })();
     // BACKGROUND PARTICLES
     function runParticles() {
-      [span_698](start_span)const c = document.getElementById('bg-particles');[span_698](end_span)
-      [span_699](start_span)const ctx = c.getContext('2d');[span_699](end_span)
-      [span_700](start_span)let w = window.innerWidth, h = window.innerHeight;[span_700](end_span)
-      [span_701](start_span)let particles = [];[span_701](end_span)
-
+      const c = document.getElementById('bg-particles');
+      const ctx = c.getContext('2d');
+      let w = window.innerWidth, h = window.innerHeight;
+      let particles = [];
+      const MAX_PARTICLES = (w < 768) ? 30 : 60; // Menos partículas em telas pequenas
+      
       function resize() {
-        [span_702](start_span)w = window.innerWidth; h = window.innerHeight;[span_702](end_span)
-        [span_703](start_span)c.width = w;[span_703](end_span)
-        [span_704](start_span)c.height = h;[span_704](end_span)
+        w = window.innerWidth; h = window.innerHeight;
+        c.width = w;
+        c.height = h;
       }
 
-      [span_705](start_span)window.addEventListener('resize', resize);[span_705](end_span)
-
+      window.addEventListener('resize', resize);
       function randomColor() {
-        [span_706](start_span)const colors = ['#FFD700','#37a6ff','#a259ff','#f05454'];[span_706](end_span)
-        [span_707](start_span)return colors[Math.floor(Math.random()*colors.length)];[span_707](end_span)
+        const colors = ['#FFD700','#37a6ff','#a259ff','#f05454'];
+        return colors[Math.floor(Math.random()*colors.length)];
       }
 
       function spawnParticle() {
@@ -1384,45 +1375,45 @@ Por que quer entrar para a Soberanos?</label>
           x: Math.random()*w,
           y: Math.random()*h,
           r: Math.random()*2+1,
-          [span_708](start_span)dx: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */[span_708](end_span)
-          [span_709](start_span)dy: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */[span_709](end_span)
+          dx: (Math.random()-.5)*.7, /* Aumentado um pouco */
+          dy: (Math.random()-.5)*.7, /* Aumentado um pouco */
           a: Math.random()*2*Math.PI,
    
-          [span_710](start_span)color: randomColor(),[span_710](end_span)
+          color: randomColor(),
         }
       }
 
-      [span_711](start_span)for(let i=0;i<60;i++) particles.push(spawnParticle());[span_711](end_span)
-
+      for(let i=0;i<MAX_PARTICLES;i++) particles.push(spawnParticle());
       function draw() {
-        [span_712](start_span)ctx.clearRect(0,0,w,h);[span_712](end_span)
-        [span_713](start_span)for(let p of particles) {[span_713](end_span)
-          [span_714](start_span)ctx.save();[span_714](end_span)
-          [span_715](start_span)ctx.globalAlpha = 0.16;[span_715](end_span)
-          [span_716](start_span)ctx.beginPath();[span_716](end_span)
-          [span_717](start_span)ctx.arc(p.x,p.y,p.r,0,2*Math.PI);[span_717](end_span)
-          [span_718](start_span)ctx.fillStyle = p.color;[span_718](end_span)
-          [span_719](start_span)ctx.shadowColor = p.color;[span_719](end_span)
-          [span_720](start_span)ctx.shadowBlur = 8;[span_720](end_span)
-          [span_721](start_span)ctx.fill();[span_721](end_span)
-          [span_722](start_span)ctx.restore();[span_722](end_span)
-          [span_723](start_span)p.x += Math.cos(p.a)*p.dx;[span_723](end_span)
-          [span_724](start_span)p.y += Math.sin(p.a)*p.dy;[span_724](end_span)
-          [span_725](start_span)p.a += (Math.random()-.5)*0.02;[span_725](end_span)
-          [span_726](start_span)if(p.x<0) p.x=w;[span_726](end_span)
-          [span_727](start_span)if(p.x>w) p.x=0;[span_727](end_span)
-          [span_728](start_span)if(p.y<0) p.y=h;[span_728](end_span)
-          [span_729](start_span)if(p.y>h) p.y=0;[span_729](end_span)
+        ctx.clearRect(0,0,w,h);
+        for(let p of particles) {
+          ctx.save();
+          ctx.globalAlpha = 0.16;
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
+          ctx.fillStyle = p.color;
+          if (p.r > 1.5) { // Aplicar sombra apenas para partículas maiores
+            ctx.shadowColor = p.color;
+            ctx.shadowBlur = 8;
+          }
+          ctx.fill();
+          ctx.restore();
+          p.x += Math.cos(p.a)*p.dx;
+          p.y += Math.sin(p.a)*p.dy;
+          p.a += (Math.random()-.5)*0.02;
+          if(p.x<0) p.x=w;
+          if(p.x>w) p.x=0;
+          if(p.y<0) p.y=h;
+          if(p.y>h) p.y=0;
         }
-        [span_730](start_span)requestAnimationFrame(draw);[span_730](end_span)
+        requestAnimationFrame(draw);
       }
 
-      [span_731](start_span)resize();[span_731](end_span)
-      [span_732](start_span)draw();[span_732](end_span)
+      resize();
+      draw();
     }
 
-    [span_733](start_span)runParticles();[span_733](end_span)
-
+    runParticles();
     // Loader de aba + troca de aba
     document.querySelectorAll('.menu-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
@@ -1434,8 +1425,8 @@ Por que quer entrar para a Soberanos?</label>
           btn.classList.add('active');
           document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
     
-          [span_734](start_span)setTimeout(() => {[span_734](end_span)
-            [span_735](start_span)document.getElementById(btn.dataset.tab).classList.add('active');[span_735](end_span)
+          setTimeout(() => {
+            document.getElementById(btn.dataset.tab).classList.add('active');
           }, 40);
           if(window.innerWidth <= 700) {
             document.getElementById('menuNav').classList.remove('open');
@@ -1443,111 +1434,106 @@ Por que quer entrar para a Soberanos?</label>
           }
         }, 400);
       });
-    [span_736](start_span)});[span_736](end_span)
-
+    });
     // Menu hamburguer responsivo
-    [span_737](start_span)const menuHamburger = document.getElementById('menuHamburger');[span_737](end_span)
-    [span_738](start_span)const menuNav = document.getElementById('menuNav');[span_738](end_span)
+    const menuHamburger = document.getElementById('menuHamburger');
+    const menuNav = document.getElementById('menuNav');
     menuHamburger.addEventListener('click', function() {
-      [span_739](start_span)menuHamburger.classList.toggle('open');[span_739](end_span)
-      [span_740](start_span)menuNav.classList.toggle('open');[span_740](end_span)
-    [span_741](start_span)});[span_741](end_span)
+      menuHamburger.classList.toggle('open');
+      menuNav.classList.toggle('open');
+    });
     document.addEventListener('click', function(e) {
-      [span_742](start_span)if(window.innerWidth <= 700 && menuNav.classList.contains('open')) {[span_742](end_span)
-        [span_743](start_span)if(!menuNav.contains(e.target) && e.target !== menuHamburger) {[span_743](end_span)
-          [span_744](start_span)menuNav.classList.remove('open');[span_744](end_span)
-          [span_745](start_span)menuHamburger.classList.remove('open');[span_745](end_span)
+      if(window.innerWidth <= 700 && menuNav.classList.contains('open')) {
+        if(!menuNav.contains(e.target) && e.target !== menuHamburger) {
+          menuNav.classList.remove('open');
+          menuHamburger.classList.remove('open');
         }
       }
-    [span_746](start_span)});[span_746](end_span)
-
+    });
     // Ranking tab
     document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        [span_747](start_span)document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));[span_747](end_span)
-        [span_748](start_span)btn.classList.add('active');[span_748](end_span)
-        document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? [span_749](start_span)'' : 'none';[span_749](end_span)
-        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? [span_750](start_span)'block' : 'none';[span_750](end_span)
+        document.querySelectorAll('.ranking-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('rankingSemanal').style.display = btn.dataset.rank === 'semanal' ? '' : 'none';
+        document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? 'block' : 'none';
       });
-    [span_751](start_span)});[span_751](end_span)
-
+    });
     // CONTADOR GUERRA (melhor visual e responsivo)
-    [span_752](start_span)const horaGuerra = { "-3": 16, "-4": 15 };[span_752](end_span)
+    const horaGuerra = { "-3": 16, "-4": 15 };
     function getProximaGuerraEAndamento(fuso) {
       const now = new Date();
-      [span_753](start_span)let diaSemana = now.getUTCDay();[span_753](end_span)
-      [span_754](start_span)let horaLocal = now.getUTCHours() + parseInt(fuso);[span_754](end_span)
-      [span_755](start_span)if(horaLocal < 0) horaLocal += 24;[span_755](end_span)
-      [span_756](start_span)if(horaLocal > 23) horaLocal -= 24;[span_756](end_span)
-      [span_757](start_span)let minutos = now.getUTCMinutes();[span_757](end_span)
-      [span_758](start_span)let emAndamento = false;[span_758](end_span)
+      let diaSemana = now.getUTCDay();
+      let horaLocal = now.getUTCHours() + parseInt(fuso);
+      if(horaLocal < 0) horaLocal += 24;
+      if(horaLocal > 23) horaLocal -= 24;
+      let minutos = now.getUTCMinutes();
+      let emAndamento = false;
 
       // Considerando que a guerra dura algumas horas (ex: 7 horas)
-      [span_759](start_span)if(diaSemana === 6 && horaLocal >= horaGuerra[fuso] && horaLocal < horaGuerra[fuso]+7) emAndamento = true;[span_759](end_span)
-
-      [span_760](start_span)let proximoSabado = new Date(now);[span_760](end_span)
-      [span_761](start_span)let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7;[span_761](end_span)
+      if(diaSemana === 6 && horaLocal >= horaGuerra[fuso] && horaLocal < horaGuerra[fuso]+7) emAndamento = true;
+      let proximoSabado = new Date(now);
+      let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7;
       // Se já passou no sábado, vai para o próximo
-      [span_762](start_span)proximoSabado.setUTCDate(proximoSabado.getUTCDate() + diasParaSabado);[span_762](end_span)
-      proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0); [span_763](start_span)// Ajusta para o horário UTC da guerra[span_763](end_span)
+      proximoSabado.setUTCDate(proximoSabado.getUTCDate() + diasParaSabado);
+      proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0); // Ajusta para o horário UTC da guerra
 
       // Se a data calculada já passou o horário da guerra para esta semana, move para a próxima semana
       if (proximoSabado.getTime() < now.getTime() && !emAndamento) {
-          [span_764](start_span)proximoSabado.setUTCDate(proximoSabado.getUTCDate() + 7);[span_764](end_span)
+          proximoSabado.setUTCDate(proximoSabado.getUTCDate() + 7);
       }
       
-      [span_765](start_span)return { proximoSabado, emAndamento };[span_765](end_span)
+      return { proximoSabado, emAndamento };
     }
 
     function atualizarInfoReset(fuso) {
-      [span_766](start_span)const info = document.getElementById('hora-reset-info');[span_766](end_span)
-      [span_767](start_span)info.textContent = `Guerra todo sábado às ${horaGuerra[fuso].toString().padStart(2,"0")}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;[span_767](end_span)
+      const info = document.getElementById('hora-reset-info');
+      info.textContent = `Guerra todo sábado às ${horaGuerra[fuso].toString().padStart(2,"0")}:00 (${fuso == -3 ? "Brasília" : "Amazonas"})`;
     }
 
     function iniciarContadorGuerraFuso() {
       let fuso = document.getElementById("fuso-guerra").value;
-      [span_768](start_span)atualizarInfoReset(fuso);[span_768](end_span)
-
+      atualizarInfoReset(fuso);
       function atualizar() {
-        [span_769](start_span)const el = document.getElementById('contador-guerra');[span_769](end_span)
-        [span_770](start_span)const { proximoSabado, emAndamento } = getProximaGuerraEAndamento(fuso);[span_770](end_span)
+        const el = document.getElementById('contador-guerra');
+        const { proximoSabado, emAndamento } = getProximaGuerraEAndamento(fuso);
 
         if(emAndamento) {
-          [span_771](start_span)el.textContent = "Guerra Em Andamento 🔥";[span_771](end_span)
+          el.textContent = "Guerra Em Andamento 🔥";
         } else {
-          [span_772](start_span)const agora = new Date();[span_772](end_span)
-          [span_773](start_span)let diff = proximoSabado - agora;[span_773](end_span)
+          const agora = new Date();
+          let diff = proximoSabado - agora;
           if (diff > 0) {
-            [span_774](start_span)const dias = Math.floor(diff / (1000 * 60 * 60 * 24));[span_774](end_span)
-            [span_775](start_span)const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);[span_775](end_span)
-            [span_776](start_span)const minutos = Math.floor((diff / (1000 * 60)) % 60);[span_776](end_span)
-            [span_777](start_span)const segundos = Math.floor((diff / 1000) % 60);[span_777](end_span)
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
             el.innerHTML =
-              [span_778](start_span)`Falta <b>${dias}d</b> <b>${horas}h</b> <b>${minutos}m</b> <b>${segundos}s</b> para a próxima guerra.`;[span_778](end_span)
+              `Falta <b>${dias}d</b> <b>${horas}h</b> <b>${minutos}m</b> <b>${segundos}s</b> para a próxima guerra.`;
           } else {
             // Se já passou, recalcula para o próximo sábado (caso o intervalo perca um ciclo)
             // Ou se a guerra acabou de começar, atualiza para "em andamento"
-            [span_779](start_span)const { emAndamento: newEmAndamento } = getProximaGuerraEAndamento(fuso);[span_779](end_span)
+            const { emAndamento: newEmAndamento } = getProximaGuerraEAndamento(fuso);
             if (newEmAndamento) {
-                [span_780](start_span)el.textContent = "Guerra Em Andamento 🔥";[span_780](end_span)
+                el.textContent = "Guerra Em Andamento 🔥";
             } else {
                 // Se a guerra terminou, e ainda não é o próximo sabado
                 // Esta parte pode ser otimizada para não rodar um setInterval desnecessariamente
                 // ou para se ajustar dinamicamente.
-                [span_781](start_span)el.textContent = "Guerra Em Andamento 🔥";[span_781](end_span)
-                // Caso caia aqui após o fim da guerra antes do próximo ciclo
+                // Por enquanto, mantém o cálculo.
+                 el.textContent = "Guerra Em Andamento 🔥";
             }
           }
         }
       }
 
-      [span_782](start_span)if(window.contadorGuerraInterval) clearInterval(window.contadorGuerraInterval);[span_782](end_span)
-      [span_783](start_span)atualizar();[span_783](end_span)
-      [span_784](start_span)window.contadorGuerraInterval = setInterval(atualizar, 1000);[span_784](end_span)
+      if(window.contadorGuerraInterval) clearInterval(window.contadorGuerraInterval);
+      atualizar();
+      window.contadorGuerraInterval = setInterval(atualizar, 1000);
     }
 
     document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
-    [span_785](start_span)iniciarContadorGuerraFuso();[span_785](end_span)
+    iniciarContadorGuerraFuso();
     // Inicia o contador ao carregar a página
 
     // Formulário de recrutamento personalizado WhatsApp
@@ -1558,9 +1544,10 @@ Por que quer entrar para a Soberanos?</label>
           e.preventDefault();
 
           // Validação do formulário
-          [span_786](start_span)const nick = document.getElementById('nick').value.trim();[span_786](end_span)
-          [span_787](start_span)const idff = document.getElementById('idff').value.trim();[span_787](end_span)
-          [span_788](start_span)const idade = document.getElementById('idade').value.trim();[span_788](end_span)
+          const nick = document.getElementById('nick').value.trim();
+          const idff = document.getElementById('idff').value.trim();
+    
+          const idade = document.getElementById('idade').value.trim();
 
           if(nick.length < 3 || nick.length > 20) {
             showToast("Nick deve ter entre 3 e 20 caracteres", 'error');
@@ -1570,264 +1557,418 @@ Por que quer entrar para a Soberanos?</label>
           if(!/^\d+$/.test(idff)) {
             showToast("ID do Free Fire deve conter apenas números", 'error');
  
-            [span_789](start_span)return;[span_789](end_span)
-          }
-
-          if(parseInt(idade) < 12 || parseInt(idade) > 99) { // Parse para garantir que é um número
-            [span_790](start_span)showToast("Idade deve ser entre 12 e 99 anos", 'error');[span_790](end_span)
-            [span_791](start_span)return;[span_791](end_span)
-          }
-
-          [span_792](start_span)const patente = document.getElementById('patente').value.trim();[span_792](end_span)
-          [span_793](start_span)const guilda_comp = document.getElementById('guilda_comp').value.trim();[span_793](end_span)
-          const funcao = formRecrutamento.querySelector('input[name="funcao"]:checked')?.value || [span_794](start_span)'';[span_794](end_span)
-          [span_795](start_span)let disp = [];[span_795](end_span)
-          [span_796](start_span)formRecrutamento.querySelectorAll('input[name="disp"]:checked').forEach(c => disp.push(c.value));[span_796](end_span)
-          const modo = formRecrutamento.querySelector('input[name="modo"]:checked')?.value || [span_797](start_span)'';[span_797](end_span)
-          [span_798](start_span)const modoOutro = document.getElementById('modo_outro').value.trim();[span_798](end_span)
-          const troca_nick = formRecrutamento.querySelector('input[name="troca_nick"]:checked')?.value || [span_799](start_span)'';[span_799](end_span)
-          [span_800](start_span)const contato = document.getElementById('contato').value.trim();[span_800](end_span)
-          [span_801](start_span)const motivo = document.getElementById('motivo').value.trim();[span_801](end_span)
-          [span_802](start_span)const modo_final = (modo === "Outro" && modoOutro) ? modoOutro : modo;[span_802](end_span)
-          
-          // Adicionada validação para campos obrigatórios
-          if (!nick || !idff || !idade || !patente || !guilda_comp || !funcao || !modo_final || !troca_nick || !contato || !motivo) {
-            [span_803](start_span)showToast("Preencha todos os campos obrigatórios!", 'error');[span_803](end_span)
             return;
           }
 
-          [span_804](start_span)const numeroADM = "558173389225";[span_804](end_span)
-          [span_805](start_span)// Telefone do ADM para contato[span_805](end_span)
+          if(parseInt(idade) < 12 || parseInt(idade) > 99) { // Parse para garantir que é um número
+            showToast("Idade deve ser entre 12 e 99 anos", 'error');
+            return;
+          }
+
+          const patente = document.getElementById('patente').value.trim();
+          const guilda_comp = document.getElementById('guilda_comp').value.trim();
+          const funcao = formRecrutamento.querySelector('input[name="funcao"]:checked')?.value || '';
+          let disp = [];
+          formRecrutamento.querySelectorAll('input[name="disp"]:checked').forEach(c => disp.push(c.value));
+          const modo = formRecrutamento.querySelector('input[name="modo"]:checked')?.value || '';
+          const modoOutro = document.getElementById('modo_outro').value.trim();
+          const troca_nick = formRecrutamento.querySelector('input[name="troca_nick"]:checked')?.value || '';
+          const contato = document.getElementById('contato').value.trim();
+          const motivo = document.getElementById('motivo').value.trim();
+          const modo_final = (modo === "Outro" && modoOutro) ? modoOutro : modo;
+          if (!nick || !idff || !idade || !patente || !guilda_comp || !funcao || !modo_final || !troca_nick || !contato || !motivo) {
+            showToast("Preencha todos os campos obrigatórios!", 'error');
+            return;
+          }
+
+          const numeroADM = "558173389225";
+          // Telefone do ADM para contato
           const mensagem =
 `Formulário de Recrutamento – Guilda Soberanos
 Caminhe com reis.
-Jogue como um soberano. [span_806](start_span)👑
+Jogue como um soberano. 👑
 1. Nick no jogo: ${nick}
 2. ID do jogador: ${idff}
 3. Idade: ${idade}
 4. Patente atual: ${patente}
-5. Já fez parte de guilda competitiva?[span_806](end_span)
+5. Já fez parte de guilda competitiva?
 ${guilda_comp}
 6. Função principal: ${funcao}
 7. Disponibilidade: ${disp.length ? disp.join(", ") : "Nenhuma"}
 8. Modo que joga melhor: ${modo_final}
-9. [span_807](start_span)Troca nick pra guilda?[span_807](end_span)
+9. Troca nick pra guilda?
 ${troca_nick}
 10. Instagram ou WhatsApp: ${contato}
 11. Por que quer entrar: ${motivo}
 12. Print do perfil: (Anexar aqui no WhatsApp)
-[span_808](start_span)`;[span_808](end_span)
-          [span_809](start_span)const waLink = `https://wa.me/${numeroADM}?text=${encodeURIComponent(mensagem)}`;[span_809](end_span)
-          [span_810](start_span)window.open(waLink, "_blank");[span_810](end_span)
+`;
+          const waLink = `https://wa.me/${numeroADM}?text=${encodeURIComponent(mensagem)}`;
+          window.open(waLink, "_blank");
 
           showToast("Redirecionando para o WhatsApp... Não esqueça de anexar o print do perfil!", 'success');
-          [span_811](start_span)formRecrutamento.reset();[span_811](end_span)
+          formRecrutamento.reset();
           // Reseta o formulário após o envio
         });
       }
-    [span_812](start_span)});[span_812](end_span)
 
+      // Formulário de Sugestões
+      const formSugestoes = document.getElementById('form-sugestoes');
+      if (formSugestoes) {
+          formSugestoes.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const nome = document.getElementById('sugestao-nome').value.trim();
+              const texto = document.getElementById('sugestao-texto').value.trim();
+
+              if (!texto) {
+                  showToast("Por favor, digite sua sugestão.", 'error');
+                  return;
+              }
+
+              const novaSugestao = {
+                  nome: nome || "Anônimo",
+                  texto: texto,
+                  data: new Date().toISOString().split('T')[0] // Formato YYYY-MM-DD
+              };
+
+              db.ref("site/sugestoes").push(novaSugestao)
+                  .then(() => {
+                      showToast("Sua sugestão foi enviada com sucesso!", 'success');
+                      formSugestoes.reset();
+                  })
+                  .catch(error => {
+                      console.error("Erro ao enviar sugestão:", error);
+                      showToast("Erro ao enviar sugestão. Tente novamente.", 'error');
+                  });
+          });
+      }
+    });
     // Painel ADM
     document.getElementById('login-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const user = document.getElementById('adm-user').value;
       const pass = document.getElementById('adm-pass').value;
 
-      // ATENÇÃO: Credenciais hardcoded são um risco de segurança EXTREMO.
-      // Em produção, use Firebase Authentication e Security Rules para gerenciar usuários de forma segura.
-      // Esta é uma implementação apenas para DEMONSTRAÇÃO LOCAL.
+      // ATENÇÃO: Credenciais hardcoded são um risco de segurança.
+      // Em produção, use Firebase Authentication e Security Rules.
       if(user === "admin777" && pass === "soberanos123") {
         document.getElementById('adm-login').style.display = 'none';
         document.getElementById('adm-panel').style.display = 'block';
        
-        [span_813](start_span)carregarDadosADM(); // Carrega dados específicos para o ADM[span_813](end_span)
+        carregarDadosADM(); // Carrega dados específicos para o ADM
         showToast("Login bem-sucedido!", 'success');
       } else {
         showToast("Credenciais incorretas!", 'error');
       }
-    [span_814](start_span)});[span_814](end_span)
-
+    });
     document.getElementById('logout-adm').addEventListener('click', function() {
-      [span_815](start_span)document.getElementById('adm-login').style.display = 'block';[span_815](end_span)
-      [span_816](start_span)document.getElementById('adm-panel').style.display = 'none';[span_816](end_span)
-      [span_817](start_span)document.getElementById('adm-user').value = '';[span_817](end_span)
-      [span_818](start_span)document.getElementById('adm-pass').value = '';[span_818](end_span)
-      [span_819](start_span)showToast("Você saiu do painel ADM", 'success');[span_819](end_span)
-    [span_820](start_span)});[span_820](end_span)
-
+      document.getElementById('adm-login').style.display = 'block';
+      document.getElementById('adm-panel').style.display = 'none';
+      document.getElementById('adm-user').value = '';
+      document.getElementById('adm-pass').value = '';
+      showToast("Você saiu do painel ADM", 'success');
+    });
     // Função para carregar dados do Firebase no painel ADM
     function carregarDadosADM() {
-      [span_821](start_span)db.ref("site").once("value", snapshot => {[span_821](end_span)
-        [span_822](start_span)if (!snapshot.exists()) return;[span_822](end_span)
+      db.ref("site").once("value", snapshot => {
+        if (!snapshot.exists()) return;
 
-        [span_823](start_span)const data = snapshot.val();[span_823](end_span)
+        const data = snapshot.val();
 
-        document.getElementById("membro1").value = data.membros?.[0] || [span_824](start_span)"";[span_824](end_span)
-        document.getElementById("membro2").value = data.membros?.[1] || [span_825](start_span)"";[span_825](end_span)
-        document.getElementById("membro3").value = data.membros?.[2] || [span_826](start_span)"";[span_826](end_span)
+        document.getElementById("membro1").value = data.membros?.[0] || "";
+        document.getElementById("membro2").value = data.membros?.[1] || "";
+        document.getElementById("membro3").value = data.membros?.[2] || "";
 
-        document.getElementById("regras-txt").value = data.regras?.join("\n") || [span_827](start_span)"";[span_827](end_span)
+        document.getElementById("regras-txt").value = data.regras?.join("\n") || "";
        
-        document.getElementById("avisos-txt").value = data.avisos?.join("\n") || [span_828](start_span)"";[span_828](end_span)
-        document.getElementById("destaque-msg").value = data.destaqueMsg || [span_829](start_span)"";[span_829](end_span)
-        document.getElementById("status-guilda").value = data.statusGuilda || [span_830](start_span)"";[span_830](end_span)
+        document.getElementById("avisos-txt").value = data.avisos?.join("\n") || "";
+        document.getElementById("novidades-adm-txt").value = data.novidades?.join("\n") || ""; // Novidades ADM
+        document.getElementById("destaque-msg").value = data.destaqueMsg || "";
+        document.getElementById("status-guilda").value = data.statusGuilda || "";
+        
+        // Carregar Staff para ADM
+        if (data.staff) {
+            document.getElementById("staff-adm-txt").value = data.staff.map(s => `${s.nome} | ${s.role} | ${s.avatar}`).join("\n");
+        } else {
+            document.getElementById("staff-adm-txt").value = "";
+        }
+
+        // Carregar Parceiros para ADM
+        if (data.parceiros) {
+            document.getElementById("parceiros-adm-txt").value = data.parceiros.map(p => `${p.nome} | ${p.link} | ${p.contato}`).join("\n");
+        } else {
+            document.getElementById("parceiros-adm-txt").value = "";
+        }
+
+        // Carregar Streamers para ADM
+        if (data.streamers) {
+            document.getElementById("streamers-adm-txt").value = data.streamers.map(s => `${s.nome} | ${s.link} | ${s.plataforma} | ${s.avatar}`).join("\n");
+        } else {
+            document.getElementById("streamers-adm-txt").value = "";
+        }
+
       }).catch(error => {
-        [span_831](start_span)console.error("Erro ao carregar dados ADM:", error);[span_831](end_span)
-        [span_832](start_span)showToast("Erro ao carregar dados para o painel ADM.", 'error');[span_832](end_span)
-      [span_833](start_span)});[span_833](end_span)
+        console.error("Erro ao carregar dados ADM:", error);
+        showToast("Erro ao carregar dados para o painel ADM.", 'error');
+      });
     }
 
     document.getElementById('save-changes').addEventListener('click', function() {
-      [span_834](start_span)if(!confirm('Tem certeza que deseja salvar as alterações?')) return;[span_834](end_span)
+      if(!confirm('Tem certeza que deseja salvar as alterações?')) return;
 
       const membros = [
         document.getElementById('membro1').value,
         document.getElementById('membro2').value,
         document.getElementById('membro3').value
-      [span_835](start_span)];[span_835](end_span)
+      ];
 
-      [span_836](start_span)const regras = document.getElementById('regras-txt').value.split('\n').filter(r => r.trim());[span_836](end_span)
-      [span_837](start_span)const avisos = document.getElementById('avisos-txt').value.split('\n').filter(a => a.trim());[span_837](end_span)
-      [span_838](start_span)const destaqueMsg = document.getElementById('destaque-msg').value;[span_838](end_span)
-      [span_839](start_span)const statusGuilda = document.getElementById('status-guilda').value;[span_839](end_span)
+      const regras = document.getElementById('regras-txt').value.split('\n').filter(r => r.trim());
+      const avisos = document.getElementById('avisos-txt').value.split('\n').filter(a => a.trim());
+      const novidades = document.getElementById('novidades-adm-txt').value.split('\n').filter(n => n.trim()); // Novidades ADM
+      const destaqueMsg = document.getElementById('destaque-msg').value;
+      const statusGuilda = document.getElementById('status-guilda').value;
+
+      // Processar Staff
+      const staffRaw = document.getElementById('staff-adm-txt').value.split('\n').filter(s => s.trim());
+      const staff = staffRaw.map(s => {
+          const parts = s.split('|').map(p => p.trim());
+          return { nome: parts[0] || '', role: parts[1] || '', avatar: parts[2] || '' };
+      });
+
+      // Processar Parceiros
+      const parceirosRaw = document.getElementById('parceiros-adm-txt').value.split('\n').filter(p => p.trim());
+      const parceiros = parceirosRaw.map(p => {
+          const parts = p.split('|').map(p => p.trim());
+          return { nome: parts[0] || '', link: parts[1] || '', contato: parts[2] || '' };
+      });
+
+      // Processar Streamers
+      const streamersRaw = document.getElementById('streamers-adm-txt').value.split('\n').filter(s => s.trim());
+      const streamers = streamersRaw.map(s => {
+          const parts = s.split('|').map(p => p.trim());
+          return { nome: parts[0] || '', link: parts[1] || '', plataforma: parts[2] || '', avatar: parts[3] || '' };
+      });
 
   
-      [span_840](start_span)db.ref("site").set({[span_840](end_span)
+      db.ref("site").set({
         membros,
         regras,
         avisos,
+        novidades, // Adicionado
         destaqueMsg,
-        statusGuilda
+        statusGuilda,
+        staff, // Adicionado
+        parceiros, // Adicionado
+        streamers // Adicionado
       }).then(() => {
         // Atualiza DOM localmente imediatamente após salvar
-        [span_841](start_span)carregarDadosPublicos(); // Recarrega os dados públicos para refletir as mudanças[span_841](end_span)
+        carregarDadosPublicos(); // Recarrega os dados públicos para refletir as mudanças
 
-        [span_842](start_span)showToast("Alterações salvas com sucesso!", 'success');[span_842](end_span)
+        showToast("Alterações salvas com sucesso!", 'success');
       }).catch(error => {
-        [span_843](start_span)showToast("Erro ao salvar: " + error.message, 'error');[span_843](end_span)
-      [span_844](start_span)});[span_844](end_span)
-    [span_845](start_span)});[span_845](end_span)
+        showToast("Erro ao salvar: " + error.message, 'error');
+      });
+    });
 
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
-      [span_846](start_span)toast.textContent = '';[span_846](end_span)
+      toast.textContent = '';
       // Limpa o conteúdo anterior
-      let icon = (type === 'success') ? [span_847](start_span)'✔️' : '❌';[span_847](end_span)
-      toast.className = `toast-notification toast-${type}`; [span_848](start_span)// Redefine as classes[span_848](end_span)
-      [span_849](start_span)toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;[span_849](end_span)
-      [span_850](start_span)toast.classList.add('show');[span_850](end_span)
+      let icon = (type === 'success') ? '✔️' : '❌';
+      toast.className = `toast-notification toast-${type}`; // Redefine as classes
+      toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;
+      toast.classList.add('show');
       // Mostra o toast imediatamente
       setTimeout(() => {
-        [span_851](start_span)toast.classList.remove('show');[span_851](end_span)
-      [span_852](start_span)}, 2500);[span_852](end_span)
+        toast.classList.remove('show');
+      }, 2500);
     }
 
     // Função para carregar os dados públicos do Firebase
     function carregarDadosPublicos() {
-      [span_853](start_span)db.ref("site").once("value", snapshot => {[span_853](end_span)
-        [span_854](start_span)if (!snapshot.exists()) return;[span_854](end_span)
+      db.ref("site").once("value", snapshot => {
+        if (!snapshot.exists()) return;
 
-        [span_855](start_span)const data = snapshot.val();[span_855](end_span)
+        const data = snapshot.val();
 
         // Atualizar "Melhores da Semana"
         const topMembersList = document.getElementById("top-members-list");
         if (data.membros && topMembersList) {
             topMembersList.innerHTML = ''; // Limpa 
-[span_856](start_span)o conteúdo existente[span_856](end_span)
             data.membros.forEach((member, index) => {
                 const li = document.createElement("li");
                 let badgeClass = '';
                 let medalClass = '';
                 let medalIcon = '';
        
-                [span_857](start_span)if (index === 0) {[span_857](end_span)
+                if (index === 0) {
                     badgeClass = ''; // Default golden
                     medalClass = '';
                     medalIcon = '🥇';
-                [span_858](start_span)} else[span_858](end_span)
-                [span_859](start_span)if (index === 1) {[span_859](end_span)
+                } else 
+                if (index === 1) {
                     badgeClass = 'second';
                     medalClass = 'second';
-                    [span_860](start_span)medalIcon = '🥈';[span_860](end_span)
-                [span_861](start_span)} else if (index === 2) {[span_861](end_span)
-                    [span_862](start_span)badgeClass = 'third';[span_862](end_span)
-                    [span_863](start_span)medalClass = 'third';[span_863](end_span)
-                    [span_864](start_span)medalIcon = '🥉';[span_864](end_span)
+                    medalIcon = '🥈';
+                } else if (index === 2) {
+                    badgeClass = 'third';
+                    medalClass = 'third';
+                    medalIcon = '🥉';
                 }
                 li.innerHTML = `
                     <span class="ranking-badge ${badgeClass}">${index + 1}º</span>
                     ${member}
                     <span class="ranking-bar"></span>
            
-                    [span_865](start_span)<span class="medal ${medalClass}">${medalIcon}</span>[span_865](end_span)
+                    <span class="medal ${medalClass}">${medalIcon}</span>
                 `;
-                [span_866](start_span)topMembersList.appendChild(li);[span_866](end_span)
+                topMembersList.appendChild(li);
             });
             // Adiciona a mensagem de parabéns
-            [span_867](start_span)let congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');[span_867](end_span)
-            [span_868](start_span)if (!congratsMsg) {[span_868](end_span)
-                [span_869](start_span)congratsMsg = document.createElement("div");[span_869](end_span)
-                [span_870](start_span)congratsMsg.className = 'congrats-message';[span_870](end_span)
-                [span_871](start_span)congratsMsg.style = "color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;";[span_871](end_span)
-                [span_872](start_span)topMembersList.closest('.card').appendChild(congratsMsg);[span_872](end_span)
+            let congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');
+            if (!congratsMsg) {
+                congratsMsg = document.createElement("div");
+                congratsMsg.className = 'congrats-message';
+                congratsMsg.style = "color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;";
+                topMembersList.closest('.card').appendChild(congratsMsg);
             }
-            [span_873](start_span)congratsMsg.textContent = "Parabéns aos melhores pontuadores desta semana!";[span_873](end_span)
+            congratsMsg.textContent = "Parabéns aos melhores pontuadores desta semana!";
         } else if (topMembersList) {
-            [span_874](start_span)topMembersList.innerHTML = '<li>Nenhum membro classificado esta semana.</li>';[span_874](end_span)
-            [span_875](start_span)const congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');[span_875](end_span)
-            if(congratsMsg) congratsMsg.textContent = ''; [span_876](start_span)// Limpa a mensagem se não houver membros[span_876](end_span)
+            topMembersList.innerHTML = '<li>Nenhum membro classificado esta semana.</li>';
+            const congratsMsg = topMembersList.closest('.card').querySelector('.congrats-message');
+            if(congratsMsg) congratsMsg.textContent = ''; // Limpa a mensagem se não houver membros
         }
 
         // Preencher Regras da Guilda
-        [span_877](start_span)const regrasList = document.getElementById("regras-ul");[span_877](end_span)
-        [span_878](start_span)regrasList.innerHTML = "";[span_878](end_span)
-        [span_879](start_span)if (data.regras && data.regras.length > 0) {[span_879](end_span)
-            [span_880](start_span)data.regras.forEach(r => {[span_880](end_span)
-                [span_881](start_span)const li = document.createElement("li");[span_881](end_span)
-                [span_882](start_span)li.textContent = r;[span_882](end_span)
-                [span_883](start_span)regrasList.appendChild(li);[span_883](end_span)
-            [span_884](start_span)});[span_884](end_span)
+        const regrasList = document.getElementById("regras-ul");
+        regrasList.innerHTML = "";
+        if (data.regras && data.regras.length > 0) {
+            data.regras.forEach(r => {
+                const li = document.createElement("li");
+                li.textContent = r;
+                regrasList.appendChild(li);
+            });
         } else {
-            [span_885](start_span)regrasList.innerHTML = '<li>Nenhuma regra definida ainda.</li>';[span_885](end_span)
+            regrasList.innerHTML = '<li>Nenhuma regra definida ainda.</li>';
         }
 
         // Preencher Avisos Recentes
-        [span_886](start_span)const avisosList = document.getElementById("avisos-ul");[span_886](end_span)
-        [span_887](start_span)avisosList.innerHTML = "";[span_887](end_span)
-        [span_888](start_span)if (data.avisos && data.avisos.length > 0) {[span_888](end_span)
-            [span_889](start_span)data.avisos.forEach(a => {[span_889](end_span)
-                [span_890](start_span)const li = document.createElement("li");[span_890](end_span)
-                [span_891](start_span)li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;[span_891](end_span)
-                [span_892](start_span)avisosList.appendChild(li);[span_892](end_span)
-            [span_893](start_span)});[span_893](end_span)
+        const avisosList = document.getElementById("avisos-ul");
+        avisosList.innerHTML = "";
+        if (data.avisos && data.avisos.length > 0) {
+            data.avisos.forEach(a => {
+                const li = document.createElement("li");
+                let avisoTexto = a;
+                const dateMatch = a.match(/^(\d{4}-\d{2}-\d{2})\s*-\s*(.*)/);
+                if (dateMatch) {
+                    const datePart = new Date(dateMatch[1]).toLocaleDateString('pt-BR', { year: 'numeric', month: 'numeric', day: 'numeric' });
+                    avisoTexto = `<span style="font-size:0.9em; opacity:0.8; margin-right:5px;">(${datePart})</span> ${dateMatch[2]}`;
+                }
+                li.innerHTML = `<span style="color:#FFD700;">${avisoTexto}</span>`;
+                avisosList.appendChild(li);
+            });
         } else {
-            [span_894](start_span)avisosList.innerHTML = '<li>Nenhum aviso no momento.</li>';[span_894](end_span)
+            avisosList.innerHTML = '<li>Nenhum aviso no momento.</li>';
         }
 
+        // Preencher Novidades Recentes
+        const novidadesList = document.getElementById("novidades-ul");
+        novidadesList.innerHTML = "";
+        if (data.novidades && data.novidades.length > 0) {
+            data.novidades.forEach(n => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span style="color:#FFD700;">${n}</span>`;
+                novidadesList.appendChild(li);
+            });
+            document.getElementById('novidades-message').style.display = 'none';
+        } else {
+            novidadesList.innerHTML = '<li>Nenhuma novidade no momento.</li>';
+            document.getElementById('novidades-message').style.display = 'block';
+        }
+
+        // Preencher Staff
+        const staffList = document.getElementById("staff-list");
+        staffList.innerHTML = "";
+        if (data.staff && data.staff.length > 0) {
+            data.staff.forEach(member => {
+                const li = document.createElement("li");
+                li.className = "staff-member";
+                li.innerHTML = `
+                    <img class="staff-avatar" src="${member.avatar || 'https://i.imgur.com/7pYLORP.png'}" alt="${member.nome}" loading="lazy">
+                    <span class="staff-info">
+                        <span class="staff-name">${member.nome}</span>
+                        <span class="staff-role">${member.role}</span>
+                    </span>
+                `;
+                staffList.appendChild(li);
+            });
+        } else {
+            staffList.innerHTML = '<li style="color:#FFD70099; text-align:center;">Nenhum membro da equipe cadastrado.</li>';
+        }
+
+        // Preencher Parceiros
+        const parceirosList = document.getElementById("parceiros-list");
+        parceirosList.innerHTML = "";
+        if (data.parceiros && data.parceiros.length > 0) {
+            data.parceiros.forEach(parceiro => {
+                const div = document.createElement("div");
+                div.className = "parceiro-card";
+                div.innerHTML = `
+                    <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">${parceiro.nome}</div>
+                    <a href="${parceiro.link}" target="_blank" class="cta-btn ${parceiro.contato === 'WhatsApp' ? 'whatsapp' : ''}">Entrar Em Contato</a>
+                `;
+                parceirosList.appendChild(div);
+            });
+        } else {
+            parceirosList.innerHTML = '<div style="color:#FFD70099; text-align:center;">Nenhum parceiro cadastrado.</div>';
+        }
+
+        // Preencher Streamers
+        const streamersList = document.getElementById("streamers-list");
+        streamersList.innerHTML = "";
+        if (data.streamers && data.streamers.length > 0) {
+            data.streamers.forEach(streamer => {
+                const li = document.createElement("li");
+                li.className = "streamer-card";
+                li.innerHTML = `
+                    <img class="streamer-avatar" src="${streamer.avatar || 'https://i.imgur.com/7pYLORP.png'}" alt="${streamer.nome}" loading="lazy">
+                    <span class="streamer-info">
+                        <span class="streamer-name">${streamer.nome}</span>
+                        <span class="streamer-platform">${streamer.plataforma}</span>
+                    </span>
+                    <a href="${streamer.link}" target="_blank" class="cta-btn" style="margin-left:auto; font-size:0.9em; padding: 8px 15px;">Ver Live</a>
+                `;
+                streamersList.appendChild(li);
+            });
+            document.getElementById('streamer-message').style.display = 'none';
+        } else {
+            streamersList.innerHTML = ''; // Limpa se não tiver
+            document.getElementById('streamer-message').style.display = 'block';
+        }
+
+
         // Atualizar Mensagem de Destaque
-        [span_895](start_span)const destaqueElement = document.getElementById("destaque-message-display");[span_895](end_span)
-        [span_896](start_span)if (destaqueElement) {[span_896](end_span)
-            [span_897](start_span)destaqueElement.textContent = data.destaqueMsg ||[span_897](end_span)
-[span_898](start_span)"Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!";[span_898](end_span)
+        const destaqueElement = document.getElementById("destaque-message-display");
+        if (destaqueElement) {
+            destaqueElement.textContent = data.destaqueMsg ||
+"Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!";
         }
 
         // Atualizar Status da Guilda no Rodapé
-        [span_899](start_span)const statusGuildaElement = document.getElementById("guild-status-footer");[span_899](end_span)
-        [span_900](start_span)if (statusGuildaElement) {[span_900](end_span)
-            statusGuildaElement.textContent = data.statusGuilda || [span_901](start_span)"Em manutenção";[span_901](end_span)
+        const statusGuildaElement = document.getElementById("guild-status-footer");
+        if (statusGuildaElement) {
+            statusGuildaElement.textContent = data.statusGuilda || "Em manutenção";
         }
 
       }).catch(error => {
-        [span_902](start_span)console.error("Erro ao carregar dados públicos:", error);[span_902](end_span)
-        [span_903](start_span)showToast("Erro ao carregar dados do site. Tente recarregar a página.", 'error');[span_903](end_span)
-      [span_904](start_span)});[span_904](end_span)
+        console.error("Erro ao carregar dados públicos:", error);
+        showToast("Erro ao carregar dados do site. Tente recarregar a página.", 'error');
+      });
     }
 
     // Carrega dados públicos na inicialização
-    [span_905](start_span)document.addEventListener("DOMContentLoaded", carregarDadosPublicos);[span_905](end_span)
+    document.addEventListener("DOMContentLoaded", carregarDadosPublicos);
     // Atualiza a última data de atualização
-    [span_906](start_span)document.getElementById('lastUpdate').textContent = "Última atualização: " + new Date().toLocaleString('pt-BR');[span_906](end_span)
+    document.getElementById('lastUpdate').textContent = "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
 </body>
-</html>
-
+  </html>
