@@ -133,15 +133,11 @@
       justify-content: center;
       box-shadow: 0 2px 10px #ffd70044;
       transition: background 0.2s, color 0.18s;
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
+      outline: none; /* Consider estilizar o outline para acessibilidade */
     }
     .mode-switch:hover {
       background: var(--card-bg);
       color: var(--purple);
-    }
-    .mode-switch:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
     }
     .menu-hamburger {
       display: block;
@@ -156,11 +152,6 @@
       height: 45px;
       border-radius: 50%;
       transition: background 0.18s;
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
-    }
-    .menu-hamburger:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
     }
     .menu-hamburger .bar {
       display: block;
@@ -208,8 +199,7 @@
       margin: 0;
       cursor: pointer;
       transition: background 0.15s, color 0.11s, transform 0.13s;
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
+      outline: none; /* Consider estilizar o outline para acessibilidade */
       letter-spacing: 0.7px;
       position: relative;
       border-bottom: 2.5px solid transparent;
@@ -219,17 +209,13 @@
       display: flex;
       align-items: center;
     }
-    .menu-btn:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
-    }
     .menu-btn .tabicon {
       font-family: 'Material Symbols Outlined', Arial, sans-serif;
       font-variation-settings: 'FILL' 1, 'wght' 700;
       font-size: 1.33em;
       margin-right: 7px;
       vertical-align: middle;
-      color: var(--gold);
-      /* Cor padrão dos ícones */
+      color: var(--gold); /* Cor padrão dos ícones */
       transition: color 0.11s;
     }
     /* Estilos específicos para ícones (se houver variação além do gold padrão) */
@@ -257,8 +243,7 @@
     .menu-btn.active .tabicon,
     .menu-btn:focus .tabicon,
     .menu-btn:hover .tabicon {
-      color: var(--red);
-      /* Ícone vermelho quando ativo/hover */
+      color: var(--red); /* Ícone vermelho quando ativo/hover */
     }
     .badge-dot {
       position: absolute;
@@ -465,11 +450,6 @@
       transition: background 0.18s, color 0.11s, transform 0.13s;
       border: none;
       margin-bottom: 8px;
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
-    }
-    .cta-btn:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
     }
     .cta-btn:hover,
     .cta-btn:focus {
@@ -670,12 +650,12 @@
     .medal.second { color: var(--blue); }
     .medal.third { color: var(--purple); }
 
-    .staff-list, .streamers-list, .parceiros-list, .sugestoes-list, .novidades-list {
+    .staff-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .staff-member, .streamer-card, .parceiro-card, .sugestao-item, .aviso-item {
+    .staff-member {
       display: flex;
       align-items: center;
       gap: 14px;
@@ -684,7 +664,7 @@
       border-bottom: 1px solid #ffd70022;
       animation: fadeIn 0.9s;
     }
-    .staff-avatar, .streamer-avatar {
+    .staff-avatar {
       width: 44px;
       height: 44px;
       border-radius: 50%;
@@ -694,19 +674,19 @@
       background: #fff;
       flex-shrink: 0;
     }
-    .staff-info, .streamer-info, .parceiro-info, .sugestao-info, .aviso-info {
+    .staff-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .staff-name, .streamer-name, .parceiro-name, .sugestao-nome {
+    .staff-name {
       font-weight: bold;
       color: #ffd700;
       font-size: 1.13em;
       margin-bottom: 2px;
       text-shadow: 0 1px 5px #ffd70033;
     }
-    .staff-role, .streamer-platform, .parceiro-contato {
+    .staff-role {
       font-size: 0.98em;
       color: #ffd700bb;
       font-weight: 600;
@@ -796,11 +776,6 @@
       transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
-    }
-    .guerra-fuso select:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
     }
     .guerra-reset-info {
       color: #ffd700bb;
@@ -818,9 +793,7 @@
       margin-bottom: 7px;
     }
     #form-recrutamento input[type="radio"],
-    #form-recrutamento input[type="checkbox"],
-    #form-sugestoes input[type="radio"],
-    #form-sugestoes input[type="checkbox"] {
+    #form-recrutamento input[type="checkbox"] {
       width: 18px;
       height: 18px;
       accent-color: var(--gold);
@@ -844,8 +817,7 @@
       margin-bottom: 5px;
       font-weight: 600;
     }
-    .adm-input,
-    .adm-textarea {
+    .adm-input {
       width: 100%;
       padding: 8px;
       border-radius: 8px;
@@ -856,12 +828,6 @@
       transition:
         background var(--transition-theme),
         border-color var(--transition-theme);
-      outline: 2px solid transparent; /* Estilização do outline */
-      outline-offset: 2px;
-    }
-    .adm-input:focus-visible,
-    .adm-textarea:focus-visible { /* Acessibilidade de foco */
-        outline-color: var(--accent);
     }
     @media (max-width: 600px) {
       .form-check-row span {
@@ -875,7 +841,7 @@
         min-width: 150px;
         padding: 10px 3vw;
       }
-      .staff-avatar, .streamer-avatar {
+      .staff-avatar {
         width: 36px;
         height: 36px;
       }
@@ -907,7 +873,7 @@
       border-color: #f05454;
       background: #f05454e6;
     }
-    #msg-recrutamento, #msg-sugestao {
+    #msg-recrutamento {
       text-align: center;
       margin-top: 10px;
       padding: 8px 12px;
@@ -919,10 +885,10 @@
       background: rgba(255, 215, 0, 0.2);
       border: 1px solid #FFD700;
     }
-    #msg-recrutamento.show, #msg-sugestao.show {
+    #msg-recrutamento.show {
       opacity: 1;
     }
-    #msg-recrutamento.error, #msg-sugestao.error {
+    #msg-recrutamento.error {
       background: rgba(240, 84, 84, 0.2);
       border-color: #f05454;
     }
@@ -951,9 +917,9 @@
   </style>
 </head>
 <body>
-  <canvas id="bg-particles" aria-hidden="true"></canvas>
+  <canvas id="bg-particles"></canvas>
   <header>
-    <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" loading="lazy" />
+    <img src="https://i.imgur.com/7pYLORP.png" class="logo" alt="Logo da Guilda Soberanos FF" />
     <div class="title">Soberanos FF</div>
     <div class="subtitle">Painel gamer premium • Seu espaço de evolução no Free Fire</div>
     <button class="mode-switch" id="modeSwitch" title="Alternar tema" aria-label="Alternar tema">
@@ -964,10 +930,9 @@
     </button>
   </header>
   <nav class="menu" id="menuNav" aria-label="Menu principal">
-    <button class="menu-btn active" data-tab="membros" aria-label="Melhores"><span 
-class="tabicon">star</span>Melhores</button>
+    <button class="menu-btn active" data-tab="membros" aria-label="Melhores"><span class="tabicon">star</span>Melhores</button>
     <button class="menu-btn" data-tab="ranking" aria-label="Ranking"><span class="tabicon">emoji_events</span>Ranking</button>
-    <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">shield</span>Staff</button>
+    <button class="menu-btn" data-tab="staff" aria-label="Equipe"><span class="tabicon">shield</span>Staff</</button>
     <button class="menu-btn" data-tab="regras" aria-label="Regras"><span class="tabicon">rule</span>Regras</button>
     <button class="menu-btn" data-tab="guerra" aria-label="Guerra"><span class="tabicon">swords</span>Guerra</button>
     <button class="menu-btn" data-tab="parceiros" aria-label="Parceiros"><span class="tabicon">handshake</span>Parceiros</button>
@@ -979,7 +944,6 @@ class="tabicon">star</span>Melhores</button>
     <button class="menu-btn" data-tab="streamers" aria-label="Streamers"><span class="tabicon">stadia_controller</span>Streamers</button>
     <button class="menu-btn" data-tab="avisos" aria-label="Avisos"><span class="tabicon">campaign</span>Avisos</button>
     <button class="menu-btn" data-tab="denuncia" aria-label="Denúncia"><span class="tabicon">report</span>Denúncia</button>
-   
     <button class="menu-btn" data-tab="sugestoes" aria-label="Sugestões"><span class="tabicon">lightbulb</span>Sugestões</button>
     <button class="menu-btn" data-tab="adm" aria-label="Painel ADM"><span class="tabicon">admin_panel_settings</span>Painel ADM</button>
   </nav>
@@ -988,7 +952,7 @@ class="tabicon">star</span>Melhores</button>
   </div>
   <section class="hero-banner">
     <div class="hero-logo">
-      <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" loading="lazy" />
+      <img src="https://i.imgur.com/7pYLORP.png" alt="Logo Soberanos" />
     </div>
     <div class="guilda-title">
       Painel Guilda
@@ -998,8 +962,7 @@ class="tabicon">star</span>Melhores</button>
       <span class="guilda-nome-sufixo">FF</span>
     </div>
     <div class="guilda-frase">
-     
-    Caminhe com reis. Jogue como um <span class="guilda-frase-destaque">SOBERANO</span>.
+      Caminhe com reis. Jogue como um <span class="guilda-frase-destaque">SOBERANO</span>.
     </div>
     <div class="guilda-cta">
       <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" class="cta-btn" target="_blank" rel="noopener">Juntar-se</a>
@@ -1007,8 +970,7 @@ class="tabicon">star</span>Melhores</button>
   </section>
   <div class="main-content">
     <div class="destaque">
-      <b>🚨 Aviso:</b> <span id="destaque-message-display">Recrutamento aberto!
-Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!</span>
+      <b>🚨 Aviso:</b> <span id="destaque-message-display">Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!</span>
       <span class="status-badge">Online</span>
     </div>
     <div class="cards-grid">
@@ -1019,7 +981,6 @@ Preencha o formulário e anexe seu print do perfil. Participe da família Sobera
         <div class="congrats-message" style="color:#FFD70099; font-size:1em;text-align:center; margin-top:18px;">
           </div>
       </section>
-   
       <section class="card" id="ranking">
         <h2>🏆 Ranking Interno</h2>
         <div style="margin-bottom:1.3em;">
@@ -1029,27 +990,51 @@ Preencha o formulário e anexe seu print do perfil. Participe da família Sobera
         <ul class="ranking-list" id="rankingSemanal">
           <li>Ranking semanal será iniciado em breve!</li>
         </ul>
-        <ul class="ranking-list" 
-id="rankingMensal" style="display:none">
+        <ul class="ranking-list" id="rankingMensal" style="display:none">
           <li>Ranking mensal será iniciado em breve!</li>
         </ul>
       </section>
       <section class="card" id="staff">
         <h2>🛡️ Equipe/Staff</h2>
-        <ul class="staff-list" id="staff-list">
-          </ul>
-        <div style="margin:18px 0 0 0;
-color:#FFD70099; text-align:center; font-size:1.01em;">
+        <ul class="staff-list">
+          <li class="staff-member">
+            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374167627978506423/IMG-20250519-WA0191.jpg?ex=682d10d5&is=682bbf55&hm=a168ab10cb2d3d24fb0485ed39694fffdb94d801a4a21046b218d6c003b9c2e5&" alt="LK">
+            <span class="staff-info">
+              <span class="staff-name">LK</span>
+              <span class="staff-role">Líder</span>
+            </span>
+          </li>
+          <li class="staff-member">
+            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374147787637391532/IMG-20250519-WA0145.jpg?ex=682cfe5b&is=682bacdb&hm=4a29be12b3e2a779e987808cfbd6ff476c36fda726b2acfb99570757abcc64f4&" alt="SS NARUTO">
+            <span class="staff-info">
+              <span class="staff-name">SS NARUTO</span>
+              <span class="staff-role">ADM</span>
+            </span>
+          </li>
+          <li class="staff-member">
+            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374147505293496330/IMG-20250519-WA0152.jpg?ex=682cfe17&is=682bac97&hm=882d710e828e640b6399e70e4ded318b121e95b6334143f47a239789a1348f89&" alt="SS GUSTAX">
+            <span class="staff-info">
+              <span class="staff-name">SS GUSTAX</span>
+              <span class="staff-role">ADM</span>
+            </span>
+          </li>
+          <li class="staff-member">
+            <img class="staff-avatar" src="https://cdn.discordapp.com/attachments/995565123177558066/1374172669909532732/IMG-20250519-WA0197.jpg?ex=682d1587&is=682bc407&hm=f48bdf7f5a323b9d6a5fb98fac465ccbd0809649ffe9a99601609063fcdebfad&" alt="SS MAFIOSO">
+            <span class="staff-info">
+              <span class="staff-name">SS MAFIOSO</span>
+              <span class="staff-role">ADM</span>
+            </span>
+          </li>
+        </ul>
+        <div style="margin:18px 0 0 0; color:#FFD70099; text-align:center; font-size:1.01em;">
           <em>Novos membros da equipe serão apresentados em breve!</em>
         </div>
       </section>
       <section class="card" id="regras">
         <h2>📜 Regras da Guilda</h2>
-        <ul id="regras-ul" style="color:#FFD700;
-font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
+        <ul id="regras-ul" style="color:#FFD700; font-weight:600; font-size:1.08em; margin-bottom:1.4em;">
           </ul>
-        <div style="color:#FFD70099;
-font-size:1em;text-align:center;">
+        <div style="color:#FFD70099; font-size:1em;text-align:center;">
           <em>Dúvidas? Fale com a equipe pelo Instagram ou WhatsApp!</em>
         </div>
       </section>
@@ -1058,8 +1043,7 @@ font-size:1em;text-align:center;">
         <div class="guerra-card">
           <div id="contador-guerra" class="guerra-contador"></div>
           <div class="guerra-detalhe">
-            Acompanhe o tempo até 
-a próxima guerra!
+            Acompanhe o tempo até a próxima guerra!
           </div>
           <div class="guerra-fuso">
             Fuso selecionado:
@@ -1067,107 +1051,102 @@ a próxima guerra!
               <option value="-3">Brasília (UTC-3)</option>
               <option value="-4">Amazonas (UTC-4)</option>
             </select>
-       
-    </div>
+          </div>
           <span id="hora-reset-info" class="guerra-reset-info"></span>
         </div>
       </section>
       <section class="card" id="parceiros">
         <h2>🤝 Parceiros Soberanos FF</h2>
-        <div class="parceiros-list" id="parceiros-list">
+        <div class="parceiros-list">
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Lojinha Do Toxino</div>
+            <a href="https://chat.whatsapp.com/Hd1tdYgkKi6KfgYFfni62R" target="_blank" class="cta-btn whatsapp">Entrar Em Contato</a>
           </div>
-        <div style="margin:20px 0 0 0;
-color:#ffd700cc; text-align:center; font-size:1.04em;">
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Estúdio Mágico</div>
+            <a href="https://www.instagram.com/estudio_magico_ofc?igsh=bndhZzU4a3piMXc4" target="_blank" class="cta-btn">Entrar Em Contato</a>
+          </div>
+          <div class="parceiro-card">
+            <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">Instagram Soberanos FF</div>
+            <a href="https://www.instagram.com/ss_soberanos?igsh=b25zYmcyOThxcGM3" target="_blank" class="cta-btn">Entrar Em Contato</a>
+          </div>
+        </div>
+        <div style="margin:20px 0 0 0; color:#ffd700cc; text-align:center; font-size:1.04em;">
           <em>Quer ser parceiro? Fale conosco!</em>
         </div>
       </section>
       <section class="card" id="recrutamento">
         <h2>🖊 Formulário de Recrutamento – Guilda Soberanos</h2>
-        <div style="color:#FFD700;
-font-size:1.02em; text-align:center; margin-bottom:20px;">
+        <div style="color:#FFD700; font-size:1.02em; text-align:center; margin-bottom:20px;">
           Caminhe com reis. Jogue como um soberano. 👑<br>
           <span style="color:#FFD70099;">Preencha atentamente. Ao enviar, você será redirecionado ao WhatsApp do ADM e pode anexar o print do perfil.</span>
         </div>
         <form id="form-recrutamento" style="max-width:440px;margin:auto;">
           <label style="color:#FFD700;font-weight:600;">1. Nick no jogo (com símbolo, se tiver):</label>
-          <input type="text" id="nick" required placeholder="Seu nick no 
-jogo" pattern=".{3,20}" title="Nick deve ter entre 3 e 20 caracteres" class="adm-input"/>
+          <input type="text" id="nick" required placeholder="Seu nick no jogo" pattern=".{3,20}" title="Nick deve ter entre 3 e 20 caracteres"/>
           <label style="color:#FFD700;font-weight:600;">2. ID do jogador (Free Fire):</label>
-          <input type="text" id="idff" required placeholder="ID do jogador" pattern="\d+" title="ID deve conter apenas números" class="adm-input"/>
+          <input type="text" id="idff" required placeholder="ID do jogador" pattern="\d+" title="ID deve conter apenas números"/>
           <label style="color:#FFD700;font-weight:600;">3. Idade:</label>
-          <input type="number" id="idade" required placeholder="Sua idade" min="12" max="99" class="adm-input"/>
-          <label style="color:#FFD700;font-weight:600;">4.
-Está em qual patente atualmente?</label>
-          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..." class="adm-input"/>
-          <label style="color:#FFD700;font-weight:600;">5.
-Já fez parte de guilda competitiva?</label>
-          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe" class="adm-input"/>
-          <label style="color:#FFD700;font-weight:600;">6.
-Qual sua função principal?</label>
+          <input type="number" id="idade" required placeholder="Sua idade" min="12" max="99"/>
+          <label style="color:#FFD700;font-weight:600;">4. Está em qual patente atualmente?</label>
+          <input type="text" id="patente" required placeholder="Ex: Mestre, Dima 4..."/>
+          <label style="color:#FFD700;font-weight:600;">5. Já fez parte de guilda competitiva?</label>
+          <input type="text" id="guilda_comp" required placeholder="Sim/Não ou detalhe"/>
+          <label style="color:#FFD700;font-weight:600;">6. Qual sua função principal?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="funcao" value="Rushador" required> <span>Rushador</span></div>
             <div class="form-check-row"><input type="radio" name="funcao" value="Suporte"> <span>Suporte</span></div>
             <div class="form-check-row"><input type="radio" name="funcao" value="Capitão / Líder de cal"> <span>Capitão / Líder de cal</span></div>
             <div class="form-check-row"><input type="radio" name="funcao" value="Sniper"> <span>Sniper</span></div>
-         
-    </div>
-          <label style="color:#FFD700;font-weight:600;">7.
-Você tem disponibilidade para:</label>
+          </div>
+          <label style="color:#FFD700;font-weight:600;">7. Você tem disponibilidade para:</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="checkbox" name="disp" value="Treinos"> <span>Treinos</span></div>
             <div class="form-check-row"><input type="checkbox" name="disp" value="Campeonatos"> <span>Campeonatos</span></div>
             <div class="form-check-row"><input type="checkbox" name="disp" value="Guerras de guilda"> <span>Guerras de guilda</span></div>
           </div>
-          <label style="color:#FFD700;font-weight:600;">8.
-Qual modo você manda melhor?</label>
+          <label style="color:#FFD700;font-weight:600;">8. Qual modo você manda melhor?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="modo" value="4x4 competitivo" required> <span>4x4 competitivo</span></div>
             <div class="form-check-row"><input type="radio" name="modo" value="X1 dos cria"> <span>X1 dos cria</span></div>
             <div class="form-check-row"><input type="radio" name="modo" value="Camp / Ranked"> <span>Camp / Ranked</span></div>
             <div class="form-check-row" style="align-items: flex-start;">
-        
-          <input type="radio" name="modo" value="Outro">
+              <input type="radio" name="modo" value="Outro">
               <span style="flex:1;">
                 Outro<br>
-                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;" class="adm-input"/>
+                <input type="text" id="modo_outro" placeholder="Se marcou Outro, especifique" style="margin-top:2px;width:100%;"/>
               </span>
             </div>
           </div>
- 
-          <label style="color:#FFD700;font-weight:600;">9.
-Você tem como trocar o nick para usar o nome da guilda?</label>
+          <label style="color:#FFD700;font-weight:600;">9. Você tem como trocar o nick para usar o nome da guilda?</label>
           <div class="form-check-group">
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Sim" required> <span>Sim</span></div>
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Não"> <span>Não</span></div>
             <div class="form-check-row"><input type="radio" name="troca_nick" value="Em breve"> <span>Em breve</span></div>
           </div>
-          <label style="color:#FFD700;font-weight:600;">10.
-Tem Instagram ou WhatsApp? Se sim, informe:</label>
-          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999" class="adm-input"/>
-          <label style="color:#FFD700;font-weight:600;">11.
-Por que quer entrar para a Soberanos?</label>
-          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo" class="adm-textarea"></textarea>
+          <label style="color:#FFD700;font-weight:600;">10. Tem Instagram ou WhatsApp? Se sim, informe:</label>
+          <input type="text" id="contato" required placeholder="@user ou (99) 99999-9999"/>
+          <label style="color:#FFD700;font-weight:600;">11. Por que quer entrar para a Soberanos?</label>
+          <textarea id="motivo" rows="3" required placeholder="Fale um pouco sobre você e o motivo"></textarea>
           <div style="margin:18px 0 0 0;font-size:0.98em;color:#FFD700bb;">
-            <b>12.
-Envie um print do seu perfil no jogo:</b><br>
+            <b>12. Envie um print do seu perfil no jogo:</b><br>
             <span style="font-size:0.97em;">Após enviar o formulário, <b>anexe a imagem diretamente no WhatsApp</b> ao ADM junto com sua mensagem.</span>
           </div>
           <button type="submit" class="cta-btn whatsapp" style="margin-top:16px;">Enviar e Falar com o ADM</button>
         </form>
         <a href="https://chat.whatsapp.com/HlBc51iCSPr0oe5yyftPDv" target="_blank" class="cta-btn group">Entrar No Grupo Do Recrutamento</a>
         <div id="msg-recrutamento" class="toast-notification"></div>
-  
         <div style="color:#FFD70099;font-size:0.93em;margin-top:22px;text-align:center;">
-          Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas.
- <br> <b>Não esqueça de anexar seu print!</b>
+          Ao enviar, você será redirecionado ao WhatsApp do ADM (<b>81 7338-9225</b>) com as respostas. <br> <b>Não esqueça de anexar seu print!</b>
         </div>
       </section>
       <section class="card" id="streamers">
         <h2>🎥 Streamers da Guilda</h2>
-        <ul class="streamers-list" id="streamers-list">
-          </ul>
-        <div style="color:#FFD70099; font-size:0.9em; text-align:center; margin-top:20px;">
-            <span id="streamer-message">Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!</span>
+        <div style="color:#FFD700; font-size:1.17em; font-weight:600; text-align:center; margin:30px 0;">
+          Nenhum Streamer Encontrado.<br>
+          <span style="color:#FFD70099; font-size:0.9em;">
+            Quando membros da guilda começarem a fazer lives ou vídeos, eles aparecerão aqui!
+          </span>
         </div>
       </section>
       <section class="card" id="avisos">
@@ -1178,31 +1157,13 @@ Envie um print do seu perfil no jogo:</b><br>
       <section class="card" id="denuncia">
         <h2>🚨 Denúncia de Membro</h2>
         <div style="color:#FFD70099;text-align:center;margin-top:20px;">
-          (Formulário de 
-denúncia em breve)
+          (Formulário de denúncia em breve)
         </div>
       </section>
       <section class="card" id="sugestoes">
         <h2>💡 Sugestões e Novidades</h2>
         <div style="color:#FFD700; font-size:1.05em; text-align:center; margin-bottom:18px;">
-          Tem ideias para o painel?
-Manda pra gente!
-        </div>
-        <form id="form-sugestoes" style="max-width:440px;margin:auto;">
-            <label style="color:#FFD700;font-weight:600;">Seu Nome (opcional):</label>
-            <input type="text" id="sugestao-nome" placeholder="Seu nome ou nick (opcional)" class="adm-input"/>
-            <label style="color:#FFD700;font-weight:600;">Sua Sugestão:</label>
-            <textarea id="sugestao-texto" rows="4" required placeholder="Descreva sua sugestão para o painel ou guilda" class="adm-textarea"></textarea>
-            <button type="submit" class="cta-btn" style="margin-top:16px;">Enviar Sugestão</button>
-        </form>
-        <div id="msg-sugestao" class="toast-notification"></div>
-        <div style="margin-top:30px;">
-            <h3 style="color:var(--gold); border-bottom:1px solid var(--accent); padding-bottom:5px; margin-bottom:15px;">🚀 Novidades Recentes</h3>
-            <ul class="novidades-list" id="novidades-ul">
-                </ul>
-            <div style="color:#FFD70099; font-size:0.9em; text-align:center; margin-top:20px;">
-                <span id="novidades-message">Fique de olho nas atualizações do painel!</span>
-            </div>
+          Tem ideias para o painel? Manda pra gente!
         </div>
       </section>
       <section class="card" id="adm">
@@ -1212,58 +1173,45 @@ Manda pra gente!
             Acesso restrito aos administradores
           </div>
           <form id="login-form" style="max-width: 300px; margin: 0 auto;">
-       
-          <label style="color:#FFD700;font-weight:600;">Usuário:</label>
-            <input type="text" id="adm-user" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;" class="adm-input">
+            <label style="color:#FFD700;font-weight:600;">Usuário:</label>
+            <input type="text" id="adm-user" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
             <label style="color:#FFD700;font-weight:600;">Senha:</label>
-            <input type="password" id="adm-pass" required style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;" class="adm-input">
+            <input type="password" id="adm-pass" required style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #FFD700; background: rgba(0,0,0,0.3); color: white;">
             <button type="submit" class="cta-btn" style="width: 100%;">Entrar</button>
-   
-        </form>
+          </form>
         </div>
         <div id="adm-panel" style="display: none;">
-          <div style="background: rgba(255, 215, 0, 0.1);
-border-radius: 12px; padding: 15px; margin: 15px 0;">
-            <h3 style="color: var(--gold);
-border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>
+          <div style="background: rgba(255, 215, 0, 0.1); border-radius: 12px; padding: 15px; margin: 15px 0;">
+            <h3 style="color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do Site</h3>
 
             <div class="adm-section">
               <h4>Melhores da Semana</h4>
               <div class="adm-input-group">
                 <label>1º Lugar:</label>
                 <input type="text" id="membro1" class="adm-input">
-            
-          </div>
+              </div>
               <div class="adm-input-group">
                 <label>2º Lugar:</label>
                 <input type="text" id="membro2" class="adm-input">
               </div>
               <div class="adm-input-group">
                 <label>3º Lugar:</label>
- 
                 <input type="text" id="membro3" class="adm-input">
               </div>
             </div>
 
             <div class="adm-section">
-              <h4>Regras da Guilda (Uma regra por linha)</h4>
-              <textarea id="regras-txt" rows="6" class="adm-textarea" placeholder="Digite uma regra por linha..."></textarea>
-     
+              <h4>Regras da Guilda</h4>
+              <textarea id="regras-txt" rows="6" class="adm-input" placeholder="Digite uma regra por linha..."></textarea>
             </div>
 
             <div class="adm-section">
-              <h4>Avisos Recentes (Uma aviso por linha - formato: YYYY-MM-DD - Seu Aviso)</h4>
-              <textarea id="avisos-txt" rows="4" class="adm-textarea" placeholder="Digite um aviso por linha..."></textarea>
-            </div>
-            
-            <div class="adm-section">
-              <h4>Novidades Recentes (Uma novidade por linha)</h4>
-              <textarea id="novidades-adm-txt" rows="4" class="adm-textarea" placeholder="Digite uma novidade por linha..."></textarea>
+              <h4>Avisos Recentes</h4>
+              <textarea id="avisos-txt" rows="4" class="adm-input" placeholder="Digite um aviso por linha..."></textarea>
             </div>
 
             <div class="adm-section">
               <h4>Mensagem de Destaque</h4>
-  
               <div class="adm-input-group">
                 <input type="text" id="destaque-msg" class="adm-input" />
               </div>
@@ -1271,32 +1219,14 @@ border-bottom: 1px solid var(--gold); padding-bottom: 5px;">Editar Conteúdo do 
 
             <div class="adm-section">
               <h4>Status da Guilda</h4>
-            
-          <div class="adm-input-group">
+              <div class="adm-input-group">
                 <input type="text" id="status-guilda" class="adm-input" />
               </div>
             </div>
 
-            <div class="adm-section">
-                <h4>Equipe/Staff (Uma por linha: Nome | Função | URL_Avatar)</h4>
-                <textarea id="staff-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: LK | Líder | https://link.com/avatar.jpg"></textarea>
-            </div>
-
-            <div class="adm-section">
-                <h4>Parceiros (Uma por linha: Nome | Link | Tipo_Contato)</h4>
-                <textarea id="parceiros-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: Lojinha Do Toxino | https://link.com/grupo | WhatsApp"></textarea>
-            </div>
-
-            <div class="adm-section">
-                <h4>Streamers (Uma por linha: Nome | Link | Plataforma | URL_Avatar)</h4>
-                <textarea id="streamers-adm-txt" rows="6" class="adm-textarea" placeholder="Ex: Fulano | https://twitch.tv/fulano | Twitch | https://link.com/avatar.jpg"></textarea>
-            </div>
-
-            <div style="text-align: center;
-margin-top: 20px;">
+            <div style="text-align: center; margin-top: 20px;">
               <button id="save-changes" class="cta-btn" style="background: var(--gradient-blue);">Salvar Alterações</button>
-              <button id="logout-adm" class="cta-btn" style="background: var(--gradient-red);
-margin-top: 10px;">Sair</button>
+              <button id="logout-adm" class="cta-btn" style="background: var(--gradient-red); margin-top: 10px;">Sair</button>
             </div>
           </div>
         </div>
@@ -1310,8 +1240,7 @@ margin-top: 10px;">Sair</button>
       Status da guilda: <b id="guild-status-footer">Carregando...</b>
     </div>
     <div id="lastUpdate" style="margin:6px 0 0 0;font-size:0.88em;color:#fff;"></div>
-    <div 
-style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
+    <div style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       Desenvolvido por <b>SS DG 👑</b>
     </div>
   </footer>
@@ -1331,14 +1260,15 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       messagingSenderId: "1018061735067",
       appId: "1:101801735067:web:dac8173cab25faebb6b23e"
     };
+
     // Inicializando Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
+
     // DARK/LIGHT MODE
     function setTheme(light) {
       document.body.classList.toggle('light', !!light);
-      document.getElementById('modeIcon').textContent = light ?
-"light_mode" : "dark_mode";
+      document.getElementById('modeIcon').textContent = light ? "light_mode" : "dark_mode";
       localStorage.setItem("theme", light ? "light" : "dark");
     }
 
@@ -1350,21 +1280,21 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
       let t = localStorage.getItem("theme");
       if (t === "light") setTheme(true);
     })();
+
     // BACKGROUND PARTICLES
     function runParticles() {
       const c = document.getElementById('bg-particles');
       const ctx = c.getContext('2d');
       let w = window.innerWidth, h = window.innerHeight;
       let particles = [];
-      const MAX_PARTICLES = (w < 768) ? 30 : 60; // Menos partículas em telas pequenas
-      
+
       function resize() {
         w = window.innerWidth; h = window.innerHeight;
-        c.width = w;
-        c.height = h;
+        c.width = w; c.height = h;
       }
 
       window.addEventListener('resize', resize);
+
       function randomColor() {
         const colors = ['#FFD700','#37a6ff','#a259ff','#f05454'];
         return colors[Math.floor(Math.random()*colors.length)];
@@ -1375,15 +1305,15 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
           x: Math.random()*w,
           y: Math.random()*h,
           r: Math.random()*2+1,
-          dx: (Math.random()-.5)*.7, /* Aumentado um pouco */
-          dy: (Math.random()-.5)*.7, /* Aumentado um pouco */
+          dx: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */
+          dy: (Math.random()-.5)*.5, /* Aumentado de .25 para .5 */
           a: Math.random()*2*Math.PI,
-   
           color: randomColor(),
         }
       }
 
-      for(let i=0;i<MAX_PARTICLES;i++) particles.push(spawnParticle());
+      for(let i=0;i<60;i++) particles.push(spawnParticle());
+
       function draw() {
         ctx.clearRect(0,0,w,h);
         for(let p of particles) {
@@ -1392,10 +1322,8 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
           ctx.beginPath();
           ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
           ctx.fillStyle = p.color;
-          if (p.r > 1.5) { // Aplicar sombra apenas para partículas maiores
-            ctx.shadowColor = p.color;
-            ctx.shadowBlur = 8;
-          }
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 8;
           ctx.fill();
           ctx.restore();
           p.x += Math.cos(p.a)*p.dx;
@@ -1414,6 +1342,7 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
     }
 
     runParticles();
+
     // Loader de aba + troca de aba
     document.querySelectorAll('.menu-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
@@ -1424,7 +1353,6 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
           document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-    
           setTimeout(() => {
             document.getElementById(btn.dataset.tab).classList.add('active');
           }, 40);
@@ -1435,13 +1363,16 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
         }, 400);
       });
     });
+
     // Menu hamburguer responsivo
     const menuHamburger = document.getElementById('menuHamburger');
     const menuNav = document.getElementById('menuNav');
+
     menuHamburger.addEventListener('click', function() {
       menuHamburger.classList.toggle('open');
       menuNav.classList.toggle('open');
     });
+
     document.addEventListener('click', function(e) {
       if(window.innerWidth <= 700 && menuNav.classList.contains('open')) {
         if(!menuNav.contains(e.target) && e.target !== menuHamburger) {
@@ -1450,6 +1381,7 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
         }
       }
     });
+
     // Ranking tab
     document.querySelectorAll('.ranking-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1459,8 +1391,10 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
         document.getElementById('rankingMensal').style.display = btn.dataset.rank === 'mensal' ? 'block' : 'none';
       });
     });
+
     // CONTADOR GUERRA (melhor visual e responsivo)
     const horaGuerra = { "-3": 16, "-4": 15 };
+
     function getProximaGuerraEAndamento(fuso) {
       const now = new Date();
       let diaSemana = now.getUTCDay();
@@ -1472,9 +1406,9 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
 
       // Considerando que a guerra dura algumas horas (ex: 7 horas)
       if(diaSemana === 6 && horaLocal >= horaGuerra[fuso] && horaLocal < horaGuerra[fuso]+7) emAndamento = true;
+
       let proximoSabado = new Date(now);
-      let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7;
-      // Se já passou no sábado, vai para o próximo
+      let diasParaSabado = (6 - diaSemana + (emAndamento ? 7 : 0)) % 7; // Se já passou no sábado, vai para o próximo
       proximoSabado.setUTCDate(proximoSabado.getUTCDate() + diasParaSabado);
       proximoSabado.setUTCHours(horaGuerra[fuso] - parseInt(fuso), 0, 0, 0); // Ajusta para o horário UTC da guerra
 
@@ -1494,6 +1428,7 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
     function iniciarContadorGuerraFuso() {
       let fuso = document.getElementById("fuso-guerra").value;
       atualizarInfoReset(fuso);
+
       function atualizar() {
         const el = document.getElementById('contador-guerra');
         const { proximoSabado, emAndamento } = getProximaGuerraEAndamento(fuso);
@@ -1508,6 +1443,7 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
             const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutos = Math.floor((diff / (1000 * 60)) % 60);
             const segundos = Math.floor((diff / 1000) % 60);
+
             el.innerHTML =
               `Falta <b>${dias}d</b> <b>${horas}h</b> <b>${minutos}m</b> <b>${segundos}s</b> para a próxima guerra.`;
           } else {
@@ -1519,9 +1455,8 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
             } else {
                 // Se a guerra terminou, e ainda não é o próximo sabado
                 // Esta parte pode ser otimizada para não rodar um setInterval desnecessariamente
-                // ou para se ajustar dinamicamente.
-                // Por enquanto, mantém o cálculo.
-                 el.textContent = "Guerra Em Andamento 🔥";
+                // ou para se ajustar dinamicamente. Por enquanto, mantém o cálculo.
+                 el.textContent = "Guerra Em Andamento 🔥"; // Caso caia aqui após o fim da guerra antes do próximo ciclo
             }
           }
         }
@@ -1533,8 +1468,7 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
     }
 
     document.getElementById("fuso-guerra").addEventListener("change", iniciarContadorGuerraFuso);
-    iniciarContadorGuerraFuso();
-    // Inicia o contador ao carregar a página
+    iniciarContadorGuerraFuso(); // Inicia o contador ao carregar a página
 
     // Formulário de recrutamento personalizado WhatsApp
     document.addEventListener('DOMContentLoaded', function() {
@@ -1546,7 +1480,6 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
           // Validação do formulário
           const nick = document.getElementById('nick').value.trim();
           const idff = document.getElementById('idff').value.trim();
-    
           const idade = document.getElementById('idade').value.trim();
 
           if(nick.length < 3 || nick.length > 20) {
@@ -1556,7 +1489,6 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
 
           if(!/^\d+$/.test(idff)) {
             showToast("ID do Free Fire deve conter apenas números", 'error');
- 
             return;
           }
 
@@ -1575,73 +1507,41 @@ style="margin-top:8px;font-size:0.89em;color:#FFD700BB;">
           const troca_nick = formRecrutamento.querySelector('input[name="troca_nick"]:checked')?.value || '';
           const contato = document.getElementById('contato').value.trim();
           const motivo = document.getElementById('motivo').value.trim();
+
           const modo_final = (modo === "Outro" && modoOutro) ? modoOutro : modo;
+
           if (!nick || !idff || !idade || !patente || !guilda_comp || !funcao || !modo_final || !troca_nick || !contato || !motivo) {
             showToast("Preencha todos os campos obrigatórios!", 'error');
             return;
           }
 
-          const numeroADM = "558173389225";
-          // Telefone do ADM para contato
+          const numeroADM = "558173389225"; // Telefone do ADM para contato
           const mensagem =
 `Formulário de Recrutamento – Guilda Soberanos
-Caminhe com reis.
-Jogue como um soberano. 👑
+Caminhe com reis. Jogue como um soberano. 👑
 1. Nick no jogo: ${nick}
 2. ID do jogador: ${idff}
 3. Idade: ${idade}
 4. Patente atual: ${patente}
-5. Já fez parte de guilda competitiva?
-${guilda_comp}
+5. Já fez parte de guilda competitiva? ${guilda_comp}
 6. Função principal: ${funcao}
 7. Disponibilidade: ${disp.length ? disp.join(", ") : "Nenhuma"}
 8. Modo que joga melhor: ${modo_final}
-9. Troca nick pra guilda?
-${troca_nick}
+9. Troca nick pra guilda? ${troca_nick}
 10. Instagram ou WhatsApp: ${contato}
 11. Por que quer entrar: ${motivo}
 12. Print do perfil: (Anexar aqui no WhatsApp)
 `;
+
           const waLink = `https://wa.me/${numeroADM}?text=${encodeURIComponent(mensagem)}`;
           window.open(waLink, "_blank");
 
           showToast("Redirecionando para o WhatsApp... Não esqueça de anexar o print do perfil!", 'success');
-          formRecrutamento.reset();
-          // Reseta o formulário após o envio
+          formRecrutamento.reset(); // Reseta o formulário após o envio
         });
       }
-
-      // Formulário de Sugestões
-      const formSugestoes = document.getElementById('form-sugestoes');
-      if (formSugestoes) {
-          formSugestoes.addEventListener('submit', function(e) {
-              e.preventDefault();
-              const nome = document.getElementById('sugestao-nome').value.trim();
-              const texto = document.getElementById('sugestao-texto').value.trim();
-
-              if (!texto) {
-                  showToast("Por favor, digite sua sugestão.", 'error');
-                  return;
-              }
-
-              const novaSugestao = {
-                  nome: nome || "Anônimo",
-                  texto: texto,
-                  data: new Date().toISOString().split('T')[0] // Formato YYYY-MM-DD
-              };
-
-              db.ref("site/sugestoes").push(novaSugestao)
-                  .then(() => {
-                      showToast("Sua sugestão foi enviada com sucesso!", 'success');
-                      formSugestoes.reset();
-                  })
-                  .catch(error => {
-                      console.error("Erro ao enviar sugestão:", error);
-                      showToast("Erro ao enviar sugestão. Tente novamente.", 'error');
-                  });
-          });
-      }
     });
+
     // Painel ADM
     document.getElementById('login-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1653,13 +1553,13 @@ ${troca_nick}
       if(user === "admin777" && pass === "soberanos123") {
         document.getElementById('adm-login').style.display = 'none';
         document.getElementById('adm-panel').style.display = 'block';
-       
         carregarDadosADM(); // Carrega dados específicos para o ADM
         showToast("Login bem-sucedido!", 'success');
       } else {
         showToast("Credenciais incorretas!", 'error');
       }
     });
+
     document.getElementById('logout-adm').addEventListener('click', function() {
       document.getElementById('adm-login').style.display = 'block';
       document.getElementById('adm-panel').style.display = 'none';
@@ -1667,6 +1567,7 @@ ${troca_nick}
       document.getElementById('adm-pass').value = '';
       showToast("Você saiu do painel ADM", 'success');
     });
+
     // Função para carregar dados do Firebase no painel ADM
     function carregarDadosADM() {
       db.ref("site").once("value", snapshot => {
@@ -1679,33 +1580,9 @@ ${troca_nick}
         document.getElementById("membro3").value = data.membros?.[2] || "";
 
         document.getElementById("regras-txt").value = data.regras?.join("\n") || "";
-       
         document.getElementById("avisos-txt").value = data.avisos?.join("\n") || "";
-        document.getElementById("novidades-adm-txt").value = data.novidades?.join("\n") || ""; // Novidades ADM
         document.getElementById("destaque-msg").value = data.destaqueMsg || "";
         document.getElementById("status-guilda").value = data.statusGuilda || "";
-        
-        // Carregar Staff para ADM
-        if (data.staff) {
-            document.getElementById("staff-adm-txt").value = data.staff.map(s => `${s.nome} | ${s.role} | ${s.avatar}`).join("\n");
-        } else {
-            document.getElementById("staff-adm-txt").value = "";
-        }
-
-        // Carregar Parceiros para ADM
-        if (data.parceiros) {
-            document.getElementById("parceiros-adm-txt").value = data.parceiros.map(p => `${p.nome} | ${p.link} | ${p.contato}`).join("\n");
-        } else {
-            document.getElementById("parceiros-adm-txt").value = "";
-        }
-
-        // Carregar Streamers para ADM
-        if (data.streamers) {
-            document.getElementById("streamers-adm-txt").value = data.streamers.map(s => `${s.nome} | ${s.link} | ${s.plataforma} | ${s.avatar}`).join("\n");
-        } else {
-            document.getElementById("streamers-adm-txt").value = "";
-        }
-
       }).catch(error => {
         console.error("Erro ao carregar dados ADM:", error);
         showToast("Erro ao carregar dados para o painel ADM.", 'error');
@@ -1723,42 +1600,15 @@ ${troca_nick}
 
       const regras = document.getElementById('regras-txt').value.split('\n').filter(r => r.trim());
       const avisos = document.getElementById('avisos-txt').value.split('\n').filter(a => a.trim());
-      const novidades = document.getElementById('novidades-adm-txt').value.split('\n').filter(n => n.trim()); // Novidades ADM
       const destaqueMsg = document.getElementById('destaque-msg').value;
       const statusGuilda = document.getElementById('status-guilda').value;
 
-      // Processar Staff
-      const staffRaw = document.getElementById('staff-adm-txt').value.split('\n').filter(s => s.trim());
-      const staff = staffRaw.map(s => {
-          const parts = s.split('|').map(p => p.trim());
-          return { nome: parts[0] || '', role: parts[1] || '', avatar: parts[2] || '' };
-      });
-
-      // Processar Parceiros
-      const parceirosRaw = document.getElementById('parceiros-adm-txt').value.split('\n').filter(p => p.trim());
-      const parceiros = parceirosRaw.map(p => {
-          const parts = p.split('|').map(p => p.trim());
-          return { nome: parts[0] || '', link: parts[1] || '', contato: parts[2] || '' };
-      });
-
-      // Processar Streamers
-      const streamersRaw = document.getElementById('streamers-adm-txt').value.split('\n').filter(s => s.trim());
-      const streamers = streamersRaw.map(s => {
-          const parts = s.split('|').map(p => p.trim());
-          return { nome: parts[0] || '', link: parts[1] || '', plataforma: parts[2] || '', avatar: parts[3] || '' };
-      });
-
-  
       db.ref("site").set({
         membros,
         regras,
         avisos,
-        novidades, // Adicionado
         destaqueMsg,
-        statusGuilda,
-        staff, // Adicionado
-        parceiros, // Adicionado
-        streamers // Adicionado
+        statusGuilda
       }).then(() => {
         // Atualiza DOM localmente imediatamente após salvar
         carregarDadosPublicos(); // Recarrega os dados públicos para refletir as mudanças
@@ -1771,13 +1621,11 @@ ${troca_nick}
 
     function showToast(msg, type='success') {
       const toast = document.getElementById('toast');
-      toast.textContent = '';
-      // Limpa o conteúdo anterior
+      toast.textContent = ''; // Limpa o conteúdo anterior
       let icon = (type === 'success') ? '✔️' : '❌';
       toast.className = `toast-notification toast-${type}`; // Redefine as classes
       toast.innerHTML = `<span style="font-size:1.35em;">${icon}</span> ${msg}`;
-      toast.classList.add('show');
-      // Mostra o toast imediatamente
+      toast.classList.add('show'); // Mostra o toast imediatamente
       setTimeout(() => {
         toast.classList.remove('show');
       }, 2500);
@@ -1793,19 +1641,17 @@ ${troca_nick}
         // Atualizar "Melhores da Semana"
         const topMembersList = document.getElementById("top-members-list");
         if (data.membros && topMembersList) {
-            topMembersList.innerHTML = ''; // Limpa 
+            topMembersList.innerHTML = ''; // Limpa o conteúdo existente
             data.membros.forEach((member, index) => {
                 const li = document.createElement("li");
                 let badgeClass = '';
                 let medalClass = '';
                 let medalIcon = '';
-       
                 if (index === 0) {
                     badgeClass = ''; // Default golden
                     medalClass = '';
                     medalIcon = '🥇';
-                } else 
-                if (index === 1) {
+                } else if (index === 1) {
                     badgeClass = 'second';
                     medalClass = 'second';
                     medalIcon = '🥈';
@@ -1818,7 +1664,6 @@ ${troca_nick}
                     <span class="ranking-badge ${badgeClass}">${index + 1}º</span>
                     ${member}
                     <span class="ranking-bar"></span>
-           
                     <span class="medal ${medalClass}">${medalIcon}</span>
                 `;
                 topMembersList.appendChild(li);
@@ -1857,100 +1702,17 @@ ${troca_nick}
         if (data.avisos && data.avisos.length > 0) {
             data.avisos.forEach(a => {
                 const li = document.createElement("li");
-                let avisoTexto = a;
-                const dateMatch = a.match(/^(\d{4}-\d{2}-\d{2})\s*-\s*(.*)/);
-                if (dateMatch) {
-                    const datePart = new Date(dateMatch[1]).toLocaleDateString('pt-BR', { year: 'numeric', month: 'numeric', day: 'numeric' });
-                    avisoTexto = `<span style="font-size:0.9em; opacity:0.8; margin-right:5px;">(${datePart})</span> ${dateMatch[2]}`;
-                }
-                li.innerHTML = `<span style="color:#FFD700;">${avisoTexto}</span>`;
+                li.innerHTML = `<span style="color:#FFD700;">${a}</span>`;
                 avisosList.appendChild(li);
             });
         } else {
             avisosList.innerHTML = '<li>Nenhum aviso no momento.</li>';
         }
 
-        // Preencher Novidades Recentes
-        const novidadesList = document.getElementById("novidades-ul");
-        novidadesList.innerHTML = "";
-        if (data.novidades && data.novidades.length > 0) {
-            data.novidades.forEach(n => {
-                const li = document.createElement("li");
-                li.innerHTML = `<span style="color:#FFD700;">${n}</span>`;
-                novidadesList.appendChild(li);
-            });
-            document.getElementById('novidades-message').style.display = 'none';
-        } else {
-            novidadesList.innerHTML = '<li>Nenhuma novidade no momento.</li>';
-            document.getElementById('novidades-message').style.display = 'block';
-        }
-
-        // Preencher Staff
-        const staffList = document.getElementById("staff-list");
-        staffList.innerHTML = "";
-        if (data.staff && data.staff.length > 0) {
-            data.staff.forEach(member => {
-                const li = document.createElement("li");
-                li.className = "staff-member";
-                li.innerHTML = `
-                    <img class="staff-avatar" src="${member.avatar || 'https://i.imgur.com/7pYLORP.png'}" alt="${member.nome}" loading="lazy">
-                    <span class="staff-info">
-                        <span class="staff-name">${member.nome}</span>
-                        <span class="staff-role">${member.role}</span>
-                    </span>
-                `;
-                staffList.appendChild(li);
-            });
-        } else {
-            staffList.innerHTML = '<li style="color:#FFD70099; text-align:center;">Nenhum membro da equipe cadastrado.</li>';
-        }
-
-        // Preencher Parceiros
-        const parceirosList = document.getElementById("parceiros-list");
-        parceirosList.innerHTML = "";
-        if (data.parceiros && data.parceiros.length > 0) {
-            data.parceiros.forEach(parceiro => {
-                const div = document.createElement("div");
-                div.className = "parceiro-card";
-                div.innerHTML = `
-                    <div style="margin:8px 0 6px 0; font-weight:bold; color:#ffd700; font-size:1.12em;">${parceiro.nome}</div>
-                    <a href="${parceiro.link}" target="_blank" class="cta-btn ${parceiro.contato === 'WhatsApp' ? 'whatsapp' : ''}">Entrar Em Contato</a>
-                `;
-                parceirosList.appendChild(div);
-            });
-        } else {
-            parceirosList.innerHTML = '<div style="color:#FFD70099; text-align:center;">Nenhum parceiro cadastrado.</div>';
-        }
-
-        // Preencher Streamers
-        const streamersList = document.getElementById("streamers-list");
-        streamersList.innerHTML = "";
-        if (data.streamers && data.streamers.length > 0) {
-            data.streamers.forEach(streamer => {
-                const li = document.createElement("li");
-                li.className = "streamer-card";
-                li.innerHTML = `
-                    <img class="streamer-avatar" src="${streamer.avatar || 'https://i.imgur.com/7pYLORP.png'}" alt="${streamer.nome}" loading="lazy">
-                    <span class="streamer-info">
-                        <span class="streamer-name">${streamer.nome}</span>
-                        <span class="streamer-platform">${streamer.plataforma}</span>
-                    </span>
-                    <a href="${streamer.link}" target="_blank" class="cta-btn" style="margin-left:auto; font-size:0.9em; padding: 8px 15px;">Ver Live</a>
-                `;
-                streamersList.appendChild(li);
-            });
-            document.getElementById('streamer-message').style.display = 'none';
-        } else {
-            streamersList.innerHTML = ''; // Limpa se não tiver
-            document.getElementById('streamer-message').style.display = 'block';
-        }
-
-
         // Atualizar Mensagem de Destaque
         const destaqueElement = document.getElementById("destaque-message-display");
         if (destaqueElement) {
-            destaqueElement.textContent = data.destaqueMsg ||
-"Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!";
+            destaqueElement.textContent = data.destaqueMsg || "Recrutamento aberto! Preencha o formulário e anexe seu print do perfil. Participe da família Soberanos FF!";
         }
 
         // Atualizar Status da Guilda no Rodapé
@@ -1967,6 +1729,7 @@ ${troca_nick}
 
     // Carrega dados públicos na inicialização
     document.addEventListener("DOMContentLoaded", carregarDadosPublicos);
+
     // Atualiza a última data de atualização
     document.getElementById('lastUpdate').textContent = "Última atualização: " + new Date().toLocaleString('pt-BR');
   </script>
